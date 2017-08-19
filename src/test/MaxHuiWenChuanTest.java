@@ -15,5 +15,7 @@ class MaxHuiWenChuanTest
         MaxHuiWenChuan maxHuiWenChuan = new MaxHuiWenChuan();
         int i = maxHuiWenChuan.longestPalindrome(s);
         System.out.println(i);
+        double pow = Math.pow(2, 16);
+        System.out.println(pow);
     }
 }
