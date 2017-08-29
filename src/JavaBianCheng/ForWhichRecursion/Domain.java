@@ -1,4 +1,4 @@
-package JavaBianCheng.For;
+package JavaBianCheng.ForWhichRecursion;
 
 /**
  * Created with IntelliJ IDEA.

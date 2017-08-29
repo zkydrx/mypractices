@@ -1,4 +1,4 @@
-package JavaBianCheng.For;
+package JavaBianCheng.ForWhichRecursion;
 
 import org.junit.jupiter.api.Test;
 
