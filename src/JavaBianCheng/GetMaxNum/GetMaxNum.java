@@ -24,10 +24,11 @@ public class GetMaxNum
         List<Integer> permutation = permutation(a, 0, a.length - 1);
         for (int i = 0; i < permutation.size(); i++)
         {
-            for(int j = 0; j < permutation.size(); j++)
-            {
-
-            }
+//            for(int j = 0; j < permutation.size(); j++)
+//            {
+//
+//            }
+            System.out.println(permutation.get(i));
         }
         return 0L;
     }

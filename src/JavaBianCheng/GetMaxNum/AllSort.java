@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * Date: 2017-08-30
  * Time: 02:05
  * Description:
- * 获取一个列表的全排列
+ * 获取一个列表的全排列(递归算法)
  */
 public class AllSort
 {
