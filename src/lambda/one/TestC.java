@@ -97,8 +97,7 @@ public class TestC
         strings.forEach(n-> System.out.print(n+" "));
         System.out.println();
         strings.forEach(System.out::print);
-
-
-
     }
+
+
 }
