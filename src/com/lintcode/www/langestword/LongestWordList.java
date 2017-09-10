@@ -1,5 +1,6 @@
 package com.lintcode.www.langestword;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,39 +12,33 @@ import java.util.List;
  * Description:
  * 给一个词典，找出其中所有最长的单词。
  * 在词典
-
- {
- "dog",
- "google",
- "facebook",
- "internationalization",
- "blabla"
- }
- 中, 最长的单词集合为 ["internationalization"]
-
- 在词典
-
- {
- "like",
- "love",
- "hate",
- "yes"
- }
- 中，最长的单词集合为 ["like", "love", "hate"]
+ * <p>
+ * {
+ * "dog",
+ * "google",
+ * "facebook",
+ * "internationalization",
+ * "blabla"
+ * }
+ * 中, 最长的单词集合为 ["internationalization"]
+ * <p>
+ * 在词典
+ * <p>
+ * {
+ * "like",
+ * "love",
+ * "hate",
+ * "yes"
+ * }
+ * 中，最长的单词集合为 ["like", "love", "hate"]
  */
 public class LongestWordList
 {
     /**
-     * 返回一个单词(字符串)的长度
-     * @param str
+     * 获得最长的单词列表
+     * @param dictionary
      * @return
      */
-    public int getWordLong(String str)
-    {
-        return str.length();
-    }
-
-
     public List<String> longestWords(String[] dictionary)
     {
         int[] ints = new int[dictionary.length];
@@ -52,6 +47,22 @@ public class LongestWordList
             ints[i] = dictionary[i].length();
         }
         Arrays.sort(ints);
+        ArrayList<String> list = new ArrayList<>();
+        for (String str : dictionary)
+        {
+            if (str.length() == ints[ints.length - 1])
+            {
+                list.add(str);
+            }
+        }
+        return list;
+    }
 
+    public static void main(String[] args)
+    {
+        LongestWordList longestWordList = new LongestWordList();
+        String[] str = {"like", "lov6666666666666e", "hate", "yes"};
+        List<String> list = longestWordList.longestWords(str);
+        System.out.println(list);
     }
 }
