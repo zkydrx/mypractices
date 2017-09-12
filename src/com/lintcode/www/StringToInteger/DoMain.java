@@ -1,6 +1,7 @@
 package com.lintcode.www.StringToInteger;
 
 
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,20 +38,34 @@ public class DoMain
         String regex = "[^\\d]";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
+        boolean bea = false;
+        if (str.contains("-"))
+        {
+            str = str.substring(1,str.length());
+            bea = true;
+        }
         if(matcher.find())
         {
             return 0;
         }
-        else if (str.contains("."))
+        else if (str.contains(".")&&!(str.contains("-")))
         {
 
             if (str.length() > 10)
             {
+                if(bea)
+                {
+                    return -2147383648;
+                }
                 return 2147483647;
             }
             else if (str.length() == 10 && str.compareTo("2147483647") > 0)
 
             {
+                if(bea)
+                {
+                    return -2147483648;
+                }
                 return 2147483647;
             }
             else
@@ -63,11 +78,19 @@ public class DoMain
 
             if (str.length() > 10)
             {
+                if(bea)
+                {
+                    return -2147483648;
+                }
                 return 2147483647;
             }
 
             else if (str.length() == 10 && str.compareTo("2147483647") > 0)
             {
+                if(bea)
+                {
+                    return -2147483648;
+                }
                 return 2147483647;
             }
             else
@@ -83,7 +106,13 @@ public class DoMain
         int atoi = doMain.atoi("1.0");
         System.out.println(atoi);
         System.out.println(doMain.atoi("-1"));
-        System.out.println(doMain.atoi("123123123123123"));
+        System.out.println(doMain.atoi("-123123123123123"));
         System.out.println(doMain.atoi("dkk"));
+        for(int i = 1; i < 20 ; i++)
+        {
+            String s = UUID.randomUUID().toString().replaceAll("-", "");
+            System.out.println();
+            System.out.println(s);
+        }
     }
 }
