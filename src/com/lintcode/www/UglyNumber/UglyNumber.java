@@ -42,16 +42,16 @@ public class UglyNumber
          * 最终返回布尔值。就是我们判断的结果。
          */
         lab:
-        for(int i = 0; i<= number ; i++)
+        for (int i = 0; i <= number; i++)
         {
-            num2 = Math.pow(2,i);
-            for(int j = 0; j<= number ; j++)
+            num2 = Math.pow(2, i);
+            for (int j = 0; j <= number; j++)
             {
-                num3 = Math.pow(3,j);
-                for(int k = 0;k <=number ; k++)
+                num3 = Math.pow(3, j);
+                for (int k = 0; k <= number; k++)
                 {
-                    num5 = Math.pow(5,k);
-                    if(num2*num3*num5 == number)
+                    num5 = Math.pow(5, k);
+                    if (num2 * num3 * num5 == number)
                     {
                         b = true;
                         break lab;
@@ -61,6 +61,42 @@ public class UglyNumber
         }
 
         return b;
+    }
+
+    public boolean isUglyNubmer(int num)
+    {
+        if (num < 1)
+        {
+            return false;
+        }
+        if (num == 1)
+        {
+            return true;
+        }
+
+        while (num % 2 == 0)
+        {
+            num /= 2;
+        }
+        while (num % 3 == 0)
+        {
+            num /= 3;
+        }
+
+        while (num % 5 == 0)
+        {
+            num /= 5;
+        }
+        if (num == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
     }
 
 
@@ -113,14 +149,14 @@ public class UglyNumber
     public static void main(String[] args)
     {
         UglyNumber number = new UglyNumber();
-        System.out.println(number.isUgly(14));
-        System.out.println(number.isUgly(8));
-        System.out.println(number.isUgly(9));
-        System.out.println(number.isUgly(10));
-        System.out.println(number.isUgly(11));
-        System.out.println(number.isUgly(21));
-        System.out.println(number.isUgly(13));
-        System.out.println(number.isUgly(12));
+        long time =System.currentTimeMillis();
+        System.out.println(number.isUgly(1500));
+        time = System.currentTimeMillis() - time;
+        System.out.println("3层for循环的时间复杂度："+time);
+        time = System.currentTimeMillis();
+        System.out.println(number.isUglyNubmer(1500));
+        time = System.currentTimeMillis() - time;
+        System.out.println("While 时间复杂度："+time);
     }
 
 }
