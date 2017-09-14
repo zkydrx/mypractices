@@ -43,6 +43,9 @@ public class TreeNodeBin
         t.right.right = new TreeNode(9);
         TreeNode treeNode = treeNodeBin.maxNode(t);
         System.out.println(treeNode.value);
-    }
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
+    }
 }

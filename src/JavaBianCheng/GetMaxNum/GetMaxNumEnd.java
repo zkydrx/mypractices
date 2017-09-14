@@ -21,12 +21,16 @@ public class GetMaxNumEnd
      * @param array
      * @return
      */
-    public static String getLargestNumByArranged(Integer[] array) {
-        Arrays.sort(array, new Comparator<Object>() {
+    public static String getLargestNumByArranged(Integer[] array)
+    {
+
+        Arrays.sort(array, new Comparator<Object>()
+        {
             /***
              * 默认是从小到大排序 if the result > 0 then swap
              */
-            public int compare(Object o1, Object o2) {
+            public int compare(Object o1, Object o2)
+            {
                 String left = o1.toString();
                 String right = o2.toString();
                 // 按字典顺序比较 if the result > 0 then * -1
@@ -37,15 +41,17 @@ public class GetMaxNumEnd
         });
 
         StringBuffer sb = new StringBuffer();
-        for (Integer integer : array) {
+        for (Integer integer : array)
+        {
             sb.append(integer.toString());
         }
 
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        Integer[] VALUES = { 1,2,3,21 };
+    public static void main(String[] args)
+    {
+        Integer[] VALUES = {1, 2, 3, 21};
         System.out.println(getLargestNumByArranged(VALUES));
     }
 
