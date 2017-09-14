@@ -87,12 +87,14 @@ public class TestA
          * java8 以后
          */
         features.forEach(n -> System.out.println(n));
+        features.forEach(n -> System.out.println(n));
         System.out.println("==============================================================");
 
         /**
          * 使用java8的方法引用更方便，方法引用由：双冒号操作符标示，
          * 看起来像C++的作用于解析运算符
          */
+        features.forEach(System.out::println);
         features.forEach(System.out::println);
     }
 
@@ -168,6 +170,7 @@ public class TestA
          * 使用lambda表达式
          */
         costBeforeTax.stream().map((cost) -> cost + .12 * cost).forEach(System.out::println);
+        costBeforeTax.stream().map((cost) -> cost+0.12*cost).forEach(n -> System.out.print(n+" "));
     }
 
     /**
