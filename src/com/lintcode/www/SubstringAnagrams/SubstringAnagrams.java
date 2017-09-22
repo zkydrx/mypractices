@@ -26,6 +26,20 @@ import java.util.List;
  */
 public class SubstringAnagrams
 {
+    public static void main(String[] args)
+    {
+        SubstringAnagrams f = new SubstringAnagrams();
+        List<Integer> anagrams = f.findAnagrams("cbaebabacd", "abc");
+        System.out.println(anagrams);
+    }
+
+    /**
+     * 方法一：
+     *
+     * @param s
+     * @param p
+     * @return
+     */
     public List<Integer> findAnagrams(String s, String p)
     {
         List<Integer> list = new ArrayList<>();
@@ -57,7 +71,13 @@ public class SubstringAnagrams
         return list;
     }
 
-
+    /**
+     * 方法二：
+     *
+     * @param s
+     * @param p
+     * @return
+     */
     public List<Integer> findAnagramsOther(String s, String p)
     {
         List<Integer> list = new ArrayList<>();
@@ -99,18 +119,8 @@ public class SubstringAnagrams
                 left++;
 
             }
-
-
         }
         return list;
-    }
-
-
-    public static void main(String[] args)
-    {
-        SubstringAnagrams f = new SubstringAnagrams();
-        List<Integer> anagrams = f.findAnagrams("cbaebabacd", "abc");
-        System.out.println(anagrams);
     }
 
 }
