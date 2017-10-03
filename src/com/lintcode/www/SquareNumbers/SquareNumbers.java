@@ -18,9 +18,9 @@ public class SquareNumbers
 {
     public boolean checkSumOfSquareNumbers(int num)
     {
-        for (int i = 0; i < Math.sqrt(num); i++)
+        for (int i = 0; i <= Math.sqrt(num); i++)
         {
-            for (int j = 0; j < Math.sqrt(num); j++)
+            for (int j = 0; j <= Math.sqrt(num); j++)
             {
                 if(num == Math.pow(i,2)+Math.pow(j,2))
                 {
