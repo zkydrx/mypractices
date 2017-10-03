@@ -63,7 +63,7 @@ public class MissingString
             }
         }
         list1.removeAll(list);
-        return list;
+        return list1;
     }
 
 
