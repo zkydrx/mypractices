@@ -15,6 +15,33 @@ public class AddGidits
 {
     public int addDigits(int num)
     {
-        // write your code here
+        while (num > 9)
+        {
+            int theNum = getTheNum(num);
+            num = theNum;
+        }
+        return num;
+    }
+
+    public int getTheNum(int num)
+    {
+        int sum = 0;
+        while (num >0)
+        {
+            int temp = num%10;
+            num /= 10;
+            sum += temp;
+        }
+        return sum;
+    }
+
+
+    public static void main(String[] args)
+    {
+        AddGidits addGidits = new AddGidits();
+        int theNum = addGidits.getTheNum(1111);
+        System.out.println(theNum);
+        System.out.println(addGidits.addDigits(38));
+
     }
 }
