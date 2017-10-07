@@ -12,11 +12,14 @@ public class ToyFactory
 
     public Toy getToy(String type)
     {
-        if(type == "Dog")
+        /**
+         * attention：String compare to another String by Equals();
+         */
+        if(type.equals("Dog"))
         {
             return new Dog();
         }
-        else if(type =="Cat")
+        else if(type.equals("Cat"))
         {
             return new Cat();
         }
@@ -28,5 +31,7 @@ public class ToyFactory
         ToyFactory tf = new ToyFactory();
         Toy toy = tf.getToy("Dog");
         toy.talk();
+        Toy toy1 = tf.getToy("Cat");
+        toy1.talk();
     }
 }
