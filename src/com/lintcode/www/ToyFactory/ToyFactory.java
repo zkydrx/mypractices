@@ -10,8 +10,23 @@ package com.lintcode.www.ToyFactory;
 public class ToyFactory
 {
 
-    /*public Toy getToy(String type)
+    public Toy getToy(String type)
     {
+        if(type == "Dog")
+        {
+            return new Dog();
+        }
+        else if(type =="Cat")
+        {
+            return new Cat();
+        }
+        return null;
+    }
 
-    */}
+    public static void main(String[] args)
+    {
+        ToyFactory tf = new ToyFactory();
+        Toy toy = tf.getToy("Dog");
+        toy.talk();
+    }
 }
