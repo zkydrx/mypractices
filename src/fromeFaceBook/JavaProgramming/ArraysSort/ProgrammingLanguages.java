@@ -22,6 +22,10 @@ public class ProgrammingLanguages
         Arrays.sort(lang);
         for (int i = 0; i < lang.length; i++)
         {
+            System.out.println(lang[i]);
+        }
+        for (int i = 0; i < lang.length; i++)
+        {
             if( i ==2 || i==4)
             {
                 System.out.print(lang[i]);
