@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Date: 2017-10-10
  * Time: 01:55
  * Description:
+ * Arrays sort method test.
  */
 public class ProgrammingLanguages
 {
