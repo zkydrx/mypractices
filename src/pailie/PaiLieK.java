@@ -1,4 +1,4 @@
-package Pailie;
+package pailie;
 
 import org.junit.jupiter.api.Test;
 

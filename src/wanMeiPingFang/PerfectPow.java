@@ -1,4 +1,4 @@
-package WanMeiPingFang;
+package wanMeiPingFang;
 
 /**
  * Created by ZKY on 2017-08-20 01:06.
