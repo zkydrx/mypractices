@@ -15,7 +15,6 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.security.MessageDigest;
 
 /**
@@ -28,9 +27,11 @@ import java.security.MessageDigest;
 public class HttpClientUtil
 {
 
-    public final static String md5(String s) {
-        char hexDigits[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-        try {
+    public final static String md5(String s)
+    {
+        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        try
+        {
             byte[] btInput = s.getBytes();
             // 获得MD5摘要算法的 MessageDigest 对象
             MessageDigest mdInst = MessageDigest.getInstance("MD5");
@@ -42,13 +43,16 @@ public class HttpClientUtil
             int j = md.length;
             char str[] = new char[j * 2];
             int k = 0;
-            for (int i = 0; i < j; i++) {
+            for (int i = 0; i < j; i++)
+            {
                 byte byte0 = md[i];
                 str[k++] = hexDigits[byte0 >>> 4 & 0xf];
                 str[k++] = hexDigits[byte0 & 0xf];
             }
             return new String(str);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
             return null;
         }
@@ -72,11 +76,9 @@ public class HttpClientUtil
         param3.put("xid", "6691488");
         params2.add(param3);
         params.put("order_list", params2);
-//        String s = md5("3" + "6691488" + "JH76fh*21179Ft2");
-        String encode = URLEncoder.encode(URLEncoder.encode(params.toString(), "UTF-8"), "UTF-8");
-        params.put("check_value", encode);
-
-        System.out.println("params: "+params);
+        String s = md5("3" + "JH76fh*21179Ft2");
+        params.put("check_value", s);
+        System.out.println("params: " + params);
         /**
          * 发送Post请求。
          */
@@ -175,8 +177,8 @@ public class HttpClientUtil
             {
                 HttpEntity entity = res.getEntity();
                 String result = EntityUtils.toString(res.getEntity());// 返回json格式：
-                String decode = URLDecoder.decode(URLDecoder.decode(result,"UTF-8"), "UTF-8");
-                System.out.println("decode: "+decode);
+                String decode = URLDecoder.decode(URLDecoder.decode(result, "UTF-8"), "UTF-8");
+                System.out.println("decode: " + decode);
                 response = JSONObject.fromObject(decode);
             }
         }
