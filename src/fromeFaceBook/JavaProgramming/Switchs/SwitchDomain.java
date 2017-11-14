@@ -17,18 +17,18 @@ public class SwitchDomain
 {
     public static void main(String[] args)
     {
-        int x = 12;
+        int x = 2;
         switch (x)
         {
-            case 2:
-                x += 2;
             case 1:
-                x++;
+                x += 2;
                 break;
+            case 2:
+                x++;
             case 3:
                 x += 4;
-//            default:
-//                x += 2;
+            default:
+                x += 2;
         }
 
         System.out.println(x);
