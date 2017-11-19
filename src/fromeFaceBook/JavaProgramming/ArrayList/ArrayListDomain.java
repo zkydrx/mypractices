@@ -22,6 +22,10 @@ public class ArrayListDomain
         return list;
     }
 
+    /**
+     * all the Arraylist be same with each other.
+     * @param args
+     */
     public static void main(String[] args)
     {
         ArrayListDomain ml1 = new ArrayListDomain();
