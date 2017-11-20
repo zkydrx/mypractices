@@ -6,6 +6,7 @@ package fromeFaceBook.JavaProgramming.Mathematics;
  * Date: 2017-11-19
  * Time: 23:53
  * Description:
+ * Check the for Loop.
  */
 public class HowTheY
 {
@@ -19,7 +20,6 @@ public class HowTheY
             {
                 y += i;
             }
-
         }
         System.out.println(y);
     }
