@@ -47,7 +47,239 @@
     
     在java中主要存在4块内存空间，这些内存的名称及作用如下： 　　1.栈内存空间：保存所有的对象名称（更准确地说是保存了引用的堆内存空间的地址） 　　2.堆内存空间：保存每个对象的具体属性内容。 　　3.全局数据区：保存static类型的属性。 　　4.全局代码区：保存所有的方法定义。
 * 什么是基于注解的切面实现
-  - 
+  -     一步一步深入spring(5)--使用基于注解的spring实现 AOP
+        
+        1.要利用spring aop，至少需要添加以下jar包
+        
+        使用spring需要的jar
+        spring.jar 、commons-logging.jar
+        
+        使用切面编程（AOP）需要的jar
+        
+        aspectjrt.jar、aspectjweaver.jar、cglib-nodep-2.1_3.jar
+        
+        使用JSR-250提供的注解,如@Resource，需要的jar
+        
+        common-annotations.jar
+        
+        2.使用spring 进行aop编程，首先我们要在Spring的配置文件中引入aop命名空间：
+
+        1 <beans xmlns=http://www.springframework.org/schema/beans
+        2 xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance
+        3 xmlns:aop=http://www.springframework.org/schema/aop
+        4 xsi:schemaLocation=”http://www.springframework.org/schema/beans
+        5 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        6 http://www.springramework.org/schema/aop
+        7 http://www.springframework.org/schema/aop/spring-aop-2.5.xsd”>
+        8 
+        9 </beans>
+        当然我们在使用spring的时候，肯定会使用到spring ioc相关的内容，也需要加入命名空间对IOC部分的支持
+        
+        3.使用注解方式来实现aop，首先需要在spring的配置文件中启动对@AspectJ注解的支持
+        
+        <aop:aspectj-autoproxy/>
+        
+        4.建立一个类，作为切面类，然后在切面类中依次添加切入点，前置通知，后置通知，例外通知，最终通知，环绕通知等：
+        
+        完整的java文件：
+        
+         1 package com.yangyang.aop;
+         2 
+         3 import org.aspectj.lang.ProceedingJoinPoint;
+         4 import org.aspectj.lang.annotation.After;
+         5 import org.aspectj.lang.annotation.AfterReturning;
+         6 import org.aspectj.lang.annotation.AfterThrowing;
+         7 import org.aspectj.lang.annotation.Around;
+         8 import org.aspectj.lang.annotation.Aspect;
+         9 import org.aspectj.lang.annotation.Before;
+        10 import org.aspectj.lang.annotation.Pointcut;
+        11 
+        12 //声明该类为一个切面
+        13 @Aspect 
+        14 public class MyInterceptor {
+        15      //切入点要拦截的类
+        16     @Pointcut("execution (* com.yangyang.service..*.*(..))")
+        17     private void anyMethod(){} //声明一个切入点,切入点的名称其实是一个方法
+        18 
+        19     //前置通知（不需要获取输入参数）
+        20     @Before("anyMethod()")//第一个参数为切入点的名称
+        21     public void doAccessCheck(){
+        22         System.out.println("前置通知");
+        23     }
+        24     
+        25     //后置通知(不需要获取返回值)
+        26     @AfterReturning("anyMethod()")
+        27     public void doAfterReturning(){
+        28         System.out.println("后置通知:");
+        29     }
+        30     
+        31     //例外通知(不需要异常信息)
+        32     @AfterThrowing("anyMethod()")
+        33     public void doAfterThrowing(){
+        34         System.out.println("例外通知");
+        35     }
+        36     
+        37     //最终通知
+        38     @After("anyMethod()")
+        39     public void doAfter(){
+        40         System.out.println("最终通知");
+        41     }
+        42     
+        43     //环绕通知（特别适合做权限系统）
+        44     @Around("anyMethod()")
+        45     public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable{
+        46         System.out.println("环绕通知进入方法");
+        47         Object object=pjp.proceed();
+        48         System.out.println("环绕通知退出方法");
+        49         return object;
+        50     }
+        51     
+        52 }
+        5.建立供测试的业务方法：这里只列出实现：
+        
+         1 package com.yangyang.service.impl;
+         2 
+         3 import com.yangyang.service.PersonService;
+         4 
+         5 public class PersonServiceImpl implements PersonService{
+         6 
+         7     @Override
+         8     public String getNameById(Long id) {
+         9         System.out.println("我是getNameById()方法");
+        10         return "csy";
+        11     }
+        12 
+        13     @Override
+        14     public void save(String name) {
+        15         throw new RuntimeException("故意抛出了异常,仅供测试");
+        16     //    System.out.println("我是save()方法");
+        17     }
+        18 
+        19     @Override
+        20     public void update(String name, Long id) {
+        21         System.out.println("我是update()方法");
+        22     }
+        23 
+        24 }
+        6.将业务service的bean以及切面的类加入spring管理，完整的配置文件如下：
+        
+         1 <?xml version="1.0" encoding="UTF-8"?>
+         2 <beans xmlns="http://www.springframework.org/schema/beans"
+         3         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         4         xmlns:context="http://www.springframework.org/schema/context"
+         5         xmlns:aop="http://www.springframework.org/schema/aop"    
+         6         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+         7             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+         8             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+         9  <!-- 加上aop的命名空间以及DTD验证 -->
+        10  
+        11  
+        12      <aop:aspectj-autoproxy/><!-- 打开aop对@Aspectj的注解支持 ,相当于为注解提供解析功能-->
+        13      
+        14      <bean id="myInterceptor" class="com.yangyang.aop.MyInterceptor"></bean>
+        15      
+        16     <bean id="personService" class="com.yangyang.service.impl.PersonServiceImpl">
+        17     </bean>
+        18     
+        19 </beans>
+        7.编写单元测试，来测试aop是否成功实现。代码：
+        
+        1 @Test
+        2     public void testSpringInterceptor() {
+        3         ApplicationContext ctx=new ClassPathXmlApplicationContext("resources/beans.xml");
+        4         PersonService personService=(PersonService)ctx.getBean("personService");
+        5         personService.getNameById(1l);
+        6         System.out.println("----------------------------------");
+        7         personService.save("csy");
+        8     }
+        观察结果如下：
+        
+        前置通知
+        环绕通知进入方法
+        我是getNameById()方法
+        后置通知:
+        最终通知
+        环绕通知退出方法
+        ----------------------------------
+        前置通知
+        环绕通知进入方法
+        例外通知
+        最终通知
+        
+        可以看出AOP编写成功了。
+        
+        思考一个问题，如果我们希望获取在业务操作在使用aop的服务时得到相应的输入，返回值，以及异常信息，那么切面该怎么改呢：
+        
+        只需要在各自通知的地方加入相应类型的参数即可：
+        
+        复制代码
+         1 package com.yangyang.aop;
+         2 
+         3 import org.aspectj.lang.ProceedingJoinPoint;
+         4 import org.aspectj.lang.annotation.After;
+         5 import org.aspectj.lang.annotation.AfterReturning;
+         6 import org.aspectj.lang.annotation.AfterThrowing;
+         7 import org.aspectj.lang.annotation.Around;
+         8 import org.aspectj.lang.annotation.Aspect;
+         9 import org.aspectj.lang.annotation.Before;
+        10 import org.aspectj.lang.annotation.Pointcut;
+        11 
+        12 //声明该类为一个切面
+        13 @Aspect 
+        14 public class MyInterceptor {
+        15      //切入点要拦截的类
+        16     @Pointcut("execution (* com.yangyang.service..*.*(..))")
+        17     private void anyMethod(){} //声明一个切入点,切入点的名称其实是一个方法
+        18 
+        19     //前置通知(获取输入参数)
+        20     @Before("anyMethod() && args(name)")//第一个参数为切入点的名称,第二个是测试获取输入参数，此处为string类型的，参数名称与方法中的名称相同,如果不获取输入参数，可以不要
+        21     public void doAccessCheck(String name){
+        22         System.out.println("前置通知:"+name);
+        23     }
+        24     
+        25     //后置通知（获取返回值）
+        26     @AfterReturning (pointcut="anyMethod()", returning="result")
+        27     public void doAfterReturning(String result){
+        28         System.out.println("后置通知:"+result);
+        29     }
+        30 
+        31     //例外通知(获取异常信息)
+        32     @AfterThrowing(pointcut="anyMethod()",throwing="e")
+        33     public void doAfterThrowing(Exception e){
+        34         System.out.println("例外通知:"+e);
+        35     }
+        36     
+        37     //最终通知
+        38     @After("anyMethod()")
+        39     public void doAfter(){
+        40         System.out.println("最终通知");
+        41     }
+        42     
+        43     //环绕通知（特别适合做权限系统）
+        44     @Around("anyMethod()")
+        45     public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable{
+        46         System.out.println("环绕通知进入方法");
+        47         Object object=pjp.proceed();
+        48         System.out.println("环绕通知退出方法");
+        49         return object;
+        50     }
+        51     
+        52 }
+        复制代码
+        同理执行单元测试，可以看到结果：
+        
+        环绕通知进入方法
+        我是getNameById()方法
+        后置通知:csy
+        最终通知
+        环绕通知退出方法
+        ----------------------------------
+        前置通知:csy
+        环绕通知进入方法
+        例外通知:java.lang.RuntimeException: 故意抛出了异常,仅供测试
+        最终通知
+        
+        这样我们的功能就开发完了
 * 什么是 对象/关系 映射集成模块
 * 什么是 Java 的反射机制
 * 什么是 ACID
