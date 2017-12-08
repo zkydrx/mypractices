@@ -14,8 +14,8 @@ public class ForeachIterator
 {
     public static void main(String[] args)
     {
-        List<String> list = new ArrayList<>();
-        List<String> list1 = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
+        List<String> list1 = new ArrayList<String>();
         list.add("1");
         list.add("2");
         list1.add("1");
