@@ -24,7 +24,7 @@ public class FinalJahan
         byte y = 2;
         /**
          * byte z = x + y
-         * 由于x和y都是byte的变量。但是x+y的结果就是整形结果，而定义的byte变量所以将整形转为byte
+         * 由于x和y都是byte的变量。但是x+y的结果就是整型结果，而定义的byte变量所以将整形转为byte
          * 型会损失精度。故上面的写法会报损失精度的错误。
          */
         byte z = (byte) (x + y);
