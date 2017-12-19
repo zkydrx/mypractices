@@ -40,5 +40,7 @@ public class SqrtMethod
 
         System.out.println(sqrt);
 
+        System.out.println(new SqrtMethod().sqrt(10));
+
     }
 }
