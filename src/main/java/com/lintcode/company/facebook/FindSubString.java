@@ -23,39 +23,50 @@ package com.lintcode.company.facebook;
  */
 public class FindSubString
 {
-    public String minWindow(String source,String target)
-    {
-        boolean b = true;
-        for (int i = target.length(); i < source.length(); i++)
-        {
-            lab:
-            for (int j = 0; j < source.length()-i; j++)
-            {
-                String substring = source.substring(j, i + j);
-
-                for (int k = 0; k <target.length() ; k++)
-                {
-                    if(!substring.contains(target.charAt(k)+""))
-                    {
-                        b = false;
-                        break lab;
-                    }
-
-                }
-                if(b)
-                {
-                    return substring;
-                }
-            }
-        }
-
-        return  null;
-    }
 
     public static void main(String[] args)
     {
         String s = new FindSubString().minWindow("ADOBECODEBANC", "ABC");
 
         System.out.println(s);
+    }
+
+    /**
+     * This is a minimun window's question and should be think a lot about the method.
+     * @param source
+     * @param target
+     * @return
+     */
+    public String minWindow(String source, String target)
+    {
+        boolean b = true;
+        for (int i = target.length(); i < source.length() + 1; i++)
+        {
+
+            for (int j = 0; j < source.length() + 1 - i; j++)
+            {
+                /**
+                 * attention the update the boolean.
+                 */
+                b = true;
+                String substring = source.substring(j, i + j);
+
+                for (int k = 0; k < target.length(); k++)
+                {
+                    if (!substring.contains(target.charAt(k) + ""))
+                    {
+                        b = false;
+                        break;
+                    }
+
+                }
+                if (b)
+                {
+                    return substring;
+                }
+            }
+        }
+
+        return null;
     }
 }
