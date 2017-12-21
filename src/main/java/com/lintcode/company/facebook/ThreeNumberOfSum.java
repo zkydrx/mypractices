@@ -25,6 +25,11 @@ import java.util.*;
  */
 public class ThreeNumberOfSum
 {
+    /**
+     * 测试
+     *
+     * @param args
+     */
     public static void main(String[] args)
     {
         ThreeNumberOfSum threeNumberOfSum = new ThreeNumberOfSum();
@@ -77,7 +82,7 @@ public class ThreeNumberOfSum
         Set set = new HashSet();
         List newList = new ArrayList();
 
-        for (Iterator iterator = list.iterator(); iterator.hasNext();)
+        for (Iterator iterator = list.iterator(); iterator.hasNext(); )
         {
             Object next = iterator.next();
 
@@ -91,6 +96,30 @@ public class ThreeNumberOfSum
         System.out.println(list);
     }
 
+    public List<int[]> removeDuplicateObjectThree(List<int[]> list)
+    {
+        /**
+         * 删除重复的数组
+         */
+        for (int i = 0; i < list.size() - 1; i++)
+        {
+            for (int i1 = list.size() - 1; i1 > i; i1--)
+            {
+                if (isTheSameArrayOrNot(list.get(i), list.get(i1)))
+                {
+                    list.remove(i1);
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 找出三个数的和为零
+     *
+     * @param array
+     * @return
+     */
     public List<int[]> threeSum(int[] array)
     {
         List<int[]> list = new ArrayList<>();
@@ -119,21 +148,11 @@ public class ThreeNumberOfSum
                 }
             }
         }
-
         /**
          * 删除重复的数组
          */
-        for (int i = 0; i < list.size() - 1; i++)
-        {
-            for (int i1 = list.size() - 1; i1 > i; i1--)
-            {
-                if (isTheSameArrayOrNot(list.get(i), list.get(i1)))
-                {
-                    list.remove(i1);
-                }
-            }
-        }
-        return list;
+        List<int[]> list1 = removeDuplicateObjectThree(list);
+        return list1;
     }
 
     /**
