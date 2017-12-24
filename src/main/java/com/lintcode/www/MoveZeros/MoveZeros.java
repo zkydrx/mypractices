@@ -1,6 +1,7 @@
 package com.lintcode.www.MoveZeros;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -49,5 +50,6 @@ public class MoveZeros
         MoveZeros moveZeros = new MoveZeros();
         int[] a = {1,2,3,0,0,5};
         moveZeros.moveZeroes(a);
+        System.out.println(Arrays.toString(a));
     }
 }

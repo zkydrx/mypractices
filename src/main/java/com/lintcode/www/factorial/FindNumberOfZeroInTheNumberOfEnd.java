@@ -24,8 +24,10 @@ public class FindNumberOfZeroInTheNumberOfEnd
         System.out.println(l1);
         System.out.println(l2);
     }
+
     /**
      * 获取一个阶乘末尾零的个数。
+     *
      * @param n
      * @return
      */
