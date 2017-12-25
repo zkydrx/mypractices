@@ -35,7 +35,9 @@ public class GetTheWords
         Set<String> set = new LinkedHashSet<String>();
         set.addAll(words);
         if (words.isEmpty())
+        {
             return 0;
+        }
         else
         {
             while (!set.isEmpty())

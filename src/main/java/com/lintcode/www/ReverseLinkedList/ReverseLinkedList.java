@@ -17,17 +17,6 @@ import java.util.LinkedList;
  */
 public class ReverseLinkedList
 {
-    public LinkedList<String> reverseLinkedList(LinkedList<String> linkedList)
-    {
-        LinkedList<String> linkedList1 = new LinkedList<>();
-        for (int i = linkedList.size()-1; i >= 0; i--)
-        {
-            linkedList1.add(linkedList.get(i));
-        }
-
-        return linkedList1;
-    }
-
     public static void main(String[] args)
     {
         LinkedList<String> linkedList = new LinkedList<>();
@@ -37,5 +26,16 @@ public class ReverseLinkedList
         LinkedList<String> linkedList1 = new ReverseLinkedList().reverseLinkedList(linkedList);
 
         System.out.println(linkedList1.toString());
+    }
+
+    public LinkedList<String> reverseLinkedList(LinkedList<String> linkedList)
+    {
+        LinkedList<String> linkedList1 = new LinkedList<>();
+        for (int i = linkedList.size() - 1; i >= 0; i--)
+        {
+            linkedList1.add(linkedList.get(i));
+        }
+
+        return linkedList1;
     }
 }
