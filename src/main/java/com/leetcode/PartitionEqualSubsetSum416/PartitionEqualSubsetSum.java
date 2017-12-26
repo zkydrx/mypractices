@@ -97,7 +97,9 @@ public class PartitionEqualSubsetSum
 
 
     /**
-     * 背包问题（动态规划）
+     * 背包问题（动态规划)
+     * 有bug,对于{3,3,3,4,5}
+     * 无法给出正确解答。
      *
      * @param nums
      */
