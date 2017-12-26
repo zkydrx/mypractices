@@ -70,13 +70,14 @@ public class PartitionEqualsSubSetSumFromInternet
      *
      * @param arr
 
+     * @param n
      * @return
      */
-    public static boolean findPartition(int arr[])
+    public static boolean findPartition(int[] arr, int n)
     {
         // Calculate sum of the elements in array
         int sum = 0;
-        int n = arr.length;
+        n = arr.length;
         for (int i = 0; i < n; i++)
         {
             sum += arr[i];
