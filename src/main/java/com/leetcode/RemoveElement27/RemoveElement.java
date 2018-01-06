@@ -1,4 +1,4 @@
-package com.leetcode.RemoveElement;
+package com.leetcode.RemoveElement27;
 
 import java.util.HashSet;
 import java.util.Set;
