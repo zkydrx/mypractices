@@ -19,15 +19,38 @@ package com.leetcode.Pow50;
  * <p>
  * Input: 2.10000, 3
  * Output: 9.26100
+ * <p>
+ * <p>
+ * 该解法时间复杂度太大
+ * 0.0
+ * my method use time:5206
+ * 0.0
+ * Math.pow() time:0
+ * <p>
+ * Process finished with exit code 0
  */
 public class ImplementPow
 {
     public double myPow(double x, int n)
     {
         double result = 1.0;
-        for (int i = 0; i < n; i++)
+        if (n < 0)
         {
-            result *= x;
+            int temp = -n;
+            for (int i = 0; i < temp; i++)
+            {
+                result *= x;
+            }
+
+            result = 1.0 / result;
+        }
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                result *= x;
+            }
+
         }
 
         return result;
@@ -37,7 +60,17 @@ public class ImplementPow
     {
         ImplementPow implementPow = new ImplementPow();
 
-        double v = implementPow.myPow(2, 3);
+        long l = System.currentTimeMillis();
+        double v = implementPow.myPow(0.00001, 2147483647);
+        l = System.currentTimeMillis() - l;
         System.out.println(v);
+        System.out.println("my method use time:" + l);
+
+        l = System.currentTimeMillis();
+        double pow = Math.pow(0.00001, 2147483647);
+
+        System.out.println(pow);
+        l = System.currentTimeMillis() - l;
+        System.out.println("Math.pow() time:" + l);
     }
 }
