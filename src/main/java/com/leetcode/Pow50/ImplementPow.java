@@ -72,5 +72,6 @@ public class ImplementPow
         System.out.println(pow);
         l = System.currentTimeMillis() - l;
         System.out.println("Math.pow() time:" + l);
+        Math.sqrt(123);
     }
 }
