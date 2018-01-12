@@ -1,4 +1,4 @@
-#Exclain
+#Explain
 1. To be honest I think the subject isn't rigorous becaues
    if the array have two or more element are same with each other
    and the mapping are not only one.
