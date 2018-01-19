@@ -1,0 +1,44 @@
+How would you print just the 10th line of a file?
+
+For example, assume that file.txt has the following content:
+
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+Your script should output the tenth line, which is:
+Line 10
+[show hint]
+
+
+
+Shell script:
+        
+        sed '10q;d' a.md
+        
+        
+        
+        
+        sed -n '2p' < file.txt
+        will print 2nd line
+        
+        sed -n '2011p' < file.txt
+        2011th line
+        
+        sed -n '10,33p' < file.txt
+        line 10 up to line 33
+        
+        sed -n '1p;3p' < file.txt
+        1st and 3th line
+        
+        and so on...
+![test](image/shell.jpg)
+![test1](image/shell1.jpg)
+![test1](image/shell2.jpg)
+![test1](image/shell3.jpg)
