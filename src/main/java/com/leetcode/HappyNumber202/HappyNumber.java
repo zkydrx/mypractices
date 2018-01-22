@@ -1,5 +1,8 @@
 package com.leetcode.HappyNumber202;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: Abbot
@@ -30,32 +33,39 @@ public class HappyNumber
         HappyNumber happyNumber = new HappyNumber();
 
         boolean happy = happyNumber.isHappy(19);
+        boolean happy1 = happyNumber.isHappy(2);
         System.out.println(happy);
+        System.out.println(happy1);
 
     }
 
     public boolean isHappy(int n)
     {
-        if (n != 2 || n ==3)
-        {
-            while (n > 1)
-            {
-                n = getResultNum(n);
-            }
-        }
-
-        return n == 1;
-    }
-
-    public int getResultNum(int n)
-    {
         int sum = 0;
+        Set<Integer> set = new HashSet<>();
         while (n > 0)
         {
             int temp = n % 10;
             sum += temp * temp;
             n /= 10;
+
+
+            if (n == 0 && sum != 1)
+            {
+                n = sum;
+                sum = 0;
+                set.add(n);
+            }
+            else if (n == 0 && sum == 1)
+            {
+                return true;
+            }
+            else if (set.contains(n))
+            {
+                return false;
+            }
         }
-        return sum;
+        return true;
     }
+
 }
