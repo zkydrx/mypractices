@@ -23,7 +23,7 @@ public class CountPrimes
     {
         int i = new CountPrimes().countPrimes(10);
 
-        int result = new CountPrimes().getResult(10);
+        int result = new CountPrimes().countPrimesOne(10);
 
         System.out.println(result);
         System.out.println(i);
@@ -62,7 +62,7 @@ public class CountPrimes
     }
 
 
-    public int getResult(int n)
+    public int countPrimesOne(int n)
     {
         n = n - 1;
 
@@ -98,6 +98,41 @@ public class CountPrimes
         }
 
         return primes.size();
+    }
+
+
+    public int countPrimesTwo(int n)
+    {
+        if (n <= 2)
+            return 0;
+
+        // init an array to track prime numbers
+        boolean[] primes = new boolean[n];
+        for (int i = 2; i < n; i++)
+        {
+            primes[i] = true;
+        }
+
+        for (int i = 2; i <= Math.sqrt(n - 1); i++)
+        {
+            // or for (int i = 2; i <= n-1; i++) {
+            if (primes[i])
+            {
+                for (int j = i + i; j < n; j += i)
+                {
+                    primes[j] = false;
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 2; i < n; i++)
+        {
+            if (primes[i])
+                count++;
+        }
+
+        return count;
     }
 
 }
