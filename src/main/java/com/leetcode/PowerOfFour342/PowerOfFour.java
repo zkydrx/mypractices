@@ -25,6 +25,7 @@ public class PowerOfFour
 
         System.out.println(powerOfFour);
 
+        System.out.println("中国人民");
 
     }
 
