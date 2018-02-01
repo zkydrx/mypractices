@@ -1,7 +1,6 @@
 package com.leetcode.MinimumIndexSumOfTwoLists599;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,40 +38,49 @@ public class MinimumIndexSumOfTwoLists
 {
     public String[] findRestaurant(String[] list1, String[] list2)
     {
-        int min = Math.min(list1.length,list2.length);
-        String[] result = new String[min];
-        List<String> list = new ArrayList<>();
-        List<Integer> index = new ArrayList<>();
-        for (int i = 0, j = 0; i < list1.length && j < list2.length; i++, j++)
+        Map<String,Integer> map1 = new HashMap<>();
+        Map<String,Integer> map2 = new HashMap<>();
+        for (int i = 0; i < list1.length; i++)
         {
-            if(list1[i].equals(list2[j]))
+            map1.put(list1[i],i);
+        }
+
+        for (int i = 0; i < list2.length; i++)
+        {
+            map2.put(list2[i],i);
+        }
+
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        List<String> list =null;
+        for (int i = 0; i < list1.length; i++)
+        {
+            if(map2.containsKey(list1[i]))
             {
-                list.add(list1[i]);
-                index.add(i+j);
+                sum = map1.get(list1[i])+map2.get(list1[i]);
+                if(sum < min)
+                {
+                    min = sum;
+                    /**
+                     * 如果sum比min小就新建Arraylist集合
+                     * 始终保证list中保存的是下标和最小的String.
+                     */
+                    list = new ArrayList<>();
+                    list.add(list1[i]);
+                }
+                else if ( sum == min)
+                {
+                    list.add(list1[i]);
+                }
             }
         }
 
-        int minIndexNum = getMinIndexNum(index);
-
-        String[] str = new String [1];
-    }
-
-
-    public int getMinIndexNum(List<Integer> list)
-    {
-        int t  = list.get(0);
-        int index=0;
+        String[] str = new String[list.size()];
         for (int i = 0; i < list.size(); i++)
         {
-            if (t > list.indexOf(i))
-            {
-                int temp = t;
-                t = list.indexOf(i);
-                list.set(i,t);
-                index =i;
-            }
+            str[i] = list.get(i);
         }
 
-        return index;
+        return str;
     }
 }
