@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * Created with IntelliJ IDEA.
  * Author: Abbot
  * Date: 2018-02-07
- * Time: 22:11:46
+ * Time: 23:50:58
  * Description:
  */
 class FindTheDifferenceTest
@@ -17,11 +17,13 @@ class FindTheDifferenceTest
     @BeforeEach
     void setUp()
     {
+        System.out.println("String...");
     }
 
     @AfterEach
     void tearDown()
     {
+        System.out.println("Ending...");
     }
 
     @Test
@@ -38,7 +40,5 @@ class FindTheDifferenceTest
 
         char theDifference = findTheDifference.findTheDifference(s, t);
         System.out.println(theDifference);
-
-
     }
 }
