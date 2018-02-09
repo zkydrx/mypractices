@@ -37,10 +37,13 @@ public class FindTheDifference
             ans ^=s.charAt(i);
         }
 
+        System.out.println(ans);
+
         for (int i = 0; i < t.length(); i++)
         {
             ans ^= t.charAt(i);
         }
+        System.out.println(ans);
         return ans;
     }
 }

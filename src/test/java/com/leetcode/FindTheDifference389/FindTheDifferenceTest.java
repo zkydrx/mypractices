@@ -40,5 +40,10 @@ class FindTheDifferenceTest
 
         char theDifference = findTheDifference.findTheDifference(s, t);
         System.out.println(theDifference);
+        String s1 ="abcd";
+        String t1 ="abced";
+
+        char theDifference1 = findTheDifference.findTheDifference(s1,t1);
+        System.out.println(theDifference1);
     }
 }
