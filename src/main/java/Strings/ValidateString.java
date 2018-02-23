@@ -1,5 +1,8 @@
 package Strings;
 
+import java.util.HashMap;
+import java.util.Stack;
+
 /**
  * Created by ZKY on 2017-06-05 14:51.
  * 有效的括号序列
@@ -28,132 +31,34 @@ public class ValidateString
      */
     public boolean isValidParentheses(String s)
     {
-        // Write your code here
-        int j = 0;
-        if (s.contains("("))
-        {
-            int i = s.indexOf("(");
-            if (i < s.length() - 1)
-            {
+        HashMap<Character, Character> map = new HashMap<Character, Character>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
 
-                if (s.contains(")"))
+        Stack<Character> stack = new Stack<Character>();
+
+        for (int i = 0; i < s.length(); i++)
+        {
+            char curr = s.charAt(i);
+
+            if (map.keySet().contains(curr))
+            {
+                stack.push(curr);
+            }
+            else if (map.values().contains(curr))
+            {
+                if (!stack.empty() && map.get(stack.peek()) == curr)
                 {
-                    for (int m = 0; m < s.length(); m++)
-                    {
-                        if ((s.charAt(m) + "").equals(")"))
-                        {
-                            int k = s.indexOf(")");
-                            if (k > i + 1 && (k - i - 1) % 2 == 0 || k == i + 1)
-                            {
-                                j++;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                    }
+                    stack.pop();
                 }
                 else
                 {
                     return false;
                 }
             }
-            else
-            {
-                return false;
-            }
-        }
-        if (s.contains(")") && !s.contains("("))
-        {
-            return false;
         }
 
-        if (s.contains("{"))
-        {
-            int i = s.indexOf("{");
-            if (i < s.length() - 1)
-            {
-                if (s.contains("}"))
-                {
-                    for (int m = 0; m < s.length(); m++)
-                    {
-                        if ((s.charAt(m) + "").equals("}"))
-                        {
-                            int k = s.indexOf("}");
-                            if (k > i + 1 && (k - i - 1) % 2 == 0 || k == i + 1)
-                            {
-                                j++;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                    }
-
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
-        if (s.contains("}") && !s.contains("{"))
-        {
-            return false;
-        }
-
-        if (s.contains("["))
-        {
-            int i = s.indexOf("[");
-            if (i < s.length() - 1)
-            {
-                if (s.contains("]"))
-                {
-                    for (int m = 0; m < s.length(); m++)
-                    {
-                        if ((s.charAt(m) + "").equals("]"))
-                        {
-                            int k = s.indexOf("]");
-                            if (k > i + 1 && (k - i - 1) % 2 == 0 || k == i + 1)
-                            {
-                                j++;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                    }
-
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-        if (j == 3 || j == 1 || j == 2)
-        {
-            return true;
-        }
-
-        if (s.contains("]") && !s.contains("["))
-        {
-            return false;
-        }
-        return false;
+        return stack.empty();
     }
 }
