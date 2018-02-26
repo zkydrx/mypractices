@@ -1,8 +1,5 @@
 package com.leetcode.RemoveElement27;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Abbot
@@ -27,34 +24,24 @@ import java.util.Set;
  */
 public class RemoveElement
 {
-    public static void main(String[] args)
-    {
-        RemoveElement removeElement = new RemoveElement();
 
-        int[] num = new int[]{3, 2, 2, 3};
-        int i = removeElement.removeElement(num, 3);
-
-        System.out.println(i);
-    }
 
     public int removeElement(int[] nums, int val)
     {
-        int count = 0;
-        for (int i = 0; i < nums.length; i++)
+
+        int i = 0;
+        int j = 0;
+        while (j < nums.length)
         {
-            if (nums[i] == val)
+            if (nums[j] != val)
             {
-                count++;
+                nums[i] = nums[j];
+                i++;
             }
-        }
-        Set set =new HashSet();
-        for (int num : nums)
-        {
-            set.add(num);
+
+            j++;
         }
 
-
-
-        return count;
+        return i;
     }
 }
