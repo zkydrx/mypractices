@@ -31,13 +31,13 @@ class PlusOneTest
     {
         PlusOne plusOne = new PlusOne();
 
-        int [] nums = {1,2,3,9};
-        int [] nums1 = {3,5,9,9};
-        int [] nums2 = {3,3,8,8};
-        int [] nums3 = {1,0};
-        int [] nums4 ={0};
-        int [] nums5 ={9,9,9,9};
-        int [] nums6 = {1,1,9,9};
+        int[] nums = {1, 2, 3, 9};
+        int[] nums1 = {3, 5, 9, 9};
+        int[] nums2 = {3, 3, 8, 8};
+        int[] nums3 = {1, 0};
+        int[] nums4 = {0};
+        int[] nums5 = {9, 9, 9, 9};
+        int[] nums6 = {1, 1, 9, 9};
 
         int[] ints = plusOne.plusOne(nums);
         int[] ints1 = plusOne.plusOne(nums1);
@@ -55,11 +55,27 @@ class PlusOneTest
         System.out.println(getNums(ints5));
         System.out.println(getNums(ints6));
 
+        System.out.println("****************************");
+        int[] ints7 = plusOne.plusoneMethodTwo(nums);
+        int[] ints8 = plusOne.plusoneMethodTwo(nums1);
+        int[] ints9 = plusOne.plusoneMethodTwo(nums2);
+        int[] ints10 = plusOne.plusoneMethodTwo(nums3);
+        int[] ints11 = plusOne.plusoneMethodTwo(nums4);
+        int[] ints12 = plusOne.plusoneMethodTwo(nums5);
+        int[] ints13 = plusOne.plusoneMethodTwo(nums6);
+
+        System.out.println(getNums(ints7));
+        System.out.println(getNums(ints8));
+        System.out.println(getNums(ints9));
+        System.out.println(getNums(ints10));
+        System.out.println(getNums(ints11));
+        System.out.println(getNums(ints12));
+        System.out.println(getNums(ints13));
     }
 
-    public String getNums(int [] nums)
+    public String getNums(int[] nums)
     {
-        StringBuilder stringBuilder =new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int num : nums)
         {
             stringBuilder.append(num);

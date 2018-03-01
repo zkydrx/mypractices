@@ -19,7 +19,7 @@ public class PlusOne
     public int[] plusOne(int[] digits)
     {
         int length = digits.length;
-        int [] temp = new int[length];
+        int[] temp = new int[length];
         for (int i = 0; i < digits.length; i++)
         {
             temp[i] = digits[i];
@@ -95,4 +95,65 @@ public class PlusOne
 
         return b;
     }
+
+    /**
+     * method two.
+     * @param nums
+     * @return
+     */
+    public int[] plusoneMethodTwo(int[] nums)
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int num : nums)
+        {
+            stringBuilder.append(num);
+        }
+
+        int i = Integer.parseInt(stringBuilder.toString());
+
+        i++;
+
+        int numDigit = getNumDigit(i);
+        int [] num = new int[numDigit];
+        int[] arrays = getArrays(num, i);
+
+        return arrays;
+
+    }
+
+    /**
+     * get a number of digits.
+     * @param num
+     * @return
+     */
+    public int getNumDigit(int num)
+    {
+        int count = 0;
+        while (num > 0)
+        {
+            int temp = num % 10;
+            count++;
+            num /= 10;
+        }
+        return count;
+    }
+    /**
+     * Put a number's digit into a array.
+     * @param arr
+     * @param n
+     * @return
+     */
+    public int[] getArrays(int [] arr,int n)
+    {
+        int numDigit = getNumDigit(n);
+
+        while (n > 0)
+        {
+            int temp = n %10;
+            arr[--numDigit] = temp;
+            n /= 10;
+        }
+        return arr;
+    }
+
 }
