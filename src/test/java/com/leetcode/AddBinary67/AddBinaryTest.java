@@ -31,7 +31,15 @@ class AddBinaryTest
     @Test
     void addBinary()
     {
-        String s = addBinary.addBinary("0", "0");
+        //        String s = addBinary.addBinary("0", "0");
+        //        System.out.println(s);
+        String s1 = addBinary.addBinary
+                ("1111",
+                        "1");
+
+        System.out.println(s1);
+        String s = addBinary.addBinaryOne("11", "1111");
+
         System.out.println(s);
     }
 

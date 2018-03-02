@@ -16,6 +16,13 @@ package com.leetcode.AddBinary67;
  */
 public class AddBinary
 {
+    /**
+     * This way can not solve the big integer.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public String addBinary(String a, String b)
     {
         int i = binToInteger(a) + binToInteger(b);
@@ -40,7 +47,7 @@ public class AddBinary
         {
             for (int i = length - 1; i >= 0; i--)
             {
-                res += Math.pow(2, length - 1 - i);
+                res += Integer.parseInt(num.charAt(i) + "") * Math.pow(2, length - 1 - i);
             }
         }
 
@@ -50,7 +57,7 @@ public class AddBinary
 
     public String integerToBinString(int num)
     {
-        if(num != 0)
+        if (num != 0)
         {
             StringBuilder bin = new StringBuilder();
             StringBuilder reverseString = new StringBuilder();
@@ -75,5 +82,56 @@ public class AddBinary
             return "0";
         }
 
+    }
+
+
+    /**
+     * Perfect.
+     * @param a
+     * @param b
+     * @return
+     */
+    public String addBinaryOne(String a, String b)
+    {
+        int n = Math.max(a.length(), b.length());
+
+        while (a.length() < n)
+        {
+            a = "0" + a;
+        }
+
+        while (b.length() < n)
+        {
+            b = "0" + b;
+        }
+
+
+        String ans = "";
+        int j = 0;
+        for (int i = n - 1; i >= 0; i--)
+        {
+            /**
+             * 计算加法，考虑进位。
+             */
+            j = j + (a.charAt(i) - '0') + (b.charAt(i) - '0');
+
+            /**
+             * 处理进位，计算结果
+             */
+
+            ans = (char) ('0' + j % 2) + ans;
+            j = j / 2;
+
+        }
+
+        /**
+         * 判断是否有未处理的进位
+         */
+        if (j > 0)
+        {
+            ans = "1" + ans;
+        }
+
+        return ans;
     }
 }
