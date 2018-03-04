@@ -1,4 +1,4 @@
-package com.leetcode.ClimbingStairs322;
+package com.leetcode.ClimbingStairs70;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,6 +40,26 @@ public class ClimbingStair
 {
     public int climbStairs(int n)
     {
-        return 0;
+        if (n <= 1)
+        {
+            return n;
+        }
+        int prev = 1;
+        int cur = 1;
+        /**
+         * 费氏数列
+         * n = 1， result = 1
+         * n = 2, result = 1+1 (爬1阶两次 + 一次爬2阶)
+         * n = 3, result = 1+2 (前面两个case相加)
+         * n = 4, result = 3+2 (前面两个case相加)
+         * f(n) = f(n-1) + f(n-2)
+         */
+        for (int i = 2; i <= n; i++)
+        {
+            int temp = cur;
+            cur = cur + prev;
+            prev = temp;
+        }
+        return cur;
     }
 }
