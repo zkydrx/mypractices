@@ -6,7 +6,7 @@ package com.leetcode.MaximumDepthOfBinaryTree104;
  * Date: 2018-03-10
  * Time: 23:33:43
  * Description:
- *
+ * <p>
  * 104. Maximum Depth of Binary Tree
  * <p>
  * Given a binary tree, find its maximum depth.
@@ -27,6 +27,13 @@ public class MaximumDepthOfBinaryTree
 {
     public int maxDepth(TreeNode root)
     {
-        return 0;
+        if (root == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
+        }
     }
 }

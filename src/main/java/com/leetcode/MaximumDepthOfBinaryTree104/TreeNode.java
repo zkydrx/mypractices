@@ -10,8 +10,8 @@ package com.leetcode.MaximumDepthOfBinaryTree104;
 public class TreeNode
 {
     int val;
-    com.leetcode.SymmetricTree101.TreeNode left;
-    com.leetcode.SymmetricTree101.TreeNode right;
+    TreeNode left;
+    TreeNode right;
 
     TreeNode(int x)
     {
