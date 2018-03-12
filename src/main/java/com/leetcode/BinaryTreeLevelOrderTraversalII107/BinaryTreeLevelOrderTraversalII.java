@@ -1,6 +1,7 @@
 package com.leetcode.BinaryTreeLevelOrderTraversalII107;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -34,7 +35,43 @@ public class BinaryTreeLevelOrderTraversalII
 {
     public List<List<Integer>> levelOrderBottom(TreeNode root)
     {
-        List<List<Integer>> list = new ArrayList<>();
-        return list;
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null)
+        {
+            return result;
+        }
+        LinkedList<TreeNode> current = new LinkedList<TreeNode>();
+        LinkedList<TreeNode> next = new LinkedList<TreeNode>();
+        current.offer(root);
+        ArrayList<Integer> numberList = new ArrayList<Integer>();
+        while (!current.isEmpty())
+        {
+            TreeNode head = current.poll();
+            numberList.add(head.val);
+            if (head.left != null)
+            {
+                next.offer(head.left);
+            }
+
+            if (head.right != null)
+            {
+                next.offer(head.right);
+            }
+
+            if (current.isEmpty())
+            {
+                current = next;
+                next = new LinkedList<TreeNode>();
+                result.add(numberList);
+                numberList = new ArrayList<Integer>();
+            }
+        }
+
+        List<List<Integer>> reverseResult = new ArrayList<>();
+        for (int i = result.size() - 1; i >= 0; i--)
+        {
+            reverseResult.add(result.get(i));
+        }
+        return reverseResult;
     }
 }
