@@ -26,5 +26,8 @@ package com.leetcode.ConvertSortedArrayToBinarySearchTree108;
  */
 public class ConvertSortedArrayToBinarySearchTree
 {
-
+    public TreeNode sortedArrayToBST(int[] nums)
+    {
+        return null;
+    }
 }
