@@ -30,11 +30,11 @@ class BinaryTreeLevelOrderTraversalIITest
         treeNode.right.left = new TreeNode(6);
         treeNode.right.right = new TreeNode(7);
 
-        List<ArrayList<Integer>> arrayLists = binaryTreeLevelOrderTraversalII.levelOrderBottom(treeNode);
+        List<List<Integer>> arrayLists = binaryTreeLevelOrderTraversalII.levelOrderBottom(treeNode);
 
         for (int i = 0; i < arrayLists.size(); i++)
         {
-            ArrayList<Integer> integers = arrayLists.get(i);
+            ArrayList<Integer> integers = (ArrayList<Integer>) arrayLists.get(i);
 
             for (int i1 = 0; i1 < integers.size(); i1++)
             {
