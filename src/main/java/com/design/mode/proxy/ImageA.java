@@ -1,7 +1,8 @@
 package com.design.mode.proxy;
 /**
- *  A Image
+ * A Image
  */
+
 import java.awt.MediaTracker;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,17 +10,22 @@ import javax.swing.event.*;
 import javax.swing.text.*;
 import javax.swing.border.*;
 
-public class ImageA implements Graphic {
-    public ImageA(String _fileName) {
+public class ImageA implements Graphic
+{
+    public ImageA(String _fileName)
+    {
         fileName = _fileName;
-        
-    }
-    public void Draw() {
-        
 
     }
+
+    public void Draw()
+    {
+
+
+    }
+
     public MediaTracker tracker;
     private int height, width;
     private String fileName;
-    
+
 }

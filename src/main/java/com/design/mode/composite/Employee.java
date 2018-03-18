@@ -1,11 +1,13 @@
 package com.design.mode.composite;
 /**
- *  A Component with some common function implementation
- *  You can abstract it.
+ * A Component with some common function implementation
+ * You can abstract it.
  */
+
 import java.util.*;
 
-public class Employee {
+public class Employee
+{
     String name;
     float salary;
     Vector subordinates;
@@ -13,80 +15,110 @@ public class Employee {
     Employee parent = null;
 
     //-------------------------------------------
-    public Employee(String _name, float _salary) {
+    public Employee(String _name, float _salary)
+    {
         name = _name;
         salary = _salary;
         subordinates = new Vector();
         isLeaf = false;
     }
+
     //-------------------------------------------
-    public Employee(Employee _parent, String _name, float _salary) {
+    public Employee(Employee _parent, String _name, float _salary)
+    {
         name = _name;
         salary = _salary;
         parent = _parent;
         subordinates = new Vector();
         isLeaf = false;
     }
+
     //-------------------------------------------
-    public void setLeaf(boolean b) {
+    public void setLeaf(boolean b)
+    {
         isLeaf = b;    //if true, do not allow children
     }
+
     //-------------------------------------------
-    public float getSalary() {
+    public float getSalary()
+    {
         return salary;
     }
+
     //-------------------------------------------
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
+
     //-------------------------------------------
-    public boolean add(Employee e) {
-        if (! isLeaf) { 
+    public boolean add(Employee e)
+    {
+        if (!isLeaf)
+        {
             subordinates.addElement(e);
         }
         return isLeaf;    //false if unsuccessful
     }
+
     //-------------------------------------------
-    public void remove(Employee e) {
-        if (! isLeaf) {
+    public void remove(Employee e)
+    {
+        if (!isLeaf)
+        {
             subordinates.removeElement(e);
         }
     }
+
     //-------------------------------------------
-    public Enumeration elements() {
+    public Enumeration elements()
+    {
         return subordinates.elements();
     }
+
     //-------------------------------------------
-    public Employee getChild(String s) {
+    public Employee getChild(String s)
+    {
         Employee newEmp = null;
 
-        if(getName().equals(s)) {
+        if (getName().equals(s))
+        {
             return this;
-        } else {
+        }
+        else
+        {
             boolean found = false;
             Enumeration e = elements();
-            while(e.hasMoreElements() && (! found)) {  
-                newEmp = (Employee)e.nextElement();
+            while (e.hasMoreElements() && (!found))
+            {
+                newEmp = (Employee) e.nextElement();
                 found = newEmp.getName().equals(s);
-                if (! found) {
+                if (!found)
+                {
                     newEmp = newEmp.getChild(s);
-                    found =(newEmp != null);
+                    found = (newEmp != null);
                 }
             }
-            if (found) {
+            if (found)
+            {
                 return newEmp;
-            } else {
+            }
+            else
+            {
                 return null;
             }
         }
     }
+
     //-------------------------------------------
-    public float getSalaries() {
+    public float getSalaries()
+    {
         float sum = salary;
-        for(int i = 0; i < subordinates.size(); i++) {
-            sum += ((Employee)subordinates.elementAt(i)).getSalaries();
+        for (int i = 0; i < subordinates.size(); i++)
+        {
+            sum += ((Employee) subordinates.elementAt(i)).getSalaries();
         }
         return sum;
     }
-    
+
 }

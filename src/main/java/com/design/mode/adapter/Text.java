@@ -1,16 +1,24 @@
 package com.design.mode.adapter;
+
 /**
- *  The Adaptee in this sample
+ * The Adaptee in this sample
  */
-public class Text  {
-    private String content; 
-    public Text() {
-        
+public class Text
+{
+    private String content;
+
+    public Text()
+    {
+
     }
-    public void SetContent(String str) {
+
+    public void SetContent(String str)
+    {
         content = str;
     }
-    public String GetContent() {
+
+    public String GetContent()
+    {
         return content;
     }
 }

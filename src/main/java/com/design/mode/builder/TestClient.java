@@ -1,13 +1,17 @@
 package com.design.mode.builder;
+
 /*
  *  A test client to create a house
  *  but we do not know how the room and door be created
  */
-public class TestClient  {
-    public TestClient() {
+public class TestClient
+{
+    public TestClient()
+    {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         House myHouse = new House();
         ConcreteHouseBuilderA myHouseBuilder = new ConcreteHouseBuilderA();
         HouseDirector myHouseDirector = new HouseDirector();

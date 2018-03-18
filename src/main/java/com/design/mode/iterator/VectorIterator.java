@@ -1,32 +1,46 @@
 package com.design.mode.iterator;
 /**
- *  A vector iterator to print data reverse
+ * A vector iterator to print data reverse
  */
+
 import java.util.Vector;
 
-public class VectorIterator implements Iterator {
+public class VectorIterator implements Iterator
+{
     private Vector data = new Vector();
     private int cursor = 0;
 
-    public VectorIterator(Vector _data) {
+    public VectorIterator(Vector _data)
+    {
         data = _data;
-    }    
-    public void First() {
+    }
+
+    public void First()
+    {
         //cursor = 0;
         cursor = (data.size() - 1);
     }
-    public void Next() {
+
+    public void Next()
+    {
         //cursor++;
         cursor--;
     }
-    public boolean IsDone() {
+
+    public boolean IsDone()
+    {
         //return (cursor >= data.size());
         return (cursor < 0);
     }
-    public void CurrentItem() {
-        if(IsDone()) {
+
+    public void CurrentItem()
+    {
+        if (IsDone())
+        {
             System.out.println("Reach the end of the vector");
-        } else {
+        }
+        else
+        {
             System.out.println("Number " + cursor + ": " + data.get(cursor));
         }
     }

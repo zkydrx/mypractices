@@ -1,9 +1,12 @@
 package com.design.mode.mediator;
+
 /**
- *  A test client
+ * A test client
  */
-public class Test  {
-    public static void main(String[] args) {
+public class Test
+{
+    public static void main(String[] args)
+    {
         Mediator myMed = new ConcreteMediator();
         ColleagueA a = new ColleagueA(myMed);
         ColleagueB b = new ColleagueB(myMed);

@@ -1,8 +1,11 @@
 package com.design.mode.adapter;
+
 /**
- *  A interface
+ * A interface
  */
-public interface Shape  {
+public interface Shape
+{
     public void Draw();
+
     public void Border();
 }

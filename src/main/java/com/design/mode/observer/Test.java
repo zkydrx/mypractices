@@ -1,9 +1,12 @@
 package com.design.mode.observer;
+
 /**
- *  A test client
+ * A test client
  */
-public class Test  {
-    public static void main(String[] args) {
+public class Test
+{
+    public static void main(String[] args)
+    {
         Subject mySub = new ConcreteSubject();
         ObserverA myObserverA = new ObserverA(mySub);
         ObserverB myObserverB = new ObserverB();
@@ -17,6 +20,6 @@ public class Test  {
         myObserverA.change("DEL", "Tow --- 2");
         myObserverA.change("ADD", "Three --- 3");
         myObserverA.change("ADD", "Four --- 4");
-        myObserverA.notifySub();  
+        myObserverA.notifySub();
     }
 }

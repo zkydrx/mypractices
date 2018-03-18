@@ -1,22 +1,29 @@
 package com.design.mode.mediator;
 /**
- *  A concrete colleague 
+ * A concrete colleague
  */
+
 import java.io.*;
 
-public class ColleagueA implements Colleague {
+public class ColleagueA implements Colleague
+{
     private final String type = "A";
     private Mediator med;
-    
-    public ColleagueA(Mediator m) {
+
+    public ColleagueA(Mediator m)
+    {
         med = m;
         med.Register(this, type);
     }
-    public void Change() {
+
+    public void Change()
+    {
         System.out.println("-----  A changed now !  -----");
         med.Changed(type);
     }
-    public void Action() {
+
+    public void Action()
+    {
         System.out.println("  A is changed by mediator ");
     }
 }

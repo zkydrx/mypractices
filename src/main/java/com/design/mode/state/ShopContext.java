@@ -1,21 +1,33 @@
 package com.design.mode.state;
+
 /**
- *  The context for user useing
+ * The context for user useing
  */
-public class ShopContext  {
+public class ShopContext
+{
     private ShopState currentState;
-    public ShopContext() {
+
+    public ShopContext()
+    {
     }
-    public void changeState(ShopState s) {
+
+    public void changeState(ShopState s)
+    {
         currentState = s;
     }
-    public void shop() {
+
+    public void shop()
+    {
         currentState.shop();
     }
-    public void generateBill() {
+
+    public void generateBill()
+    {
         currentState.generateBill();
     }
-    public void pay() {
+
+    public void pay()
+    {
         currentState.pay();
     }
 }

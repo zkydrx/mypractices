@@ -1,14 +1,20 @@
 package com.design.mode.bridge;
+
 /**
- *  The RefinedAbstraction
+ * The RefinedAbstraction
  */
 
-public class TextBold extends Text {
+public class TextBold extends Text
+{
     private TextImp imp;
-    public TextBold(String type) {
+
+    public TextBold(String type)
+    {
         imp = GetTextImp(type);
     }
-    public void DrawText(String text) {
+
+    public void DrawText(String text)
+    {
         System.out.println(text);
         System.out.println("The text is bold text!");
         imp.DrawTextImp();

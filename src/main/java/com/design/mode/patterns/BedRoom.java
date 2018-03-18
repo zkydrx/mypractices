@@ -1,15 +1,22 @@
 package com.design.mode.patterns;
+
 /*
  * A concrete Room - BedRoom
  */
-public class BedRoom  extends Room {
-    public BedRoom() {
+public class BedRoom extends Room
+{
+    public BedRoom()
+    {
         System.out.println("Initiated a bedroom !");
     }
-    public Door makeDoor() {
+
+    public Door makeDoor()
+    {
         return new BedRoomDoor();
     }
-    public Wall makeWall() {
+
+    public Wall makeWall()
+    {
         return new BedRoomWall();
     }
 }

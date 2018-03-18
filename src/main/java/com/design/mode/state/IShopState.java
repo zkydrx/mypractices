@@ -1,12 +1,16 @@
 package com.design.mode.state;
+
 /**
- *  A state interface
- *  ÓÃ»§ÔÚÍøÉÏ¹ºÎïµÄ×´Ì¬±ä»¯:
- *  Ñ¡ÔñÉÌÆ· --> Éú³É¶©µ¥ --> ¸¶¿îÈ¡»õ
+ * A state interface
+ * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ä»¯:
+ * Ñ¡ï¿½ï¿½ï¿½ï¿½Æ· --> ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ --> ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½
  */
-public interface IShopState {
+public interface IShopState
+{
     public void shop();
+
     public void generateBill();
+
     public void pay();
     //protected void changeState(ShopContext c, IShopState);
 }

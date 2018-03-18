@@ -1,23 +1,30 @@
 package com.design.mode.facade;
 /**
- *  A very simple test
+ * A very simple test
  */
+
 import java.io.*;
 
-class Wall {
-    public Wall() {
+class Wall
+{
+    public Wall()
+    {
         System.out.println("Create a wall !");
     }
 }
 
-class Door {
-    public Door() {
+class Door
+{
+    public Door()
+    {
         System.out.println("Create a door !");
     }
 }
 
-class FacadeRoom {
-    public void CreateRoom() {
+class FacadeRoom
+{
+    public void CreateRoom()
+    {
         Wall wall1 = new Wall();
         Wall wall2 = new Wall();
         Wall wall3 = new Wall();
@@ -27,8 +34,10 @@ class FacadeRoom {
 
 }
 
-public class Test  {
-    public static void main(String[] args) {
+public class Test
+{
+    public static void main(String[] args)
+    {
         FacadeRoom room = new FacadeRoom();
         room.CreateRoom();
     }

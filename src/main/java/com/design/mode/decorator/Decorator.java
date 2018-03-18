@@ -1,13 +1,19 @@
 package com.design.mode.decorator;
+
 /**
- *  The Decorator
+ * The Decorator
  */
-public class Decorator implements Component {
+public class Decorator implements Component
+{
     private Component component;
-    public Decorator(Component c) {
+
+    public Decorator(Component c)
+    {
         component = c;
     }
-    public void PrintString(String s) {
+
+    public void PrintString(String s)
+    {
         component.PrintString(s);
     }
 }

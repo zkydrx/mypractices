@@ -1,19 +1,26 @@
 package com.design.mode.builder;
+
 /*
  *  A house as a concrete product we got finally
  */
-public class House  {
+public class House
+{
     int roomNumber;
     int doorNumber;
-    public House() {
+
+    public House()
+    {
         roomNumber = 0;
         doorNumber = 0;
     }
-    public int getRoomNumber() {
+
+    public int getRoomNumber()
+    {
         return roomNumber;
     }
-    
-    public int getDoorNumber() {
+
+    public int getDoorNumber()
+    {
         return doorNumber;
     }
 }

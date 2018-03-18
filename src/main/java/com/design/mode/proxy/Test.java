@@ -1,8 +1,11 @@
 package com.design.mode.proxy;
+
 import javax.swing.*;
 
-public class Test  {
-    public static void main(String[] args) {
+public class Test
+{
+    public static void main(String[] args)
+    {
         JFrame frame = new JFrame("Proxy test client");
         JLabel label = new JLabel("Loading web page ......");
         frame.getContentPane().add(label);

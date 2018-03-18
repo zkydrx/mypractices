@@ -1,20 +1,23 @@
 package com.design.mode.state;
+
 /**
- *  A test client
+ * A test client
  */
-public class Test  {
-    public static void main(String[] args) {
+public class Test
+{
+    public static void main(String[] args)
+    {
         ShopContext myContext = new ShopContext();
         ShopState myShop = Shop.getInstance();
         ShopState myGenBill = GenerateBill.getInstance();
         ShopState myPay = Pay.getInstance();
-        
+
         myContext.changeState(myShop);
         myContext.shop();
 
         myContext.changeState(myGenBill);
         myContext.generateBill();
-        
+
         myContext.changeState(myPay);
         myContext.pay();
 

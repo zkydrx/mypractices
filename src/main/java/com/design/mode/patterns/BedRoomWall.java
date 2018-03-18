@@ -1,13 +1,19 @@
 package com.design.mode.patterns;
+
 /*
  * A concrete Wall for Living Room
  */
-public class BedRoomWall extends Wall {
+public class BedRoomWall extends Wall
+{
     private String wallName;
-    public BedRoomWall() {
+
+    public BedRoomWall()
+    {
         wallName = "BedRoomWall";
     }
-    public String getName() {
+
+    public String getName()
+    {
         return wallName;
     }
 }

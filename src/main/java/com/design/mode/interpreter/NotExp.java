@@ -1,25 +1,30 @@
 package com.design.mode.interpreter;
 
 /**
- *  A NonterminalExpression
+ * A NonterminalExpression
  */
-public class NotExp implements BooleanExp {
+public class NotExp implements BooleanExp
+{
     private BooleanExp opernot1;
     //private BooleanExp operor2;
-    
-    public NotExp(BooleanExp oper1) {
+
+    public NotExp(BooleanExp oper1)
+    {
         opernot1 = oper1;
     }
 
-    public boolean Evaluate(Context c) {
+    public boolean Evaluate(Context c)
+    {
         return !(opernot1.Evaluate(c));
     }
 
-    public BooleanExp Copy() {
+    public BooleanExp Copy()
+    {
         return new NotExp(opernot1.Copy());
     }
 
-    public BooleanExp Replace(String var, BooleanExp exp) {
+    public BooleanExp Replace(String var, BooleanExp exp)
+    {
         return new NotExp(opernot1.Replace(var, exp));
     }
 }

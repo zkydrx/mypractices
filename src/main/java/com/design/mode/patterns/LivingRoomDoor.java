@@ -1,13 +1,19 @@
 package com.design.mode.patterns;
+
 /*
  * A concrete Door for Living Room
  */
-public class LivingRoomDoor extends Door {
+public class LivingRoomDoor extends Door
+{
     private String doorName;
-    public LivingRoomDoor() {
+
+    public LivingRoomDoor()
+    {
         doorName = "LivingRoomDoor";
     }
-    public String getName() {
+
+    public String getName()
+    {
         return doorName;
     }
 }

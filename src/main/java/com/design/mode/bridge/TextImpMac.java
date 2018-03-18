@@ -1,11 +1,16 @@
 package com.design.mode.bridge;
+
 /**
- *  The ConcreteImplementor
+ * The ConcreteImplementor
  */
-public class TextImpMac implements TextImp {
-    public TextImpMac() {
+public class TextImpMac implements TextImp
+{
+    public TextImpMac()
+    {
     }
-    public void DrawTextImp() {
+
+    public void DrawTextImp()
+    {
         System.out.println("The text has a Mac style !");
     }
 }

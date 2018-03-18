@@ -1,13 +1,19 @@
 package com.design.mode.patterns;
+
 /*
  * A concrete Door for Bed Room
  */
-public class BedRoomDoor extends Door {
+public class BedRoomDoor extends Door
+{
     private String doorName;
-    public BedRoomDoor() {
+
+    public BedRoomDoor()
+    {
         doorName = "BedRoomDoor";
     }
-    public String getName() {
+
+    public String getName()
+    {
         return doorName;
     }
 }

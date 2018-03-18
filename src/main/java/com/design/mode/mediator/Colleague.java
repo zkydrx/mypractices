@@ -1,8 +1,11 @@
 package com.design.mode.mediator;
+
 /**
- *  An abstract colleague
+ * An abstract colleague
  */
-public interface Colleague {
+public interface Colleague
+{
     public void Change();
+
     public void Action();
 }
