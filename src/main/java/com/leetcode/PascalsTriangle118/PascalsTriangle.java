@@ -29,12 +29,10 @@ public class PascalsTriangle
 {
     public List<List<Integer>> generate(int numRows)
     {
-
-        List<Integer> list = new ArrayList<>();
         List<List<Integer>> result = new ArrayList<>();
         if (numRows <= 0)
         {
-            return null;
+            return result;
         }
 
         List<Integer> pre = new ArrayList<>();
