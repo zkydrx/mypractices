@@ -1,6 +1,6 @@
 package com.design.mode.flyweight;
 /**
- * A Flyweight Factory
+ * A Flyweight Shape
  */
 
 import java.util.*;

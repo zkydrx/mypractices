@@ -1,7 +1,7 @@
 package com.design.mode.patterns;
 
 /*
- * A Room Maker to test our simple Room Abstract Factory
+ * A Room Maker to test our simple Room Abstract Shape
  */
 public class RoomMaker
 {
