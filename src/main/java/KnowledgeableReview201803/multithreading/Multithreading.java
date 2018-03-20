@@ -1,6 +1,9 @@
 package KnowledgeableReview201803.multithreading;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,9 +44,10 @@ class MultithreadingOne implements Runnable
     }
 }
 
-class MultithreadingTwo implements Callable
+class MultithreadingTwo implements Callable<Integer>
 {
 
+    private int sum;
     /**
      * Computes a result, or throws an exception if unable to do so.
      *
@@ -51,10 +55,16 @@ class MultithreadingTwo implements Callable
      * @throws Exception if unable to compute a result
      */
     @Override
-    public MultithreadingOne call() throws Exception
+    public Integer call() throws Exception
     {
-        System.out.println("*");
-        return new MultithreadingOne();
+        System.out.println("Callable 子线程开始计算");
+        Thread.sleep(2000);
+        for (int i = 0; i <= 100; i++)
+        {
+            sum+=i;
+        }
+        System.out.println("Callable 子线程计算结束");
+        return sum;
     }
 }
  class TestAll
@@ -94,14 +104,44 @@ class MultithreadingTwo implements Callable
             }
         }
 
+        /**
+         * 实现Callable接口的多线程测试如下;
+         */
+        /**
+         * 1. 创建线程池
+         */
+        ExecutorService es =  Executors.newSingleThreadExecutor();
+        /**
+         * 2. 创建callable任务
+         */
         MultithreadingTwo multithreadingTwo = new MultithreadingTwo();
 
-        for (int i = 0; i < 10; i++)
+        /**
+         * 3. 提交任务并执行结果
+         */
+        Future<Integer> future = es.submit(multithreadingTwo);
+
+        /**
+         * 4. 关闭线程池
+         */
+        es.shutdown();
+
+        Thread.sleep(3000);
+        System.out.println("主线程开始执行其他任务");
+
+
+        if(future.get() != null)
         {
-            MultithreadingOne multithreadingOne1 = multithreadingTwo.call();
-            Thread thread = new Thread(multithreadingOne1);
-            thread.start();
-            Thread.sleep(1000);
+            /**
+             * 输出获取到的结果
+             */
+            System.out.println("future.get()--->"+future.get());
         }
+        else
+        {
+            System.out.println("future.get()未获取到结果");
+        }
+
+        System.out.println("主线程执行完成");
     }
 }
