@@ -39,7 +39,6 @@ public class PascalsTriangleII
 
             result.add(1);
         }
-
         return result;
     }
 }
