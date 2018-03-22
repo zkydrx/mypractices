@@ -1,5 +1,8 @@
 package com.leetcode.ValidPlaindrome125;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: Abbot
@@ -24,14 +27,16 @@ public class ValidPlaindrome
 {
     public boolean isPalindrome(String s)
     {
-        if(s.length() ==0||s ==null)
+        /**
+         * if s = "" and the result is true
+         * so I remove the s.length()=0
+         */
+        if (s == null)
         {
             return false;
         }
 
-        s.replaceAll("[^a-zA-Z0-9]","");
-        System.out.println(s);
-
+        s = regexStringTwo(s);
         for (int i = 0; i < s.length(); i++)
         {
             if (s.charAt(i) != s.charAt(s.length() - 1 - i))
@@ -42,4 +47,39 @@ public class ValidPlaindrome
 
         return true;
     }
+
+    /**
+     * format the string to that has only character and number.
+     *
+     * @param s
+     * @return
+     */
+    public String regexStringOne(String s)
+    {
+        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        System.out.println(s);
+        return s;
+    }
+
+    /**
+     * format the string to that only has number and character.
+     * @param s
+     * @return
+     */
+    public String regexStringTwo(String s)
+    {
+        String regex = "[^a-zA-Z0-9]";
+        Pattern compile = Pattern.compile(regex);
+        Matcher matcher = compile.matcher(s);
+        if (matcher.find())
+        {
+            s = matcher.replaceAll("");
+        }
+        System.out.println(s);
+        System.out.println("***");
+        System.out.println("".length());
+        return s;
+
+    }
+
 }

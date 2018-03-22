@@ -31,7 +31,7 @@ class ValidPlaindromeTest
     {
         ValidPlaindrome validPlaindrome = new ValidPlaindrome();
 
-        boolean abcdeft = validPlaindrome.isPalindrome("abcdeft");
+        boolean abcdeft = validPlaindrome.isPalindrome("a.");
 
         System.out.println(abcdeft);
     }
