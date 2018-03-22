@@ -32,7 +32,9 @@ class ValidPlaindromeTest
         ValidPlaindrome validPlaindrome = new ValidPlaindrome();
 
         boolean abcdeft = validPlaindrome.isPalindrome("a.");
+        boolean palindromeTwo = validPlaindrome.isPalindromeTwo("a.");
 
         System.out.println(abcdeft);
+        System.out.println(palindromeTwo);
     }
 }
