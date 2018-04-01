@@ -6,6 +6,8 @@ package com.leetcode.ExcelSheetColumnNumber171;
  * Date: 2018-03-31
  * Time: 22:02:13
  * Description:
+ *
+ * 171. Excel Sheet Column Number
  * Related to question Excel Sheet Column Title
  * <p>
  * Given a column title as appear in an Excel sheet, return its corresponding column number.
