@@ -27,29 +27,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.41</version>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.0</version>
-        </dependency>
 
-        <dependency>
-            <groupId>com.tyd</groupId>
-            <artifactId>pay</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google</groupId>
-            <artifactId>pay</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.facebook</groupId>
-            <artifactId>pay</artifactId>
-            <version>8.0</version>
-        </dependency>
     </dependencies>
 
 
@@ -57,24 +35,24 @@
 
 
     <!-- 公司Maven私服Nexus地址用于下载 -->
-    <repositories>
-        <repository>
-            <id>releases</id>
-            <name>Internal Releases</name>
-            <url>http://${ip}:8081/nexus/content/groups/public</url>
-        </repository>
-        <repository>
-            <id>Snapshots</id>
-            <name>Internal Snapshots</name>
-            <url>http://${ip}:8081/nexus/content/groups/public</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>releases</id>-->
+            <!--<name>Internal Releases</name>-->
+            <!--<url>http://${ip}:8081/nexus/content/groups/public</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>Snapshots</id>-->
+            <!--<name>Internal Snapshots</name>-->
+            <!--<url>http://${ip}:8081/nexus/content/groups/public</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ip>192.168.2.134</ip>
-    </properties>
+    <!--<properties>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--<ip>192.168.2.134</ip>-->
+    <!--</properties>-->
 
 
 
