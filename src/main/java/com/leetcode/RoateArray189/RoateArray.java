@@ -30,7 +30,7 @@ public class RoateArray
     {
         if(k > nums.length)
         {
-            k = k&nums.length;
+            k = k%nums.length;
         }
         int [] result = new int[nums.length];
         for (int i = 0; i < k; i++)
