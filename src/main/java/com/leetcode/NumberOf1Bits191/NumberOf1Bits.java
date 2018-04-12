@@ -21,31 +21,51 @@ public class NumberOf1Bits
     public static void main(String[] args)
     {
         int i = new NumberOf1Bits().hammingWeight(3);
-        int i1 = new NumberOf1Bits().hammingWeightOne(3);
-
         System.out.println(i);
-        System.out.println(i1);
     }
+
+//    public int hammingWeight(int n)
+//    {
+//        int count = 0;
+//        while (n > 0)
+//        {
+//            count += n & 1;
+//            n >>= 1;
+//        }
+//        return count;
+//    }
+//
+//    public int hammingWeightOne(int n)
+//    {
+//        int count = 0;
+//        while (n > 0)
+//        {
+//            n &=(n-1);
+//            count++;
+//        }
+//        return count;
+//    }
+
+
+
+
+
 
     public int hammingWeight(int n)
     {
         int count = 0;
-        while (n > 0)
+        for (int i = 1; i < 33; i++)
         {
-            count += n & 1;
-            n >>= 1;
+            if (getBit(n, i) == true)
+            {
+                count++;
+            }
         }
         return count;
     }
 
-    public int hammingWeightOne(int n)
+    public boolean getBit(int n, int i)
     {
-        int count = 0;
-        while (n > 0)
-        {
-            n &=(n-1);
-            count++;
-        }
-        return count;
+        return (n&(1<<i))!=0;
     }
 }
