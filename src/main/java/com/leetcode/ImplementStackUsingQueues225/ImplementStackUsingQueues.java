@@ -31,65 +31,58 @@ import java.util.Queue;
  */
 public class ImplementStackUsingQueues
 {
-    private Queue<Integer> q1 ;
-    private Queue<Integer> q2 ;
+        private Queue<Integer> q1 ;
+        private Queue<Integer> q2 ;
 
-    private int top;
-    public ImplementStackUsingQueues()
-    {
-        this.q1 = new LinkedList<>();
-        this.q2 = new LinkedList<>();
-        this.top=0;
-    }
-    // push element x onto stack
-
-    //    public void push(int x)
-    //    {
-    //        q1.add(x);
-    //        top = x;
-    //    }
-
-    // remove the element on the top of the stack
-    public void pop()
-    {
-        while (q1.size() > 1)
+        private int top;
+        public ImplementStackUsingQueues()
         {
-            top = q1.remove();
-            q2.add(top);
+            this.q1 = new LinkedList<>();
+            this.q2 = new LinkedList<>();
+            this.top=0;
         }
 
-        q1.remove();
-        Queue<Integer> tem = q1;
-        q1 = q2;
-        q2 = tem;
-    }
-
-    public void push(int x)
-    {
-        q2.add(x);
-        top = x;
-        while (!q1.isEmpty())
+        // remove the element on the top of the stack
+        public void pop()
         {
-            q2.add(q1.remove());
+            while (q1.size() > 1)
+            {
+                top = q1.remove();
+                q2.add(top);
+            }
+
+            q1.remove();
+            Queue<Integer> tem = q1;
+            q1 = q2;
+            q2 = tem;
         }
-        Queue<Integer> temp = q1;
 
-        q1 = q2;
-        q2 = temp;
+        public void push(int x)
+        {
+            q2.add(x);
+            top = x;
+            while (!q1.isEmpty())
+            {
+                q2.add(q1.remove());
+            }
+            Queue<Integer> temp = q1;
 
-    }
+            q1 = q2;
+            q2 = temp;
 
-    //return whether the stack is empty.
-    public boolean empty()
-    {
-        return q1.isEmpty();
-    }
+        }
+
+        //return whether the stack is empty.
+        public boolean empty()
+        {
+            return q1.isEmpty();
+        }
 
 
-    public int top()
-    {
-        return q1.peek();
-    }
+        public int top()
+        {
+            return q1.peek();
+        }
 
 
 }
