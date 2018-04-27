@@ -85,4 +85,10 @@ public class ImplementStackUsingQueues
         }
 
 
+    public static void main(String[] args)
+    {
+        ImplementStackUsingQueues queue = new ImplementStackUsingQueues();
+        queue.top=10;
+    }
+
 }
