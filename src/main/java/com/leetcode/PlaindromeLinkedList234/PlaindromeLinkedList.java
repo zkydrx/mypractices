@@ -13,11 +13,13 @@ package com.leetcode.PlaindromeLinkedList234;
  * <p>
  * Follow up:
  * Could you do it in O(n) time and O(1) space?
+ *
  */
 public class PlaindromeLinkedList
 {
     public boolean isPalindrome(ListNode head)
     {
+        System.out.println("Test");
         return false;
     }
 }
