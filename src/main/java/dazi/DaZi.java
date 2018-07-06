@@ -37,12 +37,12 @@ public class DaZi extends JFrame implements ActionListener,KeyListener
 
 
     public DaZi() {
-        super("打字练习软件");
+        super("font practice");
         setSize(500,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         l1.setFont(font);
-        l1.setText("打字练习软件");;
+        l1.setText("font");;
         p1.setLayout(new GridLayout(3,1));
         textField1.setEditable(false);
         textField2.addKeyListener(this);
@@ -116,6 +116,7 @@ public class DaZi extends JFrame implements ActionListener,KeyListener
         // TODO Auto-generated method stub
 
     }
+    @Override
     public void keyPressed(KeyEvent e) {
         // TODO Auto-generated method stub
         if((int)e.getKeyChar()>31&&(int)e.getKeyChar()<127)
