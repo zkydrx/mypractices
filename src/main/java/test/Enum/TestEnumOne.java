@@ -19,7 +19,12 @@ public class TestEnumOne
     }
 }
 
-enum Week implements FUN{
+/**
+ * 可以实现接口例如FUN接口
+ * 可以实现抽象方法doWork();
+ */
+enum Week implements FUN
+{
     MON("星期一")
             {
                 @Override
@@ -124,9 +129,10 @@ enum Week implements FUN{
                 }
             };
     private String name;
+
     private Week(String name)
     {
-        this.name =name;
+        this.name = name;
     }
 
     public String getName()
@@ -138,6 +144,7 @@ enum Week implements FUN{
 
 }
 
-interface FUN{
+interface FUN
+{
     String doSomething(String str);
 }
