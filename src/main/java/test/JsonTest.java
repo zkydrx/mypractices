@@ -77,5 +77,20 @@ public class JsonTest
         System.out.println(jsonObject.toJSONString());
 
         System.out.println(jsonArray.toJSONString());
+
+
+        JSONArray jsonArray1 = new JSONArray();
+
+        jsonArray1.add(0,"ok0");
+        jsonArray1.add(1,"ok1");
+        jsonArray1.add(2,"ok2");
+        jsonArray1.add(3,"ok3");
+        jsonArray1.add(4,"ok4");
+        jsonArray1.add(5,"ok5");
+        jsonArray1.add(6,"ok6");
+        jsonArray1.add(7,"ok7");
+        jsonArray1.add(8,"ok8");
+
+        System.out.println(jsonArray1);
     }
 }
