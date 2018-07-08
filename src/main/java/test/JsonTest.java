@@ -37,6 +37,9 @@ public class JsonTest
         jsonObject.put("zky5", "drx5");
         jsonObject.put("data", jsonArray);
         /**
+         *
+         这是组装好以后的json格式的数据。从下面的组装情况来看。说明json组装的报文是无序列的。
+         就是并不是按照先后的put顺序而进行排列展示的。
          * {
          "zky1": "drx1",
          "zky3": "drx3",

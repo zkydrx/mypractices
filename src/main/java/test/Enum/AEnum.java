@@ -9,7 +9,10 @@ package test.Enum;
  */
 public enum AEnum
 {
-    A111("A", "a"), B111("B", "b"), C111("C", "c"), D111("D", "d");
+    A111("A", "a"),
+    B111("B", "b"),
+    C111("C", "c"),
+    D111("D", "d");
     private String code;
     private String desc;
 
