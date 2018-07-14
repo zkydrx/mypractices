@@ -93,4 +93,70 @@ public class JsonTest
 
         System.out.println(jsonArray1);
     }
+
+    @Test
+    public void testKindsOfJson()
+    {
+        /**
+         * kinds of one
+         * {"String":"value"}
+         * {"apple6":"iphone6","apple7":"iphone7","apple4":"iphone4","apple5":"iphone5"}
+         */
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("apple4","iphone4");
+        jsonObject.put("apple5","iphone5");
+        jsonObject.put("apple6","iphone6");
+        jsonObject.put("apple7","iphone7");
+
+        System.out.println(jsonObject);
+
+        /**
+         * kinds of two
+         * ["value"]
+         * ["google1","google2","google3","google4"]
+         */
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(0,"google1");
+        jsonArray.add(1,"google2");
+        jsonArray.add(2,"google3");
+        jsonArray.add(3,"google4");
+        System.out.println(jsonArray);
+
+
+        /**
+         * kinds of three
+         * {"String":["value"]}
+         * {"fruit":["apple","banana","tmatoes"]}
+         */
+        JSONObject jsonObject1 = new JSONObject();
+        JSONArray jsonArray1 = new JSONArray();
+
+        jsonArray1.add("apple");
+        jsonArray1.add("banana");
+        jsonArray1.add("tmatoes");
+
+        jsonObject1.put("fruit",jsonArray1);
+
+        System.out.println(jsonObject1);
+
+        /**
+         * kinds of four
+         * [{"String":"value","String":"value"}]
+         * [{"price":5000,"name":"tree","age":26,"height":30}]
+         */
+        JSONObject jsonObject2 = new JSONObject();
+        JSONArray jsonArray2 = new JSONArray();
+
+        jsonObject2.put("name","tree");
+        jsonObject2.put("age",26);
+        jsonObject2.put("height",30);
+        jsonObject2.put("price",5000);
+
+        jsonArray2.add(jsonObject2);
+
+        System.out.println(jsonArray2);
+
+
+
+    }
 }
