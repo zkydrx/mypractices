@@ -92,6 +92,16 @@ public class JsonTest
         jsonArray1.add(8,"ok8");
 
         System.out.println(jsonArray1);
+
+
+        /**
+         * test the override the value
+         * find the key and put the new values.
+         */
+
+        jsonObject.put("zky1","I was changed.");
+
+        System.out.println(jsonObject);
     }
 
     @Test
