@@ -167,6 +167,129 @@ public class JsonTest
         System.out.println(jsonArray2);
 
 
+        /**
+         * {
+         "A": [
+         {
+         "id": "1",
+         "name": "Apple",
+         "price": "3"
+         },
+         {
+         "id": "2",
+         "name": "Avocado",
+         "price": "22"
+         },
+         {
+         "id": "3",
+         "name": "Orange",
+         "price": "2"
+         }
+         ],
+         "B": [
+         {
+         "id": "4",
+         "name": "Durian",
+         "price": "50"
+         },
+         {
+         "id": "5",
+         "name": "Lichee",
+         "price": "6"
+         },
+         {
+         "id": "6",
+         "name": "Potato",
+         "price": "1"
+         }
+         ],
+         "C": [
+         {
+         "id": "7",
+         "name": "Tomato",
+         "price": "1"
+         },
+         {
+         "id": "8",
+         "name": "Banana",
+         "price": "2.5"
+         },
+         {
+         "id": "9",
+         "name": "Watermelon",
+         "price": "1"
+         }
+         ]
+         }
+         */
+
+        JSONObject jsonObject4 = new JSONObject();
+        JSONArray jsonArray4 = new JSONArray();
+        JSONObject jsonObject5 = new JSONObject();
+
+        jsonObject5.put("id","1");
+        jsonObject5.put("name","Apple");
+        jsonObject5.put("price","3");
+        jsonArray4.add(jsonObject5);
+
+        JSONObject jsonObject6 = new JSONObject();
+        jsonObject6.put("id","2");
+        jsonObject6.put("name","Avocado");
+        jsonObject6.put("price","22");
+        jsonArray4.add(jsonObject6);
+
+        JSONObject jsonObject7 = new JSONObject();
+        jsonObject7.put("id","3");
+        jsonObject7.put("name","Orange");
+        jsonObject7.put("price","2");
+        jsonArray4.add(jsonObject7);
+
+        jsonObject4.put("A",jsonArray4);
+
+        JSONArray jsonArray5 = new JSONArray();
+        JSONObject jsonObject8 = new JSONObject();
+        jsonObject8.put("id","4");
+        jsonObject8.put("name","Durian");
+        jsonObject8.put("price","50");
+        jsonArray5.add(jsonObject8);
+
+        JSONObject jsonObject9 = new JSONObject();
+        jsonObject9.put("id","5");
+        jsonObject9.put("name","Lichee");
+        jsonObject9.put("price","6");
+        jsonArray5.add(jsonObject9);
+
+        JSONObject jsonObject10 = new JSONObject();
+        jsonObject10.put("id","6");
+        jsonObject10.put("name","Potato");
+        jsonObject10.put("price","1");
+        jsonArray5.add(jsonObject10);
+
+        jsonObject4.put("B",jsonArray5);
+
+
+        JSONArray jsonArray6 =  new JSONArray();
+        JSONObject jsonObject11 = new JSONObject();
+        jsonObject11.put("id","7");
+        jsonObject11.put("name","Tomato");
+        jsonObject11.put("price","1");
+        jsonArray6.add(jsonObject11);
+
+        JSONObject jsonObject12 = new JSONObject();
+        jsonObject12.put("id","8");
+        jsonObject12.put("name","Banana");
+        jsonObject12.put("price","2.5");
+        jsonArray6.add(jsonObject12);
+
+        JSONObject jsonObject13 = new JSONObject();
+        jsonObject13.put("id","1");
+        jsonObject13.put("name","Watermelon");
+        jsonObject13.put("price","2");
+        jsonArray6.add(jsonObject13);
+
+        jsonObject4.put("C",jsonArray6);
+
+        System.out.println("########$$$$$$$$$$$$$$$$$$$$$$$:"+jsonObject4.toJSONString());
 
     }
 }
