@@ -1,0 +1,32 @@
+package workTest;
+
+import com.alibaba.fastjson.JSONObject;
+import org.junit.jupiter.api.Test;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+/**
+ * Created with IntelliJ IDEA.
+ * Author: zky
+ * Date: 2018-07-24
+ * Time: 19:48:29
+ * Description:
+ */
+public class TestAPI
+{
+
+
+    /**
+     * Post Request
+     */
+    @Test
+    public void testRestfulAPI()
+    {
+        JSONObject jsonObject = new JSONObject();
+        RestTemplate sender = new RestTemplate();
+        MultiValueMap<String, String> requestParamMap = new LinkedMultiValueMap<String, String>();
+        requestParamMap.add("params", jsonObject.toJSONString());
+        String response = sender.postForObject("http://localhost:8084/XXX/XXX", requestParamMap, String.class);
+    }
+}
