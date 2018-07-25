@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import utils.SSLUtil;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,6 +25,10 @@ public class TestAPI
     public void testRestfulAPI()
     {
         JSONObject jsonObject = new JSONObject();
+        /**
+         * trust anyBody.
+         */
+        SSLUtil.trustEveryone();
         RestTemplate sender = new RestTemplate();
         MultiValueMap<String, String> requestParamMap = new LinkedMultiValueMap<String, String>();
         requestParamMap.add("params", jsonObject.toJSONString());
