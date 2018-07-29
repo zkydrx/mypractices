@@ -166,7 +166,26 @@ public class JsonTest
 
         System.out.println(jsonArray2);
 
+        JSONObject jsonObject3  =new JSONObject();
 
+        JSONArray jsonArray3 = new JSONArray();
+
+
+        jsonObject3.put("name","牛肉");
+        jsonObject3.put("id",1);
+        jsonObject3.put("price",30);
+        jsonObject3.put("sign","1");
+        jsonObject3.put("name","猪肉");
+        jsonObject3.put("id",2);
+        jsonObject3.put("price",10);
+        jsonObject3.put("sign","2");
+        jsonObject3.put("name","鱼肉");
+        jsonObject3.put("id",3);
+        jsonObject3.put("price",20);
+        jsonObject3.put("sign","3");
+
+        jsonArray3.add(jsonObject3);
+        System.out.println(jsonArray3);
         /**
          * {
          "A": [
@@ -289,7 +308,8 @@ public class JsonTest
 
         jsonObject4.put("C",jsonArray6);
 
-        System.out.println("########$$$$$$$$$$$$$$$$$$$$$$$:"+jsonObject4.toJSONString());
+
+
 
     }
 }
