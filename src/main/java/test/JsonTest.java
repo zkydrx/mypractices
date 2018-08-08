@@ -337,6 +337,6 @@ public class JsonTest
         jsonArray.add(Long.parseLong("1"));
         jsonArray.add(2L);
         jsonArray.add(3L);
-        checkRepetitionValue(jsonArray,1L);
+        boolean b = checkRepetitionValue(jsonArray, 1L);
     }
 }
