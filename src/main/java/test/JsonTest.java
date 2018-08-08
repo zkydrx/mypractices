@@ -312,4 +312,31 @@ public class JsonTest
 
 
     }
+
+
+
+    public boolean checkRepetitionValue(JSONArray jsonArray,Long id)
+    {
+        for (Object obj : jsonArray)
+        {
+            Long lon= (Long) obj;
+//            Long lon= Long.parseLong(obj.toString());
+            if (id.compareTo(lon)==0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Test
+    public void testObjectToLong ()
+    {
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.add(Long.parseLong("1"));
+        jsonArray.add(2L);
+        jsonArray.add(3L);
+        checkRepetitionValue(jsonArray,1L);
+    }
 }
