@@ -1,6 +1,12 @@
 package utils.springframework;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.AlternativeJdkIdGenerator;
+import org.springframework.util.Base64Utils;
+
+import java.math.BigDecimal;
+import java.util.UUID;
 
 
 /**
@@ -22,9 +28,11 @@ public class AllUtilsPractices
         car.setPrice(BigDecimal.valueOf(200000));
         car.setTradeMark("Audi");
         Person person = new Person();
-        BeanUtils.copyProperties(car,person);
+        BeanUtils.copyProperties(car, person);
         System.out.println(person.toString());
     }
+
+    @Test
     public void testAlternativeJdkIdGenerator()
     {
 
