@@ -20,7 +20,7 @@ public class RegexUtils
     @Test
     public void testRegexCharacherAndNumber()
     {
-        String content = "";
+        String content = "天神_渡劫";
 
         /**
          * 特殊字符
@@ -30,9 +30,9 @@ public class RegexUtils
         Matcher matcher = pattern.matcher(content);
 
         /**
-         * 数字和英文字符以及下划线
+         * 数字和英文字符和下划线
          */
-        String regexNum = "^\\w+$";
+        String regexNum = "[A-Za-z0-9_]";
         Pattern patternNum = Pattern.compile(regexNum);
         Matcher matcherNum = patternNum.matcher(content);
 
@@ -40,5 +40,19 @@ public class RegexUtils
         {
             System.out.println("输入字符串中含有特殊字符或者英文和数字以及下划线");
         }
+
+
+
+
+        String regexFont = "[\\u4e00-\\u9fa5]";
+        Pattern patternFont = Pattern.compile(regexFont);
+        Matcher matcherFont = patternFont.matcher(content);
+
+        if(matcherFont.find())
+        {
+            System.out.println("字符串中存在汉字！！！！！！！！！！！！！");
+        }
+
+
     }
 }
