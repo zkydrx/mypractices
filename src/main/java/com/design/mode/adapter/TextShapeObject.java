@@ -13,11 +13,13 @@ public class TextShapeObject implements Shape
         txt = t;
     }
 
+    @Override
     public void Draw()
     {
         System.out.println("Draw a shap ! Impelement Shape interface !");
     }
 
+    @Override
     public void Border()
     {
         System.out.println("Set the border of the shap ! Impelement Shape interface !");

@@ -5,5 +5,5 @@ package com.design.mode.bridge;
  */
 public interface TextImp
 {
-    public abstract void DrawTextImp();
+    void DrawTextImp();
 }
