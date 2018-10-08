@@ -11,35 +11,35 @@ public class SanWeiShuZu
 {
     public void myArray() throws FileNotFoundException
     {
-        int [][][] a = new int[10][10][10];
-        for(int i = 0; i < a.length; i++)
+        int[][][] a = new int[10][10][10];
+        for (int i = 0; i < a.length; i++)
         {
-            for(int j = 0; j < a[i].length; j++)
+            for (int j = 0; j < a[i].length; j++)
             {
-                for(int k= 0; k<a[i][j].length;k++)
+                for (int k = 0; k < a[i][j].length; k++)
                 {
-                    a[i][j][k] = i*j*k;
+                    a[i][j][k] = i * j * k;
                 }
             }
         }
         FileWriter fileWriter = null;
         try
         {
-           fileWriter = new FileWriter("D:\\file\\mytest\\a.txt");
-        for(int i = 0; i < a.length; i++)
-        {
-            for(int j = 0; j < a[i].length; j++)
+            fileWriter = new FileWriter("D:\\file\\mytest\\a.txt");
+            for (int i = 0; i < a.length; i++)
             {
-                for(int k= 0; k<a[i][j].length;k++)
+                for (int j = 0; j < a[i].length; j++)
                 {
-                    System.out.print("a["+i+"]["+j+"]["+k+"]="+a[i][j][k]);
-                    fileWriter.write("a["+i+"]["+j+"]["+k+"]="+a[i][j][k]+"\t");
-                    fileWriter.flush();
+                    for (int k = 0; k < a[i][j].length; k++)
+                    {
+                        System.out.print("a[" + i + "][" + j + "][" + k + "]=" + a[i][j][k]);
+                        fileWriter.write("a[" + i + "][" + j + "][" + k + "]=" + a[i][j][k] + "\t");
+                        fileWriter.flush();
+                    }
+                    System.out.println("****************************************************************");
                 }
-                System.out.println("****************************************************************");
+                System.out.println("#################################################################");
             }
-            System.out.println("#################################################################");
-        }
         }
         catch (IOException e)
         {
@@ -47,7 +47,7 @@ public class SanWeiShuZu
         }
         finally
         {
-            if(fileWriter != null)
+            if (fileWriter != null)
             {
                 try
                 {
