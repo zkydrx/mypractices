@@ -95,7 +95,7 @@ public class BinAddPlus
         /**
          * 测试用
          */
-        long l = binAddPlus.changeLong("1111");
+        long l = BinAddPlus.changeLong("1111");
 
         System.out.println(l);
 

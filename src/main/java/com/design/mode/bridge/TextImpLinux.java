@@ -9,6 +9,7 @@ public class TextImpLinux implements TextImp
     {
     }
 
+    @Override
     public void DrawTextImp()
     {
         System.out.println("The text has a Linux style !");
