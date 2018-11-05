@@ -23,7 +23,7 @@ public class AllUtilsPractices
     {
         Car car = new Car();
         car.setName("Audi");
-        car.setHeight(BigDecimal.valueOf(3000L));
+        car.setWeight(BigDecimal.valueOf(3000L));
         car.setHeight(BigDecimal.valueOf(1.5));
         car.setPrice(BigDecimal.valueOf(200000));
         car.setTradeMark("Audi");

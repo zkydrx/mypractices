@@ -5,7 +5,7 @@ package com.design.mode.adapter;
  */
 public interface Shape
 {
-    public void Draw();
+    void Draw();
 
-    public void Border();
+    void Border();
 }
