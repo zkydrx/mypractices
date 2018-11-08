@@ -58,7 +58,7 @@ public class HashMapPractice
             }
         }
 
-        System.out.println("map: " + map);
+        System.out.println("hashMap: " + map);
 
         int max = 0;
         Character ch1 = null;

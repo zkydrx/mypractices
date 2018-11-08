@@ -73,7 +73,7 @@ public class HttpUtil
     /**
      * Send a get request
      * @param url         Url as string
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -86,7 +86,7 @@ public class HttpUtil
      * Send a post request
      * @param url         Url as string
      * @param body        Request body as string
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -110,7 +110,7 @@ public class HttpUtil
     /**
      * Post a form with parameters
      * @param url         Url as string
-     * @param params      map with parameters/values
+     * @param params      hashMap with parameters/values
      * @return response   Response as string
      * @throws IOException
      */
@@ -123,7 +123,7 @@ public class HttpUtil
      * Post a form with parameters
      * @param url         Url as string
      * @param params      Map with parameters/values
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -165,7 +165,7 @@ public class HttpUtil
      * Send a put request
      * @param url         Url as string
      * @param body        Request body as string
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -188,7 +188,7 @@ public class HttpUtil
     /**
      * Send a delete request
      * @param url         Url as string
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -311,7 +311,7 @@ public class HttpUtil
      * @param method      HTTP method, for example "GET" or "POST"
      * @param url         Url as string
      * @param body        Request body as string
-     * @param headers     Optional map with headers
+     * @param headers     Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */

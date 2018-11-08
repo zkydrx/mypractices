@@ -13,7 +13,7 @@ import java.util.Arrays;
  * Two strings are isomorphic if the characters in s can be replaced to get t.
  * <p>
  * All occurrences of a character must be replaced with another character while preserving the order of characters.
- * No two characters may map to the same character but a character may map to itself.
+ * No two characters may hashMap to the same character but a character may hashMap to itself.
  * 样例
  * Given s = "egg", t = "add", return true.
  * <p>
@@ -42,7 +42,7 @@ public class StringsHomomorphism
         Arrays.fill(marked, Boolean.FALSE);
 
         //To store mapping of every character from str1 to
-        // tha of str2. Initialize all entries of map as -1
+        // tha of str2. Initialize all entries of hashMap as -1
         int[] map = new int[size];
         Arrays.fill(map, -1);
 

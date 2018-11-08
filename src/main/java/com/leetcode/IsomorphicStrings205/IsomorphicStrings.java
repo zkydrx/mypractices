@@ -17,7 +17,7 @@ import java.util.HashMap;
  * Two strings are isomorphic if the characters in s can be replaced to get t.
  * <p>
  * All occurrences of a character must be replaced with another character while preserving the order of characters.
- * No two characters may map to the same character but a character may map to itself.
+ * No two characters may hashMap to the same character but a character may hashMap to itself.
  * <p>
  * For example,
  * Given "egg", "add", return true.
@@ -80,7 +80,7 @@ public class IsomorphicStrings
         //            return false;
         //        }
         //
-        //        HashMap<Character, Character> map = new HashMap<Character, Character>();
+        //        HashMap<Character, Character> hashMap = new HashMap<Character, Character>();
         //
         //
         //        for (int i = 0; i < s.length(); i++)
@@ -88,20 +88,20 @@ public class IsomorphicStrings
         //            char c1 = s.charAt(i);
         //            char c2 = t.charAt(i);
         //
-        //            if (map.containsKey(c1))
+        //            if (hashMap.containsKey(c1))
         //            {
-        //                if (map.get(c1) != c2)// if not consistant with previous ones
+        //                if (hashMap.get(c1) != c2)// if not consistant with previous ones
         //                {
         //                    return false;
         //                }
         //            }
         //            else
         //            {
-        //                if (map.containsValue(c2)) //if c2 is already being mapped. Time complexity O(n) here
+        //                if (hashMap.containsValue(c2)) //if c2 is already being mapped. Time complexity O(n) here
         //                {
         //                    return false;
         //                }
-        //                map.put(c1, c2);
+        //                hashMap.put(c1, c2);
         //            }
         //        }
         //
