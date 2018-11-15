@@ -48,6 +48,17 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.6.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>5.0.6.RELEASE</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.jfree/jcommon -->
         <dependency>
             <groupId>org.jfree</groupId>
