@@ -42,17 +42,40 @@ public class RegexUtils
         }
 
 
-
-
         String regexFont = "[\\u4e00-\\u9fa5]";
         Pattern patternFont = Pattern.compile(regexFont);
         Matcher matcherFont = patternFont.matcher(content);
 
-        if(matcherFont.find())
+        if (matcherFont.find())
         {
             System.out.println("字符串中存在汉字！！！！！！！！！！！！！");
         }
 
+
+    }
+
+    @Test
+    public void testIsDigit()
+    {
+        /**
+         * 判断一个字符串是否都为数字
+         */
+        String strNum = "123";
+        String strNum1 = "1231q";
+        String strNum2 = "1231*";
+        String strNum3 = "1231  ";
+        String strNum4 = "123_";
+
+        //true is digit
+        System.out.println(strNum.matches("[0-9]{1,}"));
+        //false contain character
+        System.out.println(strNum1.matches("[0-9]{1,}"));
+        //false contain *
+        System.out.println(strNum2.matches("[0-9]{1,}"));
+        //false contain blank
+        System.out.println(strNum3.matches("[0-9]{1,}"));
+        //false contain _
+        System.out.println(strNum4.matches("[0-9]{1,}"));
 
     }
 }
