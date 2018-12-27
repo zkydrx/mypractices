@@ -1,10 +1,13 @@
 package workTest.huTool;
 
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpResponse;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSONObject;
 
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,14 +20,20 @@ public class HuToolTest
 {
     public static void main(String[] args)
     {
-        File file = FileUtil.file("\\\\192.168.50.11\\公共文件夹\\2018\\2.8其他\\1.加班调休统计表\\技术部\\2018技术部加班调休统计表.xls");
-        HttpRequest request = HttpRequest
-                .post("http://localhost:8889/file/upload")
-                .form("file", file)
-                .form("fileType", "图片");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("zky1","drx1");
+        jsonObject.put("zky2","drx2");
+        jsonObject.put("zky3","drx3");
+        JSONArray array = JSONUtil.createArray();
+        array.add(jsonObject);
+        Map<String,String> map = new HashMap<>();
+        map.put("1","123");
+        array.add(map);
+        System.out.println(array);
+        DateTime date = DateUtil.date();
+        System.out.println(date);
+        DateTime dateTime = DateUtil.parseDateTime(date.toString());
 
-        HttpResponse response = request.execute();
-        System.out.println(response.body());
 
     }
 }
