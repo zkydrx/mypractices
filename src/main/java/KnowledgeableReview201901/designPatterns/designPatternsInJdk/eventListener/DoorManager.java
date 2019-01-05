@@ -16,7 +16,7 @@ import java.util.Iterator;
  */
 public class DoorManager
 {
-    private Collection listeners;
+    private Collection list;
 
     /**
      * 添加事件
@@ -25,11 +25,11 @@ public class DoorManager
      */
     public void addDoorListener(DoorListener listener)
     {
-        if (listeners == null)
+        if (list == null)
         {
-            listeners = new HashSet();
+            list = new HashSet();
         }
-        listeners.add(listener);
+        list.add(listener);
     }
 
     /**
@@ -39,11 +39,11 @@ public class DoorManager
      */
     public void removeDoorListener(DoorListener listener)
     {
-        if (listeners == null)
+        if (list == null)
         {
             return;
         }
-        listeners.remove(listener);
+        list.remove(listener);
     }
 
     /**
@@ -51,7 +51,7 @@ public class DoorManager
      */
     protected void fireWorkspaceOpened()
     {
-        if (listeners == null)
+        if (list == null)
         {
             return;
         }
@@ -64,7 +64,7 @@ public class DoorManager
      */
     protected void fireWorkspaceClosed()
     {
-        if (listeners == null)
+        if (list == null)
         {
             return;
         }
@@ -77,7 +77,7 @@ public class DoorManager
      */
     private void notifyListeners(DoorEvent event)
     {
-        Iterator iter = listeners.iterator();
+        Iterator iter = list.iterator();
         while (iter.hasNext())
         {
             DoorListener listener = (DoorListener) iter.next();
