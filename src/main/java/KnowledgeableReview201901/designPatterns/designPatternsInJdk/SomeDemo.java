@@ -1,11 +1,18 @@
 package KnowledgeableReview201901.designPatterns.designPatternsInJdk;
 
+import cn.hutool.core.date.DateUtil;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
+import java.util.Timer;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -200,6 +207,170 @@ public class SomeDemo implements Cloneable
         list.add(dog);
         List list1 = Collections.checkedList(list, Dog.class);
         System.out.println(list1);
+
+        /**
+         * 享元模式(Flyweight)
+         */
+        Integer integer = Integer.valueOf("123");
+        System.out.println(integer);
+    }
+
+    /**
+     * 行为型模式：
+     * (1) 职责链模式(Chain of Responsibility)
+     * •java.util.logging.Logger#log()
+     * •javax.servlet.Filter#doFilter()
+     *
+     * (2) 命令模式(Command)
+     * • java.lang.Runnable
+     * • javax.swing.Action
+     *
+     * (3) 解释器模式(Interpreter)
+     * • java.util.Pattern
+     * • java.text.Normalizer
+     * • java.text.Format
+     * • javax.el.ELResolver
+     *
+     * (4) 迭代器模式(Iterator)
+     * • java.util.Iterator
+     * • java.util.Enumeration
+     *
+     * (5) 中介者模式(Mediator)
+     * • java.util.Timer (所有scheduleXXX()方法)
+     * • java.util.concurrent.Executor#execute()
+     * • java.util.concurrent.ExecutorService (invokeXXX()和submit()方法)
+     * • java.util.concurrent.ScheduledExecutorService (所有scheduleXXX()方法)
+     * •java.lang.reflect.Method#invoke()
+     *
+     * (6) 备忘录模式(Memento)
+     * •java.util.Date
+     * •java.io.Serializable
+     * •javax.faces.component.StateHolder
+     *
+     * (7) 观察者模式(Observer)
+     * •java.util.Observer/java.util.Observable
+     * •java.util.EventListener (所有子类)
+     * •javax.servlet.http.HttpSessionBindingListener
+     * •javax.servlet.http.HttpSessionAttributeListener
+     * •javax.faces.event.PhaseListener
+     *
+     * (8) 状态模式(State)
+     * •java.util.Iterator
+     * •javax.faces.lifecycle.LifeCycle#execute()
+     *
+     * (9) 策略模式(Strategy)
+     * • java.util.Comparator#compare()
+     * • javax.servlet.http.HttpServlet
+     * • javax.servlet.Filter#doFilter()
+     *
+     * (10) 模板方法模式(Template Method)
+     * •java.io.InputStream, java.io.OutputStream, java.io.Reader和java.io.Writer的所有非抽象方法
+     * •java.util.AbstractList, java.util.AbstractSet和java.util.AbstractMap的所有非抽象方法
+     * •javax.servlet.http.HttpServlet#doXXX()
+     *
+     * (11) 访问者模式(Visitor)
+     * •javax.lang.model.element.AnnotationValue和AnnotationValueVisitor
+     * •javax.lang.model.element.Element和ElementVisitor
+     * •javax.lang.model.type.TypeMirror和TypeVisitor
+     */
+    @Test
+    public void testAction() throws InterruptedException
+    {
+        /**
+         * 职责链模式(Chain of Responsibility)
+         */
+        String name = Logger.getGlobal().getName();
+        System.out.println(name);
+
+        /**
+         * 命令模式(Command)
+         */
+        System.out.println(Action.NAME);
+        /**
+         * 解释器模式(Interpreter)
+         */
+        String reg = "\\d{1,}";
+        Pattern pattern = Pattern.compile(reg);
+        Matcher matcher =pattern.matcher("12312312");
+        System.out.println(matcher.find());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+        String format = simpleDateFormat.format(new Date());
+        System.out.println(format);
+
+        /**
+         * 迭代器模式(Iterator)
+         */
+        List<Integer> ints = Arrays.asList(new Integer[]{1, 2, 3, 4, 32, 32, 423, 4323, 323});
+
+        Iterator iterator = ints.iterator();
+        while (iterator.hasNext())
+        {
+            System.out.print(iterator.next()+"\t");
+        }
+
+        System.out.println("\n***********************************************");
+        /**
+         * 中介者模式(Mediator)
+         */
+        new Timer().schedule(new TimerTask()
+        {
+
+            @Override
+            public void run()
+            {
+                System.out.println("delay1000");
+            }
+            //如果延时1000毫秒的话，线程要在最后有个等待，否则线程执行完后就停止了，就不会打印run里的delay1000
+        },1);
+
+        Thread.sleep(1000);
+
+        /**
+         * 备忘录模式(Memento)
+         */
+        Date date = new Date();
+        System.out.println(date.getTime());
+        System.out.println(date.compareTo(DateUtil.parseDate("2018年12月31日 00:00:00")));
+
+        /**
+         * 观察者模式(Observer)
+         */
+        EventListener eventListener = new EventListener()
+        {
+            @Override
+            public int hashCode()
+            {
+                return super.hashCode();
+            }
+
+            @Override
+            public boolean equals(Object obj)
+            {
+                return super.equals(obj);
+            }
+
+            @Override
+            protected Object clone() throws CloneNotSupportedException
+            {
+                return super.clone();
+            }
+
+            @Override
+            public String toString()
+            {
+                return super.toString();
+            }
+
+            @Override
+            protected void finalize() throws Throwable
+            {
+                super.finalize();
+            }
+        };
+
+        System.out.println(eventListener);
+
 
     }
 }
