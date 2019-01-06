@@ -1,11 +1,15 @@
 package KnowledgeableReview201901.designPatterns.designPatternsInJdk;
 
+import KnowledgeableReview201901.designPatterns.designPatternsInJdk.comparable.Person;
 import cn.hutool.core.date.DateUtil;
 import org.junit.jupiter.api.Test;
 
+import javax.lang.model.element.*;
+import javax.lang.model.type.TypeMirror;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.lang.annotation.Annotation;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
@@ -126,35 +130,35 @@ public class SomeDemo implements Cloneable
      * •java.io.OutputStreamWriter(OutputStream)
      * •javax.xml.bind.annotation.adapters.XmlAdapter#marshal()
      * •javax.xml.bind.annotation.adapters.XmlAdapter#unmarshal()
-     *
+     * <p>
      * (2) 桥接模式(Bridge)
      * • AWT (提供了抽象层映射于实际的操作系统)
      * •JDBC
-     *
+     * <p>
      * (3) 组合模式(Composite)
      * •javax.swing.JComponent#add(Component)
      * •java.awt.Container#add(Component)
      * •java.util.Map#putAll(Map)
      * •java.util.List#addAll(Collection)
      * •java.util.Set#addAll(Collection)
-     *
+     * <p>
      * (4) 装饰模式(Decorator)
      * •java.io.BufferedInputStream(InputStream)
      * •java.io.DataInputStream(InputStream)
      * •java.io.BufferedOutputStream(OutputStream)
      * •java.util.zip.ZipOutputStream(OutputStream)
      * •java.util.Collections#checked[List|Map|Set|SortedSet|SortedMap]()
-     *
+     * <p>
      * (5) 外观模式(Facade)
      * •java.lang.Class
      * •javax.faces.webapp.FacesServlet
-     *
+     * <p>
      * (6) 享元模式(Flyweight)
      * •java.lang.Integer#valueOf(int)
      * •java.lang.Boolean#valueOf(boolean)
      * • java.lang.Byte#valueOf(byte)
      * •java.lang.Character#valueOf(char)
-     *
+     * <p>
      * (7) 代理模式(Proxy)
      * • java.lang.reflect.Proxy
      * •java.rmi.*
@@ -171,24 +175,24 @@ public class SomeDemo implements Cloneable
         outputStreamWriter.write("Fly with me!");
         outputStreamWriter.flush();
 
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("D:\\document\\temp" +
-                ".txt")));
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("D:\\document\\temp"
+                + ".txt")));
         int charread;
         char[] tempchars = new char[10];
-        while ((charread= inputStreamReader.read(tempchars)) != -1)
+        while ((charread = inputStreamReader.read(tempchars)) != -1)
         {
-            for (int i = 0; i <charread ; i++)
+            for (int i = 0; i < charread; i++)
             {
                 System.out.print(tempchars[i]);
             }
         }
-        BufferedReader bufferedReader =new BufferedReader(inputStreamReader);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         System.out.println(inputStreamReader.read());
         String lineText = null;
         /**
          * BufferedReader无法读取首行的首个字符，是个bug.
          */
-        while ((lineText=bufferedReader.readLine()) != null)
+        while ((lineText = bufferedReader.readLine()) != null)
         {
             System.out.println(lineText);
         }
@@ -197,13 +201,13 @@ public class SomeDemo implements Cloneable
          * 组合模式(Composite)
          */
         List list = new ArrayList();
-        list.addAll(Arrays.asList(new String[]{"123","Github","git","Linux","FreeBSD","docker","Maven"}));
+        list.addAll(Arrays.asList(new String[]{"123", "Github", "git", "Linux", "FreeBSD", "docker", "Maven"}));
         System.out.println(list);
 
         /**
          * 装饰模式(Decorator)
          */
-        Dog dog = new Dog(1L,"amy","12","red","20");
+        Dog dog = new Dog(1L, "amy", "12", "red", "20");
         list.add(dog);
         List list1 = Collections.checkedList(list, Dog.class);
         System.out.println(list1);
@@ -220,61 +224,61 @@ public class SomeDemo implements Cloneable
      * (1) 职责链模式(Chain of Responsibility)
      * •java.util.logging.Logger#log()
      * •javax.servlet.Filter#doFilter()
-     *
+     * <p>
      * (2) 命令模式(Command)
      * • java.lang.Runnable
      * • javax.swing.Action
-     *
+     * <p>
      * (3) 解释器模式(Interpreter)
      * • java.util.Pattern
      * • java.text.Normalizer
      * • java.text.Format
      * • javax.el.ELResolver
-     *
+     * <p>
      * (4) 迭代器模式(Iterator)
      * • java.util.Iterator
      * • java.util.Enumeration
-     *
+     * <p>
      * (5) 中介者模式(Mediator)
      * • java.util.Timer (所有scheduleXXX()方法)
      * • java.util.concurrent.Executor#execute()
      * • java.util.concurrent.ExecutorService (invokeXXX()和submit()方法)
      * • java.util.concurrent.ScheduledExecutorService (所有scheduleXXX()方法)
      * •java.lang.reflect.Method#invoke()
-     *
+     * <p>
      * (6) 备忘录模式(Memento)
      * •java.util.Date
      * •java.io.Serializable
      * •javax.faces.component.StateHolder
-     *
+     * <p>
      * (7) 观察者模式(Observer)
      * •java.util.Observer/java.util.Observable
      * •java.util.EventListener (所有子类)
      * •javax.servlet.http.HttpSessionBindingListener
      * •javax.servlet.http.HttpSessionAttributeListener
      * •javax.faces.event.PhaseListener
-     *
+     * <p>
      * (8) 状态模式(State)
      * •java.util.Iterator
      * •javax.faces.lifecycle.LifeCycle#execute()
-     *
+     * <p>
      * (9) 策略模式(Strategy)
      * • java.util.Comparator#compare()
      * • javax.servlet.http.HttpServlet
      * • javax.servlet.Filter#doFilter()
-     *
+     * <p>
      * (10) 模板方法模式(Template Method)
      * •java.io.InputStream, java.io.OutputStream, java.io.Reader和java.io.Writer的所有非抽象方法
      * •java.util.AbstractList, java.util.AbstractSet和java.util.AbstractMap的所有非抽象方法
      * •javax.servlet.http.HttpServlet#doXXX()
-     *
+     * <p>
      * (11) 访问者模式(Visitor)
      * •javax.lang.model.element.AnnotationValue和AnnotationValueVisitor
      * •javax.lang.model.element.Element和ElementVisitor
      * •javax.lang.model.type.TypeMirror和TypeVisitor
      */
     @Test
-    public void testAction() throws InterruptedException
+    public void testAction() throws InterruptedException, IOException
     {
         /**
          * 职责链模式(Chain of Responsibility)
@@ -291,7 +295,7 @@ public class SomeDemo implements Cloneable
          */
         String reg = "\\d{1,}";
         Pattern pattern = Pattern.compile(reg);
-        Matcher matcher =pattern.matcher("12312312");
+        Matcher matcher = pattern.matcher("12312312");
         System.out.println(matcher.find());
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
@@ -306,7 +310,7 @@ public class SomeDemo implements Cloneable
         Iterator iterator = ints.iterator();
         while (iterator.hasNext())
         {
-            System.out.print(iterator.next()+"\t");
+            System.out.print(iterator.next() + "\t");
         }
 
         System.out.println("\n***********************************************");
@@ -322,7 +326,7 @@ public class SomeDemo implements Cloneable
                 System.out.println("delay1000");
             }
             //如果延时1000毫秒的话，线程要在最后有个等待，否则线程执行完后就停止了，就不会打印run里的delay1000
-        },1);
+        }, 1);
 
         Thread.sleep(1000);
 
@@ -334,43 +338,118 @@ public class SomeDemo implements Cloneable
         System.out.println(date.compareTo(DateUtil.parseDate("2018年12月31日 00:00:00")));
 
         /**
-         * 观察者模式(Observer)
+         * 状态模式(State)
          */
-        EventListener eventListener = new EventListener()
+        List<String> strings = Arrays.asList(new String[]{"A", "B", "C", "D", "E", "F"});
+
+        Iterator<String> iterator1 = strings.iterator();
+
+        while (iterator1.hasNext())
+        {
+            System.out.println(iterator1.next());
+        }
+
+
+        /**
+         * 策略模式(Strategy)
+         */
+        List<Person> people = Arrays.asList(new Person("Google", 99), new Person("Amazon", 109), new Person("Facebook",
+                18),new Person("ZKY",28));
+
+        System.out.println(people);
+        Collections.sort(people);
+        System.out.println(people);
+        Collections.sort(people, new Comparator<Person>()
         {
             @Override
-            public int hashCode()
+            public int compare(Person o1, Person o2)
             {
-                return super.hashCode();
+                return o1.getAge() < o2.getAge() ? -1 : o1.getAge() == o2.getAge() ? 0 : 1;
+            }
+        });
+
+        System.out.println(people);
+
+        /**
+         * 模板方法模式(Template Method)
+         */
+        FileReader reader =new FileReader(new File("D:\\document\\temp.txt"));
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String readline = null;
+        while ((readline= bufferedReader.readLine()) != null)
+        {
+            System.out.print(readline);
+        }
+
+        /**
+         * 访问者模式(Visitor)
+         */
+
+        Element element= new Element()
+        {
+            @Override
+            public TypeMirror asType()
+            {
+                return null;
             }
 
             @Override
-            public boolean equals(Object obj)
+            public ElementKind getKind()
             {
-                return super.equals(obj);
+                return null;
             }
 
             @Override
-            protected Object clone() throws CloneNotSupportedException
+            public Set<Modifier> getModifiers()
             {
-                return super.clone();
+                return null;
             }
 
             @Override
-            public String toString()
+            public Name getSimpleName()
             {
-                return super.toString();
+                return null;
             }
 
             @Override
-            protected void finalize() throws Throwable
+            public Element getEnclosingElement()
             {
-                super.finalize();
+                return null;
+            }
+
+            @Override
+            public List<? extends Element> getEnclosedElements()
+            {
+                return null;
+            }
+
+            @Override
+            public List<? extends AnnotationMirror> getAnnotationMirrors()
+            {
+                return null;
+            }
+
+            @Override
+            public <A extends Annotation> A getAnnotation(Class<A> annotationType)
+            {
+                return null;
+            }
+
+            @Override
+            public <R, P> R accept(ElementVisitor<R, P> v, P p)
+            {
+                return null;
+            }
+
+            @Override
+            public <A extends Annotation> A[] getAnnotationsByType(Class<A> annotationType)
+            {
+                return null;
             }
         };
 
-        System.out.println(eventListener);
+        ElementKind kind = element.getKind();
 
-
+        System.out.println(kind);
     }
 }
