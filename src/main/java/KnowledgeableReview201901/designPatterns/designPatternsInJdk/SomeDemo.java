@@ -441,14 +441,13 @@ public class SomeDemo implements Cloneable
                 return null;
             }
 
-            @Override
-            public <A extends Annotation> A[] getAnnotationsByType(Class<A> annotationType)
-            {
-                return null;
-            }
+
         };
 
         ElementKind kind = element.getKind();
+
+
+        System.out.println("1");
 
         System.out.println(kind);
     }
