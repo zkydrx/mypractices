@@ -436,6 +436,12 @@ public class SomeDemo implements Cloneable
             }
 
             @Override
+            public <A extends Annotation> A[] getAnnotationsByType(Class<A> annotationType)
+            {
+                return null;
+            }
+
+            @Override
             public <R, P> R accept(ElementVisitor<R, P> v, P p)
             {
                 return null;
