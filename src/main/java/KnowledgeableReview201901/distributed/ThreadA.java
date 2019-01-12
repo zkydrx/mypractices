@@ -7,15 +7,18 @@ package KnowledgeableReview201901.distributed;
  * Time: 14:34:49
  * Description:
  */
-public class ThreadA extends Thread {
+public class ThreadA extends Thread
+{
     private Service service;
 
-    public ThreadA(Service service) {
+    public ThreadA(Service service)
+    {
         this.service = service;
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
         service.seckill();
     }
 }
