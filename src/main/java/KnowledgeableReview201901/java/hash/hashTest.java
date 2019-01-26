@@ -2,7 +2,9 @@ package KnowledgeableReview201901.java.hash;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
+import sun.misc.BASE64Encoder;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -23,9 +25,15 @@ public class hashTest
         String crypt = crypt(str);
         String crypt1 = crypt(str1);
         System.out.println(crypt + "\n" + crypt1);
+        System.out.println(encodeByMD5(str) + "\n" + encodeByMD5(str1));
 
     }
 
+    /**
+     * Md5加密字符串
+     * @param str
+     * @return
+     */
     public static String crypt(String str)
     {
         if (StringUtils.isEmpty(str))
@@ -59,5 +67,30 @@ public class hashTest
         }
 
         return stringBuffer.toString();
+    }
+
+    /**
+     * md5加密字符串
+     * @param str
+     * @return
+     */
+    public static String encodeByMD5(String str)
+    {
+        try
+        {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            BASE64Encoder base64Encoder = new BASE64Encoder();
+            String encode = base64Encoder.encode(md5.digest(str.getBytes("UTF-8")));
+            return encode;
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
