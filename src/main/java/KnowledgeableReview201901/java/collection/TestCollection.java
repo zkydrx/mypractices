@@ -13,6 +13,7 @@ import java.util.List;
  * Date: 2019-01-15
  * Time: 20:52:19
  * Description:
+ * 集合去重以及按字段排序问题
  */
 public class TestCollection
 {
@@ -25,7 +26,7 @@ public class TestCollection
         list.add("a");
         list.add("b");
         list.add("c");
-        System.out.println(list);
+        System.out.println("初始化后的list元数据："+list);
 
         for (int i = 0; i < list.size(); i++)
         {
@@ -34,7 +35,7 @@ public class TestCollection
                 list.remove(i);
             }
         }
-        System.out.println(list);
+        System.out.println("普通for循环删除重复的元素后的list（这种情况下可能会出现下标位移导致删除失败）："+list);
 
 
         list1.add("a");
@@ -49,7 +50,7 @@ public class TestCollection
                 iterator.remove();
             }
         }
-        System.out.println(list1);
+        System.out.println("使用迭代器进行判断删除后的结果（这种结果是正确的）："+list1);
     }
 
     @Test
