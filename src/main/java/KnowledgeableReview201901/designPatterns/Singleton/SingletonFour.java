@@ -1,5 +1,7 @@
 package KnowledgeableReview201901.designPatterns.Singleton;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: Abbot
@@ -29,6 +31,7 @@ public class SingletonFour
         return instance;
     }
 
+    @Test
     public void testPrint()
     {
         System.out.println("SingletonFour 双检锁/双重校验锁（DCL，即 double-checked locking）");
