@@ -1,5 +1,7 @@
 package KnowledgeableReview201901.designPatterns.Singleton;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Created with IntelliJ IDEA.
  * Author: Abbot
@@ -21,6 +23,7 @@ public class SingletonTwo
         return instance;
     }
 
+    @Test
     public void testPrint()
     {
         System.out.println("SingleTwo ；懒汉式，线程安全");
