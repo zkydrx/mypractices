@@ -9,18 +9,19 @@ package KnowledgeableReview201901.java.thread;
  */
 public class LockDemo
 {
-    //    AtomicInteger i = new AtomicInteger(0);
-    int i = 0;
+    volatile int i = 0;
 
     public void add()
     {
-        //        i.incrementAndGet();
         i++;
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         LockDemo lockDemo = new LockDemo();
+        /**
+         * 期望20000
+         */
         for (int i = 0; i < 2; i++)
         {
 
@@ -29,8 +30,9 @@ public class LockDemo
                 {
                     lockDemo.add();
                 }
-            }).run();
+            }).start();
         }
+        Thread.sleep(2000);
         System.out.println(lockDemo.i);
     }
 }
