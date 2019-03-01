@@ -6,7 +6,7 @@ package com.zhihei.interceptor;
  * Date: 2019-03-01
  * Time: 10:44:30
  * Description:
- * 创建业务组件接口 BusinessFacade
+ * 1.创建业务组件接口 BusinessFacade
  */
 public interface BusinessFacade
 {

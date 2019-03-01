@@ -10,6 +10,7 @@ import java.lang.reflect.Proxy;
  * Date: 2019-03-01
  * Time: 10:50:34
  * Description:
+ * 4.创建动态代理处理器工具 DynamicProxyHandler
  */
 public class DynamicProxyHandler implements InvocationHandler
 {
@@ -53,8 +54,8 @@ public class DynamicProxyHandler implements InvocationHandler
     {
         Object result = null;
         intercePtor.before();
-        method.invoke(business,args);
+        result =  method.invoke(business,args);
         intercePtor.after();
-        return null;
+        return result;
     }
 }

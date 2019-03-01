@@ -6,7 +6,7 @@ package com.zhihei.interceptor;
  * Date: 2019-03-01
  * Time: 10:47:04
  * Description:
- * 创建拦截器 InterceptorClass
+ * 3.创建拦截器 InterceptorClass
  */
 public class IntercePtorClass
 {
