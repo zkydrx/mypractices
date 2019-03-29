@@ -30,7 +30,9 @@ public class ThreadPool extends ThreadGroup
     {
         if (null == pool)
             // 从1修改成10 by:linsong 20180809
+        {
             pool = new ThreadPool(10);
+        }
         return pool;
     }
 
@@ -123,6 +125,7 @@ public class ThreadPool extends ThreadGroup
             this.id = id;
         }
 
+        @Override
         public void run()
         {
             while (!isInterrupted())
@@ -138,7 +141,9 @@ public class ThreadPool extends ThreadGroup
                 }
                 // 如果getTask()返回null或者线程执行getTask()时被中断，则结束此线程
                 if (task == null)
+                {
                     return;
+                }
 
                 try
                 {
