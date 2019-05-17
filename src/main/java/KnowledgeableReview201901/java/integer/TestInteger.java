@@ -1,6 +1,8 @@
 package KnowledgeableReview201901.java.integer;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,18 +13,19 @@ import org.junit.jupiter.api.Test;
  */
 public class TestInteger
 {
+    Logger logger = LoggerFactory.getLogger(TestInteger.class);
     @Test
     public void test()
     {
         Integer a = 1;
         Integer b = 1;
-        if (a == b)
+        if (a.equals(b))
         {
-            System.out.println("a==b 指向同一个地址");
+            logger.info("a==b 指向同一个地址");
         }
         else
         {
-            System.out.println("a != b他俩是两个对象");
+            logger.info("a != b他俩是两个对象");
         }
     }
 
@@ -35,6 +38,6 @@ public class TestInteger
     {
         Integer a = 1;
         int b = 1;
-        System.out.println(a==b);
+        logger.info("a==b::{}",a==b);
     }
 }
