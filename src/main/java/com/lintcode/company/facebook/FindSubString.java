@@ -1,5 +1,8 @@
 package com.lintcode.company.facebook;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Abbot
@@ -23,12 +26,14 @@ package com.lintcode.company.facebook;
  */
 public class FindSubString
 {
+   public static Logger logger = LoggerFactory.getLogger(FindSubString.class);
 
     public static void main(String[] args)
     {
         String s = new FindSubString().minWindow("ADOBECODEBANC", "ABC");
 
         System.out.println(s);
+        logger.info("s:{}",s);
     }
 
     /**
