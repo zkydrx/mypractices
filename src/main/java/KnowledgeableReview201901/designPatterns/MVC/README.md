@@ -17,6 +17,7 @@ MVC 模式的 UML 图
 
 Student.java
 
+```
 public class Student {
    private String rollNo;
    private String name;
@@ -33,11 +34,14 @@ public class Student {
       this.name = name;
    }
 }
+
+```
 步骤 2
 创建视图。
 
 StudentView.java
 
+```
 public class StudentView {
    public void printStudentDetails(String studentName, String studentRollNo){
       System.out.println("Student: ");
@@ -45,11 +49,13 @@ public class StudentView {
       System.out.println("Roll No: " + studentRollNo);
    }
 }
+```
 步骤 3
 创建控制器。
 
 StudentController.java
 
+```
 public class StudentController {
    private Student model;
    private StudentView view;
@@ -79,11 +85,13 @@ public class StudentController {
       view.printStudentDetails(model.getName(), model.getRollNo());
    }    
 }
+```
 步骤 4
 使用 StudentController 方法来演示 MVC 设计模式的用法。
 
 MVCPatternDemo.java
 
+```
 public class MVCPatternDemo {
    public static void main(String[] args) {
 
@@ -110,12 +118,15 @@ public class MVCPatternDemo {
       return student;
    }
 }
+```
 步骤 5
 验证输出。
 
+```
 Student: 
 Name: Robert
 Roll No: 10
 Student: 
 Name: John
 Roll No: 10
+```

@@ -26,9 +26,7 @@ public class GetMaxNumEnd
 
         Arrays.sort(array, new Comparator<Object>()
         {
-            /***
-             * 默认是从小到大排序 if the result > 0 then swap
-             */
+            /** * 默认是从小到大排序 if the result > 0 then swap */
             public int compare(Object o1, Object o2)
             {
                 String left = o1.toString();
@@ -37,7 +35,6 @@ public class GetMaxNumEnd
                 return (left + right).compareTo(right + left) * -1;
                 // return (right + left).compareTo(left + right);
             }
-
         });
 
         StringBuffer sb = new StringBuffer();
@@ -54,5 +51,4 @@ public class GetMaxNumEnd
         Integer[] VALUES = {1, 2, 3, 21};
         System.out.println(getLargestNumByArranged(VALUES));
     }
-
 }
