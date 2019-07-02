@@ -199,7 +199,6 @@ public class Snowflake
             long id = idWorker.nextId();
             System.out.println(Long.toBinaryString(id));
             System.out.println(id);
-            System.out.println((id + "").length());
         }
     }
 }
