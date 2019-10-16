@@ -1,4 +1,4 @@
-package JiSuanQi;
+package computer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * Created by ZKY on 2017-06-16 11:22.
  */
-class Count extends JApplet implements ActionListener
+class Computer extends JApplet implements ActionListener
 {
 
     /**
@@ -24,7 +24,7 @@ class Count extends JApplet implements ActionListener
     public static void main(String args[])
     {
         JFrame frame = new JFrame("Count");
-        Count applet = new Count();
+        Computer applet = new Computer();
         frame.getContentPane().add(applet, BorderLayout.CENTER);
         applet.init();//applet的init方法
         applet.start();//线程开始

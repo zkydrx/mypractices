@@ -100,7 +100,7 @@ public class TestCollection
         System.out.println("交集："+list5);
 
         List<String> list7 = new ArrayList<>();
-        List<String> list8 = new ArrayList<>();
+        List<String> list8 = Arrays.asList(new String[]{"b","c"});
         list7.add("a");
         list7.add("b");
         list7.add("c");

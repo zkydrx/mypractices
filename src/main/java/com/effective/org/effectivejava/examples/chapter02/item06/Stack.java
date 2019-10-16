@@ -24,7 +24,10 @@ public class Stack
     {
         if (size == 0)
             throw new EmptyStackException();
-        return elements[--size];
+        Object result = elements[--size];
+        //清空过期引用
+        elements[size] = null;
+        return result;
     }
 
     /**
