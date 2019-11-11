@@ -25,14 +25,14 @@ public class EmployeeExample
 
     static
     {
-        employees.add(Employee.builder().name("Anmy").salary(15000).office("ChongQing").build());
-        employees.add(Employee.builder().name("Tom").salary(18000).office("ShangHai").build());
-        employees.add(Employee.builder().name("Abbot").salary(23000).office("HangZhou").build());
-        employees.add(Employee.builder().name("Tina").salary(20000).office("BeiJing").build());
-        employees.add(Employee.builder().name("John").salary(21000).office("ShenZhen").build());
-        employees.add(Employee.builder().name("Hony").salary(31000).office("ShenZhen").build());
-        employees.add(Employee.builder().name("Jany").salary(38000).office("HangZhou").build());
-        employees.add(Employee.builder().name("Jobs").salary(29000).office("HangZhou").build());
+        employees.add(Employee.builder().name("Anmy").salary(15000).office("ChongQing").age(11).build());
+        employees.add(Employee.builder().name("Tom").salary(18000).office("ShangHai").age(12).build());
+        employees.add(Employee.builder().name("Abbot").salary(23000).office("HangZhou").age(13).build());
+        employees.add(Employee.builder().name("Tina").salary(20000).office("BeiJing").age(15).build());
+        employees.add(Employee.builder().name("John").salary(21000).office("ShenZhen").age(16).build());
+        employees.add(Employee.builder().name("Hony").salary(31000).office("ShenZhen").age(17).build());
+        employees.add(Employee.builder().name("Jany").salary(38000).office("HangZhou").age(18).build());
+        employees.add(Employee.builder().name("Jobs").salary(29000).office("HangZhou").age(19).build());
     }
 
     public static void main(String[] args)
@@ -44,6 +44,22 @@ public class EmployeeExample
         boolean hangZhou = employees.stream().anyMatch(employee -> employee.getOffice().equals("HangZhou"));
         System.out.println(hangZhou);
 
+        /**
+         * 匹配办公室为杭州的，并且薪水大于21000，并且年龄大于16岁的雇员
+         */
+        List<Employee> collect8 = employees.stream()
+                                           .filter(employee -> "HangZhou".equals(employee.getOffice()) && employee.getAge() > 16 && employee.getSalary() > 21000)
+                                           .collect(Collectors.toList());
+        collect8.forEach(System.out::println);
+
+        /**
+         * 返回所有雇员的姓名和年龄
+         */
+        Map<String, Integer> collect9 = employees.stream().collect(Collectors.toMap((k -> k.getName()), (v -> v.getAge())));
+
+        System.out.println("返回所有雇员的姓名和年龄方法1:::");
+        collect9.forEach((k,v)-> System.out.println(k+"=="+v));
+        collect9.entrySet().forEach(System.out::println);
         /**
          * 返回所有salary大于20000的雇员
          */
