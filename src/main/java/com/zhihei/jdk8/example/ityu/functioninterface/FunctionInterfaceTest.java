@@ -3,6 +3,12 @@ package com.zhihei.jdk8.example.ityu.functioninterface;
 import com.zhihei.jdk8.example.ityu.functioninterface.impl.MyFunctionInterfaceImpl;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
@@ -162,4 +168,353 @@ public class FunctionInterfaceTest
          */
         startThread(() -> System.out.println(Thread.currentThread().getName() + "-->线程启动了"));
     }
+
+
+    /**
+     * 如果一个方法的返回值类型是一个函数式接口，那么就可以直接返回一个Lambda表达式。
+     * 当需要通过一个方法来获取一个java.util.Comparator接口类型的对象作为排序器时,就可以调该方法获取。
+     * 使用函数式接口作为方法的返回值
+     *
+     * @return
+     */
+    public static Comparator<String> getCompartor()
+    {
+        /**
+         * 方法的返回值类型是一个接口，那么我们可以返回这个接口的匿名内部类
+         */
+        // return new Comparator<String>()
+        // {
+        //     @Override
+        //     public int compare(String o1, String o2)
+        //     {
+        //         return o2.length()-o1.length();
+        //     }
+        // };
+
+        /**
+         * 方法的返回值是一个函数式接口，那么我们可以返回一个lambda表达式
+         */
+        // return (String o1,String o2)->{
+        //     return o2.length()-o1.length();
+        // };
+
+        /**
+         * 优化以后的lambda表达式
+         */
+        return (o1, o2) -> o2.length() - o1.length();
+    }
+
+    @Test
+    public void testCompartor()
+    {
+        String[] arr = {"a", "bb", "ccc", "ddddddd", "eeee"};
+        System.out.println("排序前的数组是:");
+        Arrays.stream(arr).forEach(System.out::println);
+        Arrays.sort(arr, getCompartor());
+
+        System.out.println("排序后的数组");
+        Arrays.stream(arr).forEach(System.out::println);
+
+
+    }
+
+    /**
+     * Supplier<T> 供给型
+     * Consumer<T> 消费型
+     * Predicate<T> 断定型
+     * Function<T,R> 函数型
+     */
+    /**
+     * ①提供类型：Supplier接口
+     * 特点：只出不进，作为方法/构造参数、方法返回值
+     * java.util.function.Supplier接口仅包含一个无参的方法：T get()。
+     * 用来获取一个泛型参数指定类型的对象数据。
+     * <p>
+     * Supplier接口被称之为生产型接口,指定接口的泛型是什么类型,
+     * 那么接口中的get方法就会生产什么类型的数据
+     */
+    public static String getString(Supplier<String> supplier)
+    {
+        return supplier.get();
+    }
+
+    @Test
+    public void testSupplier()
+    {
+        // getString(new Supplier<String>()
+        // {
+        //     @Override
+        //     public String get()
+        //     {
+        //         return null;
+        //     }
+        // });
+        String string = getString(() -> "zky");
+        System.out.println(string);
+
+
+    }
+
+    public static Integer getMaxNum(Supplier<Integer> supplier)
+    {
+        return supplier.get();
+    }
+
+    @Test
+    public void testSuplierGetMaxNum()
+    {
+        int[] arr = {1, 23, -3, 124, -5};
+        Integer maxNum = getMaxNum(() -> {
+            int max = arr[0];
+            for (int i : arr)
+            {
+                if (i > max)
+                {
+                    max = i;
+                }
+            }
+            return max;
+        });
+
+        System.out.println("最大的值是:" + maxNum);
+    }
+
+    /**
+     * ②消费类型：Consumer接口
+     * 特点：只进不出，作为方法/构造参数
+     * java.util.function.Consumer接口则正好与Supplier接口相反，
+     * 它不是生产一个数据，而是消费一个数据，其数据类型由泛型决定。
+     * Consumer接口中包含抽象方法void accept(T t)，意为消费一个指定泛型的数据。
+     * <p>
+     * Consumer接口是一个消费型接口,泛型执行什么类型,就可以使用accept方法消费什么类型的数据
+     * 至于具体怎么消费(使用),需要自定义
+     */
+    public static void addName(String name, Consumer<String> consumer)
+    {
+        consumer.accept(name);
+    }
+
+    @Test
+    public void testConsumer()
+    {
+        addName(("zky"), s -> System.out.println(s + " is the best man."));
+
+        addName("zky", (name) -> {
+            String s = new StringBuffer(name).reverse().toString();
+            System.out.println(s + " is the best.");
+        });
+    }
+
+    /**
+     * andThen:
+     * Consumer接口的默认方法andThen
+     * 作用:需要两个Consumer接口,可以把两个Consumer接口组合到一起,在对数据进行消费
+     */
+
+    public static void andThenDo(String name, Consumer<String> consumer1, Consumer<String> consumer2)
+    {
+        consumer1.andThen(consumer2).accept(name);
+    }
+
+    @Test
+    public void testAndThenDo()
+    {
+        andThenDo("zky", s -> System.out.println(s.toUpperCase()), s -> System.out.println(s + s));
+    }
+
+    /**
+     * 按照格式“姓名：XX。性别：XX。”的格式将信息打印
+     * 要求将打印姓名的动作作为第一个Consumer接口的Lambda实例，
+     * 将打印性别的动作作为第二个Consumer接口的Lambda实例，
+     * 将两个Consumer接口按照顺序“拼接”到一起。
+     */
+    public static void printNameAndSex(String[] arr, Consumer<String> consumer1, Consumer<String> consumer2)
+    {
+        for (String s : arr)
+        {
+            /**
+             * 使用andThen方法连接两个Consumer方法，消费字符串
+             */
+            consumer1.andThen(consumer2).accept(s);
+        }
+    }
+
+    @Test
+    public void testPrintNameAndSex()
+    {
+        /**
+         * 定义一个字符串数组
+         */
+        String[] arr = {"周杰伦,男", "周星驰,男", "江一燕,女", "波多,女"};
+        /**
+         * 调用printNameAndSex方法，传递一个字符串数组，和两个Lambda表达式
+         */
+        printNameAndSex(arr, s -> {
+            /**
+             * 消費方式:对s进行切割，获取姓名，按照指定格式输出
+             */
+            String name = s.split(",")[0];
+            System.out.print("姓名: " + name);
+        }, s -> {
+            /**
+             * 消費方式:对s进行切割，获取性别，按照指定格式输出
+             */
+            String sex = s.split(",")[1];
+            System.out.println(";性别: " + sex);
+        });
+
+    }
+
+    /**
+     * ③断定类型：Predicate接口
+     * 特点：boolean类型判断，作为方法/构造参数
+     * java.util.function.Predicate接口
+     * 作用:对某种数据类型的数据进行判断,结果返回一个boolean值
+     * <p>
+     * Predicate接口中包含一个抽象方法：
+     * boolean test(T t):用来对指定数据类型数据进行判断的方法
+     * 结果:
+     * 符合条件,返回true
+     * 不符合条件,返回false
+     */
+    public static boolean checkPredicate(String string, Predicate<String> predicate)
+    {
+        return predicate.test(string);
+    }
+
+    @Test
+    public void testCheckPredicate()
+    {
+        String abc = "abcdef";
+        boolean b = checkPredicate(abc, s -> s.length() == 1);
+
+        System.out.println(b);
+        boolean abc1 = checkPredicate("123", new Predicate<String>()
+        {
+            @Override
+            public boolean test(String s)
+            {
+                return abc.startsWith("abc");
+            }
+        });
+        System.out.println(abc1);
+    }
+
+    /**
+     * and方法：
+     * Predicate接口中有一个方法and,表示并且关系,也可以用于连接两个判断条件
+     * <p>
+     * 1default Predicate<T> and(Predicate<? super T> other) {
+     * 2        Objects.requireNonNull(other);
+     * 3        return (t) -> this.test(t) && other.test(t);
+     * 4}
+     *
+     * @param str
+     * @param predicate1
+     * @param predicate2
+     * @return
+     */
+    public static boolean validateAndStr(String str, Predicate<String> predicate1, Predicate<String> predicate2)
+    {
+        return predicate1.and(predicate2).test(str);
+    }
+
+    @Test
+    public void testValidateStr()
+    {
+        boolean b = validateAndStr("abcdef", s -> s.equals("abc"), s -> s.length() > 10);
+        System.out.println(b);
+    }
+
+    /**
+     * or方法：
+     * Predicate接口中有一个方法or,表示或者关系,也可以用于连接两个判断条件
+     * <p>
+     * 1    default Predicate<T> or(Predicate<? super T> other) {
+     * 2        Objects.requireNonNull(other);
+     * 3        return (t) -> test(t) || other.test(t);
+     * 4    }
+     *
+     * @param str
+     * @param predicate1
+     * @param predicate2
+     * @return
+     */
+    public static boolean validateOrStr(String str, Predicate<String> predicate1, Predicate<String> predicate2)
+    {
+        return predicate1.or(predicate2).test(str);
+    }
+
+    @Test
+    public void testValidateOrStr()
+    {
+        String abc = "abc";
+        boolean abC = validateOrStr(abc, s -> s.length() == 1, s -> s.equalsIgnoreCase("abC"));
+
+        System.out.println("abC: " + abC);
+        boolean aBc = validateOrStr(abc, new Predicate<String>()
+        {
+            @Override
+            public boolean test(String s)
+            {
+                return s.length() == 1;
+            }
+        }, new Predicate<String>()
+        {
+            @Override
+            public boolean test(String s)
+            {
+                return s.equalsIgnoreCase("aBc");
+            }
+        });
+
+        System.out.println("aBc: " + aBc);
+    }
+
+    /**
+     * negate方法：
+     * Predicate接口中有一个方法negate,也表示取反的意思
+     * <p>
+     * 1    default Predicate<T> negate() {
+     * 2        return (t) -> !test(t);
+     * 3    }
+     */
+
+    public static boolean validateNegateStr(String str, Predicate<String> predicate)
+    {
+        return predicate.negate().test(str);
+    }
+
+    @Test
+    public void testValidateNegateStr()
+    {
+        String str = "abcef";
+        boolean b = validateNegateStr(str, s -> s.length() > 5);
+        System.out.println(b);
+    }
+
+    public static List<String> filter(String[] arr, Predicate<String> predicate1, Predicate<String> predicate2)
+    {
+        List<String> list = new ArrayList<>();
+        for (String s : arr)
+        {
+            boolean test = predicate1.and(predicate2).test(s);
+            if (test)
+            {
+                list.add(s);
+            }
+        }
+
+        return list;
+    }
+
+    @Test
+    public void testFilter()
+    {
+        String[] array = {"Java,Ga", "Linux,L", "Apple,Jadsf", "Microsoft,Badfd"};
+        List<String> l = filter(array, s -> s.split(",")[0].startsWith("L"), s -> s.split(",")[1].length() == 1);
+
+        System.out.println(l.toString());
+    }
+
 }
