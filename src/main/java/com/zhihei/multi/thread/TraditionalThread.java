@@ -71,22 +71,18 @@ public class TraditionalThread
             }
         }.start();
 
-        new Thread(new Runnable()
-        {
-            public void run()
+        new Thread(() -> {
+            while (true)
             {
-                while (true)
+                try
                 {
-                    try
-                    {
-                        Thread.sleep(500);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    System.out.println(Thread.currentThread().getName());
+                    Thread.sleep(500);
                 }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName());
             }
         }).start();
     }

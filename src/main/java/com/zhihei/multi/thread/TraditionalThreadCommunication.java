@@ -12,15 +12,10 @@ public class TraditionalThreadCommunication
     public static void main(String[] args)
     {
         final Business business = new Business();
-        new Thread(new Runnable()
-        {
-            @Override
-            public void run()
+        new Thread(() -> {
+            for (int i = 1; i <= 50; i++)
             {
-                for (int i = 1; i <= 50; i++)
-                {
-                    business.sub(i);
-                }
+                business.sub(i);
             }
         }).start();
 

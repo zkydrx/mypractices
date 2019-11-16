@@ -17,19 +17,14 @@ public class ThreadLocalTest
     {
         for (int i = 0; i < 2; i++)
         {
-            new Thread(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    int data = new Random().nextInt();
-                    System.out.println(Thread.currentThread().getName() + " has put data : " + data);
-                    threadData.set(data);
-                    MyThreadScopeData.getThreadInstance().setName("name" + data);
-                    MyThreadScopeData.getThreadInstance().setAge(data);
-                    new A().get();
-                    new B().get();
-                }
+            new Thread(() -> {
+                int data = new Random().nextInt();
+                System.out.println(Thread.currentThread().getName() + " has put data : " + data);
+                threadData.set(data);
+                MyThreadScopeData.getThreadInstance().setName("name" + data);
+                MyThreadScopeData.getThreadInstance().setAge(data);
+                new A().get();
+                new B().get();
             }).start();
         }
     }

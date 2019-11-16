@@ -16,43 +16,33 @@ public class TraditionalThreadSynchronized
     private void init()
     {
         final Outputer outputer = new Outputer();
-        new Thread(new Runnable()
-        {
-            @Override
-            public void run()
+        new Thread(() -> {
+            while (true)
             {
-                while (true)
+                try
                 {
-                    try
-                    {
-                        Thread.sleep(10);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    outputer.output("xxxxxxxxxxxxxxxxxx");
+                    Thread.sleep(10);
                 }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                outputer.output("xxxxxxxxxxxxxxxxxx");
             }
         }).start();
 
-        new Thread(new Runnable()
-        {
-            @Override
-            public void run()
+        new Thread(() -> {
+            while (true)
             {
-                while (true)
+                try
                 {
-                    try
-                    {
-                        Thread.sleep(10);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    outputer.output("yyyyyyyyyyyyyyyyyy");
+                    Thread.sleep(10);
                 }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                outputer.output("yyyyyyyyyyyyyyyyyy");
             }
         }).start();
     }
