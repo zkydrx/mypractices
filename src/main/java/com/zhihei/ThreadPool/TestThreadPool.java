@@ -16,15 +16,7 @@ public class TestThreadPool
     public void testThreadPool()
     {
         ThreadPool instance = ThreadPool.getInstance();
-
-        instance.execute(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                System.out.println("1");
-            }
-        });
+        instance.execute(() -> System.out.println("1"));
         instance.waitFinish();
     }
 

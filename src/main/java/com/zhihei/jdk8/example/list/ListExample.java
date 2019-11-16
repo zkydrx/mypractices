@@ -1,7 +1,7 @@
 package com.zhihei.jdk8.example.list;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public class ListExample
 {
-    private static List<String> list = new ArrayList<>();
+    private static ArrayList<String> list = new ArrayList<>();
 
     static
     {
@@ -53,5 +53,14 @@ public class ListExample
         });
         System.out.println("\n找出以D结束的字符串，并打印");
         list.stream().filter(item -> item.endsWith("D")).forEach(item -> System.out.print(item + " "));
+
+        System.out.println("\n对所有的元素升序排序");
+        list.stream().sorted().forEach(item -> System.out.print(item + " "));
+
+        System.out.println("\n对所有的元素逆序排序方法一:");
+        list.stream().sorted((e1, e2) -> e2.compareToIgnoreCase(e1)).forEach(item -> System.out.print(item + " "));
+        System.out.println("\n对所有的元素逆序排序方法二:");
+        list.sort((e1, e2) -> e2.compareToIgnoreCase(e1));
+        list.forEach(item -> System.out.print(item + " "));
     }
 }

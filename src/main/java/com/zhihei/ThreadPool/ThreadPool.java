@@ -29,7 +29,7 @@ public class ThreadPool extends ThreadGroup
     public static ThreadPool getInstance()
     {
         if (null == pool)
-            // 从1修改成10 by:linsong 20180809
+        // 从1修改成10 by:linsong 20180809
         {
             pool = new ThreadPool(10);
         }
