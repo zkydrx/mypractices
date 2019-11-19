@@ -9,7 +9,10 @@ package com.zhihei.basicknowledge.jmm.singleton;
  */
 public class SingletonTest
 {
-    public static SingletonTest instance = null;
+    /**
+     * 加上volatile禁止指令重排，防止高并发导致的异常结果。
+     */
+    public static volatile SingletonTest instance = null;
 
     private SingletonTest()
     {
@@ -49,7 +52,7 @@ public class SingletonTest
          * 1	 私有构造器
          * 0	 私有构造器
          */
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1000; i++)
         {
             new Thread(() -> {
                 SingletonTest.getInstance();
