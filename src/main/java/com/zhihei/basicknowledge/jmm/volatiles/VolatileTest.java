@@ -39,6 +39,7 @@ class VolatileData
     {
         number2++;
     }
+
     AtomicInteger atomicInteger = new AtomicInteger();
 
     /**
@@ -54,17 +55,19 @@ class ResortSeq
 {
     int a = 0;
     boolean b = false;
+
     public void one()
     {
         a = 3;
         b = true;
     }
+
     public void two()
     {
-        if(b)
+        if (b)
         {
-            a = a+1;
-            System.out.println("a == "+a);
+            a = a + 1;
+            System.out.println("a == " + a);
         }
     }
 }
@@ -75,7 +78,6 @@ public class VolatileTest
      * 1.验证Volatile的可见性
      * 1.1假如int number=0,number 没有volatile关键字修饰
      * 1.2添加了volatile可保证解决可见性问题
-
      */
     @Test
     public void testVolatile()
@@ -106,7 +108,7 @@ public class VolatileTest
     /**
      * 2.验证volatile不保证原子性问题
      * 2.1原子性概念：不可分割，完整性，某个线程正在做某个业务时，中间不能加塞或者分割，
-     *  要么同时成功要么同时失败。
+     * 要么同时成功要么同时失败。
      * 3.如何解决原子性问题
      * 3.1 使用synchronized 同步锁
      * 3.2 使用juc的atomicInteger原子类
@@ -118,7 +120,7 @@ public class VolatileTest
 
         for (int i = 1; i <= 30; i++)
         {
-            new Thread(()->{
+            new Thread(() -> {
 
                 for (int j = 0; j < 1000; j++)
                 {
@@ -126,15 +128,15 @@ public class VolatileTest
                     volatileData.addNumber2();
                     volatileData.addAtomicInteger();
                 }
-            },String.valueOf(i)).start();
+            }, String.valueOf(i)).start();
         }
-        while (Thread.activeCount()>2)
+        while (Thread.activeCount() > 2)
         {
             Thread.yield();
         }
-        System.out.println(Thread.currentThread().getName()+"\t finally the number1="+volatileData.number1);
-        System.out.println(Thread.currentThread().getName()+"\t finally the number2="+volatileData.number2);
-        System.out.println(Thread.currentThread().getName()+"\t finally the atomicInteger="+volatileData.atomicInteger);
+        System.out.println(Thread.currentThread().getName() + "\t finally the number1=" + volatileData.number1);
+        System.out.println(Thread.currentThread().getName() + "\t finally the number2=" + volatileData.number2);
+        System.out.println(Thread.currentThread().getName() + "\t finally the atomicInteger=" + volatileData.atomicInteger);
     }
 
     /**
@@ -146,13 +148,13 @@ public class VolatileTest
         ResortSeq resortSeq = new ResortSeq();
         for (int i = 0; i < 30; i++)
         {
-            new Thread(()->{
+            new Thread(() -> {
                 for (int i1 = 0; i1 < 1000; i1++)
                 {
                     resortSeq.one();
                     resortSeq.two();
                 }
-            },String.valueOf(i)).start();
+            }, String.valueOf(i)).start();
         }
     }
 

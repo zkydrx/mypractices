@@ -21,6 +21,7 @@ public class SingletonTest
 
     /**
      * dcl(double chek lock 双重校验锁)
+     *
      * @return
      */
     public static synchronized SingletonTest getInstance()
