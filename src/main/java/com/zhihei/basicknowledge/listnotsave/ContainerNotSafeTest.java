@@ -2,13 +2,13 @@ package com.zhihei.basicknowledge.listnotsave;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -110,8 +110,8 @@ public class ContainerNotSafeTest
          * 使用 Collections.synchronizedList(new ArrayList<>());
          */
         // List<String> integers = Collections.synchronizedList(new ArrayList<>());
-        // List<String> integers = new ArrayList<>();
-        List<String> integers = new CopyOnWriteArrayList<>();
+        List<String> integers = new ArrayList<>();
+        // List<String> integers = new CopyOnWriteArrayList<>();
         for (int i = 0; i < 30; i++)
         {
             new Thread(() -> {
