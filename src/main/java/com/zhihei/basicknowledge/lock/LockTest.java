@@ -16,6 +16,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * Date: 2019-11-21
  * Time: 20:16:18
  * Description:
+ * synchronized ,ReentrantLock 是非公平锁，可重入锁，独占锁
+ * ReentrantReadWriteLock 是读写锁，读共享，写独占
  */
 public class LockTest
 {
@@ -181,10 +183,10 @@ public class LockTest
         myCache myCache = new myCache();
         for (int j = 1; j <= 10; j++)
         {
-            int fiJ = j;
+            int tempInt = j;
             new Thread(() -> {
-                myCache.set(fiJ + "", fiJ);
-            }, String.valueOf(fiJ)).start();
+                myCache.set(tempInt + "", tempInt);
+            }, String.valueOf(tempInt)).start();
         }
 
         for (int j = 1; j <= 10; j++)

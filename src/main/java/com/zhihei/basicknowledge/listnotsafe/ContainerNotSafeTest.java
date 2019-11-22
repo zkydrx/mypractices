@@ -1,4 +1,4 @@
-package com.zhihei.basicknowledge.listnotsave;
+package com.zhihei.basicknowledge.listnotsafe;
 
 import org.junit.jupiter.api.Test;
 
