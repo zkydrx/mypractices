@@ -1,7 +1,5 @@
 package com.zhihei.interview;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * Created with IntelliJ IDEA.
  * Author: zky
