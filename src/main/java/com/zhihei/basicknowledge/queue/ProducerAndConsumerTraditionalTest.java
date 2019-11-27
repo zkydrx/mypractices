@@ -19,12 +19,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * 3.防止虚假唤醒机制
  * 来自于jdk8文档说明
  * As in the one argument version, interrupts and spurious wakeups are possible, and this method should always be used in a loop:
- *
- *      synchronized (obj) {
- *          while (<condition does not hold>)
- *              obj.wait();
- *          ... // Perform action appropriate to condition
- *      }
+ * <p>
+ * synchronized (obj) {
+ * while (<condition does not hold>)
+ * obj.wait();
+ * ... // Perform action appropriate to condition
+ * }
  */
 class DataClass //资源类
 {
@@ -330,7 +330,7 @@ public class ProducerAndConsumerTraditionalTest
      * 题目：
      * 多线程按顺序调用，实现A,B,C三个线程自动启动，要求如下：
      * A打印五次，B打印10次，C打印15次，循环10次。
-     *
+     * <p>
      * 多线程操作资源类
      * 1.判断，
      * 2.工作
@@ -340,9 +340,24 @@ public class ProducerAndConsumerTraditionalTest
     public void testLockAwaitSingal() throws InterruptedException
     {
         DataSource dataSource = new DataSource();
-        new Thread(dataSource::printNumber5, "a").start();
-        new Thread(dataSource::printNumber10, "b").start();
-        new Thread(dataSource::printNumber15, "c").start();
+        new Thread(()->{
+            for (int i = 0; i < 10; i++)
+            {
+                dataSource.printNumber5();
+            }
+        }, "a").start();
+        new Thread(()->{
+            for (int i = 0; i < 10; i++)
+            {
+                dataSource.printNumber10();
+            }
+        }, "b").start();
+        new Thread(()->{
+            for (int i = 0; i < 10; i++)
+            {
+                dataSource.printNumber15();
+            }
+        }, "c").start();
         TimeUnit.SECONDS.sleep(10);
     }
 
