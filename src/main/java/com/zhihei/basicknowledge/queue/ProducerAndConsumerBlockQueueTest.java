@@ -25,6 +25,10 @@ class ResourceClassData
     private AtomicInteger atomicInteger = new AtomicInteger();
     BlockingQueue<String> blockingQueue = null;
 
+    /**
+     * 传参传接口，适配性更强！
+     * @param blockingQueue
+     */
     public ResourceClassData(BlockingQueue<String> blockingQueue)
     {
         this.blockingQueue = blockingQueue;

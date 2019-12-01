@@ -35,6 +35,9 @@ public class ThreadTest
 {
     public static void main(String[] args) throws ExecutionException, InterruptedException
     {
+        /**
+         * FutureTask(Callable<V> callable)
+         */
         FutureTask<Integer> futureTask = new FutureTask<>(new myData());
         new Thread(futureTask, "A").start();
         /**
@@ -42,8 +45,16 @@ public class ThreadTest
          * 尽量等到最后在去获取结果。
          * 或者结合while(futureTask.isDone())来使用当任务处理完成以后我们再去获取相应的结果。
          */
+        while (!futureTask.isDone())
+        {
+
+        }
         Integer integer = futureTask.get();
         System.out.println("线程获取到的结果是:" + integer);
+        System.out.println("availableProcessors:"+Runtime.getRuntime().availableProcessors());
+        System.out.println("maxMemory:"+Runtime.getRuntime().maxMemory());
+        System.out.println("freeMemory:"+Runtime.getRuntime().freeMemory());
+        System.out.println("totalMemory:"+Runtime.getRuntime().totalMemory());
     }
 
 }
