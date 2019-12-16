@@ -29,3 +29,9 @@ hs_err_pid*
 *.iml
 /.idea/
 /AllKindsOfItems.iml
+.idea/codeStyles/
+.idea/compiler.xml
+.idea/google-java-format.xml
+.idea/libraries/
+.idea/workspace.xml
+target/
