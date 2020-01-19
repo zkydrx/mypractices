@@ -2,11 +2,11 @@ package KnowledgeableReview201901.java.hash;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
-import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * Created with IntelliJ IDEA.
@@ -79,8 +79,7 @@ public class hashTest
         try
         {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            BASE64Encoder base64Encoder = new BASE64Encoder();
-            String encode = base64Encoder.encode(md5.digest(str.getBytes("UTF-8")));
+            String encode = Base64.getEncoder().encodeToString(md5.digest(str.getBytes("UTF-8")));
             return encode;
         }
         catch (NoSuchAlgorithmException e)
