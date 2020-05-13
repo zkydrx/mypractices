@@ -20,6 +20,9 @@ public class BeanUtilsTest
         CarAudi audi = CarAudi.builder().name("奥迪").age(20).price(200000.00).build();
         CarBenz benz = CarBenz.builder().build();
         BeanUtils.copyProperties(audi,benz);
+
+
+
     }
 
 }
