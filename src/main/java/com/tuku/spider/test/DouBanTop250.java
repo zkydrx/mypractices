@@ -40,33 +40,48 @@ public class DouBanTop250
         // 遍历url集合 爬取网页数据
         for (String string : list)
         {
-            Document doc = Jsoup.connect(string).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:60.0) Gecko/20100101 Firefox/60.0").timeout(6000).get();
-            Element content = doc.getElementById("content");
-            Elements infos = content.getElementsByClass("info");
-            for (Element element : infos)
-            {
-                Element links = element.getElementsByTag("a").get(0);
-                Element star = element.getElementsByClass("star").get(0);
-                Elements quotes = element.getElementsByClass("quote");
-                if (quotes.size() > 0)
-                {
-                    // 获取短评内容
-                    quoteStr = quotes.get(0).child(0).html();
+            getTheResultString(string);
+        }
+    }
 
-                }
-                else
-                {
-                    quoteStr = "";
-                }
-                // 获取电影的链接
-                link = links.attr("href");
-                /* 获取电影名称 */
-                title = links.child(0).html();
-                // 获取电影评分
-                score = star.child(1).html();
-                num = star.child(3).html();
-                System.out.println(link + "\t" + title + "\t评分" + score + "\t" + num + "\t" + quoteStr);
+    /**
+     * 获取输出结果，解析数据的核心方法
+     * @param string
+     * @throws IOException
+     */
+    private static void getTheResultString(String string) throws IOException
+    {
+        String quoteStr;
+        String link;
+        String title;
+        String score;
+        String num;
+        Document doc = Jsoup.connect(string).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:60.0) Gecko/20100101 Firefox/60.0").timeout(6000).get();
+        Element content = doc.getElementById("content");
+        Elements infos = content.getElementsByClass("info");
+        for (Element element : infos)
+        {
+            Element links = element.getElementsByTag("a").get(0);
+            Element star = element.getElementsByClass("star").get(0);
+            Elements quotes = element.getElementsByClass("quote");
+            if (quotes.size() > 0)
+            {
+                // 获取短评内容
+                quoteStr = quotes.get(0).child(0).html();
+
             }
+            else
+            {
+                quoteStr = "";
+            }
+            // 获取电影的链接
+            link = links.attr("href");
+            /* 获取电影名称 */
+            title = links.child(0).html();
+            // 获取电影评分
+            score = star.child(1).html();
+            num = star.child(3).html();
+            System.out.println(link + "\t" + title + "\t评分" + score + "\t" + num + "\t" + quoteStr);
         }
     }
 }
