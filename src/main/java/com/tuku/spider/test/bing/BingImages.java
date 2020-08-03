@@ -117,7 +117,7 @@ public class BingImages
 
     private static List<String> getStrings(String url)
     {
-        String params = "ranking?p=";
+        String params = "/?p=";
         Integer totalPage = 2;
         List<String> urlList = new ArrayList<>();
         /**
