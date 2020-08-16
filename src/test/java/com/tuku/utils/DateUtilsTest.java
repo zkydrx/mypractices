@@ -51,7 +51,8 @@ class DateUtilsTest
         log.info("时间差==="+new StringBuffer().append(between.getYears()).append(",").append(between.getMonths()).append(",").append(between.getDays()).toString());
 
         log.info("===================================================");
-
+        LocalDate parse = LocalDate.parse("2016-08-31");
+        parse.plusDays(-1L);
         long between1 = ChronoUnit.MONTHS.between(LocalDate.parse("2016-08-31"), LocalDate.parse("2016-11-30"));
         log.info("between1:day===" + between1);
 
