@@ -1,6 +1,7 @@
 package com.leetcode.TwoSum1;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,13 +25,14 @@ public class TwoSum
 {
     public static void main(String[] args)
     {
-        int[] ints = new TwoSum().twoSum(new int[]{3,2,4}, 6);
+        int[] ints = new TwoSum().twoSumOne(new int[]{3, 7,90,9,92, 4}, 99);
 
         System.out.println(Arrays.toString(ints));
     }
 
     /**
      * 计算给定数组中两个数的和，使他们的结果等于给定的值。并返回这两个数的位置。
+     * 算法的复杂度：o^2
      *
      * @param nums
      * @param target
@@ -60,6 +62,28 @@ public class TwoSum
             }
         }
         return result;
+    }
+
+    /**
+     * 时间复杂度o^n
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSumOne(int[] nums, int target)
+    {
+
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++)
+        {
+            if (hashMap.containsKey(target - nums[i]))
+            {
+                return new int[]{hashMap.get(target - nums[i]), i};
+            }
+            hashMap.put(nums[i], i);
+        }
+        return null;
     }
 }
 
