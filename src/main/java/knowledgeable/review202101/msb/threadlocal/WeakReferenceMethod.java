@@ -1,6 +1,7 @@
 package knowledgeable.review202101.msb.threadlocal;
 
 import java.lang.ref.WeakReference;
+import java.util.WeakHashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +21,10 @@ public class WeakReferenceMethod
         System.out.println(weakReference.get());
         System.gc();
         System.out.println(weakReference.get());
+
+        ThreadLocal<M> threadLocal = new ThreadLocal<>();
+        threadLocal.set(new M());
+        threadLocal.remove();
 
     }
 }

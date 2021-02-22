@@ -7,17 +7,18 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <bean id="beanPostProcessor" class="KnowledgeableReview201901.spring.MyBeanPostProcessor">
+    <bean id="beanPostProcessor" class="knowledgeable.review201901.spring.MyBeanPostProcessor">
     </bean>
 
-    <bean id="instantiationAwareBeanPostProcessor" class="KnowledgeableReview201901.spring.MyInstantiationAwareBeanPostProcessor">
+    <bean id="instantiationAwareBeanPostProcessor"
+          class="knowledgeable.review201901.spring.MyInstantiationAwareBeanPostProcessor">
     </bean>
 
-    <bean id="beanFactoryPostProcessor" class="KnowledgeableReview201901.spring.MyBeanFactoryPostProcessor">
+    <bean id="beanFactoryPostProcessor" class="knowledgeable.review201901.spring.MyBeanFactoryPostProcessor">
     </bean>
 
-    <bean id="person" class="KnowledgeableReview201901.spring.Person" init-method="myInit"
+    <bean id="person" class="knowledgeable.review201901.spring.Person" init-method="myInit"
           destroy-method="myDestory" scope="singleton" p:name="张三" p:address="广州"
-          p:phone="15900000000" />
+          p:phone="15900000000"/>
 
 </beans>
