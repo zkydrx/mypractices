@@ -1,0 +1,279 @@
+要求：
+（1）一个小时间，1,2任选一题，3,4任意一题；
+（2）尽可能展示你的编码能力（Java语法、编码风格等）；
+
+1 写一个函数将一个单向链表进行反向。要求自行编写反向的过程和设计数据结构，不要外部包和辅助函数来处理。
+public class RevoseNode
+{
+
+    class Node<K, V>
+    {
+        K key;
+        V value;
+        Node<K, V> prev;
+        Node<K, V> next;
+
+        public Node()
+        {
+            this.prev = this.next = null;
+        }
+
+        public Node(K key, V value)
+        {
+            this.key = key;
+            this.value = value;
+            this.prev = this.next = null;
+        }
+    }
+
+
+    Node reverseList(Node headNode)
+    {
+        if (headNode == null || headNode.next == null)
+        {
+            return headNode;
+        }
+        Node preNode = headNode;
+        Node newHeadNode = null;
+        while (preNode != null)
+        {
+            Node tmp = preNode.next;
+            preNode.next = newHeadNode;
+            newHeadNode = preNode;
+            preNode = tmp;
+        }
+        return newHeadNode;
+    }
+    
+}
+
+2 两个线程交替打印1-100的整数，一个打印奇数，一个打印偶数，要求输出结果有序。
+public class LocksupportMethod
+{
+    static Thread t1 = null;
+    static Thread t2 = null;
+
+    public static void main(String[] args)
+    {
+        t1 = new Thread(() -> {
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    System.out.println(Thread.currentThread().getName() + "::::" + i);
+                    LockSupport.unpark(t2);
+                    LockSupport.park();
+                }
+            }
+        }, "t1");
+        t2 = new Thread(() -> {
+            for (int i =1; i <= 100; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    LockSupport.park();
+                    System.out.println(Thread.currentThread().getName() + "::::" + i);
+                    LockSupport.unpark(t1);
+                }
+            }
+        }, "t2");
+
+        t1.start();
+        t2.start();
+    }
+}
+t1::::1
+t2::::2
+t1::::3
+t2::::4
+t1::::5
+t2::::6
+t1::::7
+t2::::8
+t1::::9
+t2::::10
+t1::::11
+t2::::12
+t1::::13
+t2::::14
+t1::::15
+t2::::16
+t1::::17
+t2::::18
+t1::::19
+t2::::20
+t1::::21
+t2::::22
+t1::::23
+t2::::24
+t1::::25
+t2::::26
+t1::::27
+t2::::28
+t1::::29
+t2::::30
+t1::::31
+t2::::32
+t1::::33
+t2::::34
+t1::::35
+t2::::36
+t1::::37
+t2::::38
+t1::::39
+t2::::40
+t1::::41
+t2::::42
+t1::::43
+t2::::44
+t1::::45
+t2::::46
+t1::::47
+t2::::48
+t1::::49
+t2::::50
+t1::::51
+t2::::52
+t1::::53
+t2::::54
+t1::::55
+t2::::56
+t1::::57
+t2::::58
+t1::::59
+t2::::60
+t1::::61
+t2::::62
+t1::::63
+t2::::64
+t1::::65
+t2::::66
+t1::::67
+t2::::68
+t1::::69
+t2::::70
+t1::::71
+t2::::72
+t1::::73
+t2::::74
+t1::::75
+t2::::76
+t1::::77
+t2::::78
+t1::::79
+t2::::80
+t1::::81
+t2::::82
+t1::::83
+t2::::84
+t1::::85
+t2::::86
+t1::::87
+t2::::88
+t1::::89
+t2::::90
+t1::::91
+t2::::92
+t1::::93
+t2::::94
+t1::::95
+t2::::96
+t1::::97
+t2::::98
+t1::::99
+t2::::100
+3 场景描述： 用户在支付宝拥有多种支付方式（余额、红包、余额宝等，每种支付工具分布在不同系统），每种支付方式通过调用远程服务获取可用性。
+在外部资源环境不变情况下，请设计程序以最短响应时间获得尽可能多的可用支付方式列表。
+//补充：假定支付方式可用性咨询接口统一为
+ConsultResult  PaymentRemoteSerivce.isEnabled(String userId,String paymentType); 
+// 返回结果
+public class ConsultResult {
+/** 咨询结果是否可用*/
+private boolean isEnable;
+/** 错误码 */
+private String errorCode;
+}
+/**
+ * 过滤不可用支付方式类型，返回可用的支付方式
+ * @param allPaymentTypeList 支付方式类型列表
+ * @return 可用支付方式类型列表
+ */
+public List<String> filterDisablePayment(String userId,List<String> allPaymentTypeList){
+   List<String> enableList = new ArrayList<>()
+	for(String paymentType :allPaymentTypeList)
+    {
+      if(PaymentRemoteSerivce.isEnabled( userId, paymentType).isEnable)
+      {
+        enableList.add(paymentType);
+      }
+    }
+  return enableList;
+        //: TODO 完成此处的代码
+}
+4 尝试用java编写一个转账接口，传入主要业务参数包括转出账号，转入账号，转账金额，完成转出和转入账号的资金处理，
+该服务要确保在资金处理时转出账户的余额不会透支，金额计算准确。
+
+    /**
+     * 尝试用java编写一个转账接口，传入主要业务参数包括转出账号，转入账号，转账金额，完成转出和转入账号的资金处理，
+     * 该服务要确保在资金处理时转出账户的余额不会透支，金额计算准确。
+     *
+     * @param outNo
+     * @param inNo
+     * @param money
+     * @return
+     */
+    @Transactional//事务保证多个数据操作的一致性。
+    public MsgResult transfer(String outNo, String inNo, BigDecimal money)
+    {
+        /**
+         * 1.基础校验
+         */
+        if (StringUtils.isEmpty(outNo) || StringUtils.isEmpty(inNo))
+        {
+            return new MsgResult(errorCode, message);
+        }
+        if (checkIsBigdecimal(money))
+        {
+            return new MsgResult(errorCode, message);
+        }
+        /**
+         * checkNum检查库里是否存在相应的账号
+         */
+        if (checkNum(outNo) || checkNumber(inNo))
+        {
+            return new MsgResult(errorCode, message);
+        }
+        /**
+         * 2.查询账户资金是否足够该次转账
+         */
+        if (checkTheBalanceisEnough(outNo, money))
+        {
+            return new MsgResult(errorCode, message);
+        }
+
+        /**
+         * 3.转账
+         */
+        if (doTransfer(outNo, inNo, money))
+        {
+            return new MsgResult(errorCode, message);
+        }
+        else
+        {
+            return new MsgResult(errorCode, message);
+        }
+    }
+
+    public Boolean doTransfer(String outNo, String inNo, BigDecimal money)
+    {
+        /**
+         * 从转出账户扣钱
+         */
+        int i1 = subMoney(outNo, money);
+        /**
+         * 从转入账户加钱
+         * 保证事务的一致性。
+         */
+        int i2 = addMoney(inNo, money);
+        return i1 == i2 && i1 == 1;
+    }

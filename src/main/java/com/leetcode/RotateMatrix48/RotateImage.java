@@ -1,7 +1,6 @@
 package com.leetcode.RotateMatrix48;
 
 import java.util.Arrays;
-import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Created with IntelliJ IDEA.
