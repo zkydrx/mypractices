@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Date: 2021-03-29
  * Time: 00:10:12
  * Description:
+ * 观察者设计模式练习
  */
 public class WeatherData implements Subject
 {
@@ -48,16 +49,16 @@ public class WeatherData implements Subject
         }
     }
 
-    public void measurementsChanged()
-    {
-        notifyObservers();
-    }
-
     public void setMeasurements(float temperature, float hundidity, float pressure)
     {
         this.temperature = temperature;
         this.humidity = hundidity;
         this.pressure = pressure;
         measurementsChanged();
+    }
+
+    public void measurementsChanged()
+    {
+        notifyObservers();
     }
 }
