@@ -1,8 +1,8 @@
 package KnowledgeableReview201901.java.hash;
 
+import cn.hutool.core.codec.Base64Encoder;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
-import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -79,7 +79,7 @@ public class hashTest
         try
         {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            BASE64Encoder base64Encoder = new BASE64Encoder();
+            Base64Encoder base64Encoder = new Base64Encoder();
             String encode = base64Encoder.encode(md5.digest(str.getBytes("UTF-8")));
             return encode;
         }

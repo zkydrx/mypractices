@@ -1,6 +1,5 @@
 package workTest.emailTest;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.junit.jupiter.api.Test;
