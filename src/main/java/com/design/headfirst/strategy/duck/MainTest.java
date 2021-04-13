@@ -21,6 +21,8 @@ public class MainTest
         modelDuck.display();
         modelDuck.performFly();
         modelDuck.setFlyBehavior(new FlyRocketPowered());
+        modelDuck.setQuackBehavior(new GuaGuaQuack());
         modelDuck.performFly();
+        modelDuck.performQuack();
     }
 }
