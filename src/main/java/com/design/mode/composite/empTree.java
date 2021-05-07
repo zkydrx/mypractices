@@ -102,8 +102,7 @@ public class empTree extends JxFrame implements TreeSelectionListener
 
         for (int i = 0; i < 5; i++)
         {
-            salesMgr.add(new Employee("Sales " + new Integer(i).toString(), 30000.0F + (float) (Math.random() - 0.5)
-                    * 10000));
+            salesMgr.add(new Employee("Sales " + new Integer(i).toString(), 30000.0F + (float) (Math.random() - 0.5) * 10000));
         }
         advMgr.add(new Employee("Secy", 20000));
 

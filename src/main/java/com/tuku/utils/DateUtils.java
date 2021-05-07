@@ -1021,7 +1021,7 @@ public class DateUtils
         Calendar cal = Calendar.getInstance();
         //上个月
         cal.add(Calendar.MONTH, -1);
-        //设置为1号,当前日期既为本月第一天 
+        //设置为1号,当前日期既为本月第一天
         cal.set(Calendar.DAY_OF_MONTH, 1);
         String firstDay = sm.format(cal.getTime());
         return firstDay;

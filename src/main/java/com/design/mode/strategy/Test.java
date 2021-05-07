@@ -13,8 +13,7 @@ public class Test
         Context myContext = new Context();
         StrategyA strategyA = new StrategyA();
         StrategyB strategyB = new StrategyB();
-        String s = "This is a test string ! This is a test string ! This is a test string ! This is a test string ! " +
-                "This is a test string ! This is a test string !";
+        String s = "This is a test string ! This is a test string ! This is a test string ! This is a test string ! " + "This is a test string ! This is a test string !";
         myContext.setText(s);
         myContext.setLineWidth(lineWidth);
         myContext.setStrategy(strategyA);

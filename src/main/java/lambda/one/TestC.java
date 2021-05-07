@@ -26,13 +26,14 @@ public class TestC
         run.run();
 
         ActionListener listener = event -> System.out.println("button checked");//2
+
         Runnable multiLine = () -> {
             System.out.println("Hello");
             System.out.println("World");
         };
         multiLine.run();
-        BinaryOperator<Long> add = (Long x, Long y) -> x + y;
-        Long apply = add.apply(2L, 2L);
+        BinaryOperator<Long> add = (Long x, Long y) -> y;
+        Long apply = add.apply(3L, 2L);
         System.out.println(apply);
 
         BinaryOperator<Long> addImplicit = (x, y) -> x + y;

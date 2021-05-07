@@ -122,8 +122,8 @@ public class DataFormatTest
     @Test
     public void test1() throws Exception
     {
-        System.out.println(DateUtil.isADateFormat(181, "yyyy\"年啊\"m\"月\"d\"日\"\\ h"));
-        System.out.println(DateUtil.isADateFormat(180, "yyyy\"年\"m\"月\"d\"日\"\\ h\"点\""));
+        // System.out.println(DateUtil.isADateFormat(181, "yyyy\"年啊\"m\"月\"d\"日\"\\ h"));
+        // System.out.println(DateUtil.isADateFormat(180, "yyyy\"年\"m\"月\"d\"日\"\\ h\"点\""));
     }
 
     @Test

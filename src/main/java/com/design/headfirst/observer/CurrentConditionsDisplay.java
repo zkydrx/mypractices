@@ -7,7 +7,7 @@ package com.design.headfirst.observer;
  * Time: 00:18:10
  * Description:
  */
-public class CurrentConditionsDisplay implements Observer,DisplayElement
+public class CurrentConditionsDisplay implements Observer, DisplayElement
 {
 
     private float temperature;
@@ -23,14 +23,14 @@ public class CurrentConditionsDisplay implements Observer,DisplayElement
     @Override
     public void display()
     {
-        System.out.println("Current conditions:"+temperature+"F degrees and"+ humidity+" % humidity");
+        System.out.println("Current conditions:" + temperature + "F degrees and" + humidity + " % humidity");
     }
 
     @Override
     public void update(float temp, float humidity, float pressure)
     {
-        this.temperature=temp;
-        this.humidity=humidity;
+        this.temperature = temp;
+        this.humidity = humidity;
         display();
     }
 }

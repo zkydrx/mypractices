@@ -65,9 +65,9 @@ public class Test extends JFrame
     }
 
     final String[] headers = {"Item", "Price/Lb."};
-    JTable table = new JTable(new Object[][]{{"apple", "$.39"}, {"mango", "$.49"}, {"papaya", "$1.19"}, {"lemon",
-            "$.19"}, {"orange", "$.59"}, {"watermelon", "$.39"}, {"tangerine", "$1.09"}, {"cherry", "$.79"},
-            {"banana", "$.29"}, {"lime", "$.33"}, {"grapefruit", "$.69"}, {"grapes", "$.49"},}, headers);
+    JTable table = new JTable(new Object[][]{{"apple", "$.39"}, {"mango", "$.49"}, {"papaya", "$1.19"}, {"lemon", "$.19"}, {"orange", "$.59"}, {"watermelon", "$.39"}, {
+        "tangerine", "$1.09"}, {"cherry", "$.79"}, {"banana", "$.29"}, {"lime", "$.33"}, {"grapefruit", "$.69"}, {"grapes", "$.49"},},
+                              headers);
 
 }
 
@@ -82,13 +82,7 @@ class SwingApp extends WindowAdapter
         launch(f, title, x, y, w, h, null);
     }
 
-    public static void launch(final JFrame f,
-                              String title,
-                              final int x,
-                              final int y,
-                              final int w,
-                              int h,
-                              String propertiesFilename)
+    public static void launch(final JFrame f, String title, final int x, final int y, final int w, int h, String propertiesFilename)
     {
         statusArea.setBorder(BorderFactory.createEtchedBorder());
         statusArea.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
