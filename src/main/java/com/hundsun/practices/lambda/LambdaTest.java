@@ -76,6 +76,8 @@ public class LambdaTest
         all.put(CommonKey.builder().investmentAccountCode("D").build(), BusihubIvsmAcc.builder().fundCode("666").dpInvestAccountLayer("04").build());
         all.put(CommonKey.builder().investmentAccountCode("E").build(), BusihubIvsmAcc.builder().fundCode("555").dpInvestAccountLayer("05").build());
 
+        Map<String,Map<CommonKey,BusihubIvsmAcc>> allMap = new ConcurrentHashMap<>();
+        allMap.put("yyyyy",all);
 
         List<BusihubIvsmAcc> collect = all.values().stream().collect(Collectors.toList());
         ConcurrentMap<String, String> resultMap = collect.stream().filter(e -> {
@@ -83,6 +85,26 @@ public class LambdaTest
         }).collect(Collectors.toConcurrentMap(k -> k.getFundCode(), v -> v.getInvestmentAccountCode(), (m1, m2) -> m1));
 
         log.info("resultMap:{}",resultMap);
+
+    }
+
+    @Test
+    public void test2()
+    {
+        Map<CommonKey, BusihubIvsmAcc> all = new ConcurrentHashMap<>();
+        all.put(CommonKey.builder().investmentAccountCode("A").build(), BusihubIvsmAcc.builder().fundCode("888").dpInvestAccountLayer("01").build());
+        all.put(CommonKey.builder().investmentAccountCode("B").build(), BusihubIvsmAcc.builder().fundCode("999").dpInvestAccountLayer("02").build());
+        Map<String,Map<CommonKey,BusihubIvsmAcc>> allMap = new ConcurrentHashMap<>();
+        allMap.put("yyyyy",all);
+        Map<CommonKey, BusihubIvsmAcc> all1 = new ConcurrentHashMap<>();
+        all1.put(CommonKey.builder().investmentAccountCode("A1").build(), BusihubIvsmAcc.builder().fundCode("8881").dpInvestAccountLayer("011").build());
+        all1.put(CommonKey.builder().investmentAccountCode("B1").build(), BusihubIvsmAcc.builder().fundCode("9991").dpInvestAccountLayer("021").build());
+        allMap.put("yyyyy1",all1);
+
+        log.info("allMap:{}",allMap);
+        all.remove(CommonKey.builder().investmentAccountCode("A").build());
+        // allMap.put("yyyyy",all);
+        log.info("allMap:{}",allMap);
 
     }
 }
