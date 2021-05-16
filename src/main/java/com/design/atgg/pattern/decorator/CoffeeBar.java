@@ -43,7 +43,15 @@ public class CoffeeBar {
 		System.out.println("order2 无因咖啡 加入一份牛奶  费用 =" + order2.cost());
 		System.out.println("order2 无因咖啡 加入一份牛奶 描述 = " + order2.getDes());
 
-	
+		Drink order3 = new AmericanCoffee();
+
+		System.out.println("order3 美式咖啡  费用 =" + order3.cost());
+		System.out.println("order3 美式咖啡 描述 = " + order3.getDes());
+
+		order3 = new Milk(order3);
+
+		System.out.println("order3 美式咖啡  加入一份牛奶  费用 =" + order3.cost());
+		System.out.println("order3 美式咖啡  加入一份牛奶 描述 = " + order3.getDes());
 	}
 
 }
