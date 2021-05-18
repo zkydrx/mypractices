@@ -2,12 +2,13 @@ package com.design.atgg.pattern.money;
 
 /**
  * 状态接口
- * @author Administrator
  *
+ * @author Administrator
  */
-public interface State {
+public interface State
+{
 
-	/**
+    /**
      * 电审
      */
     void checkEvent(Context context);

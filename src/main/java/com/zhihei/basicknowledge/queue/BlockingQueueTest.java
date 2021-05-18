@@ -29,7 +29,7 @@ public class BlockingQueueTest
     @Test
     public void testAddRemoveElement()
     {
-        BlockingQueue<String> blockingQueue= new ArrayBlockingQueue<>(2);
+        BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(2);
         System.out.println(blockingQueue.add("1"));
         System.out.println(blockingQueue.add("2"));
         /**
@@ -137,34 +137,35 @@ public class BlockingQueueTest
     /**
      * SynchronousQueue没有容量
      * 每一个put操作必须要等待以个take操作，否则不能继续添加元素，但是不阻塞
+     *
      * @throws InterruptedException
      */
     @Test
     public void testSynchronousQueue() throws InterruptedException
     {
         BlockingQueue<String> blockingQueue = new SynchronousQueue<>();
-        new Thread(()->{
+        new Thread(() -> {
             try
             {
-                System.out.println(Thread.currentThread().getName()+"\t put 1");
+                System.out.println(Thread.currentThread().getName() + "\t put 1");
                 blockingQueue.put("1");
-                System.out.println(Thread.currentThread().getName()+"\t put 2");
+                System.out.println(Thread.currentThread().getName() + "\t put 2");
                 blockingQueue.put("2");
-                System.out.println(Thread.currentThread().getName()+"\t put 3");
+                System.out.println(Thread.currentThread().getName() + "\t put 3");
                 blockingQueue.put("3");
             }
             catch (InterruptedException e)
             {
                 e.printStackTrace();
             }
-        },"A").start();
+        }, "A").start();
 
 
-        new Thread(()->{
+        new Thread(() -> {
             try
             {
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(Thread.currentThread().getName()+"\t take"+blockingQueue.take());
+                System.out.println(Thread.currentThread().getName() + "\t take" + blockingQueue.take());
                 // TimeUnit.SECONDS.sleep(5);
                 // System.out.println(Thread.currentThread().getName()+"\t take"+blockingQueue.take());
                 // TimeUnit.SECONDS.sleep(5);
@@ -174,7 +175,7 @@ public class BlockingQueueTest
             {
                 e.printStackTrace();
             }
-        },"B").start();
+        }, "B").start();
         TimeUnit.SECONDS.sleep(20);
 
     }

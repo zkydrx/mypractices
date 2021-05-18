@@ -92,9 +92,8 @@ public class Dog implements Cloneable
             return false;
         }
         Dog dog = (Dog) o;
-        return Objects.equals(id, dog.id) && Objects.equals(name, dog.name) && Objects.equals(age, dog.age) &&
-                Objects.equals(color, dog.color) && Objects
-                .equals(weight, dog.weight);
+        return Objects.equals(id, dog.id) && Objects.equals(name, dog.name) && Objects.equals(age, dog.age) && Objects.equals(color, dog.color) && Objects.equals(weight,
+                                                                                                                                                                  dog.weight);
     }
 
     @Override
@@ -107,7 +106,6 @@ public class Dog implements Cloneable
     @Override
     public String toString()
     {
-        return "Dog{" + "id=" + id + ", name='" + name + '\'' + ", age='" + age + '\'' + ", color='" + color + '\'' +
-                ", weight='" + weight + '\'' + '}';
+        return "Dog{" + "id=" + id + ", name='" + name + '\'' + ", age='" + age + '\'' + ", color='" + color + '\'' + ", weight='" + weight + '\'' + '}';
     }
 }

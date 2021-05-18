@@ -9,17 +9,19 @@ import java.util.concurrent.atomic.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class DynamicOrderDeadlock {
+public class DynamicOrderDeadlock
+{
     // Warning: deadlock-prone!
-    public static void transferMoney(Account fromAccount,
-                                     Account toAccount,
-                                     DollarAmount amount)
-            throws InsufficientFundsException {
-        synchronized (fromAccount) {
-            synchronized (toAccount) {
+    public static void transferMoney(Account fromAccount, Account toAccount, DollarAmount amount) throws InsufficientFundsException
+    {
+        synchronized (fromAccount)
+        {
+            synchronized (toAccount)
+            {
                 if (fromAccount.getBalance().compareTo(amount) < 0)
                     throw new InsufficientFundsException();
-                else {
+                else
+                {
                     fromAccount.debit(amount);
                     toAccount.credit(amount);
                 }
@@ -27,51 +29,63 @@ public class DynamicOrderDeadlock {
         }
     }
 
-    static class DollarAmount implements Comparable<DollarAmount> {
+    static class DollarAmount implements Comparable<DollarAmount>
+    {
         // Needs implementation
 
-        public DollarAmount(int amount) {
+        public DollarAmount(int amount)
+        {
         }
 
-        public DollarAmount add(DollarAmount d) {
+        public DollarAmount add(DollarAmount d)
+        {
             return null;
         }
 
-        public DollarAmount subtract(DollarAmount d) {
+        public DollarAmount subtract(DollarAmount d)
+        {
             return null;
         }
 
-        public int compareTo(DollarAmount dollarAmount) {
+        public int compareTo(DollarAmount dollarAmount)
+        {
             return 0;
         }
     }
 
-    static class Account {
+    static class Account
+    {
         private DollarAmount balance;
         private final int acctNo;
         private static final AtomicInteger sequence = new AtomicInteger();
 
-        public Account() {
+        public Account()
+        {
             acctNo = sequence.incrementAndGet();
         }
 
-        void debit(DollarAmount d) {
+        void debit(DollarAmount d)
+        {
             balance = balance.subtract(d);
         }
 
-        void credit(DollarAmount d) {
+        void credit(DollarAmount d)
+        {
             balance = balance.add(d);
         }
 
-        DollarAmount getBalance() {
+        DollarAmount getBalance()
+        {
             return balance;
         }
 
-        int getAcctNo() {
+        int getAcctNo()
+        {
             return acctNo;
         }
     }
 
-    static class InsufficientFundsException extends Exception {
+    static class InsufficientFundsException extends Exception
+    {
     }
 }

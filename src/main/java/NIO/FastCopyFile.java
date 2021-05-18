@@ -24,14 +24,14 @@ public class FastCopyFile
 {
     public static void main(String[] args) throws IOException
     {
-//        if (args.length < 2)
-//        {
-//            System.err.println("Usage: java FastCopyFile infile outfile");
-//            System.exit(1);
-//        }
-//
-//        String infile = args[0];
-//        String outfile = args[1];
+        //        if (args.length < 2)
+        //        {
+        //            System.err.println("Usage: java FastCopyFile infile outfile");
+        //            System.exit(1);
+        //        }
+        //
+        //        String infile = args[0];
+        //        String outfile = args[1];
         String infile = "src/main/java/NIO/README.md";
         String outfile = "src/main/java/NIO/Test.txt";
 

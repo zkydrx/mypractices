@@ -21,13 +21,13 @@ public class HuToolTest
     public static void main(String[] args)
     {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("zky1","drx1");
-        jsonObject.put("zky2","drx2");
-        jsonObject.put("zky3","drx3");
+        jsonObject.put("zky1", "drx1");
+        jsonObject.put("zky2", "drx2");
+        jsonObject.put("zky3", "drx3");
         JSONArray array = JSONUtil.createArray();
         array.add(jsonObject);
-        Map<String,String> map = new HashMap<>();
-        map.put("1","123");
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "123");
         array.add(map);
         System.out.println(array);
         DateTime date = DateUtil.date();

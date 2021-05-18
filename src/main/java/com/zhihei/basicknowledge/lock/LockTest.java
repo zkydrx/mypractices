@@ -288,7 +288,7 @@ class myCache
      * 由于ReentrantLock是独占锁性能不好，缓存这块我们要用读写锁
      */
     // private Lock lock = new ReentrantLock();
-    private ReentrantReadWriteLock reentrantReadWriteLock= new ReentrantReadWriteLock();
+    private ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
 
     public void set(String key, Object value)
     {

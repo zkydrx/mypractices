@@ -41,19 +41,19 @@ public class DoMain
         boolean bea = false;
         if (str.contains("-"))
         {
-            str = str.substring(1,str.length());
+            str = str.substring(1, str.length());
             bea = true;
         }
-        if(matcher.find())
+        if (matcher.find())
         {
             return 0;
         }
-        else if (str.contains(".")&&!(str.contains("-")))
+        else if (str.contains(".") && !(str.contains("-")))
         {
 
             if (str.length() > 10)
             {
-                if(bea)
+                if (bea)
                 {
                     return -2147383648;
                 }
@@ -62,7 +62,7 @@ public class DoMain
             else if (str.length() == 10 && str.compareTo("2147483647") > 0)
 
             {
-                if(bea)
+                if (bea)
                 {
                     return -2147483648;
                 }
@@ -78,7 +78,7 @@ public class DoMain
 
             if (str.length() > 10)
             {
-                if(bea)
+                if (bea)
                 {
                     return -2147483648;
                 }
@@ -87,7 +87,7 @@ public class DoMain
 
             else if (str.length() == 10 && str.compareTo("2147483647") > 0)
             {
-                if(bea)
+                if (bea)
                 {
                     return -2147483648;
                 }
@@ -108,7 +108,7 @@ public class DoMain
         System.out.println(doMain.atoi("-1"));
         System.out.println(doMain.atoi("-123123123123123"));
         System.out.println(doMain.atoi("dkk"));
-        for(int i = 1; i < 20 ; i++)
+        for (int i = 1; i < 20; i++)
         {
             String s = UUID.randomUUID().toString().replaceAll("-", "");
             System.out.println();

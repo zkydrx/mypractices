@@ -27,6 +27,7 @@ class ResourceClassData
 
     /**
      * 传参传接口，适配性更强！
+     *
      * @param blockingQueue
      */
     public ResourceClassData(BlockingQueue<String> blockingQueue)
@@ -37,6 +38,7 @@ class ResourceClassData
 
     /**
      * 生产者生产方法
+     *
      * @throws InterruptedException
      */
     public void productProDucer() throws InterruptedException
@@ -63,6 +65,7 @@ class ResourceClassData
 
     /**
      * 消费者消费方法
+     *
      * @throws InterruptedException
      */
     public void myconsumer() throws InterruptedException
@@ -132,7 +135,7 @@ public class ProducerAndConsumerBlockQueueTest
         System.out.println();
         System.out.println("10秒时间到，生产停止！！！");
         new Thread(() -> {
-            System.out.println(Thread.currentThread().getName()+"\t 停止线程启动");
+            System.out.println(Thread.currentThread().getName() + "\t 停止线程启动");
             System.out.println();
             System.out.println();
             resourceClassData.stop();

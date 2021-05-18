@@ -1,6 +1,7 @@
-#Explain
-1. This subject could check the string's method that split() and subtring() and the stringbuffer's revese() and 
-stringbuild's reverse()
+# Explain
+
+1. This subject could check the string's method that split() and subtring() and the stringbuffer's revese() and
+   stringbuild's reverse()
 
         StringBuffer 
         StringBuilder

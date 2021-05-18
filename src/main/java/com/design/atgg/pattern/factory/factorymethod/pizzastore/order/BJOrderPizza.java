@@ -5,20 +5,25 @@ import com.design.atgg.pattern.factory.factorymethod.pizzastore.pizza.BJPepperPi
 import com.design.atgg.pattern.factory.factorymethod.pizzastore.pizza.Pizza;
 
 
-public class BJOrderPizza extends OrderPizza {
+public class BJOrderPizza extends OrderPizza
+{
 
-	
-	@Override
-	Pizza createPizza(String orderType) {
-	
-		Pizza pizza = null;
-		if(orderType.equals("cheese")) {
-			pizza = new BJCheesePizza();
-		} else if (orderType.equals("pepper")) {
-			pizza = new BJPepperPizza();
-		}
-		// TODO Auto-generated method stub
-		return pizza;
-	}
+
+    @Override
+    Pizza createPizza(String orderType)
+    {
+
+        Pizza pizza = null;
+        if (orderType.equals("cheese"))
+        {
+            pizza = new BJCheesePizza();
+        }
+        else if (orderType.equals("pepper"))
+        {
+            pizza = new BJPepperPizza();
+        }
+        // TODO Auto-generated method stub
+        return pizza;
+    }
 
 }

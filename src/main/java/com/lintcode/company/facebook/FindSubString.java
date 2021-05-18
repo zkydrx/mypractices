@@ -26,18 +26,19 @@ import org.slf4j.LoggerFactory;
  */
 public class FindSubString
 {
-   public static Logger logger = LoggerFactory.getLogger(FindSubString.class);
+    public static Logger logger = LoggerFactory.getLogger(FindSubString.class);
 
     public static void main(String[] args)
     {
         String s = new FindSubString().minWindow("ADOBECODEBANC", "ABC");
 
         System.out.println(s);
-        logger.info("s:{}",s);
+        logger.info("s:{}", s);
     }
 
     /**
      * This is a minimun window's question and should be think a lot about the method.
+     *
      * @param source
      * @param target
      * @return

@@ -12,42 +12,56 @@ import static com.book.javaconcurrencyinpractice.LaunderThrowable.launderThrowab
  *
  * @author Brian Goetz and Tim Peierls
  */
-public abstract class FutureRenderer {
+public abstract class FutureRenderer
+{
     private final ExecutorService executor = Executors.newCachedThreadPool();
 
-    void renderPage(CharSequence source) {
+    void renderPage(CharSequence source)
+    {
         final List<ImageInfo> imageInfos = scanForImageInfo(source);
-        Callable<List<ImageData>> task =
-                new Callable<List<ImageData>>() {
-                    public List<ImageData> call() {
-                        List<ImageData> result = new ArrayList<ImageData>();
-                        for (ImageInfo imageInfo : imageInfos)
-                            result.add(imageInfo.downloadImage());
-                        return result;
-                    }
-                };
+        Callable<List<ImageData>> task = new Callable<List<ImageData>>()
+        {
+            public List<ImageData> call()
+            {
+                List<ImageData> result = new ArrayList<ImageData>();
+                for (ImageInfo imageInfo : imageInfos)
+                {
+                    result.add(imageInfo.downloadImage());
+                }
+                return result;
+            }
+        };
 
         Future<List<ImageData>> future = executor.submit(task);
         renderText(source);
 
-        try {
+        try
+        {
             List<ImageData> imageData = future.get();
             for (ImageData data : imageData)
+            {
                 renderImage(data);
-        } catch (InterruptedException e) {
+            }
+        }
+        catch (InterruptedException e)
+        {
             // Re-assert the thread's interrupted status
             Thread.currentThread().interrupt();
             // We don't need the result, so cancel the task too
             future.cancel(true);
-        } catch (ExecutionException e) {
+        }
+        catch (ExecutionException e)
+        {
             throw launderThrowable(e.getCause());
         }
     }
 
-    interface ImageData {
+    interface ImageData
+    {
     }
 
-    interface ImageInfo {
+    interface ImageInfo
+    {
         ImageData downloadImage();
     }
 

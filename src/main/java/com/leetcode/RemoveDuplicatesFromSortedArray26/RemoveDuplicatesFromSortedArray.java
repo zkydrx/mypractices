@@ -87,6 +87,7 @@ public class RemoveDuplicatesFromSortedArray
 
     /**
      * Only return the number of the elements and the array not changed.
+     *
      * @param nums
      * @return
      */

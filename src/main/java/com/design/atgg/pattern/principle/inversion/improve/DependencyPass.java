@@ -1,22 +1,24 @@
 package com.design.atgg.pattern.principle.inversion.improve;
 
-public class DependencyPass {
+public class DependencyPass
+{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ChangHong changHong = new ChangHong();
-//		OpenAndClose openAndClose = new OpenAndClose();
-//		openAndClose.open(changHong);
-		
-		//通过构造器进行依赖传递
-//		OpenAndClose openAndClose = new OpenAndClose(changHong);
-//		openAndClose.open();
-		//通过setter方法进行依赖传递
-		OpenAndClose openAndClose = new OpenAndClose();
-		openAndClose.setTv(changHong);
-		openAndClose.open();
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+        ChangHong changHong = new ChangHong();
+        //		OpenAndClose openAndClose = new OpenAndClose();
+        //		openAndClose.open(changHong);
 
-	}
+        //通过构造器进行依赖传递
+        //		OpenAndClose openAndClose = new OpenAndClose(changHong);
+        //		openAndClose.open();
+        //通过setter方法进行依赖传递
+        OpenAndClose openAndClose = new OpenAndClose();
+        openAndClose.setTv(changHong);
+        openAndClose.open();
+
+    }
 
 }
 
@@ -65,34 +67,41 @@ public class DependencyPass {
 
 
 // 方式3 , 通过setter方法传递
-interface IOpenAndClose {
-	public void open(); // 抽象方法
+interface IOpenAndClose
+{
+    public void open(); // 抽象方法
 
-	public void setTv(ITV tv);
+    public void setTv(ITV tv);
 }
 
-interface ITV { // ITV接口
-	public void play();
+interface ITV
+{ // ITV接口
+    public void play();
 }
 
-class OpenAndClose implements IOpenAndClose {
-	private ITV tv;
+class OpenAndClose implements IOpenAndClose
+{
+    private ITV tv;
 
-	public void setTv(ITV tv) {
-		this.tv = tv;
-	}
+    public void setTv(ITV tv)
+    {
+        this.tv = tv;
+    }
 
-	public void open() {
-		this.tv.play();
-	}
+    public void open()
+    {
+        this.tv.play();
+    }
 }
 
-class ChangHong implements ITV {
+class ChangHong implements ITV
+{
 
-	@Override
-	public void play() {
-		// TODO Auto-generated method stub
-		System.out.println("长虹电视机，打开");
-	}
-	 
+    @Override
+    public void play()
+    {
+        // TODO Auto-generated method stub
+        System.out.println("长虹电视机，打开");
+    }
+
 }

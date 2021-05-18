@@ -6,7 +6,7 @@ package com.zhihei.interceptor;
  * Date: 2019-03-01
  * Time: 10:45:48
  * Description:
- *  2.创建业务组件实现类 BusinessClass
+ * 2.创建业务组件实现类 BusinessClass
  */
 public class BusinessFacadeImpl implements BusinessFacade
 {

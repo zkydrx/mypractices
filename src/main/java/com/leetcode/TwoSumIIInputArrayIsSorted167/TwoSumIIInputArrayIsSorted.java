@@ -23,6 +23,7 @@ public class TwoSumIIInputArrayIsSorted
 {
     /**
      * This method was  Time Limit Exceeded
+     *
      * @param numbers
      * @param target
      * @return
@@ -51,33 +52,34 @@ public class TwoSumIIInputArrayIsSorted
 
     /**
      * The method was test Passed.
+     *
      * @param numbers
      * @param target
      * @return
      */
-    public int[] twoSumOne(int[] numbers,int target)
+    public int[] twoSumOne(int[] numbers, int target)
     {
-        if(numbers == null||numbers.length == 0)
+        if (numbers == null || numbers.length == 0)
         {
             return null;
         }
 
         int i = 0;
-        int j = numbers.length-1;
+        int j = numbers.length - 1;
         while (i < j)
         {
-            int x = numbers[i]+numbers[j];
-            if(x < target)
+            int x = numbers[i] + numbers[j];
+            if (x < target)
             {
                 ++i;
             }
-            else if( x > target)
+            else if (x > target)
             {
                 --j;
             }
             else
             {
-                return new int[]{i+1,j+1};
+                return new int[]{i + 1, j + 1};
             }
         }
         return null;

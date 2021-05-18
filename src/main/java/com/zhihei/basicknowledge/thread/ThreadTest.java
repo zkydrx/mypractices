@@ -51,10 +51,10 @@ public class ThreadTest
         }
         Integer integer = futureTask.get();
         System.out.println("线程获取到的结果是:" + integer);
-        System.out.println("availableProcessors:"+Runtime.getRuntime().availableProcessors());
-        System.out.println("maxMemory:"+Runtime.getRuntime().maxMemory());
-        System.out.println("freeMemory:"+Runtime.getRuntime().freeMemory());
-        System.out.println("totalMemory:"+Runtime.getRuntime().totalMemory());
+        System.out.println("availableProcessors:" + Runtime.getRuntime().availableProcessors());
+        System.out.println("maxMemory:" + Runtime.getRuntime().maxMemory());
+        System.out.println("freeMemory:" + Runtime.getRuntime().freeMemory());
+        System.out.println("totalMemory:" + Runtime.getRuntime().totalMemory());
     }
 
 }

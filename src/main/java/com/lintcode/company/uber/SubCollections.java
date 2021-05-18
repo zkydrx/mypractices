@@ -59,7 +59,7 @@ public class SubCollections
         }
 
         int a = 10;
-        a>>=1;// a = a>>1;右移1，并把新值赋予a.
+        a >>= 1;// a = a>>1;右移1，并把新值赋予a.
     }
 
     /**
@@ -77,6 +77,7 @@ public class SubCollections
      * 111
      * 除了全1的都是该集合的真子集。所以一共有2^3-1=7个真子集。
      * 该方法就是对上面例子的一种梳理。
+     *
      * @param list
      * @return
      */
@@ -127,6 +128,7 @@ public class SubCollections
 
     /**
      * 对递归的方法进行封装。
+     *
      * @param resource
      * @return
      */
@@ -134,12 +136,13 @@ public class SubCollections
     {
         ArrayList<String> child = new ArrayList<>();
         List<ArrayList<String>> result = new ArrayList<>();
-        getSubList(resource,0,child,result);
+        getSubList(resource, 0, child, result);
         return result;
     }
 
     /**
      * 判断两个集合是否相等
+     *
      * @param list1
      * @param list2
      * @return

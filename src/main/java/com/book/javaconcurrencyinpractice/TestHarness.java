@@ -9,23 +9,33 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TestHarness {
-    public long timeTasks(int nThreads, final Runnable task)
-            throws InterruptedException {
+public class TestHarness
+{
+    public long timeTasks(int nThreads, final Runnable task) throws InterruptedException
+    {
         final CountDownLatch startGate = new CountDownLatch(1);
         final CountDownLatch endGate = new CountDownLatch(nThreads);
 
-        for (int i = 0; i < nThreads; i++) {
-            Thread t = new Thread() {
-                public void run() {
-                    try {
+        for (int i = 0; i < nThreads; i++)
+        {
+            Thread t = new Thread()
+            {
+                public void run()
+                {
+                    try
+                    {
                         startGate.await();
-                        try {
+                        try
+                        {
                             task.run();
-                        } finally {
+                        }
+                        finally
+                        {
                             endGate.countDown();
                         }
-                    } catch (InterruptedException ignored) {
+                    }
+                    catch (InterruptedException ignored)
+                    {
                     }
                 }
             };

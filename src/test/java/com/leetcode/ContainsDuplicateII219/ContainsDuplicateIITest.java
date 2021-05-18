@@ -31,7 +31,7 @@ class ContainsDuplicateIITest
     {
         ContainsDuplicateII containsDuplicateII = new ContainsDuplicateII();
 
-        int [] nums={1,2,3,4,5,6,7,3,4,5,6};
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 3, 4, 5, 6};
 
         boolean b = containsDuplicateII.containsNearbyDuplicate(nums, 5);
 

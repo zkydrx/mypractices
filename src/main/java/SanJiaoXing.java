@@ -13,35 +13,35 @@ public class SanJiaoXing
             {
                 for (int k = 0; k < S.length; k++)
                 {
-                   if(i!=k && i != j && k != j)
-                   {
-                       if(S[i]+S[j] > S[k])
-                       {
-                           if(S[j] + S[k] > S[i])
-                           {
-                               if(S[k]+S[i] >S[j])
-                               {
-                                   count++;
-                               }
-                               else
-                               {
-                                   continue;
-                               }
-                           }
-                           else
-                           {
-                               continue;
-                           }
-                       }
-                       else
-                       {
-                           continue;
-                       }
-                   }
-                   else
-                   {
-                       continue;
-                   }
+                    if (i != k && i != j && k != j)
+                    {
+                        if (S[i] + S[j] > S[k])
+                        {
+                            if (S[j] + S[k] > S[i])
+                            {
+                                if (S[k] + S[i] > S[j])
+                                {
+                                    count++;
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
             }
         }
@@ -50,7 +50,7 @@ public class SanJiaoXing
 
     public static void main(String[] args)
     {
-        SanJiaoXing sanJiaoXing =new SanJiaoXing();
+        SanJiaoXing sanJiaoXing = new SanJiaoXing();
         int i = sanJiaoXing.triangleCount(new int[]{3, 4, 6, 7,});
         System.out.println(i);
     }

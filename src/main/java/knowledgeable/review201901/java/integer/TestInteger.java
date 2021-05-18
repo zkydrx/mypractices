@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 public class TestInteger
 {
     Logger logger = LoggerFactory.getLogger(TestInteger.class);
+
     @Test
     public void test()
     {
@@ -38,6 +39,6 @@ public class TestInteger
     {
         Integer a = 1;
         int b = 1;
-        logger.info("a==b::{}",a==b);
+        logger.info("a==b::{}", a == b);
     }
 }

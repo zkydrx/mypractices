@@ -12,7 +12,6 @@ import java.util.concurrent.Executors;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 
-
 /**
  * PrimeGenerator
  * <p/>
@@ -21,37 +20,47 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class PrimeGenerator implements Runnable {
+public class PrimeGenerator implements Runnable
+{
     private static ExecutorService exec = Executors.newCachedThreadPool();
 
-    @GuardedBy("this") private final List<BigInteger> primes
-            = new ArrayList<BigInteger>();
+    @GuardedBy("this")
+    private final List<BigInteger> primes = new ArrayList<BigInteger>();
     private volatile boolean cancelled;
 
-    public void run() {
+    public void run()
+    {
         BigInteger p = BigInteger.ONE;
-        while (!cancelled) {
+        while (!cancelled)
+        {
             p = p.nextProbablePrime();
-            synchronized (this) {
+            synchronized (this)
+            {
                 primes.add(p);
             }
         }
     }
 
-    public void cancel() {
+    public void cancel()
+    {
         cancelled = true;
     }
 
-    public synchronized List<BigInteger> get() {
+    public synchronized List<BigInteger> get()
+    {
         return new ArrayList<BigInteger>(primes);
     }
 
-    static List<BigInteger> aSecondOfPrimes() throws InterruptedException {
+    static List<BigInteger> aSecondOfPrimes() throws InterruptedException
+    {
         PrimeGenerator generator = new PrimeGenerator();
         exec.execute(generator);
-        try {
+        try
+        {
             SECONDS.sleep(1);
-        } finally {
+        }
+        finally
+        {
             generator.cancel();
         }
         return generator.get();

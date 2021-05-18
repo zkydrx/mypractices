@@ -14,13 +14,13 @@ public class TestStringHash
     @Test
     public void testStringHash()
     {
-        String s= "123";
-        System.out.println((int)'1');
-        System.out.println((int)'2');
-        System.out.println((int)'3');
+        String s = "123";
+        System.out.println((int) '1');
+        System.out.println((int) '2');
+        System.out.println((int) '3');
         System.out.println(s.hashCode());
-        System.out.println((((int)'1')*31+((int)'2'))*31+(int)'3');
-        System.out.println("(49*31+50)*31+51 = "+((49*31+50)*31+51));
+        System.out.println((((int) '1') * 31 + ((int) '2')) * 31 + (int) '3');
+        System.out.println("(49*31+50)*31+51 = " + ((49 * 31 + 50) * 31 + 51));
 
     }
 }

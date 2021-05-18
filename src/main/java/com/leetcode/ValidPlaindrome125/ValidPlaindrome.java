@@ -64,6 +64,7 @@ public class ValidPlaindrome
 
     /**
      * format the string to that only has number and character.
+     *
      * @param s
      * @return
      */

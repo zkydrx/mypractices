@@ -26,6 +26,7 @@ public class EmailTest
 {
     /**
      * 基于apache的邮件框架仅支持jdk1.8及更高版本
+     *
      * @param args
      */
     public static void main(String[] args)
@@ -165,8 +166,6 @@ public class EmailTest
     }
 
 
-
-
     /**
      * 发送附件,支持多附件
      * //使用JavaMail的MimeMessage，支付更加复杂的邮件格式和内容
@@ -178,10 +177,7 @@ public class EmailTest
      * @param paths   附件路径，和文件名
      * @throws MessagingException
      */
-    public void attachedSend(String email,
-                             String subject,
-                             String text,
-                             Map<String, String> paths) throws MessagingException
+    public void attachedSend(String email, String subject, String text, Map<String, String> paths) throws MessagingException
     {
 
         MimeMessage message = mailSender.createMimeMessage();
@@ -234,10 +230,7 @@ public class EmailTest
      * @param paths   富文本中添加用到的路径，一般是图片，或者css,js文件
      * @throws MessagingException
      */
-    public void richContentSend(String email,
-                                String subject,
-                                String text,
-                                Map<String, String> paths) throws MessagingException
+    public void richContentSend(String email, String subject, String text, Map<String, String> paths) throws MessagingException
     {
 
         MimeMessage message = mailSender.createMimeMessage();
@@ -285,8 +278,7 @@ public class EmailTest
 
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-        messageHelper.setFrom(new InternetAddress(javax.mail.internet.MimeUtility.encodeText(mailSender.getUsername()
-        )));
+        messageHelper.setFrom(new InternetAddress(javax.mail.internet.MimeUtility.encodeText(mailSender.getUsername())));
         messageHelper.setSubject(subject);
         if (filePath != null)
         {

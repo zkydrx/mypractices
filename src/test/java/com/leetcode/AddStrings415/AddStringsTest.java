@@ -31,8 +31,7 @@ class AddStringsTest
     {
         AddStrings addStrings = new AddStrings();
 
-        String s = addStrings.addStrings("100000",
-                "20000");
+        String s = addStrings.addStrings("100000", "20000");
 
         System.out.println(s);
     }

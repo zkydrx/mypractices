@@ -582,16 +582,13 @@ public class FunctionInterfaceTest
         String str = "周星驰,55";
         int i = convertGroup(str, s -> s.split(",")[1], s -> Integer.parseInt(s), s -> s + 100);
 
-        System.out.println("经过组合转换以后的结果是: "+i);
+        System.out.println("经过组合转换以后的结果是: " + i);
     }
 
     /**
      * 方法引用
      * 若lambda体中的内容，有方法已经实现了，则可以使用方法引用。方法引用是对lambda的简化
      */
-
-
-
 
 
 }

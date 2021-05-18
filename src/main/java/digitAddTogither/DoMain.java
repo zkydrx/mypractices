@@ -13,35 +13,36 @@ public class DoMain
 {
     /**
      * Get a number's all digit's sum.
+     *
      * @param num
      * @return
      */
     public int geSum(int num)
     {
         int sum = 0;
-        while(num >0)
+        while (num > 0)
         {
-            int temp = num %10;
+            int temp = num % 10;
             num /= 10;
-            sum+=temp;
+            sum += temp;
         }
-         return sum;
+        return sum;
     }
 
     /**
      * 获取一个数的各位和，并判断和是否满足个位数，满足就返回结果。否者继续。
+     *
      * @param num
      * @return
      */
     public int getAdigit(int num)
     {
-        while(num >=10)
+        while (num >= 10)
         {
             num = geSum(num);
         }
-         return num;
+        return num;
     }
-
 
 
     public static void main(String[] args)

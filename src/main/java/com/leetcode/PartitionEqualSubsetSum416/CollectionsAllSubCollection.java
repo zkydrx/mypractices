@@ -123,7 +123,7 @@ public class CollectionsAllSubCollection
         {
             return null;
         }
-        else if( from == to)
+        else if (from == to)
         {
 
             System.out.println(Arrays.toString(strings));
@@ -132,9 +132,9 @@ public class CollectionsAllSubCollection
         {
             for (int i = from; i < to; i++)
             {
-                swap(strings,i,from);
-                getCollectionTwo(strings,from+1,to);
-                swap(strings,from,i);
+                swap(strings, i, from);
+                getCollectionTwo(strings, from + 1, to);
+                swap(strings, from, i);
             }
         }
         return strings;

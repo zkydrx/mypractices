@@ -19,7 +19,7 @@ public class RemoveDuplicatesFromSortedList
     {
 
 
-        if(head == null)
+        if (head == null)
         {
             return head;
         }

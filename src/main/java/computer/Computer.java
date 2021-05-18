@@ -66,8 +66,7 @@ class Computer extends JApplet implements ActionListener
     {
         int cnt = 0;
         String actionCommand = e.getActionCommand();
-        if (actionCommand.equals("+") || actionCommand.equals("-") || actionCommand.equals("*") || actionCommand
-                .equals("/"))
+        if (actionCommand.equals("+") || actionCommand.equals("-") || actionCommand.equals("*") || actionCommand.equals("/"))
         {
             input += " " + actionCommand + " ";//设置输入，把输入的样式改成 需要的样子
         }

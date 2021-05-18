@@ -16,6 +16,6 @@ public class TestNewSpecialities
     @Test
     public void testOne()
     {
-        Arrays.asList("a","d","b","c","h","e").forEach(e -> System.out.println(e));
+        Arrays.asList("a", "d", "b", "c", "h", "e").forEach(e -> System.out.println(e));
     }
 }

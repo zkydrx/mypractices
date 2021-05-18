@@ -12,24 +12,30 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class LanguageServices
 {
-    private LanguageServices(){};
+    private LanguageServices()
+    {
+    }
 
-    private static final Map<String,LanguageProvider> providers = new ConcurrentHashMap<>();
-    public static final String DEFAULT_PROVIDER_NAME="<def>";
+    ;
+
+    private static final Map<String, LanguageProvider> providers = new ConcurrentHashMap<>();
+    public static final String DEFAULT_PROVIDER_NAME = "<def>";
 
     public static void resigterDefaultProvider(LanguageProvider p)
     {
-        registerProvider(DEFAULT_PROVIDER_NAME,p);
+        registerProvider(DEFAULT_PROVIDER_NAME, p);
     }
-    public static void registerProvider(String name,LanguageProvider p)
+
+    public static void registerProvider(String name, LanguageProvider p)
     {
-        providers.put(name,p);
+        providers.put(name, p);
     }
 
     public static LanguageService newInstance()
     {
         return newInstance(DEFAULT_PROVIDER_NAME);
     }
+
     public static LanguageService newInstance(String name)
     {
         LanguageProvider p = providers.get(name);

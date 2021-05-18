@@ -37,7 +37,7 @@ public class Service
     {
         // 返回锁的value值，供释放锁时候进行判断
         String identifier = lock.lockWithTimeout("resource", 5000, 2000);
-        System.out.println("value:"+identifier);
+        System.out.println("value:" + identifier);
         System.out.println(Thread.currentThread().getName() + "获得了锁");
         System.out.println(--n);
         lock.releaseLock("resource", identifier);

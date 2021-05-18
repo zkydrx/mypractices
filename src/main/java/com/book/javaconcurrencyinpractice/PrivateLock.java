@@ -10,12 +10,16 @@ import com.book.javaconcurrencyinpractice.annotations.GuardedBy;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class PrivateLock {
+public class PrivateLock
+{
     private final Object myLock = new Object();
-    @GuardedBy("myLock") Widget widget;
+    @GuardedBy("myLock")
+    Widget widget;
 
-    void someMethod() {
-        synchronized (myLock) {
+    void someMethod()
+    {
+        synchronized (myLock)
+        {
             // Access or modify the state of widget
         }
     }

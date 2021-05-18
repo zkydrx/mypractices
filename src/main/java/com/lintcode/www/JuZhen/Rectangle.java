@@ -17,18 +17,18 @@ public class Rectangle
 
     public Rectangle(double width, double height)
     {
-        this.width=width;
-        this.height=height;
+        this.width = width;
+        this.height = height;
     }
 
     public double getArea()
     {
-        return width*height;
+        return width * height;
     }
 
     public static void main(String[] args)
     {
-        Rectangle rectangle =new Rectangle(3,4);
+        Rectangle rectangle = new Rectangle(3, 4);
         double area = rectangle.getArea();
         System.out.println(area);
     }

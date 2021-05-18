@@ -12,9 +12,11 @@ public class Node
     public int value;
     public Node left;
     public Node right;
-    public Node(int v){
-        this.value=v;
-        this.left=null;
-        this.right=null;
+
+    public Node(int v)
+    {
+        this.value = v;
+        this.left = null;
+        this.right = null;
     }
 }

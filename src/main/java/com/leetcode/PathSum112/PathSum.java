@@ -6,7 +6,7 @@ package com.leetcode.PathSum112;
  * Date: 2018-03-18
  * Time: 23:22:55
  * Description:
- *
+ * <p>
  * 112. Path Sum
  * <p>
  * 112. Path Sum
@@ -30,17 +30,17 @@ public class PathSum
 {
     public boolean hasPathSum(TreeNode root, int sum)
     {
-        if(root == null)
+        if (root == null)
         {
             return false;
         }
 
-        if(root.val == sum&&(root.left==null && root.right == null))
+        if (root.val == sum && (root.left == null && root.right == null))
         {
             return true;
         }
 
-        return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
     }
 
 

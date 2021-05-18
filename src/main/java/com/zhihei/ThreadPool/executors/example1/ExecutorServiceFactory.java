@@ -12,9 +12,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Time: 09:06:31
  * Description:
  * 线程池构造工厂
- *
+ * <p>
  * 饿汉单例模式的应用，主要用在创建线程服务工厂，同时返回线程工厂服务
- *
  */
 public class ExecutorServiceFactory
 {
@@ -60,6 +59,7 @@ public class ExecutorServiceFactory
      * 可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的。与其他等效的
      * newFixedThreadPool(1) 不同，可保证无需重新配置此方法所返回的执行程序即可使用其他的线程。
      * 特点：单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。
+     *
      * @return
      */
     public ExecutorService createSingleThreadExecutor()
@@ -77,7 +77,7 @@ public class ExecutorServiceFactory
      * 秒钟未被使用的线程。因此，长时间保持空闲的线程池不会使用任何资源。
      * 注意，可以使用 ThreadPoolExecutor
      * 构造方法创建具有类似属性但细节不同（例如超时参数）的线程池。
-     *
+     * <p>
      * 特点：可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。
      *
      * @return
@@ -94,8 +94,9 @@ public class ExecutorServiceFactory
      * 线程会处于处理任务的活动状态。如果在所有线程处于活动状态时提交附加任务
      * ，则在有可用线程之前，附加任务将在队列中等待。如果在关闭前的执行期间由于失败而导致任何线程终止
      * ，那么一个新线程将代替它执行后续的任务（如果需要）。在某个线程被显式地关闭之前，池中的线程将一直存在。
-     *
+     * <p>
      * 特点：定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。
+     *
      * @return
      */
     public ExecutorService createFixedThreadPool(int count)

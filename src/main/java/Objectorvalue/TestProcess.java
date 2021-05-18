@@ -16,10 +16,10 @@ public class TestProcess
         process.function4(a);
         System.out.println(a);
 
-        Car car =  new Car("red");
+        Car car = new Car("red");
 
         System.out.println(car);
-//        process.function1(car);
+        //        process.function1(car);
         process.function2(car);
         System.out.println(car);
     }

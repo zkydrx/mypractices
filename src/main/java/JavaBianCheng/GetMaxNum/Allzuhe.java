@@ -11,7 +11,7 @@ package JavaBianCheng.GetMaxNum;
 public class Allzuhe
 {
     @org.junit.jupiter.api.Test
-    public  void Combination()
+    public void Combination()
     {
         /*基本思路：求全组合，则假设原有元素n个，则最终组合结果是2^n个。原因是：
          * 用位操作方法：假设元素原本有：a,b,c三个，则1表示取该元素，0表示不取。故去a则是001，取ab则是011.

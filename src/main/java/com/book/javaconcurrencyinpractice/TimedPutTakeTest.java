@@ -9,18 +9,23 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TimedPutTakeTest extends PutTakeTest {
+public class TimedPutTakeTest extends PutTakeTest
+{
     private BarrierTimer timer = new BarrierTimer();
 
-    public TimedPutTakeTest(int cap, int pairs, int trials) {
+    public TimedPutTakeTest(int cap, int pairs, int trials)
+    {
         super(cap, pairs, trials);
         barrier = new CyclicBarrier(nPairs * 2 + 1, timer);
     }
 
-    public void test() {
-        try {
+    public void test()
+    {
+        try
+        {
             timer.clear();
-            for (int i = 0; i < nPairs; i++) {
+            for (int i = 0; i < nPairs; i++)
+            {
                 pool.execute(new PutTakeTest.Producer());
                 pool.execute(new PutTakeTest.Consumer());
             }
@@ -29,16 +34,21 @@ public class TimedPutTakeTest extends PutTakeTest {
             long nsPerItem = timer.getTime() / (nPairs * (long) nTrials);
             System.out.print("Throughput: " + nsPerItem + " ns/item");
             assertEquals(putSum.get(), takeSum.get());
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception
+    {
         int tpt = 100000; // trials per thread
-        for (int cap = 1; cap <= 1000; cap *= 10) {
+        for (int cap = 1; cap <= 1000; cap *= 10)
+        {
             System.out.println("Capacity: " + cap);
-            for (int pairs = 1; pairs <= 128; pairs *= 2) {
+            for (int pairs = 1; pairs <= 128; pairs *= 2)
+            {
                 TimedPutTakeTest t = new TimedPutTakeTest(cap, pairs, tpt);
                 System.out.print("Pairs: " + pairs + "\t");
                 t.test();

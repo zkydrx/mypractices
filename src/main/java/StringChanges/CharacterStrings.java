@@ -12,9 +12,9 @@ import java.util.List;
  * <p>
  * 置换的意思是，通过改变顺序可以使得两个字符串相等。
  * 样例
- "abc" 为 "cba" 的置换。
-
- "aabc" 不是 "abcc" 的置换。
+ * "abc" 为 "cba" 的置换。
+ * <p>
+ * "aabc" 不是 "abcc" 的置换。
  */
 public class CharacterStrings
 {
@@ -33,7 +33,8 @@ public class CharacterStrings
         if (A.length() != B.length())
         {
             return false;
-        } else
+        }
+        else
         {
             for (int i = 0; i < A.length(); i++)
             {
@@ -60,6 +61,7 @@ public class CharacterStrings
 
         }
     }
+
     @Test
     public void testStringPermutation()
     {

@@ -12,9 +12,10 @@ public class AssertDemo
 {
     public static double initDemo(double i)
     {
-//        assert i > 0:i;
+        //        assert i > 0:i;
         return Math.sqrt(i);
     }
+
     public static void main(String[] args)
     {
         double v = initDemo(-10);

@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Created by ZKY on 2017-05-25 11:17 AM.
  * 给定两个二进制字符串，返回他们的和（用二进制表示）。
- *
- *
+ * <p>
+ * <p>
  * 样例
  * a = 11
  * b = 1
@@ -17,27 +17,29 @@ public class BinAddPlus
 {
     /**
      * 得到两个二进制字符串的和（结果仍然用二进制表示)
+     *
      * @param a
      * @param b
      * @return
      */
     public String addPlus(String a, String b)
     {
-       long temp1 = changeLong(a);
-       long temp2 = changeLong(b);
-       long temp3 = temp1 + temp2;
-       String s = changeBin(temp3);
-       return s;
+        long temp1 = changeLong(a);
+        long temp2 = changeLong(b);
+        long temp3 = temp1 + temp2;
+        String s = changeBin(temp3);
+        return s;
     }
 
     /**
      * 把一个二进制的字符串变成一个十进制的long型的数字。
+     *
      * @param a
      * @return
      */
     public static long changeLong(String a)
     {
-        if(a =="0")
+        if (a == "0")
         {
             return 0L;
         }
@@ -45,7 +47,7 @@ public class BinAddPlus
         long l = Long.parseLong(a);
         List<Long> list = new ArrayList<>();
         int count = 0;
-        while( l > 0)
+        while (l > 0)
         {
             long temp = l % 10;
             list.add(temp);
@@ -53,28 +55,29 @@ public class BinAddPlus
             count++;
         }
 
-        for(int i = count-1; i >= 0; i--)
+        for (int i = count - 1; i >= 0; i--)
         {
             double pow = Math.pow(2, i);
-            sum += list.get(i) * Math.pow(2,i);
+            sum += list.get(i) * Math.pow(2, i);
         }
         return sum;
     }
 
     /**
      * 将一个十进制的数字变成二进制的字符串。
+     *
      * @param a
      * @return
      */
     public String changeBin(long a)
     {
-        if(a == 0L)
+        if (a == 0L)
         {
             return "0";
         }
         List<Long> list = new ArrayList<>();
         int count = 0;
-        while(a > 0)
+        while (a > 0)
         {
             long temp = a % 2;
             list.add(temp);
@@ -82,12 +85,13 @@ public class BinAddPlus
             a /= 2;
         }
         StringBuffer sbf = new StringBuffer();
-        for(int i = list.size()-1; i >= 0; i--)
+        for (int i = list.size() - 1; i >= 0; i--)
         {
             sbf.append(list.get(i));
         }
         return sbf.toString();
     }
+
     @Test
     public void testChangeLong()
     {

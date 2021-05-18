@@ -15,6 +15,6 @@ public class MyFunctionInterfaceImpl implements MyFunctionInterface
     @Override
     public void hello()
     {
-        System.out.println("com from MyFunctionInterfaceImpl ===>"+Thread.currentThread().getName());
+        System.out.println("com from MyFunctionInterfaceImpl ===>" + Thread.currentThread().getName());
     }
 }

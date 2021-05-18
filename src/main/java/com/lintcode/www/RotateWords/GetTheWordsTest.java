@@ -22,10 +22,10 @@ class GetTheWordsTest
         /**
          * "picture","turepic", "icturep", "word", "ordw", "lint"
          */
-//        for (int i = 0; i < dict.length; i++)
-//        {
-//            dict[i]
-//        }
+        //        for (int i = 0; i < dict.length; i++)
+        //        {
+        //            dict[i]
+        //        }
         List<String> list = new ArrayList<>();
         list.add("picture");
         list.add("turepic");
@@ -37,9 +37,9 @@ class GetTheWordsTest
 
         System.out.println(i);
 
-//        System.out.println(list);
-//        Arrays.sort(list.toArray());
-//        System.out.println(list);
+        //        System.out.println(list);
+        //        Arrays.sort(list.toArray());
+        //        System.out.println(list);
 
 
     }

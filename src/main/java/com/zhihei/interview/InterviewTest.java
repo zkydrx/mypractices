@@ -35,10 +35,11 @@ public class InterviewTest implements Runnable
         this.threadCount = threadCount;
         this.max = max;
     }
+
     @Override
     public void run()
     {
-        while (current<=max)
+        while (current <= max)
         {
             synchronized (InterviewTest.class)
             {

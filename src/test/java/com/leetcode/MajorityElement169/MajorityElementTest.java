@@ -32,7 +32,7 @@ class MajorityElementTest
     void majorityElement()
     {
         MajorityElement majorityElement = new MajorityElement();
-        int [] nums = {3,2,3};
+        int[] nums = {3, 2, 3};
         int i = majorityElement.majorityElement(nums);
 
         System.out.println(i);

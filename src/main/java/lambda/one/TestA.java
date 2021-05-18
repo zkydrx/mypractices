@@ -113,9 +113,7 @@ public class TestA
         List<String> a = laguages.stream().filter((str) -> str.endsWith("a")).collect(Collectors.toList());
         System.out.println(a);
         System.out.println("Print contain 'Ha': ");
-        List<String> p = laguages.stream()
-                                 .filter((str) -> str.contains("Ha"))
-                                 .collect(Collectors.toList());
+        List<String> p = laguages.stream().filter((str) -> str.contains("Ha")).collect(Collectors.toList());
         System.out.println(p);
         System.out.println("Print all languages: ");
         List<String> collect = laguages.stream().collect(Collectors.toList());
@@ -130,19 +128,18 @@ public class TestA
         System.out.println(collect2);
 
 
-
     }
 
     public static void filter(List<String> names, Predicate condition)
     {
-//        names.stream().filter((name) -> (condition.test(name))).forEach((name) -> {
-//            System.out.println(name + " ");
-//        });
-        for(String name: names)
+        //        names.stream().filter((name) -> (condition.test(name))).forEach((name) -> {
+        //            System.out.println(name + " ");
+        //        });
+        for (String name : names)
         {
-            if(condition.test(name))
+            if (condition.test(name))
             {
-                System.out.println(name+ " ");
+                System.out.println(name + " ");
             }
         }
     }
@@ -170,7 +167,7 @@ public class TestA
          * 使用lambda表达式
          */
         costBeforeTax.stream().map((cost) -> cost + .12 * cost).forEach(System.out::println);
-        costBeforeTax.stream().map((cost) -> cost+0.12*cost).forEach(n -> System.out.print(n+" "));
+        costBeforeTax.stream().map((cost) -> cost + 0.12 * cost).forEach(n -> System.out.print(n + " "));
     }
 
     /**

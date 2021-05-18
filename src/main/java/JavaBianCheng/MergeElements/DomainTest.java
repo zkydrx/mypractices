@@ -15,11 +15,12 @@ import java.util.List;
 class DomainTest
 {
     Domain domain = new Domain();
+
     @Test
     void mergeTwoList()
     {
-        String [] x1 ={"a","B","C"};
-        int [] x2 = {1,2,3};
+        String[] x1 = {"a", "B", "C"};
+        int[] x2 = {1, 2, 3};
         List y1 = new ArrayList();
         y1.add("a");
         y1.add("B");

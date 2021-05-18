@@ -10,24 +10,33 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class PrimeProducer extends Thread {
+public class PrimeProducer extends Thread
+{
     private final BlockingQueue<BigInteger> queue;
 
-    PrimeProducer(BlockingQueue<BigInteger> queue) {
+    PrimeProducer(BlockingQueue<BigInteger> queue)
+    {
         this.queue = queue;
     }
 
-    public void run() {
-        try {
+    public void run()
+    {
+        try
+        {
             BigInteger p = BigInteger.ONE;
             while (!Thread.currentThread().isInterrupted())
+            {
                 queue.put(p = p.nextProbablePrime());
-        } catch (InterruptedException consumed) {
+            }
+        }
+        catch (InterruptedException consumed)
+        {
             /* Allow thread to exit */
         }
     }
 
-    public void cancel() {
+    public void cancel()
+    {
         interrupt();
     }
 }

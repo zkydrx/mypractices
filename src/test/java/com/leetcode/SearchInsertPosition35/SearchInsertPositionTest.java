@@ -31,8 +31,8 @@ class SearchInsertPositionTest
     {
         SearchInsertPosition searchInsertPosition = new SearchInsertPosition();
 
-        int [] nums = {1,3,5,6};
-        int [] nums1 = {1,3,5,6};
+        int[] nums = {1, 3, 5, 6};
+        int[] nums1 = {1, 3, 5, 6};
         int i = searchInsertPosition.searchInsert(nums, 2);
         int i1 = searchInsertPosition.searchInsert(nums1, 5);
 

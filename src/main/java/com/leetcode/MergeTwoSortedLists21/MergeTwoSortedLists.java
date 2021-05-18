@@ -26,9 +26,9 @@ public class MergeTwoSortedLists
         ListNode p1 = l1;
         ListNode p2 = l2;
 
-        while (p1!=null && p2 !=null)
+        while (p1 != null && p2 != null)
         {
-            if(p1.val < p2.val)
+            if (p1.val < p2.val)
             {
                 p.next = p1;
                 p1 = p1.next;
@@ -42,12 +42,12 @@ public class MergeTwoSortedLists
             p = p.next;
         }
 
-        if(p1 != null)
+        if (p1 != null)
         {
             p.next = p1;
         }
 
-        if(p2!=null)
+        if (p2 != null)
         {
             p.next = p2;
         }

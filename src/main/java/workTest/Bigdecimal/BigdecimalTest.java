@@ -14,7 +14,7 @@ public class BigdecimalTest
     public static void main(String[] args)
     {
         BigDecimal bigDecimal = BigDecimal.valueOf(0.335234);
-        BigDecimal bigDecimal1 = bigDecimal.setScale(2,BigDecimal.ROUND_HALF_UP);
+        BigDecimal bigDecimal1 = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
         System.out.println(bigDecimal1);
     }
 }

@@ -41,7 +41,7 @@ public class StudentController
 
     public void updateView()
     {
-        view.printStudentDetails(model.getName(),model.getRollNo());
+        view.printStudentDetails(model.getName(), model.getRollNo());
     }
 
 

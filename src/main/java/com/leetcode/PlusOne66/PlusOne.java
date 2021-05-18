@@ -98,6 +98,7 @@ public class PlusOne
 
     /**
      * method two.
+     *
      * @param nums
      * @return
      */
@@ -114,7 +115,7 @@ public class PlusOne
         i++;
 
         int numDigit = getNumDigit(i);
-        int [] num = new int[numDigit];
+        int[] num = new int[numDigit];
         int[] arrays = getArrays(num, i);
 
         return arrays;
@@ -123,6 +124,7 @@ public class PlusOne
 
     /**
      * get a number of digits.
+     *
      * @param num
      * @return
      */
@@ -137,19 +139,21 @@ public class PlusOne
         }
         return count;
     }
+
     /**
      * Put a number's digit into a array.
+     *
      * @param arr
      * @param n
      * @return
      */
-    public int[] getArrays(int [] arr,int n)
+    public int[] getArrays(int[] arr, int n)
     {
         int numDigit = getNumDigit(n);
 
         while (n > 0)
         {
-            int temp = n %10;
+            int temp = n % 10;
             arr[--numDigit] = temp;
             n /= 10;
         }

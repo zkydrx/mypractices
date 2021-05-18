@@ -75,12 +75,12 @@ public class TestB
     /**
      * 断言型接口示例
      */
-    public static List<String> filter(List<String> fruit,Predicate<String> predicate )
+    public static List<String> filter(List<String> fruit, Predicate<String> predicate)
     {
         List<String> f = new ArrayList<>();
-        for(String s:fruit)
+        for (String s : fruit)
         {
-            if(predicate.test(s))
+            if (predicate.test(s))
             {
                 f.add(s);
             }
@@ -91,8 +91,8 @@ public class TestB
     @Test
     public void testFilter()
     {
-        List<String> fruit= Arrays.asList("香蕉","菠萝","榴莲","西瓜","火龙果","枇杷果","人参果");
-        List<String> newFruit = filter(fruit,(f) -> f.length()==3);
+        List<String> fruit = Arrays.asList("香蕉", "菠萝", "榴莲", "西瓜", "火龙果", "枇杷果", "人参果");
+        List<String> newFruit = filter(fruit, (f) -> f.length() == 3);
         System.out.println(newFruit);
     }
 }

@@ -33,7 +33,7 @@ class FindAllNumbersDisappearedInAnArrayTest
     {
         FindAllNumbersDisappearedInAnArray findAllNumbersDisappearedInAArray = new FindAllNumbersDisappearedInAnArray();
 
-        int [] nums = {4,3,2,7,8,2,3,1};
+        int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
         List<Integer> disappearedNumbers = findAllNumbersDisappearedInAArray.findDisappearedNumbers(nums);
 
         for (int i = 0; i < disappearedNumbers.size(); i++)

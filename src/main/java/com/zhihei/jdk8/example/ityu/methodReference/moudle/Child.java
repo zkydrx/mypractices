@@ -16,6 +16,7 @@ public class Child extends Parent
     {
         System.out.println("Hello I am child.");
     }
+
     public static void superMethod(MyMeet myMeet)
     {
         myMeet.meet();
@@ -23,7 +24,7 @@ public class Child extends Parent
 
     public void show()
     {
-        superMethod(()->{
+        superMethod(() -> {
             Parent parent = new Parent();
             parent.hello();
         });
@@ -35,6 +36,6 @@ public class Child extends Parent
          * 2.父类的成员方法hello已经存在
          * 可以直接使用super引用父类的成员方法
          */
-        superMethod(()->super.hello());
+        superMethod(() -> super.hello());
     }
 }

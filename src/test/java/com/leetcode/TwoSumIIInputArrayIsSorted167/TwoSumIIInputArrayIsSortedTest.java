@@ -30,12 +30,12 @@ class TwoSumIIInputArrayIsSortedTest
     void twoSum()
     {
         TwoSumIIInputArrayIsSorted twoSumIIInputArrayIsSorted = new TwoSumIIInputArrayIsSorted();
-        int[] a = {1,2,3,4,5,6,7};
+        int[] a = {1, 2, 3, 4, 5, 6, 7};
         int[] ints = twoSumIIInputArrayIsSorted.twoSum(a, 7);
 
         for (int anInt : ints)
         {
-            System.out.print(anInt+"\t");
+            System.out.print(anInt + "\t");
         }
         System.out.println();
     }
@@ -44,12 +44,12 @@ class TwoSumIIInputArrayIsSortedTest
     void twoSumOne()
     {
         TwoSumIIInputArrayIsSorted twoSumIIInputArrayIsSorted = new TwoSumIIInputArrayIsSorted();
-        int[] a = {1,2,3,4,5,6,7};
+        int[] a = {1, 2, 3, 4, 5, 6, 7};
         int[] ints = twoSumIIInputArrayIsSorted.twoSumOne(a, 7);
 
         for (int anInt : ints)
         {
-            System.out.print(anInt+"\t");
+            System.out.print(anInt + "\t");
         }
         System.out.println();
     }

@@ -40,7 +40,7 @@ class MergeTwoSortedListsTest
 
         ListNode node2 = mergeTwoSortedLists.mergeTwoLists(node, node1);
 
-        while(node2 != null)
+        while (node2 != null)
         {
             System.out.println(node2.val);
             node2 = node2.next;

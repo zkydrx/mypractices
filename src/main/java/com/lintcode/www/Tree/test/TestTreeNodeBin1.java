@@ -15,7 +15,7 @@ public class TestTreeNodeBin1
     public void testTreeNode()
     {
         TreeNodeBin1 treeNodeBin1 = new TreeNodeBin1();
-        TreeNode1 t  = new TreeNode1(1);
+        TreeNode1 t = new TreeNode1(1);
         t.left = new TreeNode1(-5);
         t.right = new TreeNode1(2);
         t.left.left = new TreeNode1(0);

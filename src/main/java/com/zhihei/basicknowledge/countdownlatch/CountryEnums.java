@@ -13,12 +13,12 @@ import lombok.Getter;
  */
 public enum CountryEnums
 {
-    ONE(1,"A"),
-    TWO(2,"B"),
-    THREE(3,"C"),
-    FOUR(4,"D"),
-    FIVE(5,"E"),
-    SIX(6,"F");
+    ONE(1, "A"),
+    TWO(2, "B"),
+    THREE(3, "C"),
+    FOUR(4, "D"),
+    FIVE(5, "E"),
+    SIX(6, "F");
     @Getter
     private int id;
     @Getter
@@ -39,7 +39,7 @@ public enum CountryEnums
              * id==value.id
              */
             // if(id==value.getId())
-            if(id==value.id)
+            if (id == value.id)
             {
                 return value;
             }

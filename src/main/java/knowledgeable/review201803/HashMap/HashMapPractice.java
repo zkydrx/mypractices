@@ -22,7 +22,7 @@ public class HashMapPractice
     public static void main(String[] args)
     {
         countTheChar();
-//        testHashMap();
+        //        testHashMap();
     }
 
     public static void countTheChar()
@@ -62,9 +62,9 @@ public class HashMapPractice
 
         int max = 0;
         Character ch1 = null;
-        Set<Character> set ;
+        Set<Character> set;
         set = map.keySet();
-        System.out.println("set: "+set);
+        System.out.println("set: " + set);
         Iterator<Character> iterator = set.iterator();
 
         while (iterator.hasNext())
@@ -83,18 +83,18 @@ public class HashMapPractice
 
     public static void testHashMap()
     {
-        HashMap<String,String> map = new HashMap<>();
+        HashMap<String, String> map = new HashMap<>();
 
         String a = map.put("a", "1");
         String b = map.put("b", "2");
 
         String a2 = map.get("a");
         String b2 = map.get("b");
-        System.out.println("string: a "+a);
-        System.out.println("string: b "+b);
-        System.out.println("此时getKey('a')"+a2);
-        System.out.println("此时getKey('b')"+b2);
-        System.out.println("此时的map: "+map);
+        System.out.println("string: a " + a);
+        System.out.println("string: b " + b);
+        System.out.println("此时getKey('a')" + a2);
+        System.out.println("此时getKey('b')" + b2);
+        System.out.println("此时的map: " + map);
         String a1 = map.put("a", "3");
         String b1 = map.put("b", "4");
 
@@ -103,12 +103,12 @@ public class HashMapPractice
         String a3 = map.get("a");
         String b3 = map.get("b");
 
-        System.out.println("String a1 "+a1);
-        System.out.println("String b1 "+b1);
-        System.out.println("此时getKey('a')"+a3);
-        System.out.println("此时getKey('b')"+b3);
-        System.out.println("String c "+c);
-        System.out.println("此时的map:"+map);
+        System.out.println("String a1 " + a1);
+        System.out.println("String b1 " + b1);
+        System.out.println("此时getKey('a')" + a3);
+        System.out.println("此时getKey('b')" + b3);
+        System.out.println("String c " + c);
+        System.out.println("此时的map:" + map);
 
     }
 

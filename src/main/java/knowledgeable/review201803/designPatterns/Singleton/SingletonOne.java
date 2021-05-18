@@ -12,11 +12,13 @@ public class SingletonOne
 {
     private static SingletonOne instalce;
 
-    private SingletonOne(){}
+    private SingletonOne()
+    {
+    }
 
     public static SingletonOne getInstance()
     {
-        if(instalce == null)
+        if (instalce == null)
         {
             instalce = new SingletonOne();
         }

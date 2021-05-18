@@ -61,6 +61,7 @@ public class HttpUtil
 {
     /**
      * Send a get request
+     *
      * @param url
      * @return response
      * @throws IOException
@@ -72,8 +73,9 @@ public class HttpUtil
 
     /**
      * Send a get request
-     * @param url         Url as string
-     * @param headers     Optional hashMap with headers
+     *
+     * @param url     Url as string
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -84,9 +86,10 @@ public class HttpUtil
 
     /**
      * Send a post request
-     * @param url         Url as string
-     * @param body        Request body as string
-     * @param headers     Optional hashMap with headers
+     *
+     * @param url     Url as string
+     * @param body    Request body as string
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -97,8 +100,9 @@ public class HttpUtil
 
     /**
      * Send a post request
-     * @param url         Url as string
-     * @param body        Request body as string
+     *
+     * @param url  Url as string
+     * @param body Request body as string
      * @return response   Response as string
      * @throws IOException
      */
@@ -109,8 +113,9 @@ public class HttpUtil
 
     /**
      * Post a form with parameters
-     * @param url         Url as string
-     * @param params      hashMap with parameters/values
+     *
+     * @param url    Url as string
+     * @param params hashMap with parameters/values
      * @return response   Response as string
      * @throws IOException
      */
@@ -121,14 +126,14 @@ public class HttpUtil
 
     /**
      * Post a form with parameters
-     * @param url         Url as string
-     * @param params      Map with parameters/values
-     * @param headers     Optional hashMap with headers
+     *
+     * @param url     Url as string
+     * @param params  Map with parameters/values
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
-    static public String postForm(String url, Map<String, String> params, Map<String, String> headers)
-            throws IOException
+    static public String postForm(String url, Map<String, String> params, Map<String, String> headers) throws IOException
     {
         // set content type
         if (headers == null)
@@ -163,9 +168,10 @@ public class HttpUtil
 
     /**
      * Send a put request
-     * @param url         Url as string
-     * @param body        Request body as string
-     * @param headers     Optional hashMap with headers
+     *
+     * @param url     Url as string
+     * @param body    Request body as string
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -176,7 +182,8 @@ public class HttpUtil
 
     /**
      * Send a put request
-     * @param url         Url as string
+     *
+     * @param url Url as string
      * @return response   Response as string
      * @throws IOException
      */
@@ -187,8 +194,9 @@ public class HttpUtil
 
     /**
      * Send a delete request
-     * @param url         Url as string
-     * @param headers     Optional hashMap with headers
+     *
+     * @param url     Url as string
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -199,7 +207,8 @@ public class HttpUtil
 
     /**
      * Send a delete request
-     * @param url         Url as string
+     *
+     * @param url Url as string
      * @return response   Response as string
      * @throws IOException
      */
@@ -210,8 +219,9 @@ public class HttpUtil
 
     /**
      * Append query parameters to given url
-     * @param url         Url as string
-     * @param params      Map with query parameters
+     *
+     * @param url    Url as string
+     * @param params Map with query parameters
      * @return url        Url with query parameters appended
      * @throws IOException
      */
@@ -243,7 +253,8 @@ public class HttpUtil
 
     /**
      * Retrieve the query parameters from given url
-     * @param url         Url containing query parameters
+     *
+     * @param url Url containing query parameters
      * @return params     Map with query parameters
      * @throws IOException
      */
@@ -289,7 +300,8 @@ public class HttpUtil
 
     /**
      * Returns the url without query parameters
-     * @param url         Url containing query parameters
+     *
+     * @param url Url containing query parameters
      * @return url        Url without query parameters
      * @throws IOException
      */
@@ -308,10 +320,11 @@ public class HttpUtil
 
     /**
      * Send a request
-     * @param method      HTTP method, for example "GET" or "POST"
-     * @param url         Url as string
-     * @param body        Request body as string
-     * @param headers     Optional hashMap with headers
+     *
+     * @param method  HTTP method, for example "GET" or "POST"
+     * @param url     Url as string
+     * @param body    Request body as string
+     * @param headers Optional hashMap with headers
      * @return response   Response as string
      * @throws IOException
      */
@@ -365,6 +378,7 @@ public class HttpUtil
 
     /**
      * Read an input stream into a string
+     *
      * @param in
      * @return
      * @throws IOException

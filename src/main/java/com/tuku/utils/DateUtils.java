@@ -951,6 +951,7 @@ public class DateUtils
         c.set(Calendar.MILLISECOND, 999);
         return c.getTime();
     }
+
     /**
      * 将 Date转成LocalDate
      *
@@ -966,27 +967,30 @@ public class DateUtils
 
     /**
      * 获取当月的第一天
+     *
      * @return
      */
     public static String getTheFirstDayofMonth()
     {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String firstday;
-        Calendar calendar =Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 0);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         firstday = format.format(calendar.getTime());
         return firstday;
     }
+
     /**
      * 获取当前时间的日期字符串
+     *
      * @return
      */
     public static String getTheStringDateNow()
     {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String firstday;
-        Calendar calendar =Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         firstday = format.format(calendar.getTime());
         return firstday;
     }
@@ -994,6 +998,7 @@ public class DateUtils
 
     /**
      * 获取上个月的最后一天
+     *
      * @return
      */
     public static String getLastMonthLastDay()
@@ -1006,12 +1011,13 @@ public class DateUtils
         //设置上个月最后一天
         call.set(Calendar.DAY_OF_MONTH, 0);
         sm.format(call.getTime());
-        return  sm.format(call.getTime());
+        return sm.format(call.getTime());
 
     }
 
     /**
      * 获取上个月的第一天
+     *
      * @return
      */
     public static String getLastMonthFirstDay()

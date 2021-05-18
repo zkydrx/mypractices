@@ -42,15 +42,13 @@ public class StreamTest13
 
         //需求 select name count(*) from student group by name;
 
-        Map<String, Long> map2 = list.stream().
-                collect(Collectors.groupingBy(Student::getName, Collectors.counting()));
+        Map<String, Long> map2 = list.stream().collect(Collectors.groupingBy(Student::getName, Collectors.counting()));
 
         System.out.println(map2);
 
         //需求 select name avg(score) from student;
         //返回的是Double类型
-        Map<String, Double> map3 = list.stream().
-                collect(Collectors.groupingBy(Student::getName, Collectors.averagingDouble(Student::getScore)));
+        Map<String, Double> map3 = list.stream().collect(Collectors.groupingBy(Student::getName, Collectors.averagingDouble(Student::getScore)));
 
         System.out.println(map3);
 

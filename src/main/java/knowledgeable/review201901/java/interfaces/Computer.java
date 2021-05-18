@@ -10,5 +10,6 @@ package knowledgeable.review201901.java.interfaces;
 public interface Computer
 {
     String color(String color);
+
     String cpu(Long cpus);
 }

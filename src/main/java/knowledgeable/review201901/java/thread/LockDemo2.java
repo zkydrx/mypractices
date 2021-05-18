@@ -13,19 +13,20 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockDemo2
 {
 
-    volatile int  i = 0;
+    volatile int i = 0;
     Lock lock = new ReentrantLock();
+
     public void add()
     {
         lock.lock();
-       try
-       {
-           i++;
-       }
-       finally
-       {
-           lock.unlock();
-       }
+        try
+        {
+            i++;
+        }
+        finally
+        {
+            lock.unlock();
+        }
 
 
     }

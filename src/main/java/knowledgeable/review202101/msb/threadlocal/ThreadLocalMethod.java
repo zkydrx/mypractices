@@ -42,6 +42,7 @@ public class ThreadLocalMethod
             threadLocal.set(new Person());
         }, "threadName").start();
     }
+
     static class Person
     {
         String name = "zhangsan";

@@ -2,19 +2,20 @@ package com.design.atgg.pattern.state;
 
 /**
  * 状态抽象类
- * @author Administrator
  *
+ * @author Administrator
  */
-public abstract class State {
+public abstract class State
+{
 
-	
-	// 扣除积分 - 50
+
+    // 扣除积分 - 50
     public abstract void deductMoney();
 
     // 是否抽中奖品
     public abstract boolean raffle();
 
     // 发放奖品
-    public abstract  void dispensePrize();
+    public abstract void dispensePrize();
 
 }

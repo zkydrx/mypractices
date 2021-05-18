@@ -123,21 +123,21 @@ public class DateTimeExample
         /**
          *  时间的加减
          */
-        System.out.println("1小时后"+localTime.plusHours(1));
-        System.out.println("2分钟后"+localTime.plusMinutes(2));
-        System.out.println("30秒后"+localTime.plusSeconds(30));
-        System.out.println("当前时间:"+localTime);
-        System.out.println("400毫秒后:"+localTime.plus(400, ChronoUnit.MILLIS));
-        System.out.println("100微秒后:"+localTime.plus(100, ChronoUnit.MICROS));
-        System.out.println("900纳秒后"+localTime.plusNanos(900));
+        System.out.println("1小时后" + localTime.plusHours(1));
+        System.out.println("2分钟后" + localTime.plusMinutes(2));
+        System.out.println("30秒后" + localTime.plusSeconds(30));
+        System.out.println("当前时间:" + localTime);
+        System.out.println("400毫秒后:" + localTime.plus(400, ChronoUnit.MILLIS));
+        System.out.println("100微秒后:" + localTime.plus(100, ChronoUnit.MICROS));
+        System.out.println("900纳秒后" + localTime.plusNanos(900));
 
-        System.out.println("1小时前:"+localTime.minusHours(1));
-        System.out.println("2分钟前:"+localTime.minusMinutes(2));
-        System.out.println("50秒前:"+localTime.minusSeconds(50));
-        System.out.println("当前时间:"+localTime);
-        System.out.println("600毫秒前:"+localTime.minus(600,ChronoUnit.MILLIS));
-        System.out.println("200微秒前:"+localTime.minus(200,ChronoUnit.MICROS));
-        System.out.println("500纳秒前:"+localTime.minusNanos(500));
+        System.out.println("1小时前:" + localTime.minusHours(1));
+        System.out.println("2分钟前:" + localTime.minusMinutes(2));
+        System.out.println("50秒前:" + localTime.minusSeconds(50));
+        System.out.println("当前时间:" + localTime);
+        System.out.println("600毫秒前:" + localTime.minus(600, ChronoUnit.MILLIS));
+        System.out.println("200微秒前:" + localTime.minus(200, ChronoUnit.MICROS));
+        System.out.println("500纳秒前:" + localTime.minusNanos(500));
 
 
         /**
@@ -145,14 +145,14 @@ public class DateTimeExample
          */
         LocalDateTime now = LocalDateTime.now();
 
-        System.out.println("当前的日期和时间:"+now);
+        System.out.println("当前的日期和时间:" + now);
         LocalDateTime of2 = LocalDateTime.of(LocalDate.now(), LocalTime.now());
-        System.out.println("当前的日期和时间:"+of2);
+        System.out.println("当前的日期和时间:" + of2);
 
         LocalDate localDate2 = of2.toLocalDate();
         LocalTime localTime1 = of2.toLocalTime();
 
-        System.out.println("localDate2转化:"+localDate2);
-        System.out.println("localTime1转化:"+localTime1);
+        System.out.println("localDate2转化:" + localDate2);
+        System.out.println("localTime1转化:" + localTime1);
     }
 }

@@ -77,21 +77,21 @@ public class StreamAllTest
         System.out.println("Squares Lists:" + squaresList);
         System.out.println("integers:" + integers);
         IntSummaryStatistics intSummaryStatistics = integers.stream().mapToInt((x) -> x).summaryStatistics();
-        DoubleSummaryStatistics doubleSummaryStatistics = integers.stream().mapToDouble(x->x).summaryStatistics();
+        DoubleSummaryStatistics doubleSummaryStatistics = integers.stream().mapToDouble(x -> x).summaryStatistics();
         System.out.println("列表中最大的数字是：" + intSummaryStatistics.getMax());
         System.out.println("列表中最小的数字是：" + intSummaryStatistics.getMin());
         System.out.println("所有数之和：" + intSummaryStatistics.getSum());
-        System.out.println("平均数：" + (int)intSummaryStatistics.getAverage());
+        System.out.println("平均数：" + (int) intSummaryStatistics.getAverage());
         System.out.println("平均数：" + doubleSummaryStatistics.getAverage());
         System.out.println("随机数：");
-        random.ints().limit(10).forEach((int x) -> System.out.print(x+" "));
+        random.ints().limit(10).forEach((int x) -> System.out.print(x + " "));
         System.out.println();
 
         /**
          * 并行处理空字符串的数量
          */
         long count1 = strings.parallelStream().filter((String str) -> str.isEmpty()).count();
-        System.out.println("空字符串的数量为："+count1);
+        System.out.println("空字符串的数量为：" + count1);
 
 
     }

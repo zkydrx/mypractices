@@ -33,7 +33,7 @@ class ReverseBitsTest
     {
         ReverseBits reverseBits = new ReverseBits();
 
-        int i = reverseBits.reverseBits(43261596 );
+        int i = reverseBits.reverseBits(43261596);
 
         System.out.println(i);
     }

@@ -11,12 +11,16 @@ package knowledgeable.review201803.designPatterns.Singleton;
 public class SingletonTwo
 {
     private static SingletonTwo instance;
-    private SingletonTwo(){}
+
+    private SingletonTwo()
+    {
+    }
+
     public static synchronized SingletonTwo getInstance()
     {
-        if(null == instance)
+        if (null == instance)
         {
-            instance =new SingletonTwo();
+            instance = new SingletonTwo();
         }
         return instance;
     }

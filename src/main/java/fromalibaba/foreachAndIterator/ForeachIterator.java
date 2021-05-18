@@ -23,20 +23,20 @@ public class ForeachIterator
 
         for (String s : list)
         {
-            if("1".equals(s))
+            if ("1".equals(s))
             {
                 list.remove(s);
             }
         }
         System.out.println(list);
 
-//        for (String s : list1)
-//        {
-//            if("2".equals(s))
-//            {
-//                list1.remove(s);
-//            }
-//        }
+        //        for (String s : list1)
+        //        {
+        //            if("2".equals(s))
+        //            {
+        //                list1.remove(s);
+        //            }
+        //        }
 
     }
 }

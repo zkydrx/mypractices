@@ -10,8 +10,8 @@ public class GenebankTimerTask
     public static void main(String[] args)
     {
         Timer timer = new Timer();
-        GenBankTask genBankTask =new GenBankTask();
-        timer.schedule(genBankTask,1000,2000);
+        GenBankTask genBankTask = new GenBankTask();
+        timer.schedule(genBankTask, 1000, 2000);
     }
 
     static class GenBankTask extends TimerTask

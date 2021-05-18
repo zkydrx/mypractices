@@ -35,7 +35,7 @@ public class JewelsAndStones
         {
             for (int j = 0; j < S.length(); j++)
             {
-                if(S.charAt(j)==J.charAt(i))
+                if (S.charAt(j) == J.charAt(i))
                 {
                     result++;
                 }

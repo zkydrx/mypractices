@@ -11,18 +11,23 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class CasCounter {
+public class CasCounter
+{
     private SimulatedCAS value;
 
-    public int getValue() {
+    public int getValue()
+    {
         return value.get();
     }
 
-    public int increment() {
+    public int increment()
+    {
         int v;
-        do {
+        do
+        {
             v = value.get();
-        } while (v != value.compareAndSwap(v, v + 1));
+        }
+        while (v != value.compareAndSwap(v, v + 1));
         return v + 1;
     }
 }

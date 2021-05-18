@@ -10,26 +10,33 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class SafePoint {
-    @GuardedBy("this") private int x, y;
+public class SafePoint
+{
+    @GuardedBy("this")
+    private int x, y;
 
-    private SafePoint(int[] a) {
+    private SafePoint(int[] a)
+    {
         this(a[0], a[1]);
     }
 
-    public SafePoint(SafePoint p) {
+    public SafePoint(SafePoint p)
+    {
         this(p.get());
     }
 
-    public SafePoint(int x, int y) {
+    public SafePoint(int x, int y)
+    {
         this.set(x, y);
     }
 
-    public synchronized int[] get() {
+    public synchronized int[] get()
+    {
         return new int[]{x, y};
     }
 
-    public synchronized void set(int x, int y) {
+    public synchronized void set(int x, int y)
+    {
         this.x = x;
         this.y = y;
     }

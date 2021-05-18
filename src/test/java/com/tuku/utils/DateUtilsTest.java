@@ -48,7 +48,7 @@ class DateUtilsTest
         String start = "2016-08-31";
         String end = "2016-11-30";
         Period between = Period.between(LocalDate.parse(start), LocalDate.parse(end));
-        log.info("时间差==="+new StringBuffer().append(between.getYears()).append(",").append(between.getMonths()).append(",").append(between.getDays()).toString());
+        log.info("时间差===" + new StringBuffer().append(between.getYears()).append(",").append(between.getMonths()).append(",").append(between.getDays()).toString());
 
         log.info("===================================================");
         LocalDate parse = LocalDate.parse("2016-08-31");
@@ -98,14 +98,14 @@ class DateUtilsTest
         monthInterval %= 12;
         Integer i = yearInterval * 12 + monthInterval;
 
-        log.info("IIIIIII==="+i);
+        log.info("IIIIIII===" + i);
 
         log.info("========================================================");
         long l = DateUtil.betweenMonth(DateUtils.strToDate("2020-08-31"), DateUtils.strToDate("2020-11-30"), true);
         long l1 = DateUtil.betweenDay(DateUtils.strToDate("2020-08-31"), DateUtils.strToDate("2020-11-30"), true);
 
-        log.info("l==="+l);
-        log.info("l1==="+l1);
+        log.info("l===" + l);
+        log.info("l1===" + l1);
 
         /**
          * 这个符合要求。
@@ -114,6 +114,6 @@ class DateUtilsTest
         org.joda.time.Period period = interval.toPeriod();
 
         log.info("=======================================================================");
-        log.info(period.getYears()+" 年 "+period.getMonths()+" 月 "+period.getDays()+" 日");
+        log.info(period.getYears() + " 年 " + period.getMonths() + " 月 " + period.getDays() + " 日");
     }
 }

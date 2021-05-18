@@ -18,10 +18,10 @@ public class FileCopy
             FileInputStream fileInputStream = new FileInputStream(new File("src/main/java/NIO/FileIo/x.txt"));
             FileOutputStream fileOutputStream = new FileOutputStream(new File("src/main/java/NIO/FileIo/y.txt"));
 
-            byte [] b = new byte[2048];
+            byte[] b = new byte[2048];
             while (fileInputStream.read(b) != -1)
             {
-                fileOutputStream.write(b,0,b.length);
+                fileOutputStream.write(b, 0, b.length);
                 fileOutputStream.flush();
             }
 

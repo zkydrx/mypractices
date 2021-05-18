@@ -31,7 +31,7 @@ public class ForkJoinTest
          */
         long reduce1 = LongStream.rangeClosed(1, 10000).parallel().reduce(0, Long::sum);
 
-        System.out.println("顺序流结果:"+reduce);
-        System.out.println("平行流结果:"+reduce1);
+        System.out.println("顺序流结果:" + reduce);
+        System.out.println("平行流结果:" + reduce1);
     }
 }

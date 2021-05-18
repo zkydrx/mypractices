@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class ListConvertMapExample
 {
     private static List<Person> list = new ArrayList<>();
+
     static
     {
         list.add(Person.builder().id("1").name("Apple").address("HangZhou").build());
@@ -32,11 +33,11 @@ public class ListConvertMapExample
         list.stream().forEach(System.out::println);
         System.out.println("Java8 List转Map:");
         Map<String, Person> collect = list.stream().collect(Collectors.toMap((key -> key.getId()), (value -> value)));
-        collect.forEach((k,v)-> System.out.println(k+"::"+v));
+        collect.forEach((k, v) -> System.out.println(k + "::" + v));
 
         System.out.println("Java8 List转Map 之方法二:");
         Map<String, Person> collect1 = list.stream().collect(Collectors.toMap(Person::getId, Person::getData));
-        collect1.forEach((k,v) -> System.out.println(k+"::"+v));
+        collect1.forEach((k, v) -> System.out.println(k + "::" + v));
 
     }
 }

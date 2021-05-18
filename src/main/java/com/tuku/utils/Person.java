@@ -20,6 +20,7 @@ public class Person
     private String age;
     private Double money;
     private Character sex;
+
     public String[] toArray()
     {
         return new String[]{name, age, String.valueOf(money), String.valueOf(sex)};

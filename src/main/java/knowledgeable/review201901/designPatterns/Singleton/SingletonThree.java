@@ -11,7 +11,10 @@ package knowledgeable.review201901.designPatterns.Singleton;
 public class SingletonThree
 {
     private static SingletonThree instance = new SingletonThree();
-    private SingletonThree(){}
+
+    private SingletonThree()
+    {
+    }
 
     public static SingletonThree getInstance()
     {

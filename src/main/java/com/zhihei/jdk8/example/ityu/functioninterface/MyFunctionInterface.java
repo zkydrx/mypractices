@@ -15,12 +15,14 @@ public interface MyFunctionInterface
     /**
      * 排除掉default修饰的方法
      */
-    default void method1(){
+    default void method1()
+    {
 
     }
 
     /**
      * 排除掉object下的方法
+     *
      * @return
      */
     int hashCode();

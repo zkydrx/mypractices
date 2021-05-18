@@ -11,10 +11,13 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  */
 
 @ThreadSafe
-public class Sequence {
-    @GuardedBy("this") private int nextValue;
+public class Sequence
+{
+    @GuardedBy("this")
+    private int nextValue;
 
-    public synchronized int getNext() {
+    public synchronized int getNext()
+    {
         return nextValue++;
     }
 }

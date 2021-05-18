@@ -15,16 +15,16 @@ public class HttpRequest
     /**
      * 向指定URL发送GET方法的请求
      *
-     * @param url
-     *            发送请求的URL
-     * @param param
-     *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
+     * @param url   发送请求的URL
+     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
      * @return URL 所代表远程资源的响应结果
      */
-    public static String sendGet(String url, String param) {
+    public static String sendGet(String url, String param)
+    {
         String result = "";
         BufferedReader in = null;
-        try {
+        try
+        {
             String urlNameString = url + "?" + param;
             URL realUrl = new URL(urlNameString);
             // 打开和URL之间的连接
@@ -32,34 +32,41 @@ public class HttpRequest
             // 设置通用的请求属性
             connection.setRequestProperty("accept", "*/*");
             connection.setRequestProperty("connection", "Keep-Alive");
-            connection.setRequestProperty("user-agent",
-                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             // 建立实际的连接
             connection.connect();
             // 获取所有响应头字段
             Map<String, List<String>> map = connection.getHeaderFields();
             // 遍历所有的响应头字段
-            for (String key : map.keySet()) {
+            for (String key : map.keySet())
+            {
                 System.out.println(key + "--->" + map.get(key));
             }
             // 定义 BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(new InputStreamReader(
-                    connection.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
-            while ((line = in.readLine()) != null) {
+            while ((line = in.readLine()) != null)
+            {
                 result += line;
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             System.out.println("发送GET请求出现异常！" + e);
             e.printStackTrace();
         }
         // 使用finally块来关闭输入流
-        finally {
-            try {
-                if (in != null) {
+        finally
+        {
+            try
+            {
+                if (in != null)
+                {
                     in.close();
                 }
-            } catch (Exception e2) {
+            }
+            catch (Exception e2)
+            {
                 e2.printStackTrace();
             }
         }
@@ -69,25 +76,24 @@ public class HttpRequest
     /**
      * 向指定 URL 发送POST方法的请求
      *
-     * @param url
-     *            发送请求的 URL
-     * @param param
-     *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
+     * @param url   发送请求的 URL
+     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
      * @return 所代表远程资源的响应结果
      */
-    public static String sendPost(String url, String param) {
+    public static String sendPost(String url, String param)
+    {
         PrintWriter out = null;
         BufferedReader in = null;
         String result = "";
-        try {
+        try
+        {
             URL realUrl = new URL(url);
             // 打开和URL之间的连接
             URLConnection conn = realUrl.openConnection();
             // 设置通用的请求属性
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("user-agent",
-                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             // 发送POST请求必须设置如下两行
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -98,27 +104,34 @@ public class HttpRequest
             // flush输出流的缓冲
             out.flush();
             // 定义BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
-            while ((line = in.readLine()) != null) {
+            while ((line = in.readLine()) != null)
+            {
                 result += line;
             }
-        } catch (Exception e) {
-            System.out.println("发送 POST 请求出现异常！"+e);
+        }
+        catch (Exception e)
+        {
+            System.out.println("发送 POST 请求出现异常！" + e);
             e.printStackTrace();
         }
         //使用finally块来关闭输出流、输入流
-        finally{
-            try{
-                if(out!=null){
+        finally
+        {
+            try
+            {
+                if (out != null)
+                {
                     out.close();
                 }
-                if(in!=null){
+                if (in != null)
+                {
                     in.close();
                 }
             }
-            catch(IOException ex){
+            catch (IOException ex)
+            {
                 ex.printStackTrace();
             }
         }
@@ -126,21 +139,26 @@ public class HttpRequest
     }
 
 
-    public static void main(String[] args) {
-//        //发送 GET 请求
-//        String s=HttpRequest.sendGet("http://115.238.110.19/pushGpsDevicelocation", "{coordsys='gps', describe='追货宝编号-96150306862', identifier='ZHB-96150306862', loc='[121.161927,31.021159]', locationAddress='上海市松江区沪昆高速公路(高速路)', locationTime=2017-03-13 12:23:15}");
-//        System.out.println(s);
+    public static void main(String[] args)
+    {
+        //        //发送 GET 请求
+        //        String s=HttpRequest.sendGet("http://115.238.110.19/pushGpsDevicelocation", "{coordsys='gps', describe='追货宝编号-96150306862', identifier='ZHB-96150306862',
+        //        loc='[121.161927,31.021159]', locationAddress='上海市松江区沪昆高速公路(高速路)', locationTime=2017-03-13 12:23:15}");
+        //        System.out.println(s);
 
 
         /**
          * {
-         "coordsys":"gps","describe":"追货宝编号-96150307753","identifier":"ZHB-96150307753","loc":"[108.623464,34.340406]","locationAddress":"陕西省咸阳市秦都区文兴路北20米(普通路)","locationTime":"2017-03-04 11:42:15"}
+         "coordsys":"gps","describe":"追货宝编号-96150307753","identifier":"ZHB-96150307753","loc":"[108.623464,34.340406]","locationAddress":"陕西省咸阳市秦都区文兴路北20米(普通路)",
+         "locationTime":"2017-03-04 11:42:15"}
          */
 
         //发送 POST 请求
-        String content = "["+"{"+"\"coordsys\":"+"\"gps\""+","+ "\"describe\":"+"\"追货宝编号-96150307753\""+","+"\"identifier\":"+"\"ZHB-96150307753\""+","+"\"loc\":"+"\"[108.623464,34.340406]\""+","+"\"locationAddress\":"+"\"陕西省咸阳市秦都区文兴路北20米(普通路)\""+","+"\"locationTime\":"+"\"2017-03-04 11:42:15\""+"}"+"]";
-//        String [] content1 = {{"coordsys":"gps","describe":"追货宝编号-96150306851","identifier":"ZHB-96150306851","loc":"[121.16201,31.021562]","locationAddress":"上海市松江区思贤路南281米(普通路)","locationTime":"2017-04-28 12:57:00"}}
-        String sr=HttpRequest.sendPost("http://115.238.110.19/pushGpsDevicelocation",content);
+        String content = "[" + "{" + "\"coordsys\":" + "\"gps\"" + "," + "\"describe\":" + "\"追货宝编号-96150307753\"" + "," + "\"identifier\":" + "\"ZHB-96150307753\"" + "," +
+                "\"loc\":" + "\"[108.623464,34.340406]\"" + "," + "\"locationAddress\":" + "\"陕西省咸阳市秦都区文兴路北20米(普通路)\"" + "," + "\"locationTime\":" + "\"2017-03-04 11:42:15\"" +
+                "}" + "]";
+        //        String [] content1 = {{"coordsys":"gps","describe":"追货宝编号-96150306851","identifier":"ZHB-96150306851","loc":"[121.16201,31.021562]","locationAddress":"上海市松江区思贤路南281米(普通路)","locationTime":"2017-04-28 12:57:00"}}
+        String sr = HttpRequest.sendPost("http://115.238.110.19/pushGpsDevicelocation", content);
         System.out.println(sr);
     }
 }

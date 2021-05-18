@@ -31,7 +31,7 @@ class MaximumSubarrayTest
     {
         MaximumSubarray maximumSubarray = new MaximumSubarray();
 
-        int [] nums= {-2, -3, 4, -1, -2, 1, 5, -3};
+        int[] nums = {-2, -3, 4, -1, -2, 1, 5, -3};
         int i = maximumSubarray.maxSubArray(nums);
 
         System.out.println(i);

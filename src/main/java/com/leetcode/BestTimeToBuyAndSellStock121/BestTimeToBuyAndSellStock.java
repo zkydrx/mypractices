@@ -25,7 +25,7 @@ package com.leetcode.BestTimeToBuyAndSellStock121;
  * Output: 0
  * <p>
  * In this case, no transaction is done, i.e. max profit = 0.
- *
+ * <p>
  * 大概意思：
  * 给你一个股票的每天价格数组prices，你在只能进行一次操作（即一次买入和一次卖出）的限制下，求最大的收益。
  * 比如每天的价格为[7, 1, 5, 3, 6, 4]，那么最大收益就是1的时候买入，6的时候卖出，
@@ -35,7 +35,7 @@ public class BestTimeToBuyAndSellStock
 {
     public int maxProfit(int[] prices)
     {
-        if(prices == null || prices.length <=1)
+        if (prices == null || prices.length <= 1)
         {
             return 0;
         }
@@ -44,8 +44,8 @@ public class BestTimeToBuyAndSellStock
         int res = 0;
         for (int i = 0; i < prices.length; i++)
         {
-            res = Math.max(res,prices[i]-min);
-            min = Math.min(min,prices[i]);
+            res = Math.max(res, prices[i] - min);
+            min = Math.min(min, prices[i]);
         }
 
         return res;

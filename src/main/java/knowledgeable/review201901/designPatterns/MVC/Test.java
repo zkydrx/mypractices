@@ -6,7 +6,6 @@ package knowledgeable.review201901.designPatterns.MVC;
  * Date: 2018-03-21
  * Time: 10:38:13
  * Description:
- *
  */
 public class Test
 {

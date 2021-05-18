@@ -15,11 +15,11 @@ public class ToyFactory
         /**
          * attention：String compare to another String by Equals();
          */
-        if(type.equals("Dog"))
+        if (type.equals("Dog"))
         {
             return new Dog();
         }
-        else if(type.equals("Cat"))
+        else if (type.equals("Cat"))
         {
             return new Cat();
         }

@@ -34,7 +34,7 @@ public class FindTheDifference
 
         for (int i = 0; i < s.length(); i++)
         {
-            ans ^=s.charAt(i);
+            ans ^= s.charAt(i);
         }
 
         System.out.println(ans);

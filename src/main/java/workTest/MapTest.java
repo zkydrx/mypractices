@@ -18,10 +18,10 @@ public class MapTest
     public void testMap()
     {
         Map<String, Object> map = new HashMap<>();
-        map.put("z0",0);
-        map.put("z1",1);
-        map.put("z2",2);
-        map.put("z3",3);
+        map.put("z0", 0);
+        map.put("z1", 1);
+        map.put("z2", 2);
+        map.put("z3", 3);
         System.out.println(map.get("z0"));
         System.out.println(map.get("z1"));
         System.out.println(map.get("z2"));

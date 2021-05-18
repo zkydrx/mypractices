@@ -122,10 +122,7 @@ public class Domain
     {
         String str = "a b c d e f";
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/lambda/stream/stream.md")));
-        List<String> output = reader.lines()
-                                    .flatMap(line -> Stream.of(line.split(" ")))
-                                    .filter(word -> word.length() > 0)
-                                    .collect(Collectors.toList());
+        List<String> output = reader.lines().flatMap(line -> Stream.of(line.split(" "))).filter(word -> word.length() > 0).collect(Collectors.toList());
         System.out.println(output);
     }
 
@@ -274,10 +271,7 @@ public class Domain
             Student student = new Student(i, i, "name" + i, "hangzhou");
             students.add(student);
         }
-        List<Student> collect = students.stream()
-                                        .limit(2)
-                                        .sorted((p1, p2) -> p1.getName().compareTo(p2.getName()))
-                                        .collect(Collectors.toList());
+        List<Student> collect = students.stream().limit(2).sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
         System.out.println(collect);
     }
 
@@ -301,7 +295,8 @@ public class Domain
     @Test
     public void test17() throws IOException
     {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("D:\\project\\java\\idea\\github" + "\\myPractices\\mypractices\\src\\lambda\\stream\\stream.md")));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("D:\\project\\java\\idea\\github" + "\\myPractices\\mypractices\\src\\lambda\\stream\\stream" +
+                                                                                           ".md")));
         List<String> collect = bufferedReader.lines()
                                              .flatMap(line -> Stream.of(line.split(" ")))
                                              .filter((word -> word.length() > 0))
@@ -356,20 +351,19 @@ public class Domain
     @Test
     public void test20()
     {
-        Stream.generate(new StudentSupplier())
-              .limit(10)
-              .forEach(p -> System.out.println(p.getName()+","+p.getAge()));
+        Stream.generate(new StudentSupplier()).limit(10).forEach(p -> System.out.println(p.getName() + "," + p.getAge()));
     }
 
     private class StudentSupplier implements Supplier<Student>
     {
 
-        private int  index = 10;
+        private int index = 10;
         private Random random = new Random();
+
         @Override
         public Student get()
         {
-            return new Student(index++,random.nextInt(100),"StormTestUser"+index,"hz");
+            return new Student(index++, random.nextInt(100), "StormTestUser" + index, "hz");
         }
     }
 
@@ -379,7 +373,7 @@ public class Domain
     @Test
     public void test21()
     {
-        Stream.iterate(0, n -> n+12).limit(100).forEach(x -> System.out.print(x+"\t"));
+        Stream.iterate(0, n -> n + 12).limit(100).forEach(x -> System.out.print(x + "\t"));
     }
 
 
@@ -389,14 +383,12 @@ public class Domain
     @Test
     public void test22()
     {
-        Map<Integer, List<Student>> studentGroup = Stream.generate(new StudentSupplier())
-                                                    .limit(100)
-                                                    .collect(Collectors.groupingBy(Student::getAge));
+        Map<Integer, List<Student>> studentGroup = Stream.generate(new StudentSupplier()).limit(100).collect(Collectors.groupingBy(Student::getAge));
         Iterator iterator = studentGroup.entrySet().iterator();
         while (iterator.hasNext())
         {
-            Map.Entry<Integer,List<Student>> students = (Map.Entry)iterator.next();
-            System.out.println("Age "+students.getKey()+" = "+students.getValue().size());
+            Map.Entry<Integer, List<Student>> students = (Map.Entry) iterator.next();
+            System.out.println("Age " + students.getKey() + " = " + students.getValue().size());
         }
     }
 
@@ -407,11 +399,9 @@ public class Domain
     @Test
     public void test23()
     {
-        Map<Boolean, List<Student>> child = Stream.generate(new StudentSupplier())
-                                                    .limit(100)
-                                                    .collect(Collectors.groupingBy(p -> p.getAge() < 18));
+        Map<Boolean, List<Student>> child = Stream.generate(new StudentSupplier()).limit(100).collect(Collectors.groupingBy(p -> p.getAge() < 18));
 
-        System.out.println("Children number: "+ child.get(true).size());
-        System.out.println("Adult number:"+child.get(false).size());
+        System.out.println("Children number: " + child.get(true).size());
+        System.out.println("Adult number:" + child.get(false).size());
     }
 }

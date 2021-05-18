@@ -10,6 +10,7 @@ package knowledgeable.review201803.designPatterns.InterceptingFilter;
 public class FilterManager
 {
     FilterChain filterChain;
+
     public FilterManager(Target target)
     {
         filterChain = new FilterChain();

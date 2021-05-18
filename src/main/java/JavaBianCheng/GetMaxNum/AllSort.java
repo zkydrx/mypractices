@@ -20,7 +20,8 @@ public class AllSort
         if (from == to)
         {
             System.out.println(s);
-        } else
+        }
+        else
         {
             /**
              * 这个循环好好理解理解。

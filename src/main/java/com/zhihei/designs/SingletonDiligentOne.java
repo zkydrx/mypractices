@@ -10,12 +10,13 @@ package com.zhihei.designs;
  */
 public class SingletonDiligentOne
 {
-    private static SingletonDiligentOne instance= new SingletonDiligentOne();
+    private static SingletonDiligentOne instance = new SingletonDiligentOne();
 
     private SingletonDiligentOne()
     {
     }
-    public static  SingletonDiligentOne getInstance()
+
+    public static SingletonDiligentOne getInstance()
     {
         return instance;
     }

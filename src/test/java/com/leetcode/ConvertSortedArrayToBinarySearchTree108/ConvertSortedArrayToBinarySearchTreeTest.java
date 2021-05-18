@@ -29,9 +29,8 @@ class ConvertSortedArrayToBinarySearchTreeTest
     @Test
     void sortedArrayToBST()
     {
-        ConvertSortedArrayToBinarySearchTree convertSortedArrayToBinarySearchTree = new
-                ConvertSortedArrayToBinarySearchTree();
-        int [] nums = {-10,-3,0,5,9};
+        ConvertSortedArrayToBinarySearchTree convertSortedArrayToBinarySearchTree = new ConvertSortedArrayToBinarySearchTree();
+        int[] nums = {-10, -3, 0, 5, 9};
         TreeNode treeNode = convertSortedArrayToBinarySearchTree.sortedArrayToBST(nums);
 
         convertSortedArrayToBinarySearchTree.printTreeNode(treeNode);

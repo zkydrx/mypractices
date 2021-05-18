@@ -26,7 +26,7 @@ public class FindStrings
     public int getTheRightStrings(String source, String target)
     {
         int temp = 0;
-        if(!source.equals(target))
+        if (!source.equals(target))
         {
             temp = 1;
         }

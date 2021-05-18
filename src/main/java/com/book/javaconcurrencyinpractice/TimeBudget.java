@@ -10,28 +10,39 @@ import java.util.concurrent.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TimeBudget {
+public class TimeBudget
+{
     private static ExecutorService exec = Executors.newCachedThreadPool();
 
-    public List<TravelQuote> getRankedTravelQuotes(TravelInfo travelInfo, Set<TravelCompany> companies,
-                                                   Comparator<TravelQuote> ranking, long time, TimeUnit unit)
-            throws InterruptedException {
+    public List<TravelQuote> getRankedTravelQuotes(TravelInfo travelInfo,
+                                                   Set<TravelCompany> companies,
+                                                   Comparator<TravelQuote> ranking,
+                                                   long time,
+                                                   TimeUnit unit) throws InterruptedException
+    {
         List<QuoteTask> tasks = new ArrayList<QuoteTask>();
         for (TravelCompany company : companies)
+        {
             tasks.add(new QuoteTask(company, travelInfo));
+        }
 
         List<Future<TravelQuote>> futures = exec.invokeAll(tasks, time, unit);
 
-        List<TravelQuote> quotes =
-                new ArrayList<TravelQuote>(tasks.size());
+        List<TravelQuote> quotes = new ArrayList<TravelQuote>(tasks.size());
         Iterator<QuoteTask> taskIter = tasks.iterator();
-        for (Future<TravelQuote> f : futures) {
+        for (Future<TravelQuote> f : futures)
+        {
             QuoteTask task = taskIter.next();
-            try {
+            try
+            {
                 quotes.add(f.get());
-            } catch (ExecutionException e) {
+            }
+            catch (ExecutionException e)
+            {
                 quotes.add(task.getFailureQuote(e.getCause()));
-            } catch (CancellationException e) {
+            }
+            catch (CancellationException e)
+            {
                 quotes.add(task.getTimeoutQuote(e));
             }
         }
@@ -42,35 +53,43 @@ public class TimeBudget {
 
 }
 
-class QuoteTask implements Callable<TravelQuote> {
+class QuoteTask implements Callable<TravelQuote>
+{
     private final TravelCompany company;
     private final TravelInfo travelInfo;
 
-    public QuoteTask(TravelCompany company, TravelInfo travelInfo) {
+    public QuoteTask(TravelCompany company, TravelInfo travelInfo)
+    {
         this.company = company;
         this.travelInfo = travelInfo;
     }
 
-    TravelQuote getFailureQuote(Throwable t) {
+    TravelQuote getFailureQuote(Throwable t)
+    {
         return null;
     }
 
-    TravelQuote getTimeoutQuote(CancellationException e) {
+    TravelQuote getTimeoutQuote(CancellationException e)
+    {
         return null;
     }
 
-    public TravelQuote call() throws Exception {
+    public TravelQuote call() throws Exception
+    {
         return company.solicitQuote(travelInfo);
     }
 }
 
-interface TravelCompany {
+interface TravelCompany
+{
     TravelQuote solicitQuote(TravelInfo travelInfo) throws Exception;
 }
 
-interface TravelQuote {
+interface TravelQuote
+{
 }
 
-interface TravelInfo {
+interface TravelInfo
+{
 }
 

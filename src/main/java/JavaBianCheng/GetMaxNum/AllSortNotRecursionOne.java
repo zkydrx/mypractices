@@ -19,7 +19,9 @@ public class AllSortNotRecursionOne
     {
         System.out.println(String.valueOf(arrayA));
         while (allArrange(arrayA))
+        {
             System.out.println(String.valueOf(arrayA));
+        }
     }
 
     //判断当前数组arrayA序列是否可以进行字典序排列，如可以则进行排列并返回true，否则返回false
@@ -27,12 +29,16 @@ public class AllSortNotRecursionOne
     {
         int i;
         for (i = arrayA.length - 2; (i >= 0) && arrayA[i] > arrayA[i + 1]; --i)
+        {
             ;
+        }
         if (i < 0)
             return false;
         int k;
         for (k = arrayA.length - 1; (k > i) && arrayA[i] >= arrayA[k]; --k)
+        {
             ;
+        }
         swap(arrayA, i, k);
         reverseArray(arrayA, i + 1, arrayA.length - 1);
         return true;

@@ -58,7 +58,7 @@ public class EmployeeExample
         Map<String, Integer> collect9 = employees.stream().collect(Collectors.toMap((k -> k.getName()), (v -> v.getAge())));
 
         System.out.println("返回所有雇员的姓名和年龄方法1:::");
-        collect9.forEach((k,v)-> System.out.println(k+"=="+v));
+        collect9.forEach((k, v) -> System.out.println(k + "==" + v));
         collect9.entrySet().forEach(System.out::println);
         /**
          * 返回所有salary大于20000的雇员
@@ -86,7 +86,7 @@ public class EmployeeExample
         /**
          * 找出salary 最少的雇员方法1：
          */
-        Optional<Employee> min = employees.stream().min((e1,e2) -> e1.getSalary()-e2.getSalary());
+        Optional<Employee> min = employees.stream().min((e1, e2) -> e1.getSalary() - e2.getSalary());
         /**
          * 找出salary 最少的雇员方法2：
          */
@@ -96,9 +96,9 @@ public class EmployeeExample
          */
         Optional<Employee> min2 = employees.stream().min((e1, e2) -> Integer.compare(e1.getSalary(), e2.getSalary()));
 
-        System.out.println("找出salary 最少的雇员方法1:"+min);
-        System.out.println("找出salary 最少的雇员方法2:"+min1);
-        System.out.println("找出salary 最少的雇员方法3:"+min2);
+        System.out.println("找出salary 最少的雇员方法1:" + min);
+        System.out.println("找出salary 最少的雇员方法2:" + min1);
+        System.out.println("找出salary 最少的雇员方法3:" + min2);
 
 
         /**
@@ -182,7 +182,7 @@ public class EmployeeExample
          */
         OptionalDouble average3 = employees.stream().filter(employee -> "HangZhou".equals(employee.getOffice())).mapToInt(e -> e.getSalary()).average();
 
-        System.out.println("HangZhou的雇员平均薪资是："+average3.getAsDouble());
+        System.out.println("HangZhou的雇员平均薪资是：" + average3.getAsDouble());
 
         /**
          * 按照办公室进行分组
@@ -200,6 +200,6 @@ public class EmployeeExample
          * 获取每个雇员的姓名的首字母
          */
         System.out.println("获取每个雇员的姓名的首字母:");
-        employees.stream().map(employee -> employee.getName()).map(e->e.substring(0,1)).collect(Collectors.toList()).forEach(e-> System.out.print(e+" "));
+        employees.stream().map(employee -> employee.getName()).map(e -> e.substring(0, 1)).collect(Collectors.toList()).forEach(e -> System.out.print(e + " "));
     }
 }

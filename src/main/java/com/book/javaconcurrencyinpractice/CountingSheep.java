@@ -7,15 +7,20 @@ package com.book.javaconcurrencyinpractice;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class CountingSheep {
+public class CountingSheep
+{
     volatile boolean asleep;
 
-    void tryToSleep() {
+    void tryToSleep()
+    {
         while (!asleep)
+        {
             countSomeSheep();
+        }
     }
 
-    void countSomeSheep() {
+    void countSomeSheep()
+    {
         // One, two, three...
     }
 }

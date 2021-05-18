@@ -1,8 +1,10 @@
 package com.design.atgg.pattern.proxy.dynamic;
 
 //接口
-public interface ITeacherDao {
+public interface ITeacherDao
+{
 
-	void teach(); // 授课方法
-	void sayHello(String name);
+    void teach(); // 授课方法
+
+    void sayHello(String name);
 }

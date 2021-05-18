@@ -26,6 +26,7 @@ public class SquareNumbers
 
     /**
      * 方法一：时间复杂度较方法二小。
+     *
      * @param num
      * @return
      */
@@ -65,6 +66,7 @@ public class SquareNumbers
 
     /**
      * 方法二：时间复杂度较大。
+     *
      * @param num
      * @return
      */

@@ -11,13 +11,18 @@ import java.net.Socket;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class ThreadPerTaskWebServer {
-    public static void main(String[] args) throws IOException {
+public class ThreadPerTaskWebServer
+{
+    public static void main(String[] args) throws IOException
+    {
         ServerSocket socket = new ServerSocket(80);
-        while (true) {
+        while (true)
+        {
             final Socket connection = socket.accept();
-            Runnable task = new Runnable() {
-                public void run() {
+            Runnable task = new Runnable()
+            {
+                public void run()
+                {
                     handleRequest(connection);
                 }
             };
@@ -25,7 +30,8 @@ public class ThreadPerTaskWebServer {
         }
     }
 
-    private static void handleRequest(Socket connection) {
+    private static void handleRequest(Socket connection)
+    {
         // request-handling logic here
     }
 }

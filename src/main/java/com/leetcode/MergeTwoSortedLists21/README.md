@@ -1,9 +1,8 @@
-#Explain
-1. ListNode is a class for storing a single node of a linked list storing
-   integer values.  It has two public data fields for the data and the link to
-   the next node in the list and has three constructors:
-   
-    
+# Explain
+
+1. ListNode is a class for storing a single node of a linked list storing integer values. It has two public data fields
+   for the data and the link to the next node in the list and has three constructors:
+
     public class ListNode
     {
         public int data;       // data stored in this node
@@ -28,5 +27,6 @@
             this.next = next;
         }
     }
- 2. This subject was done some months ago and today do it again.
- 3. If you have no choice then just do it.
+
+2. This subject was done some months ago and today do it again.
+3. If you have no choice then just do it.

@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-
 /**
  * CooperatingNoDeadlock
  * <p/>
@@ -15,23 +14,30 @@ import java.util.Set;
  *
  * @author Brian Goetz and Tim Peierls
  */
-class CooperatingNoDeadlock {
+class CooperatingNoDeadlock
+{
     @ThreadSafe
-    class Taxi {
-        @GuardedBy("this") private Point location, destination;
+    class Taxi
+    {
+        @GuardedBy("this")
+        private Point location, destination;
         private final Dispatcher dispatcher;
 
-        public Taxi(Dispatcher dispatcher) {
+        public Taxi(Dispatcher dispatcher)
+        {
             this.dispatcher = dispatcher;
         }
 
-        public synchronized Point getLocation() {
+        public synchronized Point getLocation()
+        {
             return location;
         }
 
-        public synchronized void setLocation(Point location) {
+        public synchronized void setLocation(Point location)
+        {
             boolean reachedDestination;
-            synchronized (this) {
+            synchronized (this)
+            {
                 this.location = location;
                 reachedDestination = location.equals(destination);
             }
@@ -39,43 +45,56 @@ class CooperatingNoDeadlock {
                 dispatcher.notifyAvailable(this);
         }
 
-        public synchronized Point getDestination() {
+        public synchronized Point getDestination()
+        {
             return destination;
         }
 
-        public synchronized void setDestination(Point destination) {
+        public synchronized void setDestination(Point destination)
+        {
             this.destination = destination;
         }
     }
 
     @ThreadSafe
-    class Dispatcher {
-        @GuardedBy("this") private final Set<Taxi> taxis;
-        @GuardedBy("this") private final Set<Taxi> availableTaxis;
+    class Dispatcher
+    {
+        @GuardedBy("this")
+        private final Set<Taxi> taxis;
+        @GuardedBy("this")
+        private final Set<Taxi> availableTaxis;
 
-        public Dispatcher() {
+        public Dispatcher()
+        {
             taxis = new HashSet<Taxi>();
             availableTaxis = new HashSet<Taxi>();
         }
 
-        public synchronized void notifyAvailable(Taxi taxi) {
+        public synchronized void notifyAvailable(Taxi taxi)
+        {
             availableTaxis.add(taxi);
         }
 
-        public Image getImage() {
+        public Image getImage()
+        {
             Set<Taxi> copy;
-            synchronized (this) {
+            synchronized (this)
+            {
                 copy = new HashSet<Taxi>(taxis);
             }
             Image image = new Image();
             for (Taxi t : copy)
+            {
                 image.drawMarker(t.getLocation());
+            }
             return image;
         }
     }
 
-    class Image {
-        public void drawMarker(Point p) {
+    class Image
+    {
+        public void drawMarker(Point p)
+        {
         }
     }
 

@@ -31,64 +31,65 @@ import java.util.Queue;
  */
 public class ImplementStackUsingQueues
 {
-        private Queue<Integer> q1 ;
-        private Queue<Integer> q2 ;
+    private Queue<Integer> q1;
+    private Queue<Integer> q2;
 
-        private int top;
-        public ImplementStackUsingQueues()
+    private int top;
+
+    public ImplementStackUsingQueues()
+    {
+        this.q1 = new LinkedList<>();
+        this.q2 = new LinkedList<>();
+        this.top = 0;
+    }
+
+    // remove the element on the top of the stack
+    public void pop()
+    {
+        while (q1.size() > 1)
         {
-            this.q1 = new LinkedList<>();
-            this.q2 = new LinkedList<>();
-            this.top=0;
+            top = q1.remove();
+            q2.add(top);
         }
 
-        // remove the element on the top of the stack
-        public void pop()
+        q1.remove();
+        Queue<Integer> tem = q1;
+        q1 = q2;
+        q2 = tem;
+    }
+
+    public void push(int x)
+    {
+        q2.add(x);
+        top = x;
+        while (!q1.isEmpty())
         {
-            while (q1.size() > 1)
-            {
-                top = q1.remove();
-                q2.add(top);
-            }
-
-            q1.remove();
-            Queue<Integer> tem = q1;
-            q1 = q2;
-            q2 = tem;
+            q2.add(q1.remove());
         }
+        Queue<Integer> temp = q1;
 
-        public void push(int x)
-        {
-            q2.add(x);
-            top = x;
-            while (!q1.isEmpty())
-            {
-                q2.add(q1.remove());
-            }
-            Queue<Integer> temp = q1;
+        q1 = q2;
+        q2 = temp;
 
-            q1 = q2;
-            q2 = temp;
+    }
 
-        }
-
-        //return whether the stack is empty.
-        public boolean empty()
-        {
-            return q1.isEmpty();
-        }
+    //return whether the stack is empty.
+    public boolean empty()
+    {
+        return q1.isEmpty();
+    }
 
 
-        public int top()
-        {
-            return q1.peek();
-        }
+    public int top()
+    {
+        return q1.peek();
+    }
 
 
     public static void main(String[] args)
     {
         ImplementStackUsingQueues queue = new ImplementStackUsingQueues();
-        queue.top=10;
+        queue.top = 10;
     }
 
 }

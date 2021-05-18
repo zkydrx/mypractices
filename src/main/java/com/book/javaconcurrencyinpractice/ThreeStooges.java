@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.Vector;
 
 
-
 /**
  * ThreeStooges
  * <p/>
@@ -18,20 +17,24 @@ import java.util.Vector;
  * @author Brian Goetz and Tim Peierls
  */
 @Immutable
- public final class ThreeStooges {
+public final class ThreeStooges
+{
     private final Set<String> stooges = new HashSet<String>();
 
-    public ThreeStooges() {
+    public ThreeStooges()
+    {
         stooges.add("Moe");
         stooges.add("Larry");
         stooges.add("Curly");
     }
 
-    public boolean isStooge(String name) {
+    public boolean isStooge(String name)
+    {
         return stooges.contains(name);
     }
 
-    public String getStoogeNames() {
+    public String getStoogeNames()
+    {
         List<String> stooges = new Vector<String>();
         stooges.add("Moe");
         stooges.add("Larry");

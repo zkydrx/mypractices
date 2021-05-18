@@ -16,6 +16,7 @@ import java.util.concurrent.Future;
 public class Multithreading extends Thread
 {
     private int x;
+
     public void run()
     {
         System.out.println("extends Thread.");
@@ -48,6 +49,7 @@ class MultithreadingTwo implements Callable<Integer>
 {
 
     private int sum;
+
     /**
      * Computes a result, or throws an exception if unable to do so.
      *
@@ -61,13 +63,14 @@ class MultithreadingTwo implements Callable<Integer>
         Thread.sleep(2000);
         for (int i = 0; i <= 100; i++)
         {
-            sum+=i;
+            sum += i;
         }
         System.out.println("Callable 子线程计算结束");
         return sum;
     }
 }
- class TestAll
+
+class TestAll
 {
     public static void main(String[] args) throws Exception
     {
@@ -84,7 +87,6 @@ class MultithreadingTwo implements Callable<Integer>
                 e.printStackTrace();
             }
         }
-
 
 
         MultithreadingOne multithreadingOne = new MultithreadingOne();
@@ -110,7 +112,7 @@ class MultithreadingTwo implements Callable<Integer>
         /**
          * 1. 创建线程池
          */
-        ExecutorService es =  Executors.newSingleThreadExecutor();
+        ExecutorService es = Executors.newSingleThreadExecutor();
         /**
          * 2. 创建callable任务
          */
@@ -130,12 +132,12 @@ class MultithreadingTwo implements Callable<Integer>
         System.out.println("主线程开始执行其他任务");
 
 
-        if(future.get() != null)
+        if (future.get() != null)
         {
             /**
              * 输出获取到的结果
              */
-            System.out.println("future.get()--->"+future.get());
+            System.out.println("future.get()--->" + future.get());
         }
         else
         {

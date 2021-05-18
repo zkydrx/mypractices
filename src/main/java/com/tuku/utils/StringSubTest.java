@@ -14,10 +14,11 @@ import org.slf4j.LoggerFactory;
 public class StringSubTest
 {
     Logger logger = LoggerFactory.getLogger(StringSubTest.class);
+
     @Test
     public void testSubString()
     {
         String testStr = "微信支付+支付宝支付+";
-        logger.info("test:{}",testStr.substring(0,testStr.length()-1));
+        logger.info("test:{}", testStr.substring(0, testStr.length() - 1));
     }
 }

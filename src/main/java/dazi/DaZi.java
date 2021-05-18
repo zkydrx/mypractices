@@ -88,9 +88,7 @@ public class DaZi extends JFrame implements ActionListener, KeyListener
                     textField1.setText("abcdefghijklmnopqrstuvwxyz");
                     break;
                 case 2:
-                    textField1.setText("My father was a self-taught mandolin player. " + "He was one of the best string instrument players in our town. " + "He could not read " +
-                                               "music, but if he heard a tune a few times, " + "he could play it. " + "When he was younger, he was a member of a small country " +
-                                               "music b");
+                    textField1.setText("My father was a self-taught mandolin player. " + "He was one of the best string instrument players in our town. " + "He could not read " + "music, but if he heard a tune a few times, " + "he could play it. " + "When he was younger, he was a member of a small country " + "music b");
                     break;
                 case 3:
                     textField1.setText("sdfmawieofnosandvoinqewoifnvoqwneiqwenfqnwefoinqwoien");

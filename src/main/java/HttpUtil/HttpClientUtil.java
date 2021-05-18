@@ -94,32 +94,32 @@ public class HttpClientUtil
      */
     public static String doGet(String url, String charset) throws Exception
     {
-    /*
-     * 使用 GetMethod 来访问一个 URL 对应的网页,实现步骤: 1:生成一个 HttpClinet 对象并设置相应的参数。
-     * 2:生成一个 GetMethod 对象并设置响应的参数。 3:用 HttpClinet 生成的对象来执行 GetMethod 生成的Get
-     * 方法。 4:处理响应状态码。 5:若响应正常，处理 HTTP 响应内容。 6:释放连接。
-     */
-    /* 1 生成 HttpClinet 对象并设置参数 */
+        /*
+         * 使用 GetMethod 来访问一个 URL 对应的网页,实现步骤: 1:生成一个 HttpClinet 对象并设置相应的参数。
+         * 2:生成一个 GetMethod 对象并设置响应的参数。 3:用 HttpClinet 生成的对象来执行 GetMethod 生成的Get
+         * 方法。 4:处理响应状态码。 5:若响应正常，处理 HTTP 响应内容。 6:释放连接。
+         */
+        /* 1 生成 HttpClinet 对象并设置参数 */
         HttpClient httpClient = new HttpClient();
         // 设置 Http 连接超时为5秒
         httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(5000);
-    /* 2 生成 GetMethod 对象并设置参数 */
+        /* 2 生成 GetMethod 对象并设置参数 */
         GetMethod getMethod = new GetMethod(url);
         // 设置 get 请求超时为 5 秒
         getMethod.getParams().setParameter(HttpMethodParams.SO_TIMEOUT, 5000);
         // 设置请求重试处理，用的是默认的重试处理：请求三次
         getMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler());
         String response = "";
-    /* 3 执行 HTTP GET 请求 */
+        /* 3 执行 HTTP GET 请求 */
         try
         {
             int statusCode = httpClient.executeMethod(getMethod);
-      /* 4 判断访问的状态码 */
+            /* 4 判断访问的状态码 */
             if (statusCode != HttpStatus.SC_OK)
             {
                 System.err.println("请求出错: " + getMethod.getStatusLine());
             }
-      /* 5 处理 HTTP 响应内容 */
+            /* 5 处理 HTTP 响应内容 */
             // HTTP响应头部信息，这里简单打印
             Header[] headers = getMethod.getResponseHeaders();
             for (Header h : headers)
@@ -147,7 +147,7 @@ public class HttpClientUtil
         }
         finally
         {
-      /* 6 .释放连接 */
+            /* 6 .释放连接 */
             getMethod.releaseConnection();
         }
         return response;

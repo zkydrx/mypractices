@@ -10,6 +10,7 @@ package knowledgeable.review201901.designPatterns.InterceptingFilter;
 public class Client
 {
     FilterManager filterManager;
+
     public void setFilterManager(FilterManager filterManager)
     {
         this.filterManager = filterManager;

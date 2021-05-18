@@ -149,14 +149,14 @@ public class UglyNumber
     public static void main(String[] args)
     {
         UglyNumber number = new UglyNumber();
-        long time =System.currentTimeMillis();
+        long time = System.currentTimeMillis();
         System.out.println(number.isUgly(1500));
         time = System.currentTimeMillis() - time;
-        System.out.println("3层for循环的时间复杂度："+time);
+        System.out.println("3层for循环的时间复杂度：" + time);
         time = System.currentTimeMillis();
         System.out.println(number.isUglyNubmer(1500));
         time = System.currentTimeMillis() - time;
-        System.out.println("While 时间复杂度："+time);
+        System.out.println("While 时间复杂度：" + time);
     }
 
 }

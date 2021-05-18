@@ -10,93 +10,131 @@ import java.util.concurrent.locks.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class ReadWriteMap <K,V> {
+public class ReadWriteMap<K, V>
+{
     private final Map<K, V> map;
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
     private final Lock r = lock.readLock();
     private final Lock w = lock.writeLock();
 
-    public ReadWriteMap(Map<K, V> map) {
+    public ReadWriteMap(Map<K, V> map)
+    {
         this.map = map;
     }
 
-    public V put(K key, V value) {
+    public V put(K key, V value)
+    {
         w.lock();
-        try {
+        try
+        {
             return map.put(key, value);
-        } finally {
+        }
+        finally
+        {
             w.unlock();
         }
     }
 
-    public V remove(Object key) {
+    public V remove(Object key)
+    {
         w.lock();
-        try {
+        try
+        {
             return map.remove(key);
-        } finally {
+        }
+        finally
+        {
             w.unlock();
         }
     }
 
-    public void putAll(Map<? extends K, ? extends V> m) {
+    public void putAll(Map<? extends K, ? extends V> m)
+    {
         w.lock();
-        try {
+        try
+        {
             map.putAll(m);
-        } finally {
+        }
+        finally
+        {
             w.unlock();
         }
     }
 
-    public void clear() {
+    public void clear()
+    {
         w.lock();
-        try {
+        try
+        {
             map.clear();
-        } finally {
+        }
+        finally
+        {
             w.unlock();
         }
     }
 
-    public V get(Object key) {
+    public V get(Object key)
+    {
         r.lock();
-        try {
+        try
+        {
             return map.get(key);
-        } finally {
+        }
+        finally
+        {
             r.unlock();
         }
     }
 
-    public int size() {
+    public int size()
+    {
         r.lock();
-        try {
+        try
+        {
             return map.size();
-        } finally {
+        }
+        finally
+        {
             r.unlock();
         }
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty()
+    {
         r.lock();
-        try {
+        try
+        {
             return map.isEmpty();
-        } finally {
+        }
+        finally
+        {
             r.unlock();
         }
     }
 
-    public boolean containsKey(Object key) {
+    public boolean containsKey(Object key)
+    {
         r.lock();
-        try {
+        try
+        {
             return map.containsKey(key);
-        } finally {
+        }
+        finally
+        {
             r.unlock();
         }
     }
 
-    public boolean containsValue(Object value) {
+    public boolean containsValue(Object value)
+    {
         r.lock();
-        try {
+        try
+        {
             return map.containsValue(value);
-        } finally {
+        }
+        finally
+        {
             r.unlock();
         }
     }

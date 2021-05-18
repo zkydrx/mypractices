@@ -97,7 +97,6 @@ public class ThreadPoolWriteTest
         System.out.println("#######################线程拒绝策略：DiscardOldestPolicy 丢弃最旧的任务策略##########################");
 
 
-
     }
 
     /**

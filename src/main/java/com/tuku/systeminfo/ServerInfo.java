@@ -28,7 +28,6 @@ import java.util.Properties;
  * Description:
  * 会有异常：
  * sigar-amd64-winnt.dll添加到java的bin目录（C:\Program Files\Java\jdk-11.0.5\bin）中依然无法解决问题
- *
  */
 public class ServerInfo
 {

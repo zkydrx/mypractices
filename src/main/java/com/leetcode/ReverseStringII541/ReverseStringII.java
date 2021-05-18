@@ -22,19 +22,19 @@ public class ReverseStringII
 {
     public String reverseStr(String s, int k)
     {
-        char [] ar = s.toCharArray();
+        char[] ar = s.toCharArray();
         int n = ar.length;
         int i = 0;
         while (i < n)
         {
-            int j = Math.min(i+k-1,n -1);
-            swap(ar,i,j);
-            i += 2*k;
+            int j = Math.min(i + k - 1, n - 1);
+            swap(ar, i, j);
+            i += 2 * k;
         }
         return String.valueOf(ar);
     }
 
-    private void swap(char[] ar,int l,int r)
+    private void swap(char[] ar, int l, int r)
     {
         while (l < r)
         {

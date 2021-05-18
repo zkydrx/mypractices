@@ -30,7 +30,7 @@ public class ThreadPoolTest
                 {
                     try
                     {
-                        System.out.println(Thread.currentThread().getName()+new Date().toString()+">>>>>>>"+index);
+                        System.out.println(Thread.currentThread().getName() + new Date().toString() + ">>>>>>>" + index);
                         Thread.sleep(3000);
                     }
                     catch (InterruptedException e)
@@ -60,7 +60,7 @@ public class ThreadPoolTest
             {
                 public void run()
                 {
-                    System.out.println(Thread.currentThread().getName()+new Date().toString()+">>>>>>>"+index);
+                    System.out.println(Thread.currentThread().getName() + new Date().toString() + ">>>>>>>" + index);
                 }
             });
         }
@@ -74,7 +74,7 @@ public class ThreadPoolTest
         { // 执行周期性的任务
             public void run()
             {
-                System.out.println(Thread.currentThread().getName()+new Date().toString()+">>>>>>>"+"scheduledThreadPool");
+                System.out.println(Thread.currentThread().getName() + new Date().toString() + ">>>>>>>" + "scheduledThreadPool");
             }
         }, 1, 3, TimeUnit.SECONDS); // 延迟1s后，每3s执行一次
     }
@@ -92,7 +92,7 @@ public class ThreadPoolTest
                 {
                     try
                     {
-                        System.out.println(Thread.currentThread().getName()+new Date().toString()+new Date().toString()+new Date().toString()+">>>>>>>"+index);
+                        System.out.println(Thread.currentThread().getName() + new Date().toString() + new Date().toString() + new Date().toString() + ">>>>>>>" + index);
                         Thread.sleep(2000);
                     }
                     catch (InterruptedException e)

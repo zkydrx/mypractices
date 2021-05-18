@@ -114,7 +114,7 @@ public class CheckTheErrorTest
                 latch.await();
                 System.out.println("请求开始了");
                 String result = httpPost("http://localhost:8080/index", "token=123&integer=1");
-                log.info("result=======>{}",result);
+                log.info("result=======>{}", result);
 
             }
             catch (InterruptedException e)

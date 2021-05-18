@@ -22,11 +22,11 @@ public class MapTest
     @Test
     public void testMapCollections()
     {
-        Map<String,String> map = new HashMap<>();
-        map.put("1","1A");
-        map.put("2","2B");
-        map.put("3","3C");
-        map.put("4","4D");
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "1A");
+        map.put("2", "2B");
+        map.put("3", "3C");
+        map.put("4", "4D");
         List<Map.Entry<String, String>> collect = map.entrySet().stream().collect(Collectors.toList());
         System.out.println(collect.get(0));
 

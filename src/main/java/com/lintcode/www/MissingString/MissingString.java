@@ -25,11 +25,11 @@ public class MissingString
         List<String> list = new ArrayList<>();
         while (str1.length() > 0)
         {
-            if(str1.contains(" "))
+            if (str1.contains(" "))
             {
-                String temp = str1.substring(0,str1.indexOf(" "));
+                String temp = str1.substring(0, str1.indexOf(" "));
                 list1.add(temp);
-                str1 = str1.substring(str1.indexOf(" ")+1,str1.length());
+                str1 = str1.substring(str1.indexOf(" ") + 1, str1.length());
             }
             else
             {
@@ -40,11 +40,11 @@ public class MissingString
 
         while (str2.length() > 0)
         {
-            if(str2.contains(" "))
+            if (str2.contains(" "))
             {
-                String temp = str2.substring(0,str2.indexOf(" "));
+                String temp = str2.substring(0, str2.indexOf(" "));
                 list2.add(temp);
-                str2 = str2.substring(str2.indexOf(" ")+1,str2.length());
+                str2 = str2.substring(str2.indexOf(" ") + 1, str2.length());
             }
             else
             {
@@ -56,7 +56,7 @@ public class MissingString
         {
             for (int j = 0; j < list2.size(); j++)
             {
-                if(list1.get(i).equals(list2.get(j)))
+                if (list1.get(i).equals(list2.get(j)))
                 {
                     list.add(list1.get(i));
                 }

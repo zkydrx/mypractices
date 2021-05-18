@@ -12,9 +12,13 @@ public class SingletonFive
 {
     public static class SingletonHolder
     {
-        private static final SingletonFive INSTANCE=new SingletonFive();
+        private static final SingletonFive INSTANCE = new SingletonFive();
     }
-    private SingletonFive(){}
+
+    private SingletonFive()
+    {
+    }
+
     public static final SingletonFive getInstance()
     {
         return SingletonHolder.INSTANCE;

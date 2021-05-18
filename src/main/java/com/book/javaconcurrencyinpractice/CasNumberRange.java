@@ -6,7 +6,6 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-
 /**
  * CasNumberRange
  * <p/>
@@ -15,32 +14,38 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-        public class CasNumberRange {
+public class CasNumberRange
+{
     @Immutable
-            private static class IntPair {
+    private static class IntPair
+    {
         // INVARIANT: lower <= upper
         final int lower;
         final int upper;
 
-        public IntPair(int lower, int upper) {
+        public IntPair(int lower, int upper)
+        {
             this.lower = lower;
             this.upper = upper;
         }
     }
 
-    private final AtomicReference<IntPair> values =
-            new AtomicReference<IntPair>(new IntPair(0, 0));
+    private final AtomicReference<IntPair> values = new AtomicReference<IntPair>(new IntPair(0, 0));
 
-    public int getLower() {
+    public int getLower()
+    {
         return values.get().lower;
     }
 
-    public int getUpper() {
+    public int getUpper()
+    {
         return values.get().upper;
     }
 
-    public void setLower(int i) {
-        while (true) {
+    public void setLower(int i)
+    {
+        while (true)
+        {
             IntPair oldv = values.get();
             if (i > oldv.upper)
                 throw new IllegalArgumentException("Can't set lower to " + i + " > upper");
@@ -50,8 +55,10 @@ import java.util.concurrent.atomic.AtomicReference;
         }
     }
 
-    public void setUpper(int i) {
-        while (true) {
+    public void setUpper(int i)
+    {
+        while (true)
+        {
             IntPair oldv = values.get();
             if (i < oldv.lower)
                 throw new IllegalArgumentException("Can't set upper to " + i + " < lower");

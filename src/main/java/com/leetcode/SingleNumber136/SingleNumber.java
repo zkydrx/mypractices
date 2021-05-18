@@ -19,6 +19,7 @@ public class SingleNumber
 {
     /**
      * 无法通过验证。如果超20000提示java code to large.
+     *
      * @param nums
      * @return
      */
@@ -68,10 +69,11 @@ public class SingleNumber
 
     /**
      * Perfect
+     *
      * @param nums
      * @return
      */
-    public int singleNumberOne(int [] nums)
+    public int singleNumberOne(int[] nums)
     {
         int result = nums[0];
         for (int i = 1; i < nums.length; i++)

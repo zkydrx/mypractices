@@ -13,11 +13,13 @@ import java.util.Map;
 public class LruMethod<K, V> extends LinkedHashMap<K, V>
 {
     private int capacity;
+
     public LruMethod(int capacity)
     {
         super(capacity, 0.75F, false);
         this.capacity = capacity;
     }
+
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest)
     {

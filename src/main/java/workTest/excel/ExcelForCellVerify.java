@@ -7,7 +7,6 @@ package workTest.excel;
  * Date: 2018-12-24
  * Time: 11:16:39
  * Description:
- *
  */
 @Deprecated
 public class ExcelForCellVerify

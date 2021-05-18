@@ -12,15 +12,19 @@ import javax.swing.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class ListenerExamples {
+public class ListenerExamples
+{
     private static ExecutorService exec = Executors.newCachedThreadPool();
 
     private final JButton colorButton = new JButton("Change color");
     private final Random random = new Random();
 
-    private void backgroundRandom() {
-        colorButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+    private void backgroundRandom()
+    {
+        colorButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 colorButton.setBackground(new Color(random.nextInt()));
             }
         });
@@ -29,11 +33,16 @@ public class ListenerExamples {
 
     private final JButton computeButton = new JButton("Big computation");
 
-    private void longRunningTask() {
-        computeButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                exec.execute(new Runnable() {
-                    public void run() {
+    private void longRunningTask()
+    {
+        computeButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                exec.execute(new Runnable()
+                {
+                    public void run()
+                    {
                         /* Do big computation */
                     }
                 });
@@ -45,18 +54,28 @@ public class ListenerExamples {
     private final JButton button = new JButton("Do");
     private final JLabel label = new JLabel("idle");
 
-    private void longRunningTaskWithFeedback() {
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+    private void longRunningTaskWithFeedback()
+    {
+        button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 button.setEnabled(false);
                 label.setText("busy");
-                exec.execute(new Runnable() {
-                    public void run() {
-                        try {
+                exec.execute(new Runnable()
+                {
+                    public void run()
+                    {
+                        try
+                        {
                             /* Do big computation */
-                        } finally {
-                            GuiExecutor.instance().execute(new Runnable() {
-                                public void run() {
+                        }
+                        finally
+                        {
+                            GuiExecutor.instance().execute(new Runnable()
+                            {
+                                public void run()
+                                {
                                     button.setEnabled(true);
                                     label.setText("idle");
                                 }
@@ -72,14 +91,22 @@ public class ListenerExamples {
     private final JButton cancelButton = new JButton("Cancel");
     private Future<?> runningTask = null; // thread-confined
 
-    private void taskWithCancellation() {
-        startButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (runningTask != null) {
-                    runningTask = exec.submit(new Runnable() {
-                        public void run() {
-                            while (moreWork()) {
-                                if (Thread.currentThread().isInterrupted()) {
+    private void taskWithCancellation()
+    {
+        startButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                if (runningTask != null)
+                {
+                    runningTask = exec.submit(new Runnable()
+                    {
+                        public void run()
+                        {
+                            while (moreWork())
+                            {
+                                if (Thread.currentThread().isInterrupted())
+                                {
                                     cleanUpPartialWork();
                                     break;
                                 }
@@ -87,14 +114,17 @@ public class ListenerExamples {
                             }
                         }
 
-                        private boolean moreWork() {
+                        private boolean moreWork()
+                        {
                             return false;
                         }
 
-                        private void cleanUpPartialWork() {
+                        private void cleanUpPartialWork()
+                        {
                         }
 
-                        private void doSomeWork() {
+                        private void doSomeWork()
+                        {
                         }
 
                     });
@@ -103,8 +133,10 @@ public class ListenerExamples {
             }
         });
 
-        cancelButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
+        cancelButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent event)
+            {
                 if (runningTask != null)
                     runningTask.cancel(true);
             }
@@ -112,32 +144,45 @@ public class ListenerExamples {
     }
 
 
-    private void runInBackground(final Runnable task) {
-        startButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                class CancelListener implements ActionListener {
+    private void runInBackground(final Runnable task)
+    {
+        startButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                class CancelListener implements ActionListener
+                {
                     BackgroundTask<?> task;
-                    public void actionPerformed(ActionEvent event) {
+
+                    public void actionPerformed(ActionEvent event)
+                    {
                         if (task != null)
                             task.cancel(true);
                     }
                 }
                 final CancelListener listener = new CancelListener();
-                listener.task = new BackgroundTask<Void>() {
-                    public Void compute() {
+                listener.task = new BackgroundTask<Void>()
+                {
+                    public Void compute()
+                    {
                         while (moreWork() && !isCancelled())
+                        {
                             doSomeWork();
+                        }
                         return null;
                     }
 
-                    private boolean moreWork() {
+                    private boolean moreWork()
+                    {
                         return false;
                     }
 
-                    private void doSomeWork() {
+                    private void doSomeWork()
+                    {
                     }
 
-                    public void onCompletion(boolean cancelled, String s, Throwable exception) {
+                    public void onCompletion(boolean cancelled, String s, Throwable exception)
+                    {
                         cancelButton.removeActionListener(listener);
                         label.setText("done");
                     }

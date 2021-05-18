@@ -15,7 +15,7 @@ public class MD5Util
     @Test
     public void etestMd5()
     {
-        MD5 md5 =new MD5();
+        MD5 md5 = new MD5();
         String s = md5.digestHex("123456");
         System.out.println(s);
     }

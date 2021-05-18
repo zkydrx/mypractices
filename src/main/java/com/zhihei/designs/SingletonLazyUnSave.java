@@ -15,9 +15,10 @@ public class SingletonLazyUnSave
     private SingletonLazyUnSave()
     {
     }
+
     public static SingletonLazyUnSave getInstance()
     {
-        if(null == instance)
+        if (null == instance)
         {
             instance = new SingletonLazyUnSave();
         }

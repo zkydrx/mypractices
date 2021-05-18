@@ -28,30 +28,30 @@ public class PaiLieK
     {
         List<Integer> list = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
-        for(int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++)
         {
             list.add(i);
         }
 
         boolean has = true;
         first:
-        for(int i = 0; i < Math.pow(10,n);i++)
+        for (int i = 0; i < Math.pow(10, n); i++)
         {
-            for(int j = 0; j < list.size(); j++)
+            for (int j = 0; j < list.size(); j++)
             {
-                if(!(i+"").contains(list.get(j)+""))
+                if (!(i + "").contains(list.get(j) + ""))
                 {
                     has = false;
-                    continue ;
+                    continue;
                 }
             }
-            if(has&&list.size() == getDigits(i))
+            if (has && list.size() == getDigits(i))
             {
                 list1.add(i);
             }
             has = true;
         }
-        Integer integer=list1.get(k-1);
+        Integer integer = list1.get(k - 1);
         return String.valueOf(integer);
     }
 
@@ -59,19 +59,21 @@ public class PaiLieK
     public int getDigits(int i)
     {
         int count = 0;
-        while(i >0)
+        while (i > 0)
         {
             count++;
-            i /=10;
+            i /= 10;
         }
         return count;
     }
+
     @Test
     public void testGetDigits()
     {
         System.out.println(getDigits(198));
         getDigits(198);
     }
+
     @Test
     public void testGetPermutation()
     {

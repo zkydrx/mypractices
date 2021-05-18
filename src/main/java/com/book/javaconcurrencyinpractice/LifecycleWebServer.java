@@ -13,35 +13,46 @@ import java.util.logging.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class LifecycleWebServer {
+public class LifecycleWebServer
+{
     private final ExecutorService exec = Executors.newCachedThreadPool();
 
-    public void start() throws IOException {
+    public void start() throws IOException
+    {
         ServerSocket socket = new ServerSocket(80);
-        while (!exec.isShutdown()) {
-            try {
+        while (!exec.isShutdown())
+        {
+            try
+            {
                 final Socket conn = socket.accept();
-                exec.execute(new Runnable() {
-                    public void run() {
+                exec.execute(new Runnable()
+                {
+                    public void run()
+                    {
                         handleRequest(conn);
                     }
                 });
-            } catch (RejectedExecutionException e) {
+            }
+            catch (RejectedExecutionException e)
+            {
                 if (!exec.isShutdown())
                     log("task submission rejected", e);
             }
         }
     }
 
-    public void stop() {
+    public void stop()
+    {
         exec.shutdown();
     }
 
-    private void log(String msg, Exception e) {
+    private void log(String msg, Exception e)
+    {
         Logger.getAnonymousLogger().log(Level.WARNING, msg, e);
     }
 
-    void handleRequest(Socket connection) {
+    void handleRequest(Socket connection)
+    {
         Request req = readRequest(connection);
         if (isShutdownRequest(req))
             stop();
@@ -49,17 +60,21 @@ public class LifecycleWebServer {
             dispatchRequest(req);
     }
 
-    interface Request {
+    interface Request
+    {
     }
 
-    private Request readRequest(Socket s) {
+    private Request readRequest(Socket s)
+    {
         return null;
     }
 
-    private void dispatchRequest(Request r) {
+    private void dispatchRequest(Request r)
+    {
     }
 
-    private boolean isShutdownRequest(Request r) {
+    private boolean isShutdownRequest(Request r)
+    {
         return false;
     }
 }

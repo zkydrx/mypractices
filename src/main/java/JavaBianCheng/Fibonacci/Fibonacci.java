@@ -16,32 +16,33 @@ public class Fibonacci
 {
     /**
      * 输入一个正整数，返回该正整数位的斐波那契数列。
+     *
      * @param n
      * @return
      */
     public List getFibonacciForN(int n)
     {
         List resultList = new ArrayList();
-        if(n == 1)
+        if (n == 1)
         {
             resultList.add(0);
             return resultList;
         }
-        else if(n == 2)
+        else if (n == 2)
         {
             resultList.add(0);
             resultList.add(1);
         }
         else
         {
-            int [] array = new int[n];
+            int[] array = new int[n];
             array[0] = 0;
             array[1] = 1;
             resultList.add(array[0]);
             resultList.add(array[1]);
-            for(int i = 2; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
-                array[i] = array[i-1]+array[i-2];
+                array[i] = array[i - 1] + array[i - 2];
                 resultList.add(array[i]);
             }
             return resultList;

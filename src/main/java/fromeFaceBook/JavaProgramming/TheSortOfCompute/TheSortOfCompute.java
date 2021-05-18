@@ -14,15 +14,15 @@ public class TheSortOfCompute
         int a = 8;
         int b = 12;
         boolean bool = false;
-        if(a < b)
+        if (a < b)
         {
             System.out.println("X");
         }
-        if(!bool == false)
+        if (!bool == false)
         {
             System.out.println("W");
         }
-        if(a+b==21)
+        if (a + b == 21)
         {
             System.out.println("Y");
         }

@@ -1,5 +1,6 @@
 package com.design.atgg.pattern.uml.composition;
 
-public class Moniter {
+public class Moniter
+{
 
 }

@@ -87,6 +87,7 @@ public class AddBinary
 
     /**
      * Perfect.
+     *
      * @param a
      * @param b
      * @return

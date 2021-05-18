@@ -12,15 +12,17 @@ public class SingletonFour
 {
     public static SingletonFour instance;
 
-    private SingletonFour(){}
+    private SingletonFour()
+    {
+    }
 
     public static SingletonFour getInstance()
     {
-        if(null == instance)
+        if (null == instance)
         {
             synchronized (SingletonFour.class)
             {
-                if(null == instance)
+                if (null == instance)
                 {
                     instance = new SingletonFour();
                 }

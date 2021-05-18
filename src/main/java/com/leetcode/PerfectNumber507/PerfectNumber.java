@@ -6,7 +6,7 @@ package com.leetcode.PerfectNumber507;
  * Date: 2018-02-02
  * Time: 23:56:18
  * Description:
- *
+ * <p>
  * 507. Perfect Number
  * <p>
  * We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except
@@ -26,13 +26,13 @@ public class PerfectNumber
         int sum = 0;
         for (int i = 1; i < num; i++)
         {
-            if(num %i == 0)
+            if (num % i == 0)
             {
                 sum += i;
             }
         }
 
-        if(sum == num)
+        if (sum == num)
         {
             return true;
         }

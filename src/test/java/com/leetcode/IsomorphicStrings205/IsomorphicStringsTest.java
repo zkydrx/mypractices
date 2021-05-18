@@ -32,8 +32,8 @@ class IsomorphicStringsTest
         IsomorphicStrings isomorphicStrings = new IsomorphicStrings();
 
         boolean isomorphic = isomorphicStrings.isIsomorphic("add", "foo");
-//        boolean isomorphic1 = isomorphicStrings.isIsomorphic("aa", "ab");
+        //        boolean isomorphic1 = isomorphicStrings.isIsomorphic("aa", "ab");
         System.out.println(isomorphic);
-//        System.out.println(isomorphic1);
+        //        System.out.println(isomorphic1);
     }
 }

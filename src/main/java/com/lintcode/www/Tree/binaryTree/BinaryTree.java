@@ -12,8 +12,6 @@ import java.util.*;
  * Description:
  * 始终对二叉树比较迷茫，最近正好又碰到二叉树就总结总结。
  * JAVA下实现二叉树的先序、中序、后序、层序遍历（递归和循环）
- *
- *
  */
 public class BinaryTree
 {
@@ -25,7 +23,7 @@ public class BinaryTree
     {
         if (root != null)
         {
-            System.out.print(root.value+"\t");
+            System.out.print(root.value + "\t");
             preOrderRec(root.left);
             preOrderRec(root.right);
         }
@@ -44,12 +42,12 @@ public class BinaryTree
 
         t.left.left = new Node(4);
         t.left.right = new Node(5);
-        t.right.left= new Node(6);
+        t.right.left = new Node(6);
         t.right.right = new Node(7);
 
         t.left.left.left = new Node(8);
         t.left.left.right = new Node(9);
-        t.left.right.left  = new Node(10);
+        t.left.right.left = new Node(10);
         t.left.right.right = new Node(11);
         t.right.left.left = new Node(12);
         t.right.left.right = new Node(13);
@@ -68,7 +66,7 @@ public class BinaryTree
         if (root != null)
         {
             preOrderRec(root.left);
-            System.out.print(root.value+"\t");
+            System.out.print(root.value + "\t");
             preOrderRec(root.right);
         }
     }
@@ -83,12 +81,12 @@ public class BinaryTree
 
         t.left.left = new Node(4);
         t.left.right = new Node(5);
-        t.right.left= new Node(6);
+        t.right.left = new Node(6);
         t.right.right = new Node(7);
 
         t.left.left.left = new Node(8);
         t.left.left.right = new Node(9);
-        t.left.right.left  = new Node(10);
+        t.left.right.left = new Node(10);
         t.left.right.right = new Node(11);
         t.right.left.left = new Node(12);
         t.right.left.right = new Node(13);
@@ -97,6 +95,7 @@ public class BinaryTree
         System.out.println("\n中序遍历");
         inOrderRec(t);
     }
+
     /**
      * @param root 树根节点
      *             递归后序遍历
@@ -121,12 +120,12 @@ public class BinaryTree
 
         t.left.left = new Node(4);
         t.left.right = new Node(5);
-        t.right.left= new Node(6);
+        t.right.left = new Node(6);
         t.right.right = new Node(7);
-//
+        //
         t.left.left.left = new Node(8);
         t.left.left.right = new Node(9);
-        t.left.right.left  = new Node(10);
+        t.left.right.left = new Node(10);
         t.left.right.right = new Node(11);
         t.right.left.left = new Node(12);
         t.right.left.right = new Node(13);
@@ -266,7 +265,6 @@ public class BinaryTree
                 q.add(temp.right);
         }
     }
-
 
 
 }

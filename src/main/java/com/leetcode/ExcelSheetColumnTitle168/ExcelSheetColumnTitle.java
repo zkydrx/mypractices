@@ -25,8 +25,8 @@ public class ExcelSheetColumnTitle
 {
     public String convertToTitle(int n)
     {
-        StringBuilder stringBuilder= new StringBuilder();
-        if(n < 0)
+        StringBuilder stringBuilder = new StringBuilder();
+        if (n < 0)
         {
             throw new IllegalArgumentException("Input is not valid!");
 
@@ -34,8 +34,8 @@ public class ExcelSheetColumnTitle
         while (n > 0)
         {
             n--;
-            char ch = (char)(n%26+'A');
-            n /=26;
+            char ch = (char) (n % 26 + 'A');
+            n /= 26;
             stringBuilder.append(ch);
         }
 

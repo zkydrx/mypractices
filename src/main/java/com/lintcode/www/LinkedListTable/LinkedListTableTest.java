@@ -31,13 +31,13 @@ class LinkedListTableTest
     @Test
     void removeElements()
     {
-        ListNode listNode =new ListNode(1);
+        ListNode listNode = new ListNode(1);
         listNode.next = new ListNode(2);
         listNode.next.next = new ListNode(3);
         listNode.next.next.next = new ListNode(3);
         listNode.next.next.next.next = new ListNode(4);
         listNode.next.next.next.next.next = new ListNode(5);
-        listNode.next.next.next.next.next.next= new ListNode(3);
+        listNode.next.next.next.next.next.next = new ListNode(3);
 
         LinkedListTable linkedListTable = new LinkedListTable();
         ListNode listNode1 = linkedListTable.removeElements(listNode, 3);

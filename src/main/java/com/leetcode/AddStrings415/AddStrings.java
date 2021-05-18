@@ -27,7 +27,7 @@ public class AddStrings
         int i = num1.length() - 1;
         int j = num2.length() - 1;
         int min = Math.min(i, j);
-        int max = Math.max(i,j);
+        int max = Math.max(i, j);
         String bigString = null;
         String smallString = null;
         if (i > j)
@@ -61,9 +61,9 @@ public class AddStrings
             i--;
             j--;
             min--;
-            if(min < 0)
+            if (min < 0)
             {
-               arrayList.add(temp.toString());
+                arrayList.add(temp.toString());
                 break;
             }
         }
@@ -76,16 +76,15 @@ public class AddStrings
             stringBuffer.append(arrayList.get(i1));
         }
 
-        String substring = bigString.substring(0, max - min );
-        return substring+stringBuffer.toString();
+        String substring = bigString.substring(0, max - min);
+        return substring + stringBuffer.toString();
     }
 
 
     public String addStringsOne(String num1, String num2)
     {
         StringBuilder buf = new StringBuilder();
-        for (int i1 = num1.length() - 1, i2 = num2.length() - 1, carry = 0; i1 >= 0 || i2 >= 0 || carry != 0; i1--,
-                i2--)
+        for (int i1 = num1.length() - 1, i2 = num2.length() - 1, carry = 0; i1 >= 0 || i2 >= 0 || carry != 0; i1--, i2--)
         {
             int digit1 = i1 < 0 ? 0 : Integer.parseInt(Character.toString(num1.charAt(i1)));
             int digit2 = i2 < 0 ? 0 : Integer.parseInt(Character.toString(num2.charAt(i2)));

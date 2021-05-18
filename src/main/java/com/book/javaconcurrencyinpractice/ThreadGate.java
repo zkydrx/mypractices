@@ -12,25 +12,33 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class ThreadGate {
+public class ThreadGate
+{
     // CONDITION-PREDICATE: opened-since(n) (isOpen || generation>n)
-    @GuardedBy("this") private boolean isOpen;
-    @GuardedBy("this") private int generation;
+    @GuardedBy("this")
+    private boolean isOpen;
+    @GuardedBy("this")
+    private int generation;
 
-    public synchronized void close() {
+    public synchronized void close()
+    {
         isOpen = false;
     }
 
-    public synchronized void open() {
+    public synchronized void open()
+    {
         ++generation;
         isOpen = true;
         notifyAll();
     }
 
     // BLOCKS-UNTIL: opened-since(generation on entry)
-    public synchronized void await() throws InterruptedException {
+    public synchronized void await() throws InterruptedException
+    {
         int arrivalGeneration = generation;
         while (!isOpen && arrivalGeneration == generation)
+        {
             wait();
+        }
     }
 }

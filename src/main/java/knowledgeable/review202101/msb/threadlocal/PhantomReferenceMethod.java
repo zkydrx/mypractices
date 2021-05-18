@@ -28,7 +28,7 @@ public class PhantomReferenceMethod
         new Thread(() -> {
             while (true)
             {
-                LIST.add(new byte[1024*1024]);
+                LIST.add(new byte[1024 * 1024]);
                 try
                 {
                     Thread.sleep(1000);
@@ -39,15 +39,15 @@ public class PhantomReferenceMethod
                 }
                 System.out.println(phantomReference.get());
             }
-        },"a").start();
+        }, "a").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             while (true)
             {
                 Reference<? extends M> poll = QUEUE.poll();
-                if(poll != null)
+                if (poll != null)
                 {
-                    System.out.println("---虚引用对象被JVM回收了-----"+poll);
+                    System.out.println("---虚引用对象被JVM回收了-----" + poll);
                 }
             }
         }).start();

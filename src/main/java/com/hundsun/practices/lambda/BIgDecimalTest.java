@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 /**
  * 文件描述
- *
  **/
 public class BIgDecimalTest
 {

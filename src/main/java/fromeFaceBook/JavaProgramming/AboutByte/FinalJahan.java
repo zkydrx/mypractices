@@ -55,21 +55,21 @@ public class FinalJahan
         char max_char = Character.MAX_VALUE;
         char min_char = Character.MIN_VALUE;
 
-        System.out.println("max_byte:"+max_byte);
-        System.out.println("max_short:"+max_short);
-        System.out.println("max_int:"+max_int);
-        System.out.println("max_long:"+max_long);
-        System.out.println("max_float:"+max_float);
-        System.out.println("max_double:"+max_double);
-        System.out.println("max_char:"+max_char);
+        System.out.println("max_byte:" + max_byte);
+        System.out.println("max_short:" + max_short);
+        System.out.println("max_int:" + max_int);
+        System.out.println("max_long:" + max_long);
+        System.out.println("max_float:" + max_float);
+        System.out.println("max_double:" + max_double);
+        System.out.println("max_char:" + max_char);
 
-        System.out.println("min_byte:"+min_byte);
-        System.out.println("min_short:"+min_short);
-        System.out.println("min_int:"+min_int);
-        System.out.println("min_long:"+min_long);
-        System.out.println("min_float:"+min_float);
-        System.out.println("min_double:"+min_double);
-        System.out.println("min_char:"+min_char);
+        System.out.println("min_byte:" + min_byte);
+        System.out.println("min_short:" + min_short);
+        System.out.println("min_int:" + min_int);
+        System.out.println("min_long:" + min_long);
+        System.out.println("min_float:" + min_float);
+        System.out.println("min_double:" + min_double);
+        System.out.println("min_char:" + min_char);
 
     }
 }

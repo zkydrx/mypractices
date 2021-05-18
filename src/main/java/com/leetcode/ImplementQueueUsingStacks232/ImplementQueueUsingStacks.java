@@ -29,6 +29,7 @@ public class ImplementQueueUsingStacks
     private Stack<Integer> temp;
     private Stack<Integer> value;
     private int front;
+
     /**
      * Initialize your data structure here.
      */
@@ -43,7 +44,7 @@ public class ImplementQueueUsingStacks
      */
     public void push(int x)
     {
-        if(value.isEmpty())
+        if (value.isEmpty())
         {
             value.push(x);
         }

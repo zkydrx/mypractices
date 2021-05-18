@@ -15,6 +15,7 @@ public class GetMaxNum
 {
     /**
      * 待完成...
+     *
      * @param a
      * @return
      */
@@ -24,10 +25,10 @@ public class GetMaxNum
         List<Integer> permutation = permutation(a, 0, a.length - 1);
         for (int i = 0; i < permutation.size(); i++)
         {
-//            for(int j = 0; j < permutation.size(); j++)
-//            {
-//
-//            }
+            //            for(int j = 0; j < permutation.size(); j++)
+            //            {
+            //
+            //            }
             System.out.println(permutation.get(i));
         }
         return 0L;
@@ -43,7 +44,8 @@ public class GetMaxNum
         {
             resultList.add(s);
             System.out.println(s);
-        } else
+        }
+        else
         {
             /**
              * 这个循环好好理解理解。
@@ -67,8 +69,8 @@ public class GetMaxNum
 
     public static void swapNum(List<Integer> a, int i, int j)
     {
-        int temp =a.get(i);
-        a.set(i,a.get(j));
-        a.set(j,temp);
+        int temp = a.get(i);
+        a.set(i, a.get(j));
+        a.set(j, temp);
     }
 }

@@ -5,7 +5,6 @@ import lombok.Data;
 
 /**
  * 文件描述
- *
  **/
 @Data
 @Builder
@@ -66,7 +65,7 @@ public class BusihubIvsmAcc
     private String combiId;
 
     /**
-     *  产品代码
+     * 产品代码
      */
     private String fundCode;
 

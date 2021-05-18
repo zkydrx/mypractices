@@ -13,33 +13,32 @@ package com.leetcode.PlaindromeLinkedList234;
  * <p>
  * Follow up:
  * Could you do it in O(n) time and O(1) space?
- *
  */
 public class PlaindromeLinkedList
 {
     public boolean isPalindrome(ListNode head)
     {
-        if(head == null)
+        if (head == null)
         {
             return true;
         }
-        ListNode p =head;
+        ListNode p = head;
         ListNode prev = new ListNode(head.val);
         while (p.next != null)
         {
             ListNode temp = new ListNode(p.next.val);
             temp.next = prev;
-            prev =temp;
+            prev = temp;
             p = p.next;
 
         }
         ListNode p1 = head;
         ListNode p2 = prev;
-        while (p1!=null)
+        while (p1 != null)
         {
-            if(p1!=null)
+            if (p1 != null)
             {
-                if(p1.val !=p2.val)
+                if (p1.val != p2.val)
 
                 {
                     return false;

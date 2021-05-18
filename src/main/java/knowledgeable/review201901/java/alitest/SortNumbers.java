@@ -16,8 +16,8 @@ public class SortNumbers
 {
     public static void main(String[] args)
     {
-        Integer a[]={2,10,14,19,51,71};
-        Integer b[] ={2,9,10,14,19,40,51};
+        Integer a[] = {2, 10, 14, 19, 51, 71};
+        Integer b[] = {2, 9, 10, 14, 19, 40, 51};
         Set<Integer> listNoSameNumber = new HashSet<>();
         List<Integer> list = new ArrayList<>();
         for (int i : a)
@@ -33,11 +33,11 @@ public class SortNumbers
             list.add(integer);
         }
         Collections.sort(list);
-        System.out.println("use hashSet list:"+list);
+        System.out.println("use hashSet list:" + list);
 
 
-        Integer c[]={2,10,14,19,51,71,71};
-        Integer d[] ={2,9,10,14,19,40,51};
+        Integer c[] = {2, 10, 14, 19, 51, 71, 71};
+        Integer d[] = {2, 9, 10, 14, 19, 40, 51};
         List<Integer> listc = new ArrayList<>();
         List<Integer> listd = new ArrayList<>();
         listc.addAll(Arrays.asList(c));
@@ -45,7 +45,7 @@ public class SortNumbers
         listc.removeAll(listd);
         listc.addAll(listd);
         Collections.sort(listc);
-        System.out.println("use removeAll:"+listc);
+        System.out.println("use removeAll:" + listc);
 
     }
 }

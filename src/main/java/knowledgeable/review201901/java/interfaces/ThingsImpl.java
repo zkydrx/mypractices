@@ -34,8 +34,8 @@ public class ThingsImpl implements Things
     @Override
     public Map<String, String> name(String name)
     {
-        Map<String,String> map = new HashMap<>();
-        map.put("a","b");
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "b");
         return map;
     }
 

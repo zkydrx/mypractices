@@ -2,12 +2,13 @@ package com.design.atgg.pattern.money;
 
 /**
  * 状态枚举类
- * @author Administrator
  *
+ * @author Administrator
  */
-public enum StateEnum {
+public enum StateEnum
+{
 
-	 //订单生成
+    //订单生成
     GENERATE(1, "GENERATE"),
 
     //已审核
@@ -28,10 +29,19 @@ public enum StateEnum {
     private int key;
     private String value;
 
-    StateEnum(int key, String value) {
+    StateEnum(int key, String value)
+    {
         this.key = key;
         this.value = value;
     }
-    public int getKey() {return key;}
-    public String getValue() {return value;}
+
+    public int getKey()
+    {
+        return key;
+    }
+
+    public String getValue()
+    {
+        return value;
+    }
 }

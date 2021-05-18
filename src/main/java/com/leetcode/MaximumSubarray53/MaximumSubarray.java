@@ -20,7 +20,7 @@ public class MaximumSubarray
 {
     public int maxSubArray(int[] nums)
     {
-        int size= nums.length;
+        int size = nums.length;
         int max_so_far = Integer.MIN_VALUE;
         int max_ending_here = 0;
         for (int i = 0; i < size; i++)
@@ -30,12 +30,12 @@ public class MaximumSubarray
             {
                 max_so_far = max_ending_here;
             }
-            if(max_ending_here < 0)
+            if (max_ending_here < 0)
             {
                 max_ending_here = 0;
             }
 
         }
-        return  max_so_far;
+        return max_so_far;
     }
 }

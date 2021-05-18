@@ -18,14 +18,14 @@ public class GuessNumber
         System.out.println("I have already gived a number");
         Random random = new Random(1000);
         double random1 = Math.random();
-        int i = (int)(random1*1000+1);
+        int i = (int) (random1 * 1000 + 1);
         System.out.println(i);
         System.out.println("Please input a number of 1 - 1000.");
         Scanner scanner = new Scanner(System.in);
         int i1 = scanner.nextInt();
-        while( i != i1)
+        while (i != i1)
         {
-            if(i > i1)
+            if (i > i1)
             {
                 System.out.println("The number is shortter.");
             }

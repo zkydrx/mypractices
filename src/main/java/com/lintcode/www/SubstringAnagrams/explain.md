@@ -2,34 +2,32 @@
 
 Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s.
 
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than
+20,100.
 
 The order of output does not matter.
 
 Example 1:
 
-Input: 
+Input:
 s: “cbaebabacd” p: “abc”
 
-Output: 
+Output:
 [0, 6]
 
-Explanation: 
-The substring with start index = 0 is “cba”, which is an anagram of “abc”. 
-The substring with start index = 6 is “bac”, which is an anagram of “abc”.
-Example 2:
+Explanation:
+The substring with start index = 0 is “cba”, which is an anagram of “abc”. The substring with start index = 6 is “bac”,
+which is an anagram of “abc”. Example 2:
 
-Input: 
+Input:
 s: “abab” p: “ab”
 
-Output: 
+Output:
 [0, 1, 2]
 
-Explanation: 
-The substring with start index = 0 is “ab”, which is an anagram of “ab”. 
-The substring with start index = 1 is “ba”, which is an anagram of “ab”. 
-The substring with start index = 2 is “ab”, which is an anagram of “ab”.
-大意：
+Explanation:
+The substring with start index = 0 is “ab”, which is an anagram of “ab”. The substring with start index = 1 is “ba”,
+which is an anagram of “ab”. The substring with start index = 2 is “ab”, which is an anagram of “ab”. 大意：
 
 给出一个字符串s和一个非空的字符串p，找到p的重组字在s中出现的开始位置。
 
@@ -39,28 +37,23 @@ The substring with start index = 2 is “ab”, which is an anagram of “ab”.
 
 例1:
 
-输入: 
+输入:
 s: “cbaebabacd” p: “abc”
 
-输出: 
+输出:
 [0, 6]
 
-解释: 
-“abc”的重组字“cba”可以从0开始找到。 
-“abc”的重组字“bac”可以从6开始找到。
-例2:
+解释:
+“abc”的重组字“cba”可以从0开始找到。 “abc”的重组字“bac”可以从6开始找到。 例2:
 
-输入: 
+输入:
 s: “abab” p: “ab”
 
-输出: 
+输出:
 [0, 1, 2]
 
-解释: 
-“ab”的重组字“ab”可以从0开始找到。 
-“ab”的重组字“ba”可以从1开始找到。 
-“ab”的重组字“ab”可以从2开始找到。
-思路：
+解释:
+“ab”的重组字“ab”可以从0开始找到。 “ab”的重组字“ba”可以从1开始找到。 “ab”的重组字“ab”可以从2开始找到。 思路：
 
 这道题的意思就是给两个字符串，看p的顺序打乱后的所有可能的字符串在s中能不能找到，找得到就把所有找到的开始的位置记录下来。这个大概的思路要用到两个标记，去一点点比对p的重组字有没有可能找到，找不找得到这一点，不可能把p的所有可能的重组字先列出来，就只能一个字母一个字母地判断，如果用过了就去掉，看是全部字母都能找到还是只能找到部分。注意题目说了只有小写字母，而且p的长度不为空。我自己的做法在超长的测试用例时超时了，用的循环太多了。这里看别人非常精简巧妙的一个方法。
 

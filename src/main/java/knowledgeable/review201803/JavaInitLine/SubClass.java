@@ -21,7 +21,7 @@ public class SubClass extends Parent
         System.out.println("子类--静态初始化块");
     }
 
-      //初始化块
+    //初始化块
     {
         System.out.println(sField);
         System.out.println("子类--初始化块");
@@ -30,7 +30,7 @@ public class SubClass extends Parent
     public SubClass()
     {
         System.out.println("子类--构造器");
-        System.out.println("i="+i+",j="+j);
+        System.out.println("i=" + i + ",j=" + j);
     }
 
     public static void main(String[] args)

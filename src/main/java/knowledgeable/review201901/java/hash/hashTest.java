@@ -31,6 +31,7 @@ public class hashTest
 
     /**
      * Md5加密字符串
+     *
      * @param str
      * @return
      */
@@ -71,6 +72,7 @@ public class hashTest
 
     /**
      * md5加密字符串
+     *
      * @param str
      * @return
      */

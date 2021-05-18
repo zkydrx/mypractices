@@ -16,7 +16,7 @@ public class ShortUrlWeiBo
 {
     public static String convertShortUrlWeiBoInterface(String longUrl) throws Exception
     {
-        String url = "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long="+longUrl;
+        String url = "http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long=" + longUrl;
         String s = HttpUtil.get(url);
 
         JSONObject jsonObject = JSONObject.parseObject(s);

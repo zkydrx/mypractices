@@ -2,6 +2,7 @@ package com.book.javaconcurrencyinpractice;
 
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
+
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 /**
@@ -11,29 +12,33 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TimedLocking {
+public class TimedLocking
+{
     private Lock lock = new ReentrantLock();
 
-    public boolean trySendOnSharedLine(String message,
-                                       long timeout, TimeUnit unit)
-            throws InterruptedException {
-        long nanosToLock = unit.toNanos(timeout)
-                - estimatedNanosToSend(message);
+    public boolean trySendOnSharedLine(String message, long timeout, TimeUnit unit) throws InterruptedException
+    {
+        long nanosToLock = unit.toNanos(timeout) - estimatedNanosToSend(message);
         if (!lock.tryLock(nanosToLock, NANOSECONDS))
             return false;
-        try {
+        try
+        {
             return sendOnSharedLine(message);
-        } finally {
+        }
+        finally
+        {
             lock.unlock();
         }
     }
 
-    private boolean sendOnSharedLine(String message) {
+    private boolean sendOnSharedLine(String message)
+    {
         /* send something */
         return true;
     }
 
-    long estimatedNanosToSend(String message) {
+    long estimatedNanosToSend(String message)
+    {
         return message.length();
     }
 }

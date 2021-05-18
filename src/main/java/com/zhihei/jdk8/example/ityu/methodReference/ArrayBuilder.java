@@ -12,6 +12,7 @@ public interface ArrayBuilder
 {
     /**
      * 创建int 类型的数组额方法，参数传递数组的长度，返回创建好的int类型数组
+     *
      * @param length
      * @return
      */

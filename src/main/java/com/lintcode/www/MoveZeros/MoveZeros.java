@@ -29,7 +29,7 @@ public class MoveZeros
         int count = 0;
         while (iterator.hasNext())
         {
-            if(iterator.next()==0)
+            if (iterator.next() == 0)
             {
                 iterator.remove();
                 count++;
@@ -48,7 +48,7 @@ public class MoveZeros
     public static void main(String[] args)
     {
         MoveZeros moveZeros = new MoveZeros();
-        int[] a = {1,2,3,0,0,5};
+        int[] a = {1, 2, 3, 0, 0, 5};
         moveZeros.moveZeroes(a);
         System.out.println(Arrays.toString(a));
     }

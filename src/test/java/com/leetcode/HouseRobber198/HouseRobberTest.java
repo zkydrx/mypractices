@@ -30,7 +30,7 @@ class HouseRobberTest
     void rob()
     {
         HouseRobber houseRobber = new HouseRobber();
-        int [] nums = {50,1,1,50};
+        int[] nums = {50, 1, 1, 50};
         int rob = houseRobber.rob(nums);
 
         System.out.println(rob);

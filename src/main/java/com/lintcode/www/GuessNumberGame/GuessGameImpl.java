@@ -22,12 +22,12 @@ public class GuessGameImpl implements GuessGame
     {
         Random random = new Random(num);
         int i = random.nextInt();
-        System.out.println("target: "+i);
-        if( i == num)
+        System.out.println("target: " + i);
+        if (i == num)
         {
             return 0;
         }
-        else if(i > num)
+        else if (i > num)
         {
             return -1;
         }

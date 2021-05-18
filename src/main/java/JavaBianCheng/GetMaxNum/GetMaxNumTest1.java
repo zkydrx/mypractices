@@ -16,6 +16,7 @@ import java.util.List;
 class GetMaxNumTest1
 {
     GetMaxNum getMaxNum = new GetMaxNum();
+
     @BeforeEach
     void setUp()
     {
@@ -31,7 +32,7 @@ class GetMaxNumTest1
     @Test
     void getMaxNum()
     {
-        char[] x1= {'a','b','c','d'};
+        char[] x1 = {'a', 'b', 'c', 'd'};
 
         List permutation = getMaxNum.permutation(x1, 0, x1.length - 1);
         System.out.println(permutation);

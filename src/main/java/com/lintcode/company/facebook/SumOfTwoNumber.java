@@ -22,11 +22,12 @@ public class SumOfTwoNumber
 {
     /**
      * 获取指定的数组
+     *
      * @param array
      * @param target
      * @return
      */
-    public int[] getTheArrays(int[] array,int target)
+    public int[] getTheArrays(int[] array, int target)
     {
         List<Integer> list = new ArrayList<>();
         label:
@@ -34,7 +35,7 @@ public class SumOfTwoNumber
         {
             for (int i1 = 0; i1 < array.length; i1++)
             {
-                if(array[i1]+array[i] == target&& i1!=i)
+                if (array[i1] + array[i] == target && i1 != i)
                 {
                     list.add(i);
                     list.add(i1);
@@ -43,10 +44,10 @@ public class SumOfTwoNumber
 
             }
         }
-        int [] array1 = new int[list.size()];
+        int[] array1 = new int[list.size()];
         for (int i = 0; i < array1.length; i++)
         {
-            array1[i] = list.get(i)+1;
+            array1[i] = list.get(i) + 1;
         }
         Arrays.sort(array1);
         return array1;
@@ -54,7 +55,7 @@ public class SumOfTwoNumber
 
     public static void main(String[] args)
     {
-        int[] theArrays = new SumOfTwoNumber().getTheArrays(new int[]{2,4,2,4,342, 7, 11, 15}, 6);
+        int[] theArrays = new SumOfTwoNumber().getTheArrays(new int[]{2, 4, 2, 4, 342, 7, 11, 15}, 6);
 
         System.out.println(Arrays.toString(theArrays));
     }

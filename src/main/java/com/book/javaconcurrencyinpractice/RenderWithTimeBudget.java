@@ -1,33 +1,41 @@
 package com.book.javaconcurrencyinpractice;
 
 import java.util.concurrent.*;
+
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 /**
  * RenderWithTimeBudget
- *
+ * <p>
  * Fetching an advertisement with a time budget
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class RenderWithTimeBudget {
+public class RenderWithTimeBudget
+{
     private static final Ad DEFAULT_AD = new Ad();
     private static final long TIME_BUDGET = 1000;
     private static final ExecutorService exec = Executors.newCachedThreadPool();
 
-    Page renderPageWithAd() throws InterruptedException {
+    Page renderPageWithAd() throws InterruptedException
+    {
         long endNanos = System.nanoTime() + TIME_BUDGET;
         Future<Ad> f = exec.submit(new FetchAdTask());
         // Render the page while waiting for the ad
         Page page = renderPageBody();
         Ad ad;
-        try {
+        try
+        {
             // Only wait for the remaining time budget
             long timeLeft = endNanos - System.nanoTime();
             ad = f.get(timeLeft, NANOSECONDS);
-        } catch (ExecutionException e) {
+        }
+        catch (ExecutionException e)
+        {
             ad = DEFAULT_AD;
-        } catch (TimeoutException e) {
+        }
+        catch (TimeoutException e)
+        {
             ad = DEFAULT_AD;
             f.cancel(true);
         }
@@ -35,18 +43,27 @@ public class RenderWithTimeBudget {
         return page;
     }
 
-    Page renderPageBody() { return new Page(); }
-
-
-    static class Ad {
+    Page renderPageBody()
+    {
+        return new Page();
     }
 
-    static class Page {
-        public void setAd(Ad ad) { }
+
+    static class Ad
+    {
     }
 
-    static class FetchAdTask implements Callable<Ad> {
-        public Ad call() {
+    static class Page
+    {
+        public void setAd(Ad ad)
+        {
+        }
+    }
+
+    static class FetchAdTask implements Callable<Ad>
+    {
+        public Ad call()
+        {
             return new Ad();
         }
     }

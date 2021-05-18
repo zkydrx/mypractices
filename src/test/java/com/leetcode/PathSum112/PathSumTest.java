@@ -30,7 +30,7 @@ class PathSumTest
     void hasPathSum()
     {
         PathSum pathSum = new PathSum();
-        TreeNode treeNode= new TreeNode(1);
+        TreeNode treeNode = new TreeNode(1);
         treeNode.left = new TreeNode(2);
         treeNode.right = new TreeNode(3);
         treeNode.left.left = new TreeNode(2);

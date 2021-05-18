@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 /**
  * 文件描述
- *
  **/
 public class DequeTest
 {

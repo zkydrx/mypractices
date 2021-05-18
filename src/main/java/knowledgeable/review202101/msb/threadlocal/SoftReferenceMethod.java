@@ -16,7 +16,7 @@ public class SoftReferenceMethod
 {
     public static void main(String[] args)
     {
-        SoftReference<byte[]> softReference = new SoftReference<>(new byte[1024*1024*10]);
+        SoftReference<byte[]> softReference = new SoftReference<>(new byte[1024 * 1024 * 10]);
         System.out.println(softReference.get());
         System.gc();
         try
@@ -27,9 +27,9 @@ public class SoftReferenceMethod
         {
             e.printStackTrace();
         }
-       System.out.println(softReference.get());
+        System.out.println(softReference.get());
 
-        byte[] bytes = new byte[1024*1024*15];
+        byte[] bytes = new byte[1024 * 1024 * 15];
         System.out.println(softReference.get());
     }
 }

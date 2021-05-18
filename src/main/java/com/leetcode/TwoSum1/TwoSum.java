@@ -25,7 +25,7 @@ public class TwoSum
 {
     public static void main(String[] args)
     {
-        int[] ints = new TwoSum().twoSumOne(new int[]{3, 7,90,9,92, 4}, 99);
+        int[] ints = new TwoSum().twoSumOne(new int[]{3, 7, 90, 9, 92, 4}, 99);
 
         System.out.println(Arrays.toString(ints));
     }
@@ -66,6 +66,7 @@ public class TwoSum
 
     /**
      * 时间复杂度o^n
+     *
      * @param nums
      * @param target
      * @return

@@ -382,7 +382,7 @@ public class StreamTest
     @Test
     public void testSum()
     {
-        sum(1,2,3,4,5);
+        sum(1, 2, 3, 4, 5);
     }
 
 }

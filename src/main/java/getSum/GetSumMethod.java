@@ -12,6 +12,7 @@ public class GetSumMethod
     /**
      * 利用递归写的一个阶乘运算，发现非常的占用资源。慎用。
      * 递归能不用，尽量不用，结构虽然简单，但是数据量一大很容易栈溢出。
+     *
      * @param n
      * @return
      */
@@ -20,7 +21,8 @@ public class GetSumMethod
         if (n == 1)
         {
             return n;
-        } else
+        }
+        else
         {
             return getJieCheng(n - 1) * n;
         }

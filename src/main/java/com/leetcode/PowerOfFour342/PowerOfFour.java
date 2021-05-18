@@ -33,7 +33,7 @@ public class PowerOfFour
     {
         while (num > 1)
         {
-            if(num % 4 == 0)
+            if (num % 4 == 0)
             {
                 num /= 4;
             }

@@ -11,16 +11,16 @@ public class ThingFactory
 {
     public Factory getType(String thingType)
     {
-        if(thingType== null)
+        if (thingType == null)
         {
             return null;
         }
-        if(thingType.equalsIgnoreCase("car"))
+        if (thingType.equalsIgnoreCase("car"))
         {
             return new CarFactory();
         }
 
-        if(thingType.equalsIgnoreCase("computer"))
+        if (thingType.equalsIgnoreCase("computer"))
         {
             return new ComputerFactory();
         }

@@ -11,11 +11,11 @@ public class HowMuch
 {
     public static void main(String[] args)
     {
-        int value=3, sum = 6+ --value;
+        int value = 3, sum = 6 + --value;
         /**
          * --3 + ++1/9++ *2++ + ++8%2--;
          */
-        int data = --value + ++value/sum++ *value++ + ++sum%value--;
+        int data = --value + ++value / sum++ * value++ + ++sum % value--;
         System.out.println(data);
     }
 }

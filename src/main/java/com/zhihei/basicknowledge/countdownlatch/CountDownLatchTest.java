@@ -19,14 +19,14 @@ public class CountDownLatchTest
     @Test
     public void testCountDownLatch()
     {
-        int count =6;
+        int count = 6;
         CountDownLatch countDownLatch = new CountDownLatch(count);
         for (int i = 1; i <= count; i++)
         {
-            new Thread(()->{
-                System.out.println(Thread.currentThread().getName()+"\t 下电梯");
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + "\t 下电梯");
                 countDownLatch.countDown();
-            },CountryEnums.getCountry(i).getName()).start();
+            }, CountryEnums.getCountry(i).getName()).start();
         }
         try
         {
@@ -36,6 +36,6 @@ public class CountDownLatchTest
         {
             e.printStackTrace();
         }
-        System.out.println(Thread.currentThread().getName()+"\t 管理员把电梯停掉");
+        System.out.println(Thread.currentThread().getName() + "\t 管理员把电梯停掉");
     }
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Time: 22:04:10
  * Description:
  */
-public class Iphone implements Comparable<Iphone>,Serializable
+public class Iphone implements Comparable<Iphone>, Serializable
 {
     private static final long serialVersionUID = -2553740936632558776L;
     private int id;
@@ -66,11 +66,11 @@ public class Iphone implements Comparable<Iphone>,Serializable
     @Override
     public int compareTo(Iphone o)
     {
-        if(this.age-o.age==0)
+        if (this.age - o.age == 0)
         {
-            return o.id-this.id;
+            return o.id - this.id;
         }
-        return this.age-o.age;
+        return this.age - o.age;
     }
 
 

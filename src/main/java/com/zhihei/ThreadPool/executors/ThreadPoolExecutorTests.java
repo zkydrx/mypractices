@@ -135,19 +135,19 @@ public class ThreadPoolExecutorTests
         }
         executorService.shutdown();
     }
+
     /**
-     *
      * execute和submit的区别
-     *
+     * <p>
      * （1）execute()方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功。
      * 通过以下代码可知execute()方法输入的任务是一个Runnable类的实例。
-     *
+     * <p>
      * （2）submit()方法用于提交需要返回值的任务。线程池会返回一个future类型的对象，
      * 通过这个future对象可以判断任务是否执行成功，并且可以通过future的get()方法来获取返回值
      * ，get()方法会阻塞当前线程直到任务完成，而使用get（long timeout，TimeUnit unit）方法
      * 则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完。
-     *
-     *
+     * <p>
+     * <p>
      * 使用execute()方法
      * 将会捕获异常信息，并打印出异常的堆栈信息
      */

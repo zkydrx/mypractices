@@ -12,8 +12,8 @@ public class Sum
             sum += i;
         }
         System.out.println(sum);
-        time=System.currentTimeMillis()-time;
-        System.out.println("Long wait for "+time+" second");
+        time = System.currentTimeMillis() - time;
+        System.out.println("Long wait for " + time + " second");
 
         time = System.currentTimeMillis();
         long sum1 = 0L;
@@ -22,8 +22,8 @@ public class Sum
             sum1 += i;
         }
 
-        time=System.currentTimeMillis()-time;
+        time = System.currentTimeMillis() - time;
         System.out.println(sum1);
-        System.out.println("long wait for "+time+" second");
+        System.out.println("long wait for " + time + " second");
     }
 }

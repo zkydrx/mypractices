@@ -31,7 +31,7 @@ class RemoveElementTest
     {
         RemoveElement removeElement = new RemoveElement();
 
-        int [] nums = {2,3,3,2};
+        int[] nums = {2, 3, 3, 2};
         int i = removeElement.removeElement(nums, 3);
 
         System.out.println(i);

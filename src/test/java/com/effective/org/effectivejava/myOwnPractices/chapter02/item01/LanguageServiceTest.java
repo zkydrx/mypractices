@@ -25,6 +25,7 @@ class LanguageServiceTest
                 {
                     System.out.println("chinese is a good language.");
                 }
+
                 @Autowired
                 public String toString()
                 {
@@ -33,7 +34,6 @@ class LanguageServiceTest
             };
         }
     };
-
 
 
     private static LanguageProvider COMP_PROVIDER = new LanguageProvider()
@@ -48,6 +48,7 @@ class LanguageServiceTest
                 {
                     System.out.println("chinese is a good language.");
                 }
+
                 @Autowired
                 public String toString()
                 {
@@ -70,6 +71,7 @@ class LanguageServiceTest
                 {
                     System.out.println("chinese is a good language.");
                 }
+
                 @Autowired
                 public String toString()
                 {
@@ -84,14 +86,14 @@ class LanguageServiceTest
     {
         LanguageServices.resigterDefaultProvider(DEFAULT_PROVIDER);
 
-        LanguageServices.registerProvider("comp",COMP_PROVIDER);
-        LanguageServices.registerProvider("armed",ARMED_PROVIDER);
+        LanguageServices.registerProvider("comp", COMP_PROVIDER);
+        LanguageServices.registerProvider("armed", ARMED_PROVIDER);
 
         LanguageService languageService1 = LanguageServices.newInstance();
         LanguageService languageService2 = LanguageServices.newInstance("comp");
         LanguageService languageService3 = LanguageServices.newInstance("armed");
 
-        System.out.printf("%s,%s,%s%n",languageService1,languageService2,languageService3);
+        System.out.printf("%s,%s,%s%n", languageService1, languageService2, languageService3);
         System.out.println(languageService1.toString());
         System.out.println(languageService2.toString());
         System.out.println(languageService3.toString());

@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class MappingExample
 {
     private static List<Person> list = new ArrayList<>();
+
     static
     {
         list.add(Person.builder().id("1").name("Tom").address("HangZhou").build());
@@ -34,17 +35,17 @@ public class MappingExample
          * 以地址进行划分人员
          */
         System.out.println("以地址进行分组操作:");
-        list.stream().collect(Collectors.groupingBy(c->c.getAddress())).forEach((a,b) -> System.out.println(a+"|||"+b));
+        list.stream().collect(Collectors.groupingBy(c -> c.getAddress())).forEach((a, b) -> System.out.println(a + "|||" + b));
 
         System.out.println("以名字进行分组操作:");
         list.stream().collect(Collectors.groupingBy(item -> item.getName())).entrySet().stream().collect(Collectors.toList()).forEach(a -> System.out.println(a));
         System.out.println("以名字进行分组操作(方法二）:");
-        list.stream().collect(Collectors.groupingBy(item -> item.getName())).forEach((k,v)-> System.out.println(k+":::::"+v));
+        list.stream().collect(Collectors.groupingBy(item -> item.getName())).forEach((k, v) -> System.out.println(k + ":::::" + v));
 
         System.out.println("以id进行分组操作:");
-        list.stream().collect(Collectors.groupingBy(item->item.getId())).forEach((k,v)-> System.out.println(k+":::"+v));
+        list.stream().collect(Collectors.groupingBy(item -> item.getId())).forEach((k, v) -> System.out.println(k + ":::" + v));
 
         System.out.println("以数据进行分组:");
-        list.stream().collect(Collectors.groupingBy(item->item.getData())).forEach((k,v)->System.out.println(k+":::"+v));
+        list.stream().collect(Collectors.groupingBy(item -> item.getData())).forEach((k, v) -> System.out.println(k + ":::" + v));
     }
 }

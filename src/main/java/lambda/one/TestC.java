@@ -47,8 +47,7 @@ public class TestC
     @Test
     public void test2()
     {
-        List<String> list = Arrays.asList("lone", "zky", "one", "1x", "2y", "3z", "Application", "artifacts",
-                "lanuch", "eclipse");
+        List<String> list = Arrays.asList("lone", "zky", "one", "1x", "2y", "3z", "Application", "artifacts", "lanuch", "eclipse");
         /**
          * Before java8
          */
@@ -93,9 +92,8 @@ public class TestC
     @Test
     public void test4()
     {
-        List<String> strings = Arrays.asList( "Abbot","www","Eclipse", "IntelliJ IDEA", "Fruit", "Apple",
-                "Microsoft", "Google", "BaiDu");
-        strings.forEach(n-> System.out.print(n+" "));
+        List<String> strings = Arrays.asList("Abbot", "www", "Eclipse", "IntelliJ IDEA", "Fruit", "Apple", "Microsoft", "Google", "BaiDu");
+        strings.forEach(n -> System.out.print(n + " "));
         System.out.println();
         strings.forEach(System.out::print);
     }

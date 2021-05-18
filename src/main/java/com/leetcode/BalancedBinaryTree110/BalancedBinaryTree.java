@@ -43,11 +43,11 @@ public class BalancedBinaryTree
 {
     public boolean isBalanced(TreeNode root)
     {
-        if(root == null)
+        if (root == null)
         {
             return true;
         }
-        if(getHegith(root) == -1)
+        if (getHegith(root) == -1)
         {
             return false;
         }
@@ -57,22 +57,22 @@ public class BalancedBinaryTree
 
     public int getHegith(TreeNode treeNode)
     {
-        if(treeNode == null)
+        if (treeNode == null)
         {
             return 0;
         }
         int left = getHegith(treeNode.left);
         int right = getHegith(treeNode.right);
-        if(left == -1 ||right ==-1)
+        if (left == -1 || right == -1)
         {
-            return  -1;
+            return -1;
         }
-        if(Math.abs(left-right)>1)
+        if (Math.abs(left - right) > 1)
         {
-            return  -1;
+            return -1;
         }
 
-        return Math.max(left,right)+1;
+        return Math.max(left, right) + 1;
     }
 
 

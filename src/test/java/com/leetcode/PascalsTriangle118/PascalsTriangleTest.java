@@ -39,7 +39,7 @@ class PascalsTriangleTest
         {
             for (Integer integer : list)
             {
-                System.out.print(integer+"\t");
+                System.out.print(integer + "\t");
             }
             System.out.println();
         }

@@ -17,8 +17,8 @@ import java.nio.channels.FileChannel;
  */
 public class FileReadAndWrite
 {
-    static private final byte message[] = { 83, 111, 109, 101, 32,
-            98, 121, 116, 101, 115, 46 };
+    static private final byte message[] = {83, 111, 109, 101, 32, 98, 121, 116, 101, 115, 46};
+
     public static void main(String[] args)
     {
         /**
@@ -56,7 +56,7 @@ public class FileReadAndWrite
              * 第一步：从输出流中获取通道
              */
             FileOutputStream fileOutputStream = new FileOutputStream("README.md");
-            FileChannel fileChannel= fileOutputStream.getChannel();
+            FileChannel fileChannel = fileOutputStream.getChannel();
 
 
             /**

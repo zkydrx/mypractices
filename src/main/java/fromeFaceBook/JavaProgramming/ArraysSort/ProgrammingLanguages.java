@@ -14,7 +14,7 @@ public class ProgrammingLanguages
 {
     public static void main(String[] args)
     {
-        String [] lang = new String [5];
+        String[] lang = new String[5];
         lang[0] = "Java";
         lang[1] = "C++";
         lang[2] = "Ruby";
@@ -23,7 +23,7 @@ public class ProgrammingLanguages
         Arrays.sort(lang);
         for (int i = 0; i < lang.length; i++)
         {
-            if( i ==2 || i==4)
+            if (i == 2 || i == 4)
             {
                 System.out.print(lang[i]);
             }

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 /**
  * MonitorVehicleTracker
  * <p/>
@@ -17,23 +16,29 @@ import java.util.Map;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
- public class MonitorVehicleTracker {
-    @GuardedBy("this") private final Map<String, MutablePoint> locations;
+public class MonitorVehicleTracker
+{
+    @GuardedBy("this")
+    private final Map<String, MutablePoint> locations;
 
-    public MonitorVehicleTracker(Map<String, MutablePoint> locations) {
+    public MonitorVehicleTracker(Map<String, MutablePoint> locations)
+    {
         this.locations = deepCopy(locations);
     }
 
-    public synchronized Map<String, MutablePoint> getLocations() {
+    public synchronized Map<String, MutablePoint> getLocations()
+    {
         return deepCopy(locations);
     }
 
-    public synchronized MutablePoint getLocation(String id) {
+    public synchronized MutablePoint getLocation(String id)
+    {
         MutablePoint loc = locations.get(id);
         return loc == null ? null : new MutablePoint(loc);
     }
 
-    public synchronized void setLocation(String id, int x, int y) {
+    public synchronized void setLocation(String id, int x, int y)
+    {
         MutablePoint loc = locations.get(id);
         if (loc == null)
             throw new IllegalArgumentException("No such ID: " + id);
@@ -41,11 +46,14 @@ import java.util.Map;
         loc.y = y;
     }
 
-    private static Map<String, MutablePoint> deepCopy(Map<String, MutablePoint> m) {
+    private static Map<String, MutablePoint> deepCopy(Map<String, MutablePoint> m)
+    {
         Map<String, MutablePoint> result = new HashMap<String, MutablePoint>();
 
         for (String id : m.keySet())
+        {
             result.put(id, new MutablePoint(m.get(id)));
+        }
 
         return Collections.unmodifiableMap(result);
     }

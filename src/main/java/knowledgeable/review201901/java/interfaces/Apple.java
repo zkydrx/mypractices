@@ -11,5 +11,5 @@ import java.util.Map;
  */
 public interface Apple
 {
-    Map<String,String> name(String name);
+    Map<String, String> name(String name);
 }

@@ -36,6 +36,7 @@ public class AAndB
 
     /**
      * 返回两个数的和。
+     *
      * @param a
      * @param b
      * @return

@@ -32,10 +32,10 @@ class RemoveDuplicatesFromSortedListTest
         RemoveDuplicatesFromSortedList removeDuplicatesFromSortedList = new RemoveDuplicatesFromSortedList();
 
         ListNode listNode = new ListNode(1);
-         listNode.next = new ListNode(1);
-         listNode.next.next = new ListNode(2);
-         listNode.next.next.next=new ListNode(3);
-         listNode.next.next.next.next = new ListNode(3);
+        listNode.next = new ListNode(1);
+        listNode.next.next = new ListNode(2);
+        listNode.next.next.next = new ListNode(3);
+        listNode.next.next.next.next = new ListNode(3);
 
         ListNode listNode5 = removeDuplicatesFromSortedList.deleteDuplicates(listNode);
 

@@ -14,6 +14,7 @@ public class PerfectPow
 
     /**
      * 把每一个数换成是平方数和的个数。
+     *
      * @param n
      * @return
      */

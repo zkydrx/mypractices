@@ -30,7 +30,7 @@ class RemoveDuplicatesFromSortedArrayTest
     void removeDuplicates()
     {
         RemoveDuplicatesFromSortedArray removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray();
-        int[] nums = {1,1,2};
+        int[] nums = {1, 1, 2};
         int i = removeDuplicatesFromSortedArray.removeDuplicates(nums);
         int i1 = removeDuplicatesFromSortedArray.removeDuplicatesOne(nums);
 

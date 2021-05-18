@@ -7,20 +7,25 @@ import java.util.concurrent.locks.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class InterruptibleLocking {
+public class InterruptibleLocking
+{
     private Lock lock = new ReentrantLock();
 
-    public boolean sendOnSharedLine(String message)
-            throws InterruptedException {
+    public boolean sendOnSharedLine(String message) throws InterruptedException
+    {
         lock.lockInterruptibly();
-        try {
+        try
+        {
             return cancellableSendOnSharedLine(message);
-        } finally {
+        }
+        finally
+        {
             lock.unlock();
         }
     }
 
-    private boolean cancellableSendOnSharedLine(String message) throws InterruptedException {
+    private boolean cancellableSendOnSharedLine(String message) throws InterruptedException
+    {
         /* send something */
         return true;
     }

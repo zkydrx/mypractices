@@ -69,7 +69,6 @@ public class PartitionEqualsSubSetSumFromInternet
      * subsets of equal sum, otherwise false
      *
      * @param arr
-
      * @param n
      * @return
      */

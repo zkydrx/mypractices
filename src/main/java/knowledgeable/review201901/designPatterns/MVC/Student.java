@@ -10,7 +10,7 @@ package knowledgeable.review201901.designPatterns.MVC;
  */
 public class Student
 {
-    private String  rollNo;
+    private String rollNo;
     private String name;
 
     public String getRollNo()

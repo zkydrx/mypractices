@@ -3,6 +3,7 @@ package Calculator;
 /**
  * Created by ZKY on 2017-06-16 12:43.
  */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,21 +12,35 @@ import java.awt.event.ActionListener;
 /**
  * 一个计算器，与Windows附件自带计算器的标准版功能、界面相仿。 但还不支持键盘操作。
  */
-public class Calculator extends JFrame implements ActionListener {
-    /** 计算器上的键的显示名字 */
-    private final String[] KEYS = { "7", "8", "9", "/", "sqrt", "4", "5", "6",
-            "*", "%", "1", "2", "3", "-", "1/x", "0", "+/-", ".", "+", "=" };
-    /** 计算器上的功能键的显示名字 */
-    private final String[] COMMAND = { "Backspace", "CE", "C" };
-    /** 计算器左边的M的显示名字 */
-    private final String[] M = { " ", "MC", "MS", "M+" };
-    /** 计算器上键的按钮 */
+public class Calculator extends JFrame implements ActionListener
+{
+    /**
+     * 计算器上的键的显示名字
+     */
+    private final String[] KEYS = {"7", "8", "9", "/", "sqrt", "4", "5", "6", "*", "%", "1", "2", "3", "-", "1/x", "0", "+/-", ".", "+", "="};
+    /**
+     * 计算器上的功能键的显示名字
+     */
+    private final String[] COMMAND = {"Backspace", "CE", "C"};
+    /**
+     * 计算器左边的M的显示名字
+     */
+    private final String[] M = {" ", "MC", "MS", "M+"};
+    /**
+     * 计算器上键的按钮
+     */
     private JButton keys[] = new JButton[KEYS.length];
-    /** 计算器上的功能键的按钮 */
+    /**
+     * 计算器上的功能键的按钮
+     */
     private JButton commands[] = new JButton[COMMAND.length];
-    /** 计算器左边的M的按钮 */
+    /**
+     * 计算器左边的M的按钮
+     */
     private JButton m[] = new JButton[M.length];
-    /** 计算结果文本框 */
+    /**
+     * 计算结果文本框
+     */
     private JTextField resultText = new JTextField("0");
 
     // 标志用户按的是否是整个表达式的第一个数字,或者是运算符后的第一个数字
@@ -40,7 +55,8 @@ public class Calculator extends JFrame implements ActionListener {
     /**
      * 构造函数
      */
-    public Calculator() {
+    public Calculator()
+    {
         super();
         // 初始化计算器
         init();
@@ -58,7 +74,8 @@ public class Calculator extends JFrame implements ActionListener {
     /**
      * 初始化计算器
      */
-    private void init() {
+    private void init()
+    {
         // 文本框中的内容采用右对齐方式
         resultText.setHorizontalAlignment(JTextField.RIGHT);
         // 不允许修改结果文本框
@@ -70,7 +87,8 @@ public class Calculator extends JFrame implements ActionListener {
         JPanel calckeysPanel = new JPanel();
         // 用网格布局器，4行，5列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
         calckeysPanel.setLayout(new GridLayout(4, 5, 3, 3));
-        for (int i = 0; i < KEYS.length; i++) {
+        for (int i = 0; i < KEYS.length; i++)
+        {
             keys[i] = new JButton(KEYS[i]);
             calckeysPanel.add(keys[i]);
             keys[i].setForeground(Color.blue);
@@ -86,7 +104,8 @@ public class Calculator extends JFrame implements ActionListener {
         JPanel commandsPanel = new JPanel();
         // 用网格布局器，1行，3列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
         commandsPanel.setLayout(new GridLayout(1, 3, 3, 3));
-        for (int i = 0; i < COMMAND.length; i++) {
+        for (int i = 0; i < COMMAND.length; i++)
+        {
             commands[i] = new JButton(COMMAND[i]);
             commandsPanel.add(commands[i]);
             commands[i].setForeground(Color.red);
@@ -96,7 +115,8 @@ public class Calculator extends JFrame implements ActionListener {
         JPanel calmsPanel = new JPanel();
         // 用网格布局管理器，5行，1列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
         calmsPanel.setLayout(new GridLayout(5, 1, 3, 3));
-        for (int i = 0; i < M.length; i++) {
+        for (int i = 0; i < M.length; i++)
+        {
             m[i] = new JButton(M[i]);
             calmsPanel.add(m[i]);
             m[i].setForeground(Color.red);
@@ -124,13 +144,16 @@ public class Calculator extends JFrame implements ActionListener {
         getContentPane().add("West", calmsPanel);
         // 为各按钮添加事件侦听器
         // 都使用同一个事件侦听器，即本对象。本类的声明中有implements ActionListener
-        for (int i = 0; i < KEYS.length; i++) {
+        for (int i = 0; i < KEYS.length; i++)
+        {
             keys[i].addActionListener(this);
         }
-        for (int i = 0; i < COMMAND.length; i++) {
+        for (int i = 0; i < COMMAND.length; i++)
+        {
             commands[i].addActionListener(this);
         }
-        for (int i = 0; i < M.length; i++) {
+        for (int i = 0; i < M.length; i++)
+        {
             m[i].addActionListener(this);
         }
     }
@@ -138,23 +161,33 @@ public class Calculator extends JFrame implements ActionListener {
     /**
      * 处理事件
      */
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
         // 获取事件源的标签
         String label = e.getActionCommand();
-        if (label.equals(COMMAND[0])) {
+        if (label.equals(COMMAND[0]))
+        {
             // 用户按了"Backspace"键
             handleBackspace();
-        } else if (label.equals(COMMAND[1])) {
+        }
+        else if (label.equals(COMMAND[1]))
+        {
             // 用户按了"CE"键
             resultText.setText("0");
-        } else if (label.equals(COMMAND[2])) {
+        }
+        else if (label.equals(COMMAND[2]))
+        {
             // 用户按了"C"键
             handleC();
-        } else if ("0123456789.".indexOf(label) >= 0) {
+        }
+        else if ("0123456789.".indexOf(label) >= 0)
+        {
             // 用户按了数字键或者小数点键
             handleNumber(label);
             // handlezero(zero);
-        } else {
+        }
+        else
+        {
             // 用户按了运算符键
             handleOperator(label);
         }
@@ -163,18 +196,23 @@ public class Calculator extends JFrame implements ActionListener {
     /**
      * 处理Backspace键被按下的事件
      */
-    private void handleBackspace() {
+    private void handleBackspace()
+    {
         String text = resultText.getText();
         int i = text.length();
-        if (i > 0) {
+        if (i > 0)
+        {
             // 退格，将文本最后一个字符去掉
             text = text.substring(0, i - 1);
-            if (text.length() == 0) {
+            if (text.length() == 0)
+            {
                 // 如果文本没有了内容，则初始化计算器的各种值
                 resultText.setText("0");
                 firstDigit = true;
                 operator = "=";
-            } else {
+            }
+            else
+            {
                 // 显示新的文本
                 resultText.setText(text);
             }
@@ -186,14 +224,20 @@ public class Calculator extends JFrame implements ActionListener {
      *
      * @param key
      */
-    private void handleNumber(String key) {
-        if (firstDigit) {
+    private void handleNumber(String key)
+    {
+        if (firstDigit)
+        {
             // 输入的第一个数字
             resultText.setText(key);
-        } else if ((key.equals(".")) && (resultText.getText().indexOf(".") < 0)) {
+        }
+        else if ((key.equals(".")) && (resultText.getText().indexOf(".") < 0))
+        {
             // 输入的是小数点，并且之前没有小数点，则将小数点附在结果文本框的后面
             resultText.setText(resultText.getText() + ".");
-        } else if (!key.equals(".")) {
+        }
+        else if (!key.equals("."))
+        {
             // 如果输入的不是小数点，则将数字附在结果文本框的后面
             resultText.setText(resultText.getText() + key);
         }
@@ -204,7 +248,8 @@ public class Calculator extends JFrame implements ActionListener {
     /**
      * 处理C键被按下的事件
      */
-    private void handleC() {
+    private void handleC()
+    {
         // 初始化计算器的各种值
         resultText.setText("0");
         firstDigit = true;
@@ -216,57 +261,85 @@ public class Calculator extends JFrame implements ActionListener {
      *
      * @param key
      */
-    private void handleOperator(String key) {
-        if (operator.equals("/")) {
+    private void handleOperator(String key)
+    {
+        if (operator.equals("/"))
+        {
             // 除法运算
             // 如果当前结果文本框中的值等于0
-            if (getNumberFromText() == 0.0) {
+            if (getNumberFromText() == 0.0)
+            {
                 // 操作不合法
                 operateValidFlag = false;
                 resultText.setText("除数不能为零");
-            } else {
+            }
+            else
+            {
                 resultNum /= getNumberFromText();
             }
-        } else if (operator.equals("1/x")) {
+        }
+        else if (operator.equals("1/x"))
+        {
             // 倒数运算
-            if (resultNum == 0.0) {
+            if (resultNum == 0.0)
+            {
                 // 操作不合法
                 operateValidFlag = false;
                 resultText.setText("零没有倒数");
-            } else {
+            }
+            else
+            {
                 resultNum = 1 / resultNum;
             }
-        } else if (operator.equals("+")) {
+        }
+        else if (operator.equals("+"))
+        {
             // 加法运算
             resultNum += getNumberFromText();
-        } else if (operator.equals("-")) {
+        }
+        else if (operator.equals("-"))
+        {
             // 减法运算
             resultNum -= getNumberFromText();
-        } else if (operator.equals("*")) {
+        }
+        else if (operator.equals("*"))
+        {
             // 乘法运算
             resultNum *= getNumberFromText();
-        } else if (operator.equals("sqrt")) {
+        }
+        else if (operator.equals("sqrt"))
+        {
             // 平方根运算
             resultNum = Math.sqrt(resultNum);
-        } else if (operator.equals("%")) {
+        }
+        else if (operator.equals("%"))
+        {
             // 百分号运算，除以100
             resultNum = resultNum / 100;
-        } else if (operator.equals("+/-")) {
+        }
+        else if (operator.equals("+/-"))
+        {
             // 正数负数运算
             resultNum = resultNum * (-1);
-        } else if (operator.equals("=")) {
+        }
+        else if (operator.equals("="))
+        {
             // 赋值运算
             resultNum = getNumberFromText();
         }
-        if (operateValidFlag) {
+        if (operateValidFlag)
+        {
             // 双精度浮点数的运算
             long t1;
             double t2;
             t1 = (long) resultNum;
             t2 = resultNum - t1;
-            if (t2 == 0) {
+            if (t2 == 0)
+            {
                 resultText.setText(String.valueOf(t1));
-            } else {
+            }
+            else
+            {
                 resultText.setText(String.valueOf(resultNum));
             }
         }
@@ -281,16 +354,21 @@ public class Calculator extends JFrame implements ActionListener {
      *
      * @return
      */
-    private double getNumberFromText() {
+    private double getNumberFromText()
+    {
         double result = 0;
-        try {
+        try
+        {
             result = Double.valueOf(resultText.getText()).doubleValue();
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e)
+        {
         }
         return result;
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         Calculator calculator1 = new Calculator();
         calculator1.setVisible(true);
         calculator1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

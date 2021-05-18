@@ -31,7 +31,7 @@ class BestTimeToBuyAndSellStockIITest
     {
         BestTimeToBuyAndSellStockII bestTimeToBuyAndSellStockII = new BestTimeToBuyAndSellStockII();
 
-        int[] num = {1,4,6,3,7,9,4,6,9};
+        int[] num = {1, 4, 6, 3, 7, 9, 4, 6, 9};
         int i = bestTimeToBuyAndSellStockII.maxProfit(num);
 
         System.out.println(i);

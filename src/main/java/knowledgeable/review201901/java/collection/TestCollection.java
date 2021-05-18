@@ -23,16 +23,16 @@ public class TestCollection
         list.add("a");
         list.add("b");
         list.add("c");
-        System.out.println("初始化后的list元数据："+list);
+        System.out.println("初始化后的list元数据：" + list);
 
         for (int i = 0; i < list.size(); i++)
         {
-            if(list.get(i).equalsIgnoreCase("a"))
+            if (list.get(i).equalsIgnoreCase("a"))
             {
                 list.remove(i);
             }
         }
-        System.out.println("普通for循环删除重复的元素后的list（这种情况下可能会出现下标位移导致删除失败）："+list);
+        System.out.println("普通for循环删除重复的元素后的list（这种情况下可能会出现下标位移导致删除失败）：" + list);
 
 
         list1.add("a");
@@ -42,12 +42,12 @@ public class TestCollection
         Iterator<String> iterator = list1.iterator();
         while (iterator.hasNext())
         {
-            if(iterator.next().equalsIgnoreCase("a"))
+            if (iterator.next().equalsIgnoreCase("a"))
             {
                 iterator.remove();
             }
         }
-        System.out.println("使用迭代器进行判断删除后的结果（这种结果是正确的）："+list1);
+        System.out.println("使用迭代器进行判断删除后的结果（这种结果是正确的）：" + list1);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class TestCollection
          * 并集
          */
         list1.addAll(list2);
-        System.out.println("并集："+list1);
+        System.out.println("并集：" + list1);
 
 
         List<String> list3 = new ArrayList<>();
@@ -81,8 +81,7 @@ public class TestCollection
          */
         list4.removeAll(list3);
         list3.addAll(list4);
-        System.out.println("无重复并集："+list3);
-
+        System.out.println("无重复并集：" + list3);
 
 
         List<String> list5 = new ArrayList<>();
@@ -97,10 +96,10 @@ public class TestCollection
          * 交集
          */
         list5.retainAll(list6);
-        System.out.println("交集："+list5);
+        System.out.println("交集：" + list5);
 
         List<String> list7 = new ArrayList<>();
-        List<String> list8 = Arrays.asList(new String[]{"b","c"});
+        List<String> list8 = Arrays.asList(new String[]{"b", "c"});
         list7.add("a");
         list7.add("b");
         list7.add("c");
@@ -111,21 +110,20 @@ public class TestCollection
          * 差集
          */
         list7.removeAll(list8);
-        System.out.println("差集："+list7);
+        System.out.println("差集：" + list7);
     }
-
 
 
     @Test
     public void testIphone()
     {
-        Iphone iphone1 = new Iphone(1,3,"iphone7");
-        Iphone iphone2 = new Iphone(78,2,"iphone8");
-        Iphone iphone3 = new Iphone(32,8,"iphonex");
-        Iphone iphone4 = new Iphone(4,4,"iphone11");
-        Iphone iphone5 = new Iphone(3,1,"iphone12");
-        Iphone iphone6 = new Iphone(343,1,"iphone13");
-        Iphone iphone7 = new Iphone(1,4,"iphone14");
+        Iphone iphone1 = new Iphone(1, 3, "iphone7");
+        Iphone iphone2 = new Iphone(78, 2, "iphone8");
+        Iphone iphone3 = new Iphone(32, 8, "iphonex");
+        Iphone iphone4 = new Iphone(4, 4, "iphone11");
+        Iphone iphone5 = new Iphone(3, 1, "iphone12");
+        Iphone iphone6 = new Iphone(343, 1, "iphone13");
+        Iphone iphone7 = new Iphone(1, 4, "iphone14");
 
         List<Iphone> list = new ArrayList<>();
         list.add(iphone1);

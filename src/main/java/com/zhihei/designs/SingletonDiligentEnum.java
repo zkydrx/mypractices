@@ -9,12 +9,13 @@ package com.zhihei.designs;
  * 饿汉模式变种3
  * 枚举（既可以避免多线程同步问题，还可以防止被反序列化重建对象）
  */
-public enum  SingletonDiligentEnum
+public enum SingletonDiligentEnum
 {
     INSTANCE;
+
     public String getTheMessage(String message)
     {
-        return Thread.currentThread().getName()+":::"+message;
+        return Thread.currentThread().getName() + ":::" + message;
     }
 
     public static void main(String[] args)
@@ -24,7 +25,7 @@ public enum  SingletonDiligentEnum
         System.out.println(instance1.getTheMessage("instance1"));
         System.out.println(instance2.getTheMessage("instance2"));
         System.out.println(instance1.equals(instance2));
-        System.out.println(instance1==instance2);
+        System.out.println(instance1 == instance2);
 
     }
 }

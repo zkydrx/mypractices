@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 /**
  * SafeStates
  * <p/>
@@ -15,10 +14,12 @@ import java.util.Map;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class SafeStates {
+public class SafeStates
+{
     private final Map<String, String> states;
 
-    public SafeStates() {
+    public SafeStates()
+    {
         states = new HashMap<String, String>();
         states.put("alaska", "AK");
         states.put("alabama", "AL");
@@ -26,7 +27,8 @@ public class SafeStates {
         states.put("wyoming", "WY");
     }
 
-    public String getAbbreviation(String s) {
+    public String getAbbreviation(String s)
+    {
         return states.get(s);
     }
 }

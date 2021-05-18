@@ -3,14 +3,16 @@ package com.design.atgg.spring.com.atguigu.spring.test;
 import org.springframework.web.servlet.HandlerExecutionChain;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-public class ResponsibilityChain {
+public class ResponsibilityChain
+{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		// DispatcherServlet 
-		
-		//说明
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+
+        // DispatcherServlet
+
+        //说明
 		/*
 		 * 
 		 *  protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -38,7 +40,7 @@ public class ResponsibilityChain {
 				logger.error("HandlerInterceptor.afterCompletion threw exception", ex2);
 			}
 		 */
-	
-	}
+
+    }
 
 }

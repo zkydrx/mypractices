@@ -20,16 +20,16 @@ public class ShapeFactory extends AbstractFactory
     @Override
     Shape getShape(String shape)
     {
-        if(shape== null)
+        if (shape == null)
         {
             return null;
         }
-        if(shape.equalsIgnoreCase("car"))
+        if (shape.equalsIgnoreCase("car"))
         {
             return new CarFactory();
         }
 
-        if(shape.equalsIgnoreCase("computer"))
+        if (shape.equalsIgnoreCase("computer"))
         {
             return new ComputerFactory();
         }

@@ -16,7 +16,7 @@ public class SubCalculator implements Calculator
     @Override
     public double getResult(double a, double b)
     {
-        System.out.println("a-b ="+(a-b));
+        System.out.println("a-b =" + (a - b));
         return a - b;
     }
 }

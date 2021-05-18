@@ -1,7 +1,7 @@
 183. Customers Who Never Order
 
-
-Suppose that a website contains two tables, the Customers table and the Orders table. Write a SQL query to find all customers who never order anything.
+Suppose that a website contains two tables, the Customers table and the Orders table. Write a SQL query to find all
+customers who never order anything.
 
 Table: Customers.
 
@@ -13,6 +13,7 @@ Table: Customers.
     | 3  | Sam   |
     | 4  | Max   |
     +----+-------+
+
 Table: Orders.
 
     +----+------------+
@@ -21,6 +22,7 @@ Table: Orders.
     | 1  | 3          |
     | 2  | 1          |
     +----+------------+
+
 Using the above tables as example, return the following:
 
     +-----------+
@@ -29,7 +31,9 @@ Using the above tables as example, return the following:
     | Henry     |
     | Max       |
     +-----------+
+
 # Write your MySQL query statement below
+
     select customers.name as 'Customers'
     from customers
     where customers.id not in

@@ -6,9 +6,9 @@ package fromeFaceBook.JavaProgramming.StaticClasses;
  * Date: 2017-10-02
  * Time: 01:42
  * Description:
- *
+ * <p>
  * he difference between static and instance variables
- Here is the link to the answer explanation: http://www.sarmaroof.com/java-quiz-3-the-difference-betwee…/
+ * Here is the link to the answer explanation: http://www.sarmaroof.com/java-quiz-3-the-difference-betwee…/
  */
 public class MyClass
 {
@@ -17,8 +17,8 @@ public class MyClass
 
     MyClass(int i)
     {
-        x +=i;
-        y +=i;
+        x += i;
+        y += i;
     }
 
     public static void main(String[] args)
@@ -32,6 +32,6 @@ public class MyClass
          */
         MyClass mc = new MyClass(3);
 
-        System.out.println(mc.x+","+mc.y);
+        System.out.println(mc.x + "," + mc.y);
     }
 }

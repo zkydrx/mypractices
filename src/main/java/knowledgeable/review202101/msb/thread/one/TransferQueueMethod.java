@@ -19,24 +19,24 @@ public class TransferQueueMethod
         char[] num = {'1', '2', '3', '4', '5', '6', '7', '8'};
         char[] chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 
-        new Thread(()->{
+        new Thread(() -> {
 
-                try
+            try
+            {
+                for (char c : chars)
                 {
-                    for (char c : chars)
-                    {
-                        System.out.print(queue.take());
-                        queue.tryTransfer(c);
-                    }
+                    System.out.print(queue.take());
+                    queue.tryTransfer(c);
                 }
-                catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
 
-        },"t1").start();
+        }, "t1").start();
 
-        new Thread(()->{
+        new Thread(() -> {
 
             try
             {
@@ -51,6 +51,6 @@ public class TransferQueueMethod
                 e.printStackTrace();
             }
 
-        },"t2").start();
+        }, "t2").start();
     }
 }

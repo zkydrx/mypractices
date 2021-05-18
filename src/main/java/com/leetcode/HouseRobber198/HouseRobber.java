@@ -40,12 +40,12 @@ public class HouseRobber
             }
             else
             {
-                odd +=nums[i];
-                odd= even > odd ? even:odd;
+                odd += nums[i];
+                odd = even > odd ? even : odd;
             }
 
         }
 
-        return even>odd?even:odd;
+        return even > odd ? even : odd;
     }
 }

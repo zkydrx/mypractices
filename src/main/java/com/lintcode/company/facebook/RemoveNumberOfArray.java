@@ -21,9 +21,9 @@ import java.util.Set;
  */
 public class RemoveNumberOfArray
 {
-    public int removeDuplicates(int [] nums)
+    public int removeDuplicates(int[] nums)
     {
-        Set<Integer> set = new HashSet() ;
+        Set<Integer> set = new HashSet();
         for (int i = 0; i < nums.length; i++)
         {
             set.add(nums[i]);

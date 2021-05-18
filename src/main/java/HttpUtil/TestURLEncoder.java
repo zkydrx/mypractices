@@ -14,7 +14,7 @@ public class TestURLEncoder
 {
     public static void main(String[] args) throws UnsupportedEncodingException
     {
-        String zky = URLEncoder.encode(URLEncoder.encode("http://220.248.226.76:20113/HR_SAP/CisServlet", "UTF-8"),"UTF-8");
+        String zky = URLEncoder.encode(URLEncoder.encode("http://220.248.226.76:20113/HR_SAP/CisServlet", "UTF-8"), "UTF-8");
 
         System.out.println(zky);
     }

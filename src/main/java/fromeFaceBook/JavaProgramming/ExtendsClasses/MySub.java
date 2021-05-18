@@ -9,14 +9,15 @@ package fromeFaceBook.JavaProgramming.ExtendsClasses;
  */
 public class MySub extends MySuper
 {
-    int b =3;
+    int b = 3;
+
     void myMethod()
     {
-        System.out.println("y"+b);
+        System.out.println("y" + b);
     }
 
     public static void main(String[] args)
     {
-        MySub mySub =new MySub();
+        MySub mySub = new MySub();
     }
 }

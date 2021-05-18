@@ -11,15 +11,19 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class ResourceFactory {
-    private static class ResourceHolder {
+public class ResourceFactory
+{
+    private static class ResourceHolder
+    {
         public static Resource resource = new Resource();
     }
 
-    public static Resource getResource() {
+    public static Resource getResource()
+    {
         return ResourceHolder.resource;
     }
 
-    static class Resource {
+    static class Resource
+    {
     }
 }

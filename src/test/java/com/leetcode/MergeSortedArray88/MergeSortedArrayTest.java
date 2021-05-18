@@ -31,9 +31,9 @@ class MergeSortedArrayTest
     {
         MergeSortedArray mergeSortedArray = new MergeSortedArray();
 
-        int [] nums1 = {1,2,3,5,7,0,0,0,0,0,0,0};
-        int [] nums2 = {2,3,6,7,8,9,10};
-        mergeSortedArray.merge(nums1,5,nums2,7);
+        int[] nums1 = {1, 2, 3, 5, 7, 0, 0, 0, 0, 0, 0, 0};
+        int[] nums2 = {2, 3, 6, 7, 8, 9, 10};
+        mergeSortedArray.merge(nums1, 5, nums2, 7);
         for (int i : nums1)
         {
             System.out.println(i);

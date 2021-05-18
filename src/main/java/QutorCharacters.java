@@ -5,9 +5,9 @@ import java.util.ArrayList;
  * 给定 n 对括号，
  * 请写一个函数以将其生成新的括号组合，并返回所有组合结果。
  * 样例
- 给定 n = 3, 可生成的组合如下:
-
- "((()))", "(()())", "(())()", "()(())", "()()()"
+ * 给定 n = 3, 可生成的组合如下:
+ * <p>
+ * "((()))", "(()())", "(())()", "()(())", "()()()"
  */
 public class QutorCharacters
 {
@@ -30,7 +30,8 @@ public class QutorCharacters
             String s = "(";
             ss.add(s);
             i--;
-        } else
+        }
+        else
         {
             ArrayList<String> list = new ArrayList();
             if (p == 0)
@@ -41,7 +42,8 @@ public class QutorCharacters
                     list.add(s1);
                 }
                 i--;
-            } else
+            }
+            else
             {
                 for (String s : ss)
                 {
@@ -73,7 +75,7 @@ public class QutorCharacters
     {
         QutorCharacters a = new QutorCharacters();
         ArrayList<String> strings = a.generateParenthesis(3);
-        for(String s:strings)
+        for (String s : strings)
         {
             System.out.println(s);
         }

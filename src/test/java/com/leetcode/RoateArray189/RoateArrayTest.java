@@ -32,11 +32,11 @@ class RoateArrayTest
     void rotate()
     {
         RoateArray roateArray = new RoateArray();
-        int [] nums = {1,2,3,4,5,6,7};
-        roateArray.rotate(nums,3);
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        roateArray.rotate(nums, 3);
         for (int num : nums)
         {
-            System.out.print(num+"\t");
+            System.out.print(num + "\t");
 
         }
         System.out.println();

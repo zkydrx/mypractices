@@ -14,8 +14,9 @@ public interface PersonBuilder
 {
     /**
      * 根据传递的姓名创建person对象
+     *
      * @param name
      * @return
      */
-    Person1 builderPerson(String name,Integer age);
+    Person1 builderPerson(String name, Integer age);
 }

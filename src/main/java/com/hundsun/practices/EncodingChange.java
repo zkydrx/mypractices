@@ -22,7 +22,7 @@ public class EncodingChange
     public static void main(String[] args) throws IOException
     {
         // 封装目录,需要修改文件格式的路径
-        File srcFolder = new File("");
+        File srcFolder = new File("C:\\Users\\hspcadmin\\Desktop\\尚硅谷韩顺平老师数据结构分享 - 副本\\尚硅谷韩顺平老师数据结构分享\\DataStructures\\src\\com");
         // 递归功能实现
         getAllJavaFilePaths(srcFolder);
     }

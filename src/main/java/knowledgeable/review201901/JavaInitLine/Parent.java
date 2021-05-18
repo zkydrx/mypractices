@@ -34,13 +34,9 @@ public class Parent
     public Parent()
     {
         System.out.println("父类--构造器");
-        System.out.println("i="+i+",j="+j);
+        System.out.println("i=" + i + ",j=" + j);
         j = 20;
     }
-
-
-
-
 
 
 }

@@ -36,6 +36,7 @@ public class LongestWordList
 {
     /**
      * 获得最长的单词列表
+     *
      * @param dictionary
      * @return
      */

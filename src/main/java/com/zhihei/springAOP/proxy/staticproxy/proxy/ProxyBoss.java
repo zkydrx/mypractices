@@ -19,6 +19,7 @@ public class ProxyBoss implements Boss
 
     /**
      * 通过构造方法传进来真实的构造对象
+     *
      * @param boss
      */
     public ProxyBoss(Boss boss)

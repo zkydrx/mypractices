@@ -9,7 +9,6 @@ import java.util.logging.Logger;
  * Time: 00:59
  * Description:
  * About Logger.
- * 
  */
 public class DebugTestLog
 {
@@ -17,7 +16,7 @@ public class DebugTestLog
     {
         int a = 1;
         System.out.println("*************************");
-        Logger.getGlobal().info("this"+a);
+        Logger.getGlobal().info("this" + a);
         System.out.println("*************************");
 
     }

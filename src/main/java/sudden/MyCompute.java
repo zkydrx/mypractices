@@ -16,6 +16,7 @@ public class MyCompute
 {
     /**
      * 两个数的混合运算
+     *
      * @return
      */
     public Double getTwoNumberResult()
@@ -48,7 +49,7 @@ public class MyCompute
                     result = v / v1;
                     break;
                 case "^":
-                    result = Math.pow(v,v1);
+                    result = Math.pow(v, v1);
                     break;
                 case "%":
                     result = v % v1;

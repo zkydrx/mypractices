@@ -31,8 +31,8 @@ class ContainsDuplicateTest
     {
         ContainsDuplicate containsDuplicate = new ContainsDuplicate();
 
-        int[] nums = {1,2,3,4,4,4,323,2,3,2};
-        int[] nums1 = {1,2,3,4,5,6,7,8};
+        int[] nums = {1, 2, 3, 4, 4, 4, 323, 2, 3, 2};
+        int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8};
 
         boolean b = containsDuplicate.containsDuplicate(nums);
         boolean b1 = containsDuplicate.containsDuplicate(nums1);

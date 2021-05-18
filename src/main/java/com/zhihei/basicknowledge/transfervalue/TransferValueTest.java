@@ -13,6 +13,7 @@ public class TransferValueTest
     {
         money = 3000.00;
     }
+
     public void changeValue2(Computer computer)
     {
         computer.setName("Apple");
@@ -32,7 +33,7 @@ public class TransferValueTest
          * 基本类型看作用域
          */
         System.out.println(money);
-        Computer computer = new Computer("Alienware",20000.00);
+        Computer computer = new Computer("Alienware", 20000.00);
         transferValueTest.changeValue2(computer);
         /**
          * 传递对象其实是传递的引用（地址值）

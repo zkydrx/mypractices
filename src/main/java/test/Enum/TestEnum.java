@@ -21,8 +21,7 @@ public class TestEnum
 
         System.out.println(name);
 
-        System.out.println(MonthEnum.getMonthEnum("3").say("是一年中的第")+(MonthEnum.getMonthEnum("3").ordinal()+1)
-                +"的月份，同时也是春暖花开的好季节，适合去踏青。");
+        System.out.println(MonthEnum.getMonthEnum("3").say("是一年中的第") + (MonthEnum.getMonthEnum("3").ordinal() + 1) + "的月份，同时也是春暖花开的好季节，适合去踏青。");
 
     }
 }

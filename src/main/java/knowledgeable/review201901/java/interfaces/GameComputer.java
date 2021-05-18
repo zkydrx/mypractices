@@ -9,7 +9,7 @@ import cn.hutool.core.date.DateUtil;
  * Time: 13:02:59
  * Description:
  */
-public abstract class GameComputer extends HighPerFormanceComputer implements Apple,Alienware,Computer
+public abstract class GameComputer extends HighPerFormanceComputer implements Apple, Alienware, Computer
 {
     protected String name;
     String weight;

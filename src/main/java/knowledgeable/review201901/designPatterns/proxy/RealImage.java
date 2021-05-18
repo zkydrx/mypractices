@@ -19,11 +19,12 @@ public class RealImage implements Image
 
     private void loadFromDisk(String fileName)
     {
-        System.out.println("loading..."+fileName);
+        System.out.println("loading..." + fileName);
     }
+
     @Override
     public void display()
     {
-        System.out.println("Displaying1"+fileName);
+        System.out.println("Displaying1" + fileName);
     }
 }

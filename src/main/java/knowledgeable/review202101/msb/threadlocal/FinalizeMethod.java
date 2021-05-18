@@ -16,7 +16,7 @@ public class FinalizeMethod
     public static void main(String[] args) throws IOException
     {
         M m = new M();
-        m=null;
+        m = null;
         System.gc();
         System.in.read();
     }

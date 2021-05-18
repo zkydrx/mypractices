@@ -32,11 +32,11 @@ public class CompareVersionNumbers
         double v1 = Double.parseDouble(version2);
 
         int res = 0;
-        if(v > v1)
+        if (v > v1)
         {
             res = 1;
         }
-        else if(v < v1)
+        else if (v < v1)
         {
             res = -1;
         }

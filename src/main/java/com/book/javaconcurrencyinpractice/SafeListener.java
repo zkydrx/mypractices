@@ -7,36 +7,45 @@ package com.book.javaconcurrencyinpractice;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class SafeListener {
+public class SafeListener
+{
     private final EventListener listener;
 
-    private SafeListener() {
-        listener = new EventListener() {
-            public void onEvent(Event e) {
+    private SafeListener()
+    {
+        listener = new EventListener()
+        {
+            public void onEvent(Event e)
+            {
                 doSomething(e);
             }
         };
     }
 
-    public static SafeListener newInstance(EventSource source) {
+    public static SafeListener newInstance(EventSource source)
+    {
         SafeListener safe = new SafeListener();
         source.registerListener(safe.listener);
         return safe;
     }
 
-    void doSomething(Event e) {
+    void doSomething(Event e)
+    {
     }
 
 
-    interface EventSource {
+    interface EventSource
+    {
         void registerListener(EventListener e);
     }
 
-    interface EventListener {
+    interface EventListener
+    {
         void onEvent(Event e);
     }
 
-    interface Event {
+    interface Event
+    {
     }
 }
 

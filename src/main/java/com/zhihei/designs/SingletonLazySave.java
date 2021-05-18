@@ -15,9 +15,10 @@ public class SingletonLazySave
     private SingletonLazySave()
     {
     }
+
     public static synchronized SingletonLazySave getInstance()
     {
-        if(null == instance)
+        if (null == instance)
         {
             instance = new SingletonLazySave();
         }

@@ -7,7 +7,7 @@ package com.zhihei.jdk8.defaultmethod;
  * Time: 15:47:17
  * Description:
  */
-public class MyClass1 implements MyInterface1,MyInterface2
+public class MyClass1 implements MyInterface1, MyInterface2
 {
 
     @Override

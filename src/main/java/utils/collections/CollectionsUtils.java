@@ -16,11 +16,11 @@ public class CollectionsUtils
 {
     public static void main(String[] args)
     {
-        User user = new User(1L,"tom",2,"Italy");
-        User user1 = new User(2L,"amy",88,"France");
-        User user2 = new User(3L,"tony",22,"Australian");
-        User user3 = new User(4L,"john",55,"English");
-        User user4 = new User(5L,"alis",90,"American");
+        User user = new User(1L, "tom", 2, "Italy");
+        User user1 = new User(2L, "amy", 88, "France");
+        User user2 = new User(3L, "tony", 22, "Australian");
+        User user3 = new User(4L, "john", 55, "English");
+        User user4 = new User(5L, "alis", 90, "American");
 
         List<User> list = new ArrayList<>();
         list.add(user);

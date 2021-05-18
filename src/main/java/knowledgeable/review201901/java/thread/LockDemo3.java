@@ -21,7 +21,7 @@ public class LockDemo3 implements Lock
     @Override
     public void lock()
     {
-        owner.compareAndSet(null,Thread.currentThread());
+        owner.compareAndSet(null, Thread.currentThread());
 
     }
 
@@ -46,7 +46,7 @@ public class LockDemo3 implements Lock
     @Override
     public void unlock()
     {
-        owner.compareAndSet(Thread.currentThread(),null);
+        owner.compareAndSet(Thread.currentThread(), null);
     }
 
     @Override

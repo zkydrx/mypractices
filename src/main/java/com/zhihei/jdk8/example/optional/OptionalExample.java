@@ -24,7 +24,7 @@ public class OptionalExample
         System.out.println(build.isPresent());
         System.out.println(optional.get());
         System.out.println(optional.orElse("false"));
-        optional.ifPresent((s)-> System.out.println(s.charAt(0)));
+        optional.ifPresent((s) -> System.out.println(s.charAt(0)));
     }
 
     /**
@@ -36,11 +36,9 @@ public class OptionalExample
     {
         Optional<String> optionalUser = Optional.of("");
         System.out.println(optionalUser.orElse("A"));
-        System.out.println(optionalUser.orElseGet(()->"B"));
+        System.out.println(optionalUser.orElseGet(() -> "B"));
 
-        User user = (User) Optional
-                .ofNullable(null)
-                .orElseGet(() -> new User(0L, "Unknown",3,"addminre"));
+        User user = (User) Optional.ofNullable(null).orElseGet(() -> new User(0L, "Unknown", 3, "addminre"));
 
         System.out.println("Username is: " + user.getName());
     }

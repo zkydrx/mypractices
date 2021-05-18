@@ -10,7 +10,6 @@ import javax.servlet.ServletResponse;
 import java.math.BigInteger;
 
 
-
 /**
  * CachedFactorizer
  * <p/>
@@ -19,33 +18,45 @@ import java.math.BigInteger;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class CachedFactorizer extends GenericServlet implements Servlet {
-    @GuardedBy("this") private BigInteger lastNumber;
-    @GuardedBy("this") private BigInteger[] lastFactors;
-    @GuardedBy("this") private long hits;
-    @GuardedBy("this") private long cacheHits;
+public class CachedFactorizer extends GenericServlet implements Servlet
+{
+    @GuardedBy("this")
+    private BigInteger lastNumber;
+    @GuardedBy("this")
+    private BigInteger[] lastFactors;
+    @GuardedBy("this")
+    private long hits;
+    @GuardedBy("this")
+    private long cacheHits;
 
-    public synchronized long getHits() {
+    public synchronized long getHits()
+    {
         return hits;
     }
 
-    public synchronized double getCacheHitRatio() {
+    public synchronized double getCacheHitRatio()
+    {
         return (double) cacheHits / (double) hits;
     }
 
-    public void service(ServletRequest req, ServletResponse resp) {
+    public void service(ServletRequest req, ServletResponse resp)
+    {
         BigInteger i = extractFromRequest(req);
         BigInteger[] factors = null;
-        synchronized (this) {
+        synchronized (this)
+        {
             ++hits;
-            if (i.equals(lastNumber)) {
+            if (i.equals(lastNumber))
+            {
                 ++cacheHits;
                 factors = lastFactors.clone();
             }
         }
-        if (factors == null) {
+        if (factors == null)
+        {
             factors = factor(i);
-            synchronized (this) {
+            synchronized (this)
+            {
                 lastNumber = i;
                 lastFactors = factors.clone();
             }
@@ -53,14 +64,17 @@ public class CachedFactorizer extends GenericServlet implements Servlet {
         encodeIntoResponse(resp, factors);
     }
 
-    void encodeIntoResponse(ServletResponse resp, BigInteger[] factors) {
+    void encodeIntoResponse(ServletResponse resp, BigInteger[] factors)
+    {
     }
 
-    BigInteger extractFromRequest(ServletRequest req) {
+    BigInteger extractFromRequest(ServletRequest req)
+    {
         return new BigInteger("7");
     }
 
-    BigInteger[] factor(BigInteger i) {
+    BigInteger[] factor(BigInteger i)
+    {
         // Doesn't really factor
         return new BigInteger[]{i};
     }

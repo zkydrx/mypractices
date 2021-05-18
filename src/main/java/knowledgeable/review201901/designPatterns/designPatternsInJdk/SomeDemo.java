@@ -82,11 +82,7 @@ public class SomeDemo implements Cloneable
          * 建造者模式(Builder)
          */
         StringBuilder stringBuilder = new StringBuilder();
-        StringBuilder append = stringBuilder.append("Google ")
-                                            .append("Apple ")
-                                            .append("Amazon ")
-                                            .append("Microsoft ")
-                                            .append("Are Wonderful Company Over The World!");
+        StringBuilder append = stringBuilder.append("Google ").append("Apple ").append("Amazon ").append("Microsoft ").append("Are Wonderful Company Over The World!");
         System.out.println(append);
 
         /**
@@ -170,13 +166,11 @@ public class SomeDemo implements Cloneable
         /**
          * 适配器模式(Adapter)
          */
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(new File
-                ("D:\\document\\temp.txt")));
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(new File("D:\\document\\temp.txt")));
         outputStreamWriter.write("Fly with me!");
         outputStreamWriter.flush();
 
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("D:\\document\\temp"
-                + ".txt")));
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(new File("D:\\document\\temp" + ".txt")));
         int charread;
         char[] tempchars = new char[10];
         while ((charread = inputStreamReader.read(tempchars)) != -1)
@@ -353,8 +347,7 @@ public class SomeDemo implements Cloneable
         /**
          * 策略模式(Strategy)
          */
-        List<Person> people = Arrays.asList(new Person("Google", 99), new Person("Amazon", 109), new Person("Facebook",
-                18),new Person("ZKY",28));
+        List<Person> people = Arrays.asList(new Person("Google", 99), new Person("Amazon", 109), new Person("Facebook", 18), new Person("ZKY", 28));
 
         System.out.println(people);
         Collections.sort(people);
@@ -373,10 +366,10 @@ public class SomeDemo implements Cloneable
         /**
          * 模板方法模式(Template Method)
          */
-        FileReader reader =new FileReader(new File("D:\\document\\temp.txt"));
+        FileReader reader = new FileReader(new File("D:\\document\\temp.txt"));
         BufferedReader bufferedReader = new BufferedReader(reader);
         String readline = null;
-        while ((readline= bufferedReader.readLine()) != null)
+        while ((readline = bufferedReader.readLine()) != null)
         {
             System.out.print(readline);
         }
@@ -385,7 +378,7 @@ public class SomeDemo implements Cloneable
          * 访问者模式(Visitor)
          */
 
-        Element element= new Element()
+        Element element = new Element()
         {
             @Override
             public TypeMirror asType()

@@ -250,14 +250,15 @@ public class MethodReferenceTest
     }
 
 
-    public static int[] createArray(int length,ArrayBuilder arrayBuilder)
+    public static int[] createArray(int length, ArrayBuilder arrayBuilder)
     {
         return arrayBuilder.builderArray(length);
     }
+
     @Test
     public void testCreateArray()
     {
-        int [] array1 = createArray(11,length -> new int[length]);
+        int[] array1 = createArray(11, length -> new int[length]);
         System.out.println("创建数组1的长度：");
         System.out.println(array1.length);
 
@@ -266,7 +267,7 @@ public class MethodReferenceTest
          * 2.创建数组长度也是已知的
          * 使用方法引用，int[]数组引用new,根据参数传递的长度创建数组
          */
-        int [] array2 = createArray(11,int[]::new);
+        int[] array2 = createArray(11, int[]::new);
         System.out.println("创建的数组2的长度: ");
         System.out.println(array2.length);
     }

@@ -36,7 +36,7 @@ class PascalsTriangleIITest
         List<Integer> row = pascalsTriangleII.getRow(3);
         for (Integer integer : row)
         {
-            System.out.print(integer+"\t");
+            System.out.print(integer + "\t");
         }
 
 

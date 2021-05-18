@@ -18,15 +18,15 @@ public class ContainsDuplicate
 {
     public boolean containsDuplicate(int[] nums)
     {
-        if(nums==null||nums.length==0||nums.length==1)
+        if (nums == null || nums.length == 0 || nums.length == 1)
         {
             return false;
         }
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length-1; i++)
+        for (int i = 0; i < nums.length - 1; i++)
         {
-            if(nums[i]==nums[i+1])
+            if (nums[i] == nums[i + 1])
             {
                 return true;
             }

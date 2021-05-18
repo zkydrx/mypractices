@@ -340,19 +340,19 @@ public class ProducerAndConsumerTraditionalTest
     public void testLockAwaitSingal() throws InterruptedException
     {
         DataSource dataSource = new DataSource();
-        new Thread(()->{
+        new Thread(() -> {
             for (int i = 0; i < 10; i++)
             {
                 dataSource.printNumber5();
             }
         }, "a").start();
-        new Thread(()->{
+        new Thread(() -> {
             for (int i = 0; i < 10; i++)
             {
                 dataSource.printNumber10();
             }
         }, "b").start();
-        new Thread(()->{
+        new Thread(() -> {
             for (int i = 0; i < 10; i++)
             {
                 dataSource.printNumber15();

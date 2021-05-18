@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AopMain
 {
     private static Logger logger = Logger.getLogger(AopMain.class);
+
     public static void f()
     {
         go();

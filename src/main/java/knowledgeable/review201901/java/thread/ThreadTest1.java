@@ -12,7 +12,7 @@ import java.util.concurrent.FutureTask;
  */
 public class ThreadTest1
 {
-    private int i =2;
+    private int i = 2;
 
     class Plus implements Runnable
     {
@@ -78,16 +78,17 @@ public class ThreadTest1
 
     private synchronized Integer mul()
     {
-        i *=2;
+        i *= 2;
         System.out.println(Thread.currentThread().getName() + "mul***:" + i);
         return i;
     }
 
     private synchronized void div()
     {
-        i /=2;
+        i /= 2;
         System.out.println(Thread.currentThread().getName() + "div///:" + i);
     }
+
     public static void main(String[] args)
     {
         ThreadTest1 t = new ThreadTest1();
@@ -99,7 +100,7 @@ public class ThreadTest1
         {
             Thread thread = new Thread(p);
             thread.start();
-            thread= new Thread(d);
+            thread = new Thread(d);
             thread.start();
             FutureTask<Integer> futureTask = new FutureTask<>(m);
             new Thread(futureTask).start();

@@ -23,10 +23,10 @@ class BinaryTreeLevelOrderTraversalIITest
         BinaryTreeLevelOrderTraversalII binaryTreeLevelOrderTraversalII = new BinaryTreeLevelOrderTraversalII();
 
         TreeNode treeNode = new TreeNode(1);
-        treeNode.left =new TreeNode(2);
+        treeNode.left = new TreeNode(2);
         treeNode.right = new TreeNode(3);
         treeNode.left.left = new TreeNode(4);
-        treeNode.left.right =new TreeNode(5);
+        treeNode.left.right = new TreeNode(5);
         treeNode.right.left = new TreeNode(6);
         treeNode.right.right = new TreeNode(7);
 
@@ -38,7 +38,7 @@ class BinaryTreeLevelOrderTraversalIITest
 
             for (int i1 = 0; i1 < integers.size(); i1++)
             {
-                System.out.print(integers.get(i1)+"\t");
+                System.out.print(integers.get(i1) + "\t");
             }
         }
         System.out.println();

@@ -1,5 +1,6 @@
 package com.design.atgg.pattern.uml.aggregation;
 
-public class Mouse {
+public class Mouse
+{
 
 }

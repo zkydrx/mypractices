@@ -11,21 +11,28 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-        public class SleepyBoundedBuffer <V> extends BaseBoundedBuffer<V> {
+public class SleepyBoundedBuffer<V> extends BaseBoundedBuffer<V>
+{
     int SLEEP_GRANULARITY = 60;
 
-    public SleepyBoundedBuffer() {
+    public SleepyBoundedBuffer()
+    {
         this(100);
     }
 
-    public SleepyBoundedBuffer(int size) {
+    public SleepyBoundedBuffer(int size)
+    {
         super(size);
     }
 
-    public void put(V v) throws InterruptedException {
-        while (true) {
-            synchronized (this) {
-                if (!isFull()) {
+    public void put(V v) throws InterruptedException
+    {
+        while (true)
+        {
+            synchronized (this)
+            {
+                if (!isFull())
+                {
                     doPut(v);
                     return;
                 }
@@ -34,9 +41,12 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
         }
     }
 
-    public V take() throws InterruptedException {
-        while (true) {
-            synchronized (this) {
+    public V take() throws InterruptedException
+    {
+        while (true)
+        {
+            synchronized (this)
+            {
                 if (!isEmpty())
                     return doTake();
             }

@@ -10,25 +10,27 @@ package JavaBianCheng.ForWhichRecursion;
  */
 public class Domain
 {
-    private int[] a ={1,2,3,4,5,6,7,8,9,10};
+    private int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     /**
      * for()循环实现
+     *
      * @param a
      * @return
      */
     public long getSumByFor(int[] a)
     {
-        long sum =0L;
+        long sum = 0L;
         for (int i = 0; i < a.length; i++)
         {
-            sum+=a[i];
+            sum += a[i];
         }
         return sum;
     }
 
     /**
      * while()循环实现
+     *
      * @param a
      * @return
      */
@@ -36,7 +38,7 @@ public class Domain
     {
         long sum = 0;
         int i = 0;
-        while(i < a.length)
+        while (i < a.length)
         {
             sum += a[i];
             i++;
@@ -48,19 +50,20 @@ public class Domain
     /**
      * 递归实现
      * n 为数组的长度
+     *
      * @param a
      * @param n
      * @return
      */
-    public long getSumByrecursion(int [] a,int n)
+    public long getSumByrecursion(int[] a, int n)
     {
-        if(n == 0)
+        if (n == 0)
         {
             return 0;
         }
         else
         {
-           return getSumByrecursion(a,n-1)+a[n-1];
+            return getSumByrecursion(a, n - 1) + a[n - 1];
         }
 
         /**

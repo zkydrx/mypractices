@@ -29,8 +29,7 @@ public enum Phase
         }
 
         // Initialize the phase transition map
-        private static final Map<Phase, Map<Phase, Transition>> m = new EnumMap<Phase, Map<Phase, Transition>>(
-                Phase.class);
+        private static final Map<Phase, Map<Phase, Transition>> m = new EnumMap<Phase, Map<Phase, Transition>>(Phase.class);
 
         static
         {

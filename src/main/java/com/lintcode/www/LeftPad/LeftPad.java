@@ -29,15 +29,15 @@ public class LeftPad
     static public String leftPad(String originalStr, int size)
     {
         String strtemp = originalStr;
-        if(originalStr.length() >=size)
+        if (originalStr.length() >= size)
         {
-            return originalStr.substring(0,size);
+            return originalStr.substring(0, size);
         }
         else
         {
-            for (int i = 0; i < size-originalStr.length(); i++)
+            for (int i = 0; i < size - originalStr.length(); i++)
             {
-                strtemp = " " +strtemp;
+                strtemp = " " + strtemp;
             }
             return strtemp;
         }
@@ -47,15 +47,15 @@ public class LeftPad
     public String leftPad(String originalStr, int size, char padChar)
     {
         String strtemp = originalStr;
-        if(originalStr.length() >=size)
+        if (originalStr.length() >= size)
         {
-            return originalStr.substring(0,size);
+            return originalStr.substring(0, size);
         }
         else
         {
-            for (int i = 0; i < size-originalStr.length(); i++)
+            for (int i = 0; i < size - originalStr.length(); i++)
             {
-                strtemp = padChar +strtemp;
+                strtemp = padChar + strtemp;
             }
             return strtemp;
         }
@@ -64,8 +64,8 @@ public class LeftPad
     public static void main(String[] args)
     {
         LeftPad leftPad = new LeftPad();
-        System.out.println(leftPad.leftPad("foo",5));
-        System.out.println(leftPad.leftPad("1",2,'c'));
+        System.out.println(leftPad.leftPad("foo", 5));
+        System.out.println(leftPad.leftPad("1", 2, 'c'));
         System.out.println(leftPad.leftPad("TESTTEST", 10, '+'));
     }
 }

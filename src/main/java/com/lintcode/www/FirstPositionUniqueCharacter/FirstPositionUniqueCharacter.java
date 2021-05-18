@@ -13,9 +13,9 @@ import java.util.Set;
  * Given a string, find the first non-repeating character
  * in it and return it's index. If it doesn't exist, return -1.
  * Example
- Given s = "lintcode", return 0.
-
- Given s = "lovelintcode", return 2.
+ * Given s = "lintcode", return 0.
+ * <p>
+ * Given s = "lovelintcode", return 2.
  */
 public class FirstPositionUniqueCharacter
 {

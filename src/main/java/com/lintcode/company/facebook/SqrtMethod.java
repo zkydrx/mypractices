@@ -24,9 +24,9 @@ public class SqrtMethod
     public int sqrt(int x)
     {
         int result = 0;
-        for (int i = 0; i <= x/2; i++)
+        for (int i = 0; i <= x / 2; i++)
         {
-            if (Math.pow(i,2) <= x&& Math.pow(i+1,2) >= x)
+            if (Math.pow(i, 2) <= x && Math.pow(i + 1, 2) >= x)
             {
                 result = i;
             }

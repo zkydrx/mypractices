@@ -26,9 +26,9 @@ public class AddGidits
     public int getTheNum(int num)
     {
         int sum = 0;
-        while (num >0)
+        while (num > 0)
         {
-            int temp = num%10;
+            int temp = num % 10;
             num /= 10;
             sum += temp;
         }

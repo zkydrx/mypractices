@@ -25,13 +25,13 @@ public class SemaphoreTest
         Semaphore semaphore = new Semaphore(count);
         for (int i = 1; i <= 15; i++)
         {
-            new Thread(()->{
+            new Thread(() -> {
                 try
                 {
                     semaphore.acquire();
-                    System.out.println(Thread.currentThread().getName()+"\t 抢到座位");
+                    System.out.println(Thread.currentThread().getName() + "\t 抢到座位");
                     TimeUnit.SECONDS.sleep(3);
-                    System.out.println(Thread.currentThread().getName()+"\t坐了3秒钟后离开");
+                    System.out.println(Thread.currentThread().getName() + "\t坐了3秒钟后离开");
                 }
                 catch (InterruptedException e)
                 {
@@ -41,7 +41,7 @@ public class SemaphoreTest
                 {
                     semaphore.release();
                 }
-            },String.valueOf(i)).start();
+            }, String.valueOf(i)).start();
         }
 
         try

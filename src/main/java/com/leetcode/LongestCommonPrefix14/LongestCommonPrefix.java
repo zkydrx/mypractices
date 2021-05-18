@@ -23,6 +23,7 @@ public class LongestCommonPrefix
 {
     /**
      * test the method.
+     *
      * @param args
      */
     public static void main(String[] args)

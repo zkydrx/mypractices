@@ -16,14 +16,15 @@ public class Domain
 {
     /**
      * 合并两个元素个数相等的列表。
+     *
      * @param a
      * @param b
      * @return
      */
     public List mergeTwoList(List a, List b)
     {
-        List resultList= new ArrayList();
-        for(int i = 0; i < a.size(); i++)
+        List resultList = new ArrayList();
+        for (int i = 0; i < a.size(); i++)
         {
             resultList.add(a.get(i));
             resultList.add(b.get(i));

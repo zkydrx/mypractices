@@ -12,14 +12,17 @@ import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
  */
 
 @NotThreadSafe
-public class MutableInteger {
+public class MutableInteger
+{
     private int value;
 
-    public int get() {
+    public int get()
+    {
         return value;
     }
 
-    public void set(int value) {
+    public void set(int value)
+    {
         this.value = value;
     }
 }
