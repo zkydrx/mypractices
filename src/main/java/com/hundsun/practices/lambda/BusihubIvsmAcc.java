@@ -6,20 +6,6 @@ import lombok.Data;
 /**
  * 文件描述
  *
- * @ProductName: Hundsun HEP
- * @ProjectName: AllKindsOfItems
- * @Package: com.hundsun.practices.lambda
- * @Description: note
- * @Author: zky
- * @CreateDate: 2021/4/18 0:09
- * @UpdateUser: zky
- * @UpdateDate: 2021/4/18 0:09
- * @UpdateRemark: The modified content
- * @DATE: 2021-04-18 00:09
- * @SINCE:
- * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
 @Data
 @Builder
