@@ -26,6 +26,7 @@ public class Reduction
 
     private static final Function<Integer> SUM = new Function<Integer>()
     {
+        @Override
         public Integer apply(Integer i1, Integer i2)
         {
             return i1 + i2;
@@ -34,6 +35,7 @@ public class Reduction
 
     private static final Function<Integer> PRODUCT = new Function<Integer>()
     {
+        @Override
         public Integer apply(Integer i1, Integer i2)
         {
             return i1 * i2;
@@ -42,6 +44,7 @@ public class Reduction
 
     private static final Function<Integer> MAX = new Function<Integer>()
     {
+        @Override
         public Integer apply(Integer i1, Integer i2)
         {
             return Math.max(i1, i2);
@@ -50,6 +53,7 @@ public class Reduction
 
     private static final Function<Integer> MIN = new Function<Integer>()
     {
+        @Override
         public Integer apply(Integer i1, Integer i2)
         {
             return Math.min(i1, i2);
@@ -58,12 +62,12 @@ public class Reduction
 
     public static void main(String[] args)
     {
-        List<Integer> intList = Arrays.asList(2, 7, 1, 8, 2, 8, 1, 8, 2, 8);
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         // Reduce intList using each of the above reducers
-        System.out.println(reduce(intList, SUM, 0));
-        System.out.println(reduce(intList, PRODUCT, 1));
-        System.out.println(reduce(intList, MAX, Integer.MIN_VALUE));
-        System.out.println(reduce(intList, MIN, Integer.MAX_VALUE));
+        System.out.println("从零加："+reduce(intList, SUM, 0));
+        System.out.println("阶乘："+reduce(intList, PRODUCT, 1));
+        System.out.println("最大值："+reduce(intList, MAX, Integer.MIN_VALUE));
+        System.out.println("最小值："+reduce(intList, MIN, Integer.MAX_VALUE));
     }
 }

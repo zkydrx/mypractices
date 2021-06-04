@@ -1,12 +1,19 @@
 package com.hundsun.practices.lambda;
 
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -72,5 +79,62 @@ public class LambdaTest
 
         log.info("resultMap:{}", collect1);
 
+    }
+
+    @Test
+    public void test3()
+    {
+        List<Book> books = new ArrayList<>();
+        // books.add(new Book(10,"开元"));
+        books.add(new Book(10, null));
+        books.add(new Book(12, "大明"));
+        // books.add(new Book(12,"元"));
+        books.add(new Book(14, "孙中山"));
+
+        Map<Integer, Book> collect = books.stream().collect(Collectors.toMap(Book::getReleaseYear, Function.identity(), (existing, replacement) -> existing));
+        log.info("collect:{}", collect);
+        Map<Integer, String> collect1 = books.stream().collect(Collectors.toMap(Book::getReleaseYear, book -> StringUtils.isEmpty(book.getName()) ? "0" : book.getName()));
+        log.info("collect1:{}", collect1);
+
+    }
+
+
+    @Test
+    public void test4()
+    {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        List<String> list1 = list.subList(0, 3);
+        log.info("list1：{}", list1);
+
+    }
+
+    public static <T, R> Map<R, Collection<T>> collectionMap(Collection<T> collections, Function<T, R> function)
+    {
+
+        Optional<Map<R, Collection<T>>> reduce = collections.stream().map(book -> {
+            Map<R, Collection<T>> map = Maps.newConcurrentMap();
+            Collection<T> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+            copyOnWriteArrayList.add(book);
+            map.put(function.apply(book), copyOnWriteArrayList);
+            return map;
+        }).reduce((itemOne, itemTwo) -> {
+            R itemTwoKey = itemTwo.keySet().iterator().next();
+            if (itemOne.containsKey(itemTwoKey))
+            {
+                itemOne.get(itemTwoKey).addAll(itemTwo.get(itemTwoKey));
+            }
+            else
+            {
+                itemOne.putAll(itemTwo);
+            }
+            return itemOne;
+        });
+
+        return reduce.orElse(Maps.newConcurrentMap());
     }
 }
