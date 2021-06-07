@@ -1,4 +1,4 @@
-package com.hundsun.practices;
+package com.hundsun.practices.encoding;
 
 
 import java.io.BufferedReader;

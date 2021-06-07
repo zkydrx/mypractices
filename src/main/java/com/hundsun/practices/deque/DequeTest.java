@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 public class DequeTest
 {
     @Test
-
     public void test()
     {
         Collection<Person> personList = new ArrayDeque<>();
