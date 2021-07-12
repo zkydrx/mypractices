@@ -13,7 +13,9 @@ import java.util.Map;
  * @ProductName: Hundsun HEP
  * @ProjectName: mypractices
  * @Package: com.hundsun.practices.map
- * @Description: 测试map的putAll与直接赋值的区别，结论：二者没有区别。
+ * @Description: 测试map的putAll与直接赋值的区别，结论：二者的区别就是，putAll()方法与赋值在key值相等的时候效果是一样的。但是在key值不相等的时候，
+ * putAll()方法是追加，而赋值操作则是把整个map清空，然后把新的值赋给这个空map.也就是说，在key值不等的时候，赋值操作其实是先clear(),然后再putAll。比单纯的putAll
+ * 方法多了一步。
  * @Author: zky
  * @CreateDate: 2021/6/21 9:41
  * @UpdateUser: zky
