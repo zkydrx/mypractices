@@ -1,11 +1,15 @@
 package com.hundsun.practices.map;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.hundsun.practices.map.model.VarScrEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 文件描述
@@ -40,31 +44,51 @@ public class MapAddMethod
         log.info("put...{}", scrMap);
 
         Map<String, VarScrEntity> map = new HashMap<>();
-        map.put("a",VarScrEntity.builder().connectDpInterCode("aa").dpInterCode("aa").build());
-        map.put("b",VarScrEntity.builder().connectDpInterCode("bb").dpInterCode("bb").build());
-        map.put("c",VarScrEntity.builder().connectDpInterCode("cc").dpInterCode("cc").build());
+        map.put("a", VarScrEntity.builder().connectDpInterCode("aa").dpInterCode("aa").build());
+        map.put("b", VarScrEntity.builder().connectDpInterCode("bb").dpInterCode("bb").build());
+        map.put("c", VarScrEntity.builder().connectDpInterCode("cc").dpInterCode("cc").build());
         scrMap.putAll(map);
         log.info("putAll...{}", scrMap);
         Map<String, VarScrEntity> map1 = new HashMap<>();
 
-        map1.put("a",VarScrEntity.builder().connectDpInterCode("aaa").dpInterCode("aaa").build());
-        map1.put("b",VarScrEntity.builder().connectDpInterCode("bbb").dpInterCode("bbb").build());
-        map1.put("c",VarScrEntity.builder().connectDpInterCode("ccc").dpInterCode("ccc").build());
-        scrMap=map1;
+        map1.put("a", VarScrEntity.builder().connectDpInterCode("aaa").dpInterCode("aaa").build());
+        map1.put("b", VarScrEntity.builder().connectDpInterCode("bbb").dpInterCode("bbb").build());
+        map1.put("c", VarScrEntity.builder().connectDpInterCode("ccc").dpInterCode("ccc").build());
+        scrMap = map1;
         log.info("==...{}", scrMap);
         Map<String, VarScrEntity> map2 = new HashMap<>();
-        map2.put("d",VarScrEntity.builder().connectDpInterCode("d").dpInterCode("d").build());
-        map2.put("e",VarScrEntity.builder().connectDpInterCode("e").dpInterCode("e").build());
-        map2.put("f",VarScrEntity.builder().connectDpInterCode("f").dpInterCode("f").build());
+        map2.put("d", VarScrEntity.builder().connectDpInterCode("d").dpInterCode("d").build());
+        map2.put("e", VarScrEntity.builder().connectDpInterCode("e").dpInterCode("e").build());
+        map2.put("f", VarScrEntity.builder().connectDpInterCode("f").dpInterCode("f").build());
         scrMap.putAll(map2);
         log.info("key值不等的情况putAll...{}", scrMap);
         Map<String, VarScrEntity> map3 = new HashMap<>();
-        map3.put("g",VarScrEntity.builder().connectDpInterCode("g").dpInterCode("g").build());
-        map3.put("h",VarScrEntity.builder().connectDpInterCode("h").dpInterCode("h").build());
-        map3.put("i",VarScrEntity.builder().connectDpInterCode("i").dpInterCode("i").build());
-        scrMap=map3;
+        map3.put("g", VarScrEntity.builder().connectDpInterCode("g").dpInterCode("g").build());
+        map3.put("h", VarScrEntity.builder().connectDpInterCode("h").dpInterCode("h").build());
+        map3.put("i", VarScrEntity.builder().connectDpInterCode("i").dpInterCode("i").build());
+        scrMap = map3;
         log.info("key值不等的情况赋值...{}", scrMap);
 
 
+    }
+
+    @Test
+    public void test2()
+    {
+        Set<VarScrEntity> scrMap = new HashSet<>();
+
+        scrMap.add(VarScrEntity.builder().connectDpInterCode("a").dpInterCode("a").build());
+        scrMap.add(VarScrEntity.builder().connectDpInterCode("b").dpInterCode("b").build());
+        scrMap.add(VarScrEntity.builder().connectDpInterCode("c").build());
+        Map<String, String> collect = scrMap.stream().collect(Collectors.toMap(e -> e.getDpInterCode() + e.getConnectDpInterCode(), e -> {
+            if (ObjectUtil.isNotNull(e.getDpInterCode()))
+            {
+                return e.getDpInterCode();
+            }
+            return "_";
+        }, (e1, e2) -> e2));
+
+
+        log.info("collect...{}", collect);
     }
 }
