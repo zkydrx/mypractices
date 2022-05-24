@@ -110,7 +110,6 @@ public class ChouShu
             if (i > 0 && isUgly(i))
             {
                 System.out.println(i + "：是一个丑数");
-
             }
             else if (i == 99999)
             {
@@ -120,7 +119,6 @@ public class ChouShu
             {
                 continue;
             }
-
         }
     }
 }
