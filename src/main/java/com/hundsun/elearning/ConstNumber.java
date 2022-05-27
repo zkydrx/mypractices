@@ -12,7 +12,11 @@ import java.util.Map;
  * @Package: com.hundsun.elearning
  * @ClassName: ConstNumber
  * @Author: hspcadmin
- * @Description:
+ * @Description: 给定一个数组①　输出出出现次数最多的数值，出现几次？如果次数相同，输出数值最大的一个。
+ * ②输出出现次数最多的数字，出现几次？如果次数相同，输出数字最大的一个。
+ * 注：利用HashMap实现次数的计算例如给定数组为
+ * [11, 164, 25, 34, 9, 32, 8, 11, 25, 7, 9, 25, 4, 25, 3, 19, 65, 8, 9, 85, 9, 7, 25, 9, 12, 63]，
+ * 则①的结果为25，出现5次，②的结果为5，出现7次。
  * @Date: 2022-05-24 23:34
  * @Version: 1.0
  */
@@ -23,6 +27,10 @@ public class ConstNumber
         Integer[] arr = {11, 164, 25, 34, 9, 32, 8, 11, 25, 7, 9, 25, 4, 25, 3, 19, 65, 8, 9, 85, 9, 7, 25, 9, 12, 63};
         Map.Entry<Integer, Integer> integerIntegerEntry = getIntegerIntegerEntry(arr);
         System.out.println(integerIntegerEntry);
+
+        Map.Entry<Integer, Integer> theMap = getTheMap(arr);
+        System.out.println("theMap" + theMap);
+
         Integer[] newArray = getNewArray(arr);
         Map.Entry<Integer, Integer> integerIntegerEntry1 = getIntegerIntegerEntry(newArray);
         System.out.println(integerIntegerEntry1);
@@ -45,13 +53,12 @@ public class ConstNumber
         }
         for (Integer integer : hashSet)
         {
-            int j = 1;
-            hashMap.put(integer, j);
+            int j = 0;
             for (int i = 0; i < arr.length; i++)
             {
                 if (integer == arr[i])
                 {
-                    hashMap.put(integer, j++);
+                    hashMap.put(integer, ++j);
                 }
             }
         }
@@ -95,8 +102,51 @@ public class ConstNumber
         for (int i = 0; i < arrayList.size(); i++)
         {
             resultArr[i] = arrayList.get(i);
-            System.out.println("数组："+resultArr[i]);
+            System.out.println("数组：" + resultArr[i]);
         }
         return resultArr;
     }
+
+
+    /**
+     * parctice one 20220527
+     * @param array
+     * @return
+     */
+    public static Map.Entry<Integer, Integer> getTheMap(Integer[] array)
+    {
+        HashSet<Integer> hashSet = new HashSet();
+        for (Integer s : array)
+        {
+            hashSet.add(s);
+        }
+        HashMap<Integer, Integer> hashMap = new HashMap();
+
+        for (Integer integer : hashSet)
+        {
+            Integer count = 0;
+            for (Integer i = 0; i < array.length; i++)
+            {
+                if (array[i].equals(integer))
+                {
+                    count++;
+                }
+            }
+            hashMap.put(integer, count);
+        }
+
+        Map.Entry<Integer, Integer> integerIntegerEntry = hashMap.entrySet()
+                                                                 .stream()
+                                                                 .filter(e -> e.getValue()
+                                                                               .equals(hashMap.values()
+                                                                                              .stream()
+                                                                                              .max(Integer::compareTo)
+                                                                                              .get()))
+                                                                 .max(Comparator.comparing(Map.Entry::getKey))
+                                                                 .get();
+
+
+        return integerIntegerEntry;
+    }
+
 }
