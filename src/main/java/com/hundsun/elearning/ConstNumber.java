@@ -12,7 +12,8 @@ import java.util.Map;
  * @Package: com.hundsun.elearning
  * @ClassName: ConstNumber
  * @Author: hspcadmin
- * @Description: 给定一个数组①　输出出出现次数最多的数值，出现几次？如果次数相同，输出数值最大的一个。
+ * @Description:
+ * 给定一个数组①　输出出出现次数最多的数值，出现几次？如果次数相同，输出数值最大的一个。
  * ②输出出现次数最多的数字，出现几次？如果次数相同，输出数字最大的一个。
  * 注：利用HashMap实现次数的计算例如给定数组为
  * [11, 164, 25, 34, 9, 32, 8, 11, 25, 7, 9, 25, 4, 25, 3, 19, 65, 8, 9, 85, 9, 7, 25, 9, 12, 63]，
