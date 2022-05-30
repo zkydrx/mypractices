@@ -17,7 +17,7 @@ public class MyLinkedList
     /**
      * 静态内部类
      */
-    private static class Node
+    static class Node
     {
         public Integer data;
         public Node next;
@@ -55,7 +55,6 @@ public class MyLinkedList
         }
         else
         {
-
             Node temp = head;
             while (temp.next != head)
             {
@@ -84,25 +83,9 @@ public class MyLinkedList
         }
     }
 
-
-    public Integer[] bubleSort(Integer[] array)
-    {
-        Integer temp;
-        for (int i = 0; i < array.length; i++)
-        {
-            for (int j = 0; j < array.length - i - 1; j++)
-            {
-                if (array[j] > array[j + 1])
-                {
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                }
-            }
-        }
-        return array;
-    }
-
+    /**
+     * 针对节点进行排序，按降序排序。
+     */
     public void sortNode()
     {
         ArrayList<Integer> arrayList = new ArrayList();
@@ -138,9 +121,8 @@ public class MyLinkedList
             if (temp.next.data.equals(object))
             {
                 System.out.println("删除的节点是：" + temp.next.data);
-                temp.next = temp.next.next;
                 relNode = temp.next;
-
+                temp.next = temp.next.next;
             }
             else
             {

@@ -20,7 +20,8 @@ public class MainTest
         myLinkedList.add(3);
         myLinkedList.add(4);
         myLinkedList.add(5);
-        // myLinkedList.remove(3);
+        MyLinkedList.Node remove = myLinkedList.remove(3);
+        System.out.println(remove.data);
         myLinkedList.display();
 
     }
