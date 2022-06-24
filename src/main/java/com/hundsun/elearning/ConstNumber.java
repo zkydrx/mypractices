@@ -71,7 +71,7 @@ public class ConstNumber
                                                                                                      .stream()
                                                                                                      .max(Integer::compareTo)
                                                                                                      .get())
-                                                                 .max(Comparator.comparing(Map.Entry::getKey))
+                                                                 .max(Map.Entry.comparingByKey())
                                                                  .get();
         return integerIntegerEntry;
     }
