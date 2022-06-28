@@ -65,6 +65,26 @@ public class NodeTest
         }
     }
 
+    /**
+     * remote the last item
+     */
+    public void removeLast ()
+    {
+        if(head == null)
+        {
+            head = null;
+        }
+        else
+        {
+            Nodea temp = head;
+            while (temp.next.next != null)
+            {
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
+    }
+
     public static void main(String[] args)
     {
         NodeTest nodeTest = new NodeTest();
@@ -72,8 +92,13 @@ public class NodeTest
         nodeTest.add(2);
         nodeTest.add(3);
         nodeTest.add(4);
-        System.out.println(nodeTest.nodeLength()
-        );
+        System.out.println(nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println(nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println(nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println(nodeTest.nodeLength());
 
     }
 }
