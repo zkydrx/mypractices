@@ -1,5 +1,7 @@
 package com.hundsun.elearning.mylist;
 
+import org.junit.Test;
+
 public class NodeTest
 {
     static class Nodea
@@ -34,7 +36,7 @@ public class NodeTest
     {
         int length = 0;
         Nodea node = head;
-        if(node == null)
+        if (node == null)
         {
             length = 0;
         }
@@ -65,12 +67,13 @@ public class NodeTest
         }
     }
 
+
     /**
      * remote the last item
      */
-    public void removeLast ()
+    public void removeLast()
     {
-        if(head == null)
+        if (head == null)
         {
             head = null;
         }
@@ -85,7 +88,9 @@ public class NodeTest
         }
     }
 
-    public static void main(String[] args)
+
+    @Test
+    public void addTest()
     {
         NodeTest nodeTest = new NodeTest();
         nodeTest.add(1);
@@ -93,12 +98,6 @@ public class NodeTest
         nodeTest.add(3);
         nodeTest.add(4);
         System.out.println(nodeTest.nodeLength());
-        nodeTest.removeLast();
-        System.out.println(nodeTest.nodeLength());
-        nodeTest.removeLast();
-        System.out.println(nodeTest.nodeLength());
-        nodeTest.removeLast();
-        System.out.println(nodeTest.nodeLength());
-
     }
+
 }
