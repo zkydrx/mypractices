@@ -1,32 +1,11 @@
 package com.hundsun.elearning.mylist;
 
+import com.hundsun.elearning.mylist.Node.Nodea;
 import org.junit.Test;
 
 public class NodeTest
 {
-    static class Nodea
-    {
-        private int data;
-        private Nodea next;
-
-        public Nodea(int data, Nodea next)
-        {
-            this.data = data;
-            this.next = next;
-        }
-
-        public Nodea()
-        {
-        }
-
-        public Nodea(int data)
-        {
-            this.data = data;
-        }
-    }
-
     private Nodea head;
-
     /**
      * 获取单链表的节点个数
      *
@@ -80,7 +59,7 @@ public class NodeTest
         else
         {
             Nodea temp = head;
-            while (temp.next.next != null)
+            while (temp.next != null && temp.next.next != null)
             {
                 temp = temp.next;
             }
@@ -99,5 +78,26 @@ public class NodeTest
         nodeTest.add(4);
         System.out.println(nodeTest.nodeLength());
     }
+
+    @Test
+    public void removeLastTest()
+    {
+        NodeTest nodeTest = new NodeTest();
+        nodeTest.add(1);
+        nodeTest.add(2);
+        nodeTest.add(3);
+        nodeTest.add(4);
+        System.out.println("原始长度："+nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println("第一次删除后长度："+nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println("第二次删除后长度："+nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println("第三次删除后长度："+nodeTest.nodeLength());
+        nodeTest.removeLast();
+        System.out.println("第四次删除后长度："+nodeTest.nodeLength());
+
+    }
+
 
 }
