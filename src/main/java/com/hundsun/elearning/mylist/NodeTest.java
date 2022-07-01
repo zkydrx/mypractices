@@ -63,7 +63,14 @@ public class NodeTest
             {
                 temp = temp.next;
             }
-            temp.next = null;
+            if(temp.next == null)
+            {
+                head = null;
+            }
+            else
+            {
+                temp.next = null;
+            }
         }
     }
 
