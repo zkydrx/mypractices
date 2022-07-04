@@ -75,13 +75,6 @@ public class NodeTest
     }
 
 
-    /**
-     * print reverse the element.
-     */
-    public void printReverse()
-    {
-
-    }
 
 
 
