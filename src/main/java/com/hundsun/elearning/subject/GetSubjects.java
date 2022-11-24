@@ -1,5 +1,7 @@
 package com.hundsun.elearning.subject;
 
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -10,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Date;
 
 public class GetSubjects
 {
@@ -62,7 +65,7 @@ public class GetSubjects
             }
 
         }
-        writeToText(stringBuffer.toString(),"证券从业法律法规模拟");
+        writeToText(stringBuffer.toString(),"证券从业法律法规模拟"+ DateUtil.format(new Date(), DatePattern.PURE_DATETIME_PATTERN));
     }
 
     public static byte[] getContent(String filePath) throws IOException
@@ -116,6 +119,7 @@ public class GetSubjects
         bw.flush();
         bw.close();
         fw.close();
+        System.out.println("输出文件路径为："+path);
 
     }
 
