@@ -8,67 +8,63 @@ package com.design.atgg.spring.com.atguigu.spring.bean;
 public class Monster
 {
 
-    private Integer id = 10;
-    private String nickname = "牛魔王";
-    private String skill = "芭蕉扇";
+	private Integer id = 10;
+	private String nickname = "牛魔王";
+	private String skill = "芭蕉扇";
 
-    public Monster()
-    {
+	public Monster()
+	{
 
-        System.out.println("monster 创建..");
-    }
+		System.out.println("monster 创建..");
+	}
 
-    public Monster(Integer id, String nickname, String skill)
-    {
-        //System.out.println("Integer id, String nickname, String skill被调用");
-        this.id = id;
-        this.nickname = nickname;
-        this.skill = skill;
-    }
+	public Monster(Integer id, String nickname, String skill)
+	{
+		//System.out.println("Integer id, String nickname, String skill被调用");
+		this.id = id; this.nickname = nickname; this.skill = skill;
+	}
 
-    public Monster(String nickname, String skill, Integer id)
-    {
+	public Monster(String nickname, String skill, Integer id)
+	{
 
-        this.id = id;
-        this.nickname = nickname;
-        this.skill = skill;
-    }
+		this.id = id; this.nickname = nickname; this.skill = skill;
+	}
 
-    public Integer getId()
-    {
-        return id;
-    }
+	public Integer getId()
+	{
+		return id;
+	}
 
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
+	public void setId(Integer id)
+	{
+		this.id = id;
+	}
 
-    public String getNickname()
-    {
-        return nickname;
-    }
+	public String getNickname()
+	{
+		return nickname;
+	}
 
-    public void setNickname(String nickname)
-    {
-        this.nickname = nickname;
-    }
+	public void setNickname(String nickname)
+	{
+		this.nickname = nickname;
+	}
 
-    public String getSkill()
-    {
-        return skill;
-    }
+	public String getSkill()
+	{
+		return skill;
+	}
 
-    public void setSkill(String skill)
-    {
-        this.skill = skill;
-    }
+	public void setSkill(String skill)
+	{
+		this.skill = skill;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "Monster [id=" + id + ", nickname=" + nickname + ", skill=" + skill + "]";
-    }
+	@Override
+	public String toString()
+	{
+		return "Monster [id=" + id + ", nickname=" + nickname + ", skill=" + skill + "]";
+	}
 
 
 }
