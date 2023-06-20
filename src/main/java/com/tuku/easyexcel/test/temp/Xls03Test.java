@@ -15,17 +15,14 @@ import java.util.List;
  * @author Jiaju Zhuang
  **/
 @Ignore
-public class Xls03Test
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(Xls03Test.class);
+public class Xls03Test {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Xls03Test.class);
 
-    @Test
-    public void test()
-    {
-        List<Object> list = EasyExcel.read("D:\\test\\8.xls").sheet().doReadSync();
-        for (Object data : list)
-        {
-            LOGGER.info("返回数据：{}", JSON.toJSONString(data));
-        }
-    }
+	@Test
+	public void test() {
+		List<Object> list = EasyExcel.read("D:\\test\\8.xls").sheet().doReadSync();
+		for (Object data : list) {
+			LOGGER.info("返回数据：{}", JSON.toJSONString(data));
+		}
+	}
 }

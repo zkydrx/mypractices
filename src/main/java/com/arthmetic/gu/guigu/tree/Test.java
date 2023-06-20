@@ -1,11 +1,9 @@
 package com.arthmetic.gu.guigu.tree;
 
-public class Test
-{
+public class Test {
 
-    @SuppressWarnings("unused")
-    public static void main(String[] args)
-    {
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
 
-    }
+	}
 }

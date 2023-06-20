@@ -8,29 +8,27 @@ import java.util.Optional;
  * @description
  */
 
-public class OptionalTest
-{
+public class OptionalTest {
 
-    public static void main(String[] args)
-    {
+	public static void main(String[] args) {
 
-        Optional<String> optional = Optional.of("hello");//这里值为null时 在构造时会直接抛出NPE
+		Optional<String> optional = Optional.of("hello");// 这里值为null时 在构造时会直接抛出NPE
 
-        Optional<String> optional1 = Optional.empty();
+		Optional<String> optional1 = Optional.empty();
 
-        //        if (optional.isPresent())
-        //            System.out.println(optional.get());
+		// if (optional.isPresent())
+		// System.out.println(optional.get());
 
-        //采用函数风格
-        optional.ifPresent(item -> System.out.println(item));
+		// 采用函数风格
+		optional.ifPresent(item -> System.out.println(item));
 
-        System.out.println("---------------");
+		System.out.println("---------------");
 
-        //为空 则取默认值
-        System.out.println(optional.orElse("world"));
+		// 为空 则取默认值
+		System.out.println(optional.orElse("world"));
 
-        System.out.println("---------------");
+		System.out.println("---------------");
 
-        System.out.println(optional1.orElseGet(() -> "nihao"));
-    }
+		System.out.println(optional1.orElseGet(() -> "nihao"));
+	}
 }

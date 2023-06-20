@@ -1,6 +1,5 @@
 package com.design.atgg.pattern.uml.dependence;
 
-public class IDCard
-{
+public class IDCard {
 
 }

@@ -18,19 +18,16 @@ import java.util.Map;
  * @author Jiaju Zhuang
  **/
 @Ignore
-public class CommentTest
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommentTest.class);
+public class CommentTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CommentTest.class);
 
-    @Test
-    public void comment() throws Exception
-    {
-        File file = new File("D:\\test\\d1.xlsx");
-        List<Map<Integer, CellData>> datas = EasyExcel.read(file).doReadAllSync();
-        for (Map<Integer, CellData> data : datas)
-        {
-            LOGGER.info("数据:{}", JSON.toJSONString(data));
-        }
-    }
+	@Test
+	public void comment() throws Exception {
+		File file = new File("D:\\test\\d1.xlsx");
+		List<Map<Integer, CellData>> datas = EasyExcel.read(file).doReadAllSync();
+		for (Map<Integer, CellData> data : datas) {
+			LOGGER.info("数据:{}", JSON.toJSONString(data));
+		}
+	}
 
 }

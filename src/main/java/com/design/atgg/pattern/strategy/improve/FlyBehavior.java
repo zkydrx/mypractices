@@ -1,7 +1,6 @@
 package com.design.atgg.pattern.strategy.improve;
 
-public interface FlyBehavior
-{
+public interface FlyBehavior {
 
-    void fly(); // 子类具体实现
+	void fly(); // 子类具体实现
 }

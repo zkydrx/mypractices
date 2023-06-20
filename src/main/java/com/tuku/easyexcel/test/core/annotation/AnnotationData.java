@@ -19,16 +19,15 @@ import java.util.Date;
 @ColumnWidth(30)
 @HeadRowHeight(15)
 @ContentRowHeight(20)
-public class AnnotationData
-{
-    @ExcelProperty("日期")
-    @DateTimeFormat("yyyy年MM月dd日HH时mm分ss秒")
-    private Date date;
-    @ExcelProperty(value = "数字", converter = DoubleStringConverter.class)
-    @NumberFormat("#.##%")
-    private Double number;
-    @ExcelIgnore
-    private String ignore;
-    private static final String staticFinal = "test";
-    private transient String transientString;
+public class AnnotationData {
+	@ExcelProperty("日期")
+	@DateTimeFormat("yyyy年MM月dd日HH时mm分ss秒")
+	private Date date;
+	@ExcelProperty(value = "数字", converter = DoubleStringConverter.class)
+	@NumberFormat("#.##%")
+	private Double number;
+	@ExcelIgnore
+	private String ignore;
+	private static final String staticFinal = "test";
+	private transient String transientString;
 }

@@ -20,74 +20,65 @@ import java.util.List;
  * @author Jiaju Zhuang
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class RepetitionDataTest
-{
+public class RepetitionDataTest {
 
-    private static File file07;
-    private static File file03;
-    private static File fileTable07;
-    private static File fileTable03;
+	private static File file07;
+	private static File file03;
+	private static File fileTable07;
+	private static File fileTable03;
 
-    @BeforeClass
-    public static void init()
-    {
-        file07 = TestFileUtil.createNewFile("repetition07.xlsx");
-        file03 = TestFileUtil.createNewFile("repetition03.xls");
-        fileTable07 = TestFileUtil.createNewFile("repetitionTable07.xlsx");
-        fileTable03 = TestFileUtil.createNewFile("repetitionTable03.xls");
-    }
+	@BeforeClass
+	public static void init() {
+		file07 = TestFileUtil.createNewFile("repetition07.xlsx");
+		file03 = TestFileUtil.createNewFile("repetition03.xls");
+		fileTable07 = TestFileUtil.createNewFile("repetitionTable07.xlsx");
+		fileTable03 = TestFileUtil.createNewFile("repetitionTable03.xls");
+	}
 
-    @Test
-    public void t01ReadAndWrite07()
-    {
-        readAndWrite(file07);
-    }
+	@Test
+	public void t01ReadAndWrite07() {
+		readAndWrite(file07);
+	}
 
-    @Test
-    public void t02ReadAndWrite03()
-    {
-        readAndWrite(file03);
-    }
+	@Test
+	public void t02ReadAndWrite03() {
+		readAndWrite(file03);
+	}
 
-    private void readAndWrite(File file)
-    {
-        ExcelWriter excelWriter = EasyExcel.write(file, RepetitionData.class).build();
-        WriteSheet writeSheet = EasyExcel.writerSheet(0).build();
-        excelWriter.write(data(), writeSheet).write(data(), writeSheet).finish();
-        ExcelReader excelReader = EasyExcel.read(file, RepetitionData.class, new RepetitionDataListener()).build();
-        ReadSheet readSheet = EasyExcel.readSheet(0).build();
-        excelReader.read(readSheet).finish();
-    }
+	private void readAndWrite(File file) {
+		ExcelWriter excelWriter = EasyExcel.write(file, RepetitionData.class).build();
+		WriteSheet writeSheet = EasyExcel.writerSheet(0).build();
+		excelWriter.write(data(), writeSheet).write(data(), writeSheet).finish();
+		ExcelReader excelReader = EasyExcel.read(file, RepetitionData.class, new RepetitionDataListener()).build();
+		ReadSheet readSheet = EasyExcel.readSheet(0).build();
+		excelReader.read(readSheet).finish();
+	}
 
-    @Test
-    public void t03ReadAndWriteTable07()
-    {
-        readAndWriteTable(fileTable07);
-    }
+	@Test
+	public void t03ReadAndWriteTable07() {
+		readAndWriteTable(fileTable07);
+	}
 
-    @Test
-    public void t04ReadAndWriteTable03()
-    {
-        readAndWriteTable(fileTable03);
-    }
+	@Test
+	public void t04ReadAndWriteTable03() {
+		readAndWriteTable(fileTable03);
+	}
 
-    private void readAndWriteTable(File file)
-    {
-        ExcelWriter excelWriter = EasyExcel.write(file, RepetitionData.class).build();
-        WriteSheet writeSheet = EasyExcel.writerSheet(0).build();
-        WriteTable writeTable = EasyExcel.writerTable(0).relativeHeadRowIndex(0).build();
-        excelWriter.write(data(), writeSheet, writeTable).write(data(), writeSheet, writeTable).finish();
-        ExcelReader excelReader = EasyExcel.read(file, RepetitionData.class, new RepetitionDataListener()).build();
-        ReadSheet readSheet = EasyExcel.readSheet(0).headRowNumber(2).build();
-        excelReader.read(readSheet).finish();
-    }
+	private void readAndWriteTable(File file) {
+		ExcelWriter excelWriter = EasyExcel.write(file, RepetitionData.class).build();
+		WriteSheet writeSheet = EasyExcel.writerSheet(0).build();
+		WriteTable writeTable = EasyExcel.writerTable(0).relativeHeadRowIndex(0).build();
+		excelWriter.write(data(), writeSheet, writeTable).write(data(), writeSheet, writeTable).finish();
+		ExcelReader excelReader = EasyExcel.read(file, RepetitionData.class, new RepetitionDataListener()).build();
+		ReadSheet readSheet = EasyExcel.readSheet(0).headRowNumber(2).build();
+		excelReader.read(readSheet).finish();
+	}
 
-    private List<RepetitionData> data()
-    {
-        List<RepetitionData> list = new ArrayList<RepetitionData>();
-        RepetitionData data = new RepetitionData();
-        data.setString("字符串0");
-        list.add(data);
-        return list;
-    }
+	private List<RepetitionData> data() {
+		List<RepetitionData> list = new ArrayList<RepetitionData>();
+		RepetitionData data = new RepetitionData();
+		data.setString("字符串0");
+		list.add(data);
+		return list;
+	}
 }

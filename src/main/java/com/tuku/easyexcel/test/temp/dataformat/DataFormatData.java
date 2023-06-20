@@ -9,8 +9,7 @@ import lombok.Data;
  * @author 罗成
  **/
 @Data
-public class DataFormatData
-{
-    private CellData<String> date;
-    private CellData<String> num;
+public class DataFormatData {
+	private CellData<String> date;
+	private CellData<String> num;
 }

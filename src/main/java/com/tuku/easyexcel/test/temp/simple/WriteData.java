@@ -9,8 +9,7 @@ import lombok.Data;
  * @author Jiaju Zhuang
  **/
 @Data
-public class WriteData
-{
-    @ContentStyle(locked = true)
-    private float f;
+public class WriteData {
+	@ContentStyle(locked = true)
+	private float f;
 }

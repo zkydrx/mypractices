@@ -7,33 +7,25 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: zky
- * Date: 2021-01-30
- * Time: 19:02:16
+ * Created with IntelliJ IDEA. Author: zky Date: 2021-01-30 Time: 19:02:16
  * Description:
  */
-public class CallableMethod
-{
-    public static void main(String[] args) throws ExecutionException, InterruptedException
-    {
-        Callable<String> callable = new Callable<String>()
-        {
-            @Override
-            public String call() throws Exception
-            {
-                return "Hello";
-            }
-        };
+public class CallableMethod {
+	public static void main(String[] args) throws ExecutionException, InterruptedException {
+		Callable<String> callable = new Callable<String>() {
+			@Override
+			public String call() throws Exception {
+				return "Hello";
+			}
+		};
 
+		ExecutorService executorService = Executors.newCachedThreadPool();
+		Future<String> submit = executorService.submit(callable);
+		/**
+		 * submit.get()是阻塞的，所以这种写法无法解决问题。
+		 */
+		System.out.println(submit.get());
+		executorService.shutdown();
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        Future<String> submit = executorService.submit(callable);
-        /**
-         * submit.get()是阻塞的，所以这种写法无法解决问题。
-         */
-        System.out.println(submit.get());
-        executorService.shutdown();
-
-    }
+	}
 }

@@ -10,9 +10,8 @@ import java.util.Date;
  * @author Jiaju Zhuang
  **/
 @Data
-public class UploadData
-{
-    private String string;
-    private Date date;
-    private Double doubleData;
+public class UploadData {
+	private String string;
+	private Date date;
+	private Double doubleData;
 }

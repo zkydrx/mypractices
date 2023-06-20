@@ -15,13 +15,11 @@ package com.design.atgg.pattern.decorator;
  * @DATE: 2021-05-17 00:47
  * @SINCE:
  * @Version: 1.0
- * <p>
+ *           <p>
  **/
-public class AmericanCoffee extends Coffee
-{
-    public AmericanCoffee()
-    {
-        setDes("美式咖啡");
-        setPrice(13.00F);
-    }
+public class AmericanCoffee extends Coffee {
+	public AmericanCoffee() {
+		setDes("美式咖啡");
+		setPrice(13.00F);
+	}
 }

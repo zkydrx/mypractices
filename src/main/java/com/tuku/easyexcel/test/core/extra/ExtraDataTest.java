@@ -13,39 +13,30 @@ import java.io.File;
 /**
  * @author Jiaju Zhuang
  */
-public class ExtraDataTest
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExtraDataTest.class);
-    private static File file03;
-    private static File file07;
+public class ExtraDataTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExtraDataTest.class);
+	private static File file03;
+	private static File file07;
 
-    @BeforeClass
-    public static void init()
-    {
-        file03 = TestFileUtil.readFile("extra" + File.separator + "extra.xls");
-        file07 = TestFileUtil.readFile("extra" + File.separator + "extra.xlsx");
-    }
+	@BeforeClass
+	public static void init() {
+		file03 = TestFileUtil.readFile("extra" + File.separator + "extra.xls");
+		file07 = TestFileUtil.readFile("extra" + File.separator + "extra.xlsx");
+	}
 
-    @Test
-    public void t01Read07()
-    {
-        read(file07);
-    }
+	@Test
+	public void t01Read07() {
+		read(file07);
+	}
 
-    @Test
-    public void t02Read03()
-    {
-        read(file03);
-    }
+	@Test
+	public void t02Read03() {
+		read(file03);
+	}
 
-    private void read(File file)
-    {
-        EasyExcel.read(file, ExtraData.class, new ExtraDataListener())
-                 .extraRead(CellExtraTypeEnum.COMMENT)
-                 .extraRead(CellExtraTypeEnum.HYPERLINK)
-                 .extraRead(CellExtraTypeEnum.MERGE)
-                 .sheet()
-                 .doRead();
-    }
+	private void read(File file) {
+		EasyExcel.read(file, ExtraData.class, new ExtraDataListener()).extraRead(CellExtraTypeEnum.COMMENT)
+				.extraRead(CellExtraTypeEnum.HYPERLINK).extraRead(CellExtraTypeEnum.MERGE).sheet().doRead();
+	}
 
 }

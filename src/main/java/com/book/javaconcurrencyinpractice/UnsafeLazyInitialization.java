@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
 
 /**
@@ -11,18 +10,15 @@ import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @NotThreadSafe
-public class UnsafeLazyInitialization
-{
-    private static Resource resource;
+public class UnsafeLazyInitialization {
+	private static Resource resource;
 
-    public static Resource getInstance()
-    {
-        if (resource == null)
-            resource = new Resource(); // unsafe publication
-        return resource;
-    }
+	public static Resource getInstance() {
+		if (resource == null)
+			resource = new Resource(); // unsafe publication
+		return resource;
+	}
 
-    static class Resource
-    {
-    }
+	static class Resource {
+	}
 }

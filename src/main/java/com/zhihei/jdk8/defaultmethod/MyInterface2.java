@@ -6,10 +6,8 @@ package com.zhihei.jdk8.defaultmethod;
  * @description
  */
 
-public interface MyInterface2
-{
-    default void myMethod()
-    {
-        System.out.println("MyInterface2");
-    }
+public interface MyInterface2 {
+	default void myMethod() {
+		System.out.println("MyInterface2");
+	}
 }

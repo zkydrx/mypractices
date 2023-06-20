@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
 
 /**
@@ -10,15 +9,13 @@ import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
  */
 
 @NotThreadSafe
-public class UnsafeSequence
-{
-    private int value;
+public class UnsafeSequence {
+	private int value;
 
-    /**
-     * Returns a unique value.
-     */
-    public int getNext()
-    {
-        return value++;
-    }
+	/**
+	 * Returns a unique value.
+	 */
+	public int getNext() {
+		return value++;
+	}
 }

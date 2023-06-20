@@ -1,18 +1,13 @@
 package com.lintcode.www.ToyFactory;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Abbot
- * Date: 2017-10-07
- * Time: 00:45
+ * Created with IntelliJ IDEA. User: Abbot Date: 2017-10-07 Time: 00:45
  * Description:
  */
-public class Cat implements Toy
-{
+public class Cat implements Toy {
 
-    @Override
-    public void talk()
-    {
-        System.out.println("Meow");
-    }
+	@Override
+	public void talk() {
+		System.out.println("Meow");
+	}
 }

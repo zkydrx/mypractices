@@ -1,13 +1,11 @@
 package com.design.atgg.pattern.strategy;
 
-public class WildDuck extends Duck
-{
+public class WildDuck extends Duck {
 
-    @Override
-    public void display()
-    {
-        // TODO Auto-generated method stub
-        System.out.println(" 这是野鸭 ");
-    }
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		System.out.println(" 这是野鸭 ");
+	}
 
 }

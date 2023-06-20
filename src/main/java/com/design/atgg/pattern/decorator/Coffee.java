@@ -1,14 +1,11 @@
 package com.design.atgg.pattern.decorator;
 
-public class Coffee extends Drink
-{
+public class Coffee extends Drink {
 
-    @Override
-    public float cost()
-    {
-        // TODO Auto-generated method stub
-        return super.getPrice();
-    }
-
+	@Override
+	public float cost() {
+		// TODO Auto-generated method stub
+		return super.getPrice();
+	}
 
 }

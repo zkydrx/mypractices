@@ -8,16 +8,14 @@ import com.design.mode.factory.common.ISender;
  *
  * @author Administrator
  */
-public class Test
-{
+public class Test {
 
-    public static void main(String[] args)
-    {
-        SendFactory myFactory = new SendFactory();
-        ISender smSender = myFactory.produceEmail();
-        smSender.send();
+	public static void main(String[] args) {
+		SendFactory myFactory = new SendFactory();
+		ISender smSender = myFactory.produceEmail();
+		smSender.send();
 
-        ISender emailSender = myFactory.produceEmail();
-        emailSender.send();
-    }
+		ISender emailSender = myFactory.produceEmail();
+		emailSender.send();
+	}
 }

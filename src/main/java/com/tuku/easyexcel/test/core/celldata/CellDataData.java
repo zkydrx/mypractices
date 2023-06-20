@@ -10,11 +10,10 @@ import java.util.Date;
  * @author Jiaju Zhuang
  */
 @Data
-public class CellDataData
-{
-    @DateTimeFormat("yyyy年MM月dd日")
-    private CellData<Date> date;
-    private CellData<Integer> integer1;
-    private Integer integer2;
-    private CellData formulaValue;
+public class CellDataData {
+	@DateTimeFormat("yyyy年MM月dd日")
+	private CellData<Date> date;
+	private CellData<Integer> integer1;
+	private Integer integer2;
+	private CellData formulaValue;
 }

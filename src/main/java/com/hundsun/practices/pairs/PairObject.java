@@ -19,11 +19,10 @@ import java.util.Map;
  * @DATE: 2021-11-22 16:01
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
-public class PairObject
-{
-    private String id;
-    private Map<String , Pair<String,String >> indexMap;
+public class PairObject {
+	private String id;
+	private Map<String, Pair<String, String>> indexMap;
 }

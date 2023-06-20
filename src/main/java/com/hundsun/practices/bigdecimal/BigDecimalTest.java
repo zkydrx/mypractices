@@ -21,18 +21,16 @@ import java.math.RoundingMode;
  * @DATE: 2021-06-07 14:48
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
 @Slf4j
-public class BigDecimalTest
-{
-    @Test
-    public void testDivid()
-    {
-        BigDecimal bigDecimal = new BigDecimal(311L);
-        BigDecimal divide = bigDecimal.divide(BigDecimal.valueOf(2L), 2, RoundingMode.HALF_UP);
-        log.info("divide:{}",divide);
-    }
+public class BigDecimalTest {
+	@Test
+	public void testDivid() {
+		BigDecimal bigDecimal = new BigDecimal(311L);
+		BigDecimal divide = bigDecimal.divide(BigDecimal.valueOf(2L), 2, RoundingMode.HALF_UP);
+		log.info("divide:{}", divide);
+	}
 
 }

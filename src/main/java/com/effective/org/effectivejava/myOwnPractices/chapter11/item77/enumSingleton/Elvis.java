@@ -3,13 +3,11 @@ package com.effective.org.effectivejava.myOwnPractices.chapter11.item77.enumSing
 
 import java.util.Arrays;
 
-public enum Elvis
-{
-    INSTANCE;
-    private String[] favoriteSongs = {"Hound Dog", "Heartbreak Hotel"};
+public enum Elvis {
+	INSTANCE;
+	private String[] favoriteSongs = {"Hound Dog", "Heartbreak Hotel"};
 
-    public void printFavorites()
-    {
-        System.out.println(Arrays.toString(favoriteSongs));
-    }
+	public void printFavorites() {
+		System.out.println(Arrays.toString(favoriteSongs));
+	}
 }

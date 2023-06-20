@@ -3,8 +3,7 @@ package com.design.mode.patterns;
 /*
  * The Abstract Class of Door
  */
-public abstract class Door
-{
-    //private Door door;
-    public abstract String getName();
+public abstract class Door {
+	// private Door door;
+	public abstract String getName();
 }

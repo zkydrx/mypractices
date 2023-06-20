@@ -8,28 +8,23 @@ package com.book.javaconcurrencyinpractice;
  * @author Brian Goetz and Tim Peierls
  */
 
-public class NoVisibility
-{
-    private static boolean ready;
-    private static int number;
+public class NoVisibility {
+	private static boolean ready;
+	private static int number;
 
-    private static class ReaderThread extends Thread
-    {
-        @Override
-        public void run()
-        {
-            while (!ready)
-            {
-                Thread.yield();
-            }
-            System.out.println(number);
-        }
-    }
+	private static class ReaderThread extends Thread {
+		@Override
+		public void run() {
+			while (!ready) {
+				Thread.yield();
+			}
+			System.out.println(number);
+		}
+	}
 
-    public static void main(String[] args)
-    {
-        new ReaderThread().start();
-        number = 42;
-        ready = true;
-    }
+	public static void main(String[] args) {
+		new ReaderThread().start();
+		number = 42;
+		ready = true;
+	}
 }

@@ -7,12 +7,10 @@ package com.book.javaconcurrencyinpractice;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class StuffIntoPublic
-{
-    public Holder holder;
+public class StuffIntoPublic {
+	public Holder holder;
 
-    public void initialize()
-    {
-        holder = new Holder(42);
-    }
+	public void initialize() {
+		holder = new Holder(42);
+	}
 }

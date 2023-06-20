@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
 
 /**
@@ -11,18 +10,15 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-public class SafeLazyInitialization
-{
-    private static Resource resource;
+public class SafeLazyInitialization {
+	private static Resource resource;
 
-    public synchronized static Resource getInstance()
-    {
-        if (resource == null)
-            resource = new Resource();
-        return resource;
-    }
+	public synchronized static Resource getInstance() {
+		if (resource == null)
+			resource = new Resource();
+		return resource;
+	}
 
-    static class Resource
-    {
-    }
+	static class Resource {
+	}
 }

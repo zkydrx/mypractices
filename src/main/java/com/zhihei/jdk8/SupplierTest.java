@@ -8,12 +8,10 @@ import java.util.function.Supplier;
  * @description
  */
 
-public class SupplierTest
-{
-    public static void main(String[] args)
-    {
-        Supplier<String> stringSupplier = () -> "hello world";
+public class SupplierTest {
+	public static void main(String[] args) {
+		Supplier<String> stringSupplier = () -> "hello world";
 
-        System.out.println(stringSupplier.get());
-    }
+		System.out.println(stringSupplier.get());
+	}
 }

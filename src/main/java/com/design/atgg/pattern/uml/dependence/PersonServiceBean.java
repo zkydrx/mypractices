@@ -1,21 +1,17 @@
 package com.design.atgg.pattern.uml.dependence;
 
-public class PersonServiceBean
-{
-    private PersonDao personDao;// 类
+public class PersonServiceBean {
+	private PersonDao personDao;// 类
 
-    public void save(Person person)
-    {
-    }
+	public void save(Person person) {
+	}
 
-    public IDCard getIDCard(Integer personid)
-    {
-        return null;
-    }
+	public IDCard getIDCard(Integer personid) {
+		return null;
+	}
 
-    public void modify()
-    {
-        Department department = new Department();
-    }
+	public void modify() {
+		Department department = new Department();
+	}
 
 }

@@ -1,12 +1,11 @@
 package com.design.atgg.pattern.chatgpt.factorypattern;
 
-public interface Pizza
-{
-    void prepare();
+public interface Pizza {
+	void prepare();
 
-    void bake();
+	void bake();
 
-    void cut();
+	void cut();
 
-    void box();
+	void box();
 }

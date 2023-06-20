@@ -11,8 +11,7 @@ import java.util.List;
  * @author 罗成
  **/
 @Data
-public class TestCell
-{
-    private CellData c1;
-    private CellData<List<String>> c2;
+public class TestCell {
+	private CellData c1;
+	private CellData<List<String>> c2;
 }

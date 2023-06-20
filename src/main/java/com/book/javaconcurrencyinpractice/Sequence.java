@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.GuardedBy;
 import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
 
@@ -11,13 +10,11 @@ import com.book.javaconcurrencyinpractice.annotations.ThreadSafe;
  */
 
 @ThreadSafe
-public class Sequence
-{
-    @GuardedBy("this")
-    private int nextValue;
+public class Sequence {
+	@GuardedBy("this")
+	private int nextValue;
 
-    public synchronized int getNext()
-    {
-        return nextValue++;
-    }
+	public synchronized int getNext() {
+		return nextValue++;
+	}
 }

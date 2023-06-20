@@ -6,14 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: zky
- * Date: 2021-02-22
- * Time: 21:17:13
+ * Created with IntelliJ IDEA. Author: zky Date: 2021-02-22 Time: 21:17:13
  * Description:
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface AutoWired
-{
+public @interface AutoWired {
 }

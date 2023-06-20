@@ -7,8 +7,7 @@ import lombok.Data;
  * @author Jiaju Zhuang
  */
 @Data
-public class NoHeadData
-{
-    @ExcelProperty("字符串")
-    private String string;
+public class NoHeadData {
+	@ExcelProperty("字符串")
+	private String string;
 }

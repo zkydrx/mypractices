@@ -15,11 +15,10 @@ import java.io.InputStream;
 @Data
 @ContentRowHeight(500)
 @ColumnWidth(500 / 8)
-public class ImageData
-{
-    private File file;
-    private InputStream inputStream;
-    @ExcelProperty(converter = StringImageConverter.class)
-    private String string;
-    private byte[] byteArray;
+public class ImageData {
+	private File file;
+	private InputStream inputStream;
+	@ExcelProperty(converter = StringImageConverter.class)
+	private String string;
+	private byte[] byteArray;
 }

@@ -10,23 +10,21 @@ import java.util.stream.Stream;
  * @description 流
  */
 
-public class SteamTest1
-{
+public class SteamTest1 {
 
-    public static void main(String[] args)
-    {
-        //几种创建Stream常见方法
-        Stream stream = Stream.of("hello", "world", "hello world");
+	public static void main(String[] args) {
+		// 几种创建Stream常见方法
+		Stream stream = Stream.of("hello", "world", "hello world");
 
-        String[] myArray = new String[]{"hello", "world", "hello world"};
+		String[] myArray = new String[]{"hello", "world", "hello world"};
 
-        Stream stream1 = Stream.of(myArray);
+		Stream stream1 = Stream.of(myArray);
 
-        Stream stream2 = Arrays.stream(myArray);
+		Stream stream2 = Arrays.stream(myArray);
 
-        List<String> list = Arrays.asList(myArray);
+		List<String> list = Arrays.asList(myArray);
 
-        Stream stream3 = list.stream();
+		Stream stream3 = list.stream();
 
-    }
+	}
 }

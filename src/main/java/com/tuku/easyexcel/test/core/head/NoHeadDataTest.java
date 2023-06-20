@@ -12,43 +12,37 @@ import java.util.List;
 /**
  * @author Jiaju Zhuang
  */
-public class NoHeadDataTest
-{
+public class NoHeadDataTest {
 
-    private static File file07;
-    private static File file03;
+	private static File file07;
+	private static File file03;
 
-    @BeforeClass
-    public static void init()
-    {
-        file07 = TestFileUtil.createNewFile("noHead07.xlsx");
-        file03 = TestFileUtil.createNewFile("noHead03.xls");
-    }
+	@BeforeClass
+	public static void init() {
+		file07 = TestFileUtil.createNewFile("noHead07.xlsx");
+		file03 = TestFileUtil.createNewFile("noHead03.xls");
+	}
 
-    @Test
-    public void t01ReadAndWrite07()
-    {
-        readAndWrite(file07);
-    }
+	@Test
+	public void t01ReadAndWrite07() {
+		readAndWrite(file07);
+	}
 
-    @Test
-    public void t02ReadAndWrite03()
-    {
-        readAndWrite(file03);
-    }
+	@Test
+	public void t02ReadAndWrite03() {
+		readAndWrite(file03);
+	}
 
-    private void readAndWrite(File file)
-    {
-        EasyExcel.write(file, NoHeadData.class).needHead(Boolean.FALSE).sheet().doWrite(data());
-        EasyExcel.read(file, NoHeadData.class, new NoHeadDataListener()).headRowNumber(0).sheet().doRead();
-    }
+	private void readAndWrite(File file) {
+		EasyExcel.write(file, NoHeadData.class).needHead(Boolean.FALSE).sheet().doWrite(data());
+		EasyExcel.read(file, NoHeadData.class, new NoHeadDataListener()).headRowNumber(0).sheet().doRead();
+	}
 
-    private List<NoHeadData> data()
-    {
-        List<NoHeadData> list = new ArrayList<NoHeadData>();
-        NoHeadData data = new NoHeadData();
-        data.setString("字符串0");
-        list.add(data);
-        return list;
-    }
+	private List<NoHeadData> data() {
+		List<NoHeadData> list = new ArrayList<NoHeadData>();
+		NoHeadData data = new NoHeadData();
+		data.setString("字符串0");
+		list.add(data);
+		return list;
+	}
 }

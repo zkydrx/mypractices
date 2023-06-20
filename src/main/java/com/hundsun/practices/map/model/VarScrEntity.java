@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class VarScrEntity
-{
-    private String connectDpInterCode;
-    private String dpInterCode;
+public class VarScrEntity {
+	private String connectDpInterCode;
+	private String dpInterCode;
 }

@@ -23,121 +23,123 @@ import java.io.*;
 import java.util.*;
 
 public class ExternalSort {
-    private static final int MAX_MEMORY = 100000000; // 100MB
-    private static final int BUFFER_SIZE = MAX_MEMORY / 2;
+	private static final int MAX_MEMORY = 100000000; // 100MB
+	private static final int BUFFER_SIZE = MAX_MEMORY / 2;
 
-    public static void externalSort(File inputFile, File outputFile) throws IOException {
-        List<File> sortedFiles = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        int index = 0;
-        try {
-            while (true) {
-                List<Integer> list = new ArrayList<>();
-                int currentSize = 0;
+	public static void externalSort(File inputFile, File outputFile) throws IOException {
+		List<File> sortedFiles = new ArrayList<>();
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		int index = 0;
+		try {
+			while (true) {
+				List<Integer> list = new ArrayList<>();
+				int currentSize = 0;
 
-                while (currentSize < MAX_MEMORY) {
-                    String line = reader.readLine();
-                    if (line == null) {
-                        break;
-                    }
-                    int number = Integer.parseInt(line);
-                    list.add(number);
-                    currentSize += line.length();
-                }
+				while (currentSize < MAX_MEMORY) {
+					String line = reader.readLine();
+					if (line == null) {
+						break;
+					}
+					int number = Integer.parseInt(line);
+					list.add(number);
+					currentSize += line.length();
+				}
 
-                if (list.isEmpty()) {
-                    break;
-                }
+				if (list.isEmpty()) {
+					break;
+				}
 
-                Collections.sort(list);
-                File file = new File("sorted_file_" + index + ".dat");
-                writeNumbersToFile(list, file);
-                sortedFiles.add(file);
-                index++;
-            }
+				Collections.sort(list);
+				File file = new File("sorted_file_" + index + ".dat");
+				writeNumbersToFile(list, file);
+				sortedFiles.add(file);
+				index++;
+			}
 
-            mergeSortedFiles(sortedFiles, outputFile);
-        } finally {
-            reader.close();
-        }
-    }
+			mergeSortedFiles(sortedFiles, outputFile);
+		} finally {
+			reader.close();
+		}
+	}
 
-    private static void mergeSortedFiles(List<File> sortedFiles, File outputFile) throws IOException {
-        PriorityQueue<FileLine> priorityQueue = new PriorityQueue<>(new Comparator<FileLine>() {
-            @Override
-            public int compare(FileLine o1, FileLine o2) {
-                return o1.value - o2.value;
-            }
-        });
+	private static void mergeSortedFiles(List<File> sortedFiles, File outputFile) throws IOException {
+		PriorityQueue<FileLine> priorityQueue = new PriorityQueue<>(new Comparator<FileLine>() {
+			@Override
+			public int compare(FileLine o1, FileLine o2) {
+				return o1.value - o2.value;
+			}
+		});
 
-        List<BufferedReader> readers = new ArrayList<>();
-        for (File file : sortedFiles) {
-            BufferedReader reader = new BufferedReader(new FileReader(file), BUFFER_SIZE);
-            readers.add(reader);
+		List<BufferedReader> readers = new ArrayList<>();
+		for (File file : sortedFiles) {
+			BufferedReader reader = new BufferedReader(new FileReader(file), BUFFER_SIZE);
+			readers.add(reader);
 
-            String line = reader.readLine();
-            if (line != null) {
-                int number = Integer.parseInt(line);
-                priorityQueue.offer(new FileLine(number, reader));
-            }
-        }
+			String line = reader.readLine();
+			if (line != null) {
+				int number = Integer.parseInt(line);
+				priorityQueue.offer(new FileLine(number, reader));
+			}
+		}
 
-        writeSortedNumbersToFile(priorityQueue, readers, outputFile);
+		writeSortedNumbersToFile(priorityQueue, readers, outputFile);
 
-        for (BufferedReader reader : readers) {
-            reader.close();
-        }
+		for (BufferedReader reader : readers) {
+			reader.close();
+		}
 
-        for (File file : sortedFiles) {
-            file.delete();
-        }
-    }
+		for (File file : sortedFiles) {
+			file.delete();
+		}
+	}
 
-    private static void writeNumbersToFile(List<Integer> numbers, File outputFile) throws IOException {
-        DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile), BUFFER_SIZE));
+	private static void writeNumbersToFile(List<Integer> numbers, File outputFile) throws IOException {
+		DataOutputStream output = new DataOutputStream(
+				new BufferedOutputStream(new FileOutputStream(outputFile), BUFFER_SIZE));
 
-        try {
-            for (int number : numbers) {
-                output.writeInt(number);
-            }
-        } finally {
-            output.close();
-        }
-    }
+		try {
+			for (int number : numbers) {
+				output.writeInt(number);
+			}
+		} finally {
+			output.close();
+		}
+	}
 
-    private static void writeSortedNumbersToFile(PriorityQueue<FileLine> priorityQueue, List<BufferedReader> readers, File outputFile) throws IOException {
-        DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile), BUFFER_SIZE));
+	private static void writeSortedNumbersToFile(PriorityQueue<FileLine> priorityQueue, List<BufferedReader> readers,
+			File outputFile) throws IOException {
+		DataOutputStream output = new DataOutputStream(
+				new BufferedOutputStream(new FileOutputStream(outputFile), BUFFER_SIZE));
 
-        try {
-            while (!priorityQueue.isEmpty()) {
-                FileLine fileLine = priorityQueue.poll();
-                output.writeInt(fileLine.value);
+		try {
+			while (!priorityQueue.isEmpty()) {
+				FileLine fileLine = priorityQueue.poll();
+				output.writeInt(fileLine.value);
 
-                String line = fileLine.reader.readLine();
-                if (line != null) {
-                    int number = Integer.parseInt(line);
-                    priorityQueue.offer(new FileLine(number, fileLine.reader));
-                }
-            }
-        } finally {
-            output.close();
-        }
-    }
+				String line = fileLine.reader.readLine();
+				if (line != null) {
+					int number = Integer.parseInt(line);
+					priorityQueue.offer(new FileLine(number, fileLine.reader));
+				}
+			}
+		} finally {
+			output.close();
+		}
+	}
 
-    private static class FileLine {
-        int value;
-        BufferedReader reader;
+	private static class FileLine {
+		int value;
+		BufferedReader reader;
 
-        FileLine(int value, BufferedReader reader) {
-            this.value = value;
-            this.reader = reader;
-        }
-    }
+		FileLine(int value, BufferedReader reader) {
+			this.value = value;
+			this.reader = reader;
+		}
+	}
 
-    public static void main(String[] args) throws IOException {
-        File inputFile = new File("input.txt");
-        File outputFile = new File("output.txt");
-        externalSort(inputFile, outputFile);
-    }
+	public static void main(String[] args) throws IOException {
+		File inputFile = new File("input.txt");
+		File outputFile = new File("output.txt");
+		externalSort(inputFile, outputFile);
+	}
 }
-

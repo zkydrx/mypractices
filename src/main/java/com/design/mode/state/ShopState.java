@@ -3,26 +3,20 @@ package com.design.mode.state;
 /**
  * The parent class of state
  */
-public class ShopState implements IShopState
-{
-    public ShopState()
-    {
-    }
+public class ShopState implements IShopState {
+	public ShopState() {
+	}
 
-    public void shop()
-    {
-    }
+	public void shop() {
+	}
 
-    public void generateBill()
-    {
-    }
+	public void generateBill() {
+	}
 
-    public void pay()
-    {
-    }
+	public void pay() {
+	}
 
-    protected void changeState(ShopContext c, ShopState s)
-    {
-        c.changeState(s);
-    }
+	protected void changeState(ShopContext c, ShopState s) {
+		c.changeState(s);
+	}
 }

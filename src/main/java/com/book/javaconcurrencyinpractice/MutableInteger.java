@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
 
 /**
@@ -12,25 +11,14 @@ import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
  */
 
 @NotThreadSafe
-public class MutableInteger
-{
-    private int value;
+public class MutableInteger {
+	private int value;
 
-    public int get()
-    {
-        return value;
-    }
+	public int get() {
+		return value;
+	}
 
-    public void set(int value)
-    {
-        this.value = value;
-    }
+	public void set(int value) {
+		this.value = value;
+	}
 }
-
-
-
-
-
-
-
-

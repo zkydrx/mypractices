@@ -14,46 +14,41 @@ import java.util.List;
  *
  * @author Jiaju Zhuang
  */
-public class AnnotationIndexAndNameDataTest
-{
+public class AnnotationIndexAndNameDataTest {
 
-    private static File file07;
-    private static File file03;
+	private static File file07;
+	private static File file03;
 
-    @BeforeClass
-    public static void init()
-    {
-        file07 = TestFileUtil.createNewFile("annotationIndexAndName07.xlsx");
-        file03 = TestFileUtil.createNewFile("annotationIndexAndName03.xls");
-    }
+	@BeforeClass
+	public static void init() {
+		file07 = TestFileUtil.createNewFile("annotationIndexAndName07.xlsx");
+		file03 = TestFileUtil.createNewFile("annotationIndexAndName03.xls");
+	}
 
-    @Test
-    public void t01ReadAndWrite07()
-    {
-        readAndWrite(file07);
-    }
+	@Test
+	public void t01ReadAndWrite07() {
+		readAndWrite(file07);
+	}
 
-    @Test
-    public void t02ReadAndWrite03()
-    {
-        readAndWrite(file03);
-    }
+	@Test
+	public void t02ReadAndWrite03() {
+		readAndWrite(file03);
+	}
 
-    private void readAndWrite(File file)
-    {
-        EasyExcel.write(file, AnnotationIndexAndNameData.class).sheet().doWrite(data());
-        EasyExcel.read(file, AnnotationIndexAndNameData.class, new AnnotationIndexAndNameDataListener()).sheet().doRead();
-    }
+	private void readAndWrite(File file) {
+		EasyExcel.write(file, AnnotationIndexAndNameData.class).sheet().doWrite(data());
+		EasyExcel.read(file, AnnotationIndexAndNameData.class, new AnnotationIndexAndNameDataListener()).sheet()
+				.doRead();
+	}
 
-    private List<AnnotationIndexAndNameData> data()
-    {
-        List<AnnotationIndexAndNameData> list = new ArrayList<AnnotationIndexAndNameData>();
-        AnnotationIndexAndNameData data = new AnnotationIndexAndNameData();
-        data.setIndex0("第0个");
-        data.setIndex1("第1个");
-        data.setIndex2("第2个");
-        data.setIndex4("第4个");
-        list.add(data);
-        return list;
-    }
+	private List<AnnotationIndexAndNameData> data() {
+		List<AnnotationIndexAndNameData> list = new ArrayList<AnnotationIndexAndNameData>();
+		AnnotationIndexAndNameData data = new AnnotationIndexAndNameData();
+		data.setIndex0("第0个");
+		data.setIndex1("第1个");
+		data.setIndex2("第2个");
+		data.setIndex4("第4个");
+		list.add(data);
+		return list;
+	}
 }

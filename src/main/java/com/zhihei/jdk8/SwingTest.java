@@ -10,37 +10,35 @@ import java.awt.event.ActionListener;
  * @description
  */
 
-public class SwingTest
-{
+public class SwingTest {
 
-    public static void main(String[] args)
-    {
-        JFrame jFrame = new JFrame("My JFrame");
+	public static void main(String[] args) {
+		JFrame jFrame = new JFrame("My JFrame");
 
-        JButton jButton = new JButton("My JButton");
+		JButton jButton = new JButton("My JButton");
 
-        //        jButton.addActionListener(new ActionListener() {
-        //            @Override
-        //            public void actionPerformed(ActionEvent e) {
-        //                System.out.println("Btton Pressed");
-        //            }
-        //        });
+		// jButton.addActionListener(new ActionListener() {
+		// @Override
+		// public void actionPerformed(ActionEvent e) {
+		// System.out.println("Btton Pressed");
+		// }
+		// });
 
-        //        //使用lambda表达式
-        //        jButton.addActionListener((ActionEvent event)-> {
-        //            System.out.println("Btton Pressed lambda");
-        //            System.out.println("hello world");
-        //        });
+		// //使用lambda表达式
+		// jButton.addActionListener((ActionEvent event)-> {
+		// System.out.println("Btton Pressed lambda");
+		// System.out.println("hello world");
+		// });
 
-        //使用lambda表达式 简化
-        jButton.addActionListener(event -> {
-            System.out.println("Btton Pressed lambda");
-            System.out.println("hello world");
-        });
+		// 使用lambda表达式 简化
+		jButton.addActionListener(event -> {
+			System.out.println("Btton Pressed lambda");
+			System.out.println("hello world");
+		});
 
-        jFrame.add(jButton);
-        jFrame.pack();
-        jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+		jFrame.add(jButton);
+		jFrame.pack();
+		jFrame.setVisible(true);
+		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 }

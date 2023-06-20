@@ -18,13 +18,12 @@ import lombok.Data;
  * @DATE: 2021-11-23 10:28
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
 @Data
 @Builder
-public class DataType
-{
-    private String dataString;
-    private String dataType;
+public class DataType {
+	private String dataString;
+	private String dataType;
 }

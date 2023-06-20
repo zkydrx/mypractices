@@ -1,19 +1,15 @@
 package knowledgeable.review201803.designPatterns.Builder;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: Abbot
- * Date: 2018-03-20
- * Time: 11:45:56
+ * Created with IntelliJ IDEA. Author: Abbot Date: 2018-03-20 Time: 11:45:56
  * Description:
  */
-public interface Item
-{
-    public String name();
+public interface Item {
+	public String name();
 
-    public Packing packing();
+	public Packing packing();
 
-    public float price();
+	public float price();
 
-    float weight();
+	float weight();
 }

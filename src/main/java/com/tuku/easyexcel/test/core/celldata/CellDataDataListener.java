@@ -13,27 +13,24 @@ import java.util.List;
 /**
  * @author Jiaju Zhuang
  */
-public class CellDataDataListener extends AnalysisEventListener<CellDataData>
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(CellDataDataListener.class);
-    List<CellDataData> list = new ArrayList<CellDataData>();
+public class CellDataDataListener extends AnalysisEventListener<CellDataData> {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CellDataDataListener.class);
+	List<CellDataData> list = new ArrayList<CellDataData>();
 
-    @Override
-    public void invoke(CellDataData data, AnalysisContext context)
-    {
-        list.add(data);
-    }
+	@Override
+	public void invoke(CellDataData data, AnalysisContext context) {
+		list.add(data);
+	}
 
-    @Override
-    public void doAfterAllAnalysed(AnalysisContext context)
-    {
-        Assert.assertEquals(list.size(), 1);
-        CellDataData cellDataData = list.get(0);
+	@Override
+	public void doAfterAllAnalysed(AnalysisContext context) {
+		Assert.assertEquals(list.size(), 1);
+		CellDataData cellDataData = list.get(0);
 
-        Assert.assertEquals(cellDataData.getDate().getStringValue(), "2020年01月01日");
-        Assert.assertEquals((long) cellDataData.getInteger1().getData(), 2L);
-        Assert.assertEquals((long) cellDataData.getInteger2(), 2L);
-        Assert.assertEquals(cellDataData.getFormulaValue().getFormulaValue(), "B2+C2");
-        LOGGER.debug("First row:{}", JSON.toJSONString(list.get(0)));
-    }
+		Assert.assertEquals(cellDataData.getDate().getStringValue(), "2020年01月01日");
+		Assert.assertEquals((long) cellDataData.getInteger1().getData(), 2L);
+		Assert.assertEquals((long) cellDataData.getInteger2(), 2L);
+		Assert.assertEquals(cellDataData.getFormulaValue().getFormulaValue(), "B2+C2");
+		LOGGER.debug("First row:{}", JSON.toJSONString(list.get(0)));
+	}
 }

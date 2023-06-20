@@ -6,7 +6,6 @@ import lombok.Data;
  * @author Jiaju Zhuang
  */
 @Data
-public class MultipleSheetsData
-{
-    private String title;
+public class MultipleSheetsData {
+	private String title;
 }

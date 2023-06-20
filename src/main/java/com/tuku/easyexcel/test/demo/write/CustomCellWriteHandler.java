@@ -19,29 +19,21 @@ import java.util.List;
  *
  * @author Jiaju Zhuang
  */
-public class CustomCellWriteHandler extends AbstractCellWriteHandler
-{
+public class CustomCellWriteHandler extends AbstractCellWriteHandler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CustomCellWriteHandler.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomCellWriteHandler.class);
 
-    @Override
-    public void afterCellDispose(WriteSheetHolder writeSheetHolder,
-                                 WriteTableHolder writeTableHolder,
-                                 List<CellData> cellDataList,
-                                 Cell cell,
-                                 Head head,
-                                 Integer relativeRowIndex,
-                                 Boolean isHead)
-    {
-        // 这里可以对cell进行任何操作
-        LOGGER.info("第{}行，第{}列写入完成。", cell.getRowIndex(), cell.getColumnIndex());
-        if (isHead && cell.getColumnIndex() == 0)
-        {
-            CreationHelper createHelper = writeSheetHolder.getSheet().getWorkbook().getCreationHelper();
-            Hyperlink hyperlink = createHelper.createHyperlink(HyperlinkType.URL);
-            hyperlink.setAddress("https://github.com/alibaba/easyexcel");
-            cell.setHyperlink(hyperlink);
-        }
-    }
+	@Override
+	public void afterCellDispose(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder,
+			List<CellData> cellDataList, Cell cell, Head head, Integer relativeRowIndex, Boolean isHead) {
+		// 这里可以对cell进行任何操作
+		LOGGER.info("第{}行，第{}列写入完成。", cell.getRowIndex(), cell.getColumnIndex());
+		if (isHead && cell.getColumnIndex() == 0) {
+			CreationHelper createHelper = writeSheetHolder.getSheet().getWorkbook().getCreationHelper();
+			Hyperlink hyperlink = createHelper.createHyperlink(HyperlinkType.URL);
+			hyperlink.setAddress("https://github.com/alibaba/easyexcel");
+			cell.setHyperlink(hyperlink);
+		}
+	}
 
 }

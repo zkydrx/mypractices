@@ -1,57 +1,47 @@
 package com.design.atgg.spring.com.atguigu.spring.springmvc;
 
 ///定义一个Adapter接口 
-public interface HandlerAdapter
-{
-    public boolean supports(Object handler);
+public interface HandlerAdapter {
+	public boolean supports(Object handler);
 
-    public void handle(Object handler);
+	public void handle(Object handler);
 }
 
 // 多种适配器类
 
-class SimpleHandlerAdapter implements HandlerAdapter
-{
+class SimpleHandlerAdapter implements HandlerAdapter {
 
-    public void handle(Object handler)
-    {
-        ((SimpleController) handler).doSimplerHandler();
-    }
+	public void handle(Object handler) {
+		((SimpleController) handler).doSimplerHandler();
+	}
 
-    public boolean supports(Object handler)
-    {
-        return (handler instanceof SimpleController);
-    }
+	public boolean supports(Object handler) {
+		return (handler instanceof SimpleController);
+	}
 
 }
 
-class HttpHandlerAdapter implements HandlerAdapter
-{
+class HttpHandlerAdapter implements HandlerAdapter {
 
-    public void handle(Object handler)
-    {
-        ((HttpController) handler).doHttpHandler();
-    }
+	public void handle(Object handler) {
+		((HttpController) handler).doHttpHandler();
+	}
 
-    public boolean supports(Object handler)
-    {
-        return (handler instanceof HttpController);
-    }
+	public boolean supports(Object handler) {
+		return (handler instanceof HttpController);
+	}
 
 }
 
-class AnnotationHandlerAdapter implements HandlerAdapter
-{
+class AnnotationHandlerAdapter implements HandlerAdapter {
 
-    public void handle(Object handler)
-    {
-        ((AnnotationController) handler).doAnnotationHandler();
-    }
+	public void handle(Object handler) {
+		((AnnotationController) handler).doAnnotationHandler();
+	}
 
-    public boolean supports(Object handler)
-    {
+	public boolean supports(Object handler) {
 
-        return (handler instanceof AnnotationController);
-    }
+		return (handler instanceof AnnotationController);
+	}
 
 }

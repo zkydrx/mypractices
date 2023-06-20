@@ -3,24 +3,20 @@ package com.design.mode.builder;
 /*
  *  A house as a concrete product we got finally
  */
-public class House
-{
-    int roomNumber;
-    int doorNumber;
+public class House {
+	int roomNumber;
+	int doorNumber;
 
-    public House()
-    {
-        roomNumber = 0;
-        doorNumber = 0;
-    }
+	public House() {
+		roomNumber = 0;
+		doorNumber = 0;
+	}
 
-    public int getRoomNumber()
-    {
-        return roomNumber;
-    }
+	public int getRoomNumber() {
+		return roomNumber;
+	}
 
-    public int getDoorNumber()
-    {
-        return doorNumber;
-    }
+	public int getDoorNumber() {
+		return doorNumber;
+	}
 }

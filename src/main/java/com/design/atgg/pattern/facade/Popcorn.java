@@ -1,27 +1,22 @@
 package com.design.atgg.pattern.facade;
 
-public class Popcorn
-{
+public class Popcorn {
 
-    private static Popcorn instance = new Popcorn();
+	private static Popcorn instance = new Popcorn();
 
-    public static Popcorn getInstance()
-    {
-        return instance;
-    }
+	public static Popcorn getInstance() {
+		return instance;
+	}
 
-    public void on()
-    {
-        System.out.println(" popcorn on ");
-    }
+	public void on() {
+		System.out.println(" popcorn on ");
+	}
 
-    public void off()
-    {
-        System.out.println(" popcorn ff ");
-    }
+	public void off() {
+		System.out.println(" popcorn ff ");
+	}
 
-    public void pop()
-    {
-        System.out.println(" popcorn is poping  ");
-    }
+	public void pop() {
+		System.out.println(" popcorn is poping  ");
+	}
 }

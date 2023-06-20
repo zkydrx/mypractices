@@ -8,10 +8,9 @@ import lombok.Data;
  * @author Jiaju Zhuang
  */
 @Data
-public class CompatibilityData extends BaseRowModel
-{
-    @ExcelProperty("字符串标题0")
-    private String string0;
-    @ExcelProperty("字符串标题1")
-    private String string1;
+public class CompatibilityData extends BaseRowModel {
+	@ExcelProperty("字符串标题0")
+	private String string0;
+	@ExcelProperty("字符串标题1")
+	private String string1;
 }

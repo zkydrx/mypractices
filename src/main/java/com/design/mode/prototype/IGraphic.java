@@ -5,9 +5,8 @@ package com.design.mode.prototype;
 
 import java.io.*;
 
-public interface IGraphic extends Cloneable, Serializable
-{
-    public String getName();
+public interface IGraphic extends Cloneable, Serializable {
+	public String getName();
 
-    public void setName(String gName);
+	public void setName(String gName);
 }

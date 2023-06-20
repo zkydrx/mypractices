@@ -6,24 +6,20 @@ package com.zhihei.jdk8.optional;
  * @description 员工对象
  */
 
-public class Employee
-{
+public class Employee {
 
-    private String name;
+	private String name;
 
-    public String getName()
-    {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "Employee{" + "name='" + name + '\'' + '}';
-    }
+	@Override
+	public String toString() {
+		return "Employee{" + "name='" + name + '\'' + '}';
+	}
 }

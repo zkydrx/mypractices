@@ -8,16 +8,15 @@ import lombok.Data;
  * @author Jiaju Zhuang
  **/
 @Data
-public class LockData
-{
-    private String string0;
-    private String string1;
-    private String string2;
-    private String string3;
-    private String string4;
-    private String string5;
-    private String string6;
-    private String string7;
-    private String string8;
+public class LockData {
+	private String string0;
+	private String string1;
+	private String string2;
+	private String string3;
+	private String string4;
+	private String string5;
+	private String string6;
+	private String string7;
+	private String string8;
 
 }

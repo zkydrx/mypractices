@@ -38,159 +38,133 @@ import java.util.concurrent.TimeUnit;
  * 比较简单，但是由于抛出一个RuntimeException，因此会中断调用者的处理过程。除了抛出异常以外还可以
  * 不进入线程池执行，在这种方式（CallerRunsPolicy）中任务将有调用者线程去执行。
  */
-public class ExecutorDemo
-{
+public class ExecutorDemo {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public static void main(String[] args)
-    {
-        int corePoolSize = 1;
-        int maximumPoolSize = 1;
-        BlockingQueue queue = new ArrayBlockingQueue<Runnable>(1);
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0, TimeUnit.SECONDS, queue);
-        /**
-         * 1、直接丢弃（DiscardPolicy）
-         *
-         * 2019-11-09 16:28:48  main thread before sleep!!!
-         * 2019-11-09 16:28:48  pool-1-thread-1 begin run task :0
-         * 2019-11-09 16:28:49  pool-1-thread-1 finish run  task :0
-         * 2019-11-09 16:28:49  pool-1-thread-1 begin run task :1
-         * 2019-11-09 16:28:50  pool-1-thread-1 finish run  task :1
-         * 2019-11-09 16:28:52  before shutdown()
-         * 2019-11-09 16:28:52  after shutdown(),pool.isTerminated=false
-         * 2019-11-09 16:28:52  now,pool.isTerminated=true
-         *
-         * 从结果可以看出，只有task0和task1两个任务被执行了。
-         *
-         * 为什么只有task0和task1两个任务被执行了呢？
-         *
-         * 过程是这样的：由于我们的任务队列的容量为1.当task0正在执行的时候，task1被提交到了队列中但是还没有执行，
-         * 受队列容量的限制，submit提交的task2~task9就都被直接抛弃了。因此就只有task0和task1被执行了。
-         *
-         */
-        // pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
-        /**
-         * 2、丢弃队列中最老的任务(DiscardOldestPolicy)。
-         * 2019-11-09 16:29:41  main thread before sleep!!!
-         * 2019-11-09 16:29:41  pool-1-thread-1 begin run task :0
-         * 2019-11-09 16:29:42  pool-1-thread-1 finish run  task :0
-         * 2019-11-09 16:29:42  pool-1-thread-1 begin run task :9
-         * 2019-11-09 16:29:43  pool-1-thread-1 finish run  task :9
-         * 2019-11-09 16:29:45  before shutdown()
-         * 2019-11-09 16:29:45  after shutdown(),pool.isTerminated=false
-         * 2019-11-09 16:29:45  now,pool.isTerminated=true
-         *
-         * 从结果可以看出，只有task0和task9被执行了，由于线程依次递增依次是
-         * 0,1,2,3,4,5,6,7,8,9
-         * 首先线程0是正在执行过程中，其次本次才用的是丢弃队列中最老的任务，线程1,2,3,4,5,6,7,8都比9要老
-         * 由于最大的线程数量是1所以队列中只能存在一个线程进行等待中状态
-         */
-        // pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
-        /**
-         * 3、抛异常(AbortPolicy)
-         * 结果如下：
-         * Exception in thread "main" java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@2d98a335 rejected from java.util.concurrent
-         * .ThreadPoolExecutor@16b98e56[Running, pool size = 1, active threads = 1, queued tasks = 1, completed tasks = 0]
-         * 	at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2063)
-         * 	at java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:830)
-         * 	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1379)
-         * 	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:112)
-         * 	at com.zhihei.ThreadPool.rejection.ExecutorDemo.main(ExecutorDemo.java:97)
-         * 2019-11-09 16:34:09  pool-1-thread-1 begin run task :0
-         * 2019-11-09 16:34:10  pool-1-thread-1 finish run  task :0
-         * 2019-11-09 16:34:10  pool-1-thread-1 begin run task :1
-         * 2019-11-09 16:34:11  pool-1-thread-1 finish run  task :1
-         *
-         * 达到最大线程池数量时抛异常，线程阻塞住。
-         *
-         */
-        // pool.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+	public static void main(String[] args) {
+		int corePoolSize = 1;
+		int maximumPoolSize = 1;
+		BlockingQueue queue = new ArrayBlockingQueue<Runnable>(1);
+		ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0, TimeUnit.SECONDS, queue);
+		/**
+		 * 1、直接丢弃（DiscardPolicy）
+		 *
+		 * 2019-11-09 16:28:48 main thread before sleep!!! 2019-11-09 16:28:48
+		 * pool-1-thread-1 begin run task :0 2019-11-09 16:28:49 pool-1-thread-1 finish
+		 * run task :0 2019-11-09 16:28:49 pool-1-thread-1 begin run task :1 2019-11-09
+		 * 16:28:50 pool-1-thread-1 finish run task :1 2019-11-09 16:28:52 before
+		 * shutdown() 2019-11-09 16:28:52 after shutdown(),pool.isTerminated=false
+		 * 2019-11-09 16:28:52 now,pool.isTerminated=true
+		 *
+		 * 从结果可以看出，只有task0和task1两个任务被执行了。
+		 *
+		 * 为什么只有task0和task1两个任务被执行了呢？
+		 *
+		 * 过程是这样的：由于我们的任务队列的容量为1.当task0正在执行的时候，task1被提交到了队列中但是还没有执行，
+		 * 受队列容量的限制，submit提交的task2~task9就都被直接抛弃了。因此就只有task0和task1被执行了。
+		 *
+		 */
+		// pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+		/**
+		 * 2、丢弃队列中最老的任务(DiscardOldestPolicy)。 2019-11-09 16:29:41 main thread before
+		 * sleep!!! 2019-11-09 16:29:41 pool-1-thread-1 begin run task :0 2019-11-09
+		 * 16:29:42 pool-1-thread-1 finish run task :0 2019-11-09 16:29:42
+		 * pool-1-thread-1 begin run task :9 2019-11-09 16:29:43 pool-1-thread-1 finish
+		 * run task :9 2019-11-09 16:29:45 before shutdown() 2019-11-09 16:29:45 after
+		 * shutdown(),pool.isTerminated=false 2019-11-09 16:29:45
+		 * now,pool.isTerminated=true
+		 *
+		 * 从结果可以看出，只有task0和task9被执行了，由于线程依次递增依次是 0,1,2,3,4,5,6,7,8,9
+		 * 首先线程0是正在执行过程中，其次本次才用的是丢弃队列中最老的任务，线程1,2,3,4,5,6,7,8都比9要老
+		 * 由于最大的线程数量是1所以队列中只能存在一个线程进行等待中状态
+		 */
+		// pool.setRejectedExecutionHandler(new
+		// ThreadPoolExecutor.DiscardOldestPolicy());
+		/**
+		 * 3、抛异常(AbortPolicy) 结果如下： Exception in thread "main"
+		 * java.util.concurrent.RejectedExecutionException: Task
+		 * java.util.concurrent.FutureTask@2d98a335 rejected from java.util.concurrent
+		 * .ThreadPoolExecutor@16b98e56[Running, pool size = 1, active threads = 1,
+		 * queued tasks = 1, completed tasks = 0] at
+		 * java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2063)
+		 * at
+		 * java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:830)
+		 * at
+		 * java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1379)
+		 * at
+		 * java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:112)
+		 * at com.zhihei.ThreadPool.rejection.ExecutorDemo.main(ExecutorDemo.java:97)
+		 * 2019-11-09 16:34:09 pool-1-thread-1 begin run task :0 2019-11-09 16:34:10
+		 * pool-1-thread-1 finish run task :0 2019-11-09 16:34:10 pool-1-thread-1 begin
+		 * run task :1 2019-11-09 16:34:11 pool-1-thread-1 finish run task :1
+		 *
+		 * 达到最大线程池数量时抛异常，线程阻塞住。
+		 *
+		 */
+		// pool.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
 
-        /**
-         * 4、将任务分给调用线程来执行(CallerRunsPolicy)。
-         * 结果是：
-         * 2019-11-09 16:36:13  main begin run task :2
-         * 2019-11-09 16:36:13  pool-1-thread-1 begin run task :0
-         * 2019-11-09 16:36:14  main finish run  task :2
-         * 2019-11-09 16:36:14  main begin run task :3
-         * 2019-11-09 16:36:14  pool-1-thread-1 finish run  task :0
-         * 2019-11-09 16:36:14  pool-1-thread-1 begin run task :1
-         * 2019-11-09 16:36:15  main finish run  task :3
-         * 2019-11-09 16:36:15  main begin run task :5
-         * 2019-11-09 16:36:15  pool-1-thread-1 finish run  task :1
-         * 2019-11-09 16:36:15  pool-1-thread-1 begin run task :4
-         * 2019-11-09 16:36:16  main finish run  task :5
-         * 2019-11-09 16:36:16  main begin run task :7
-         * 2019-11-09 16:36:16  pool-1-thread-1 finish run  task :4
-         * 2019-11-09 16:36:16  pool-1-thread-1 begin run task :6
-         * 2019-11-09 16:36:17  main finish run  task :7
-         * 2019-11-09 16:36:17  pool-1-thread-1 finish run  task :6
-         * 2019-11-09 16:36:17  main begin run task :9
-         * 2019-11-09 16:36:17  pool-1-thread-1 begin run task :8
-         * 2019-11-09 16:36:18  pool-1-thread-1 finish run  task :8
-         * 2019-11-09 16:36:18  main finish run  task :9
-         * 2019-11-09 16:36:18  main thread before sleep!!!
-         * 2019-11-09 16:36:22  before shutdown()
-         * 2019-11-09 16:36:22  after shutdown(),pool.isTerminated=false
-         * 2019-11-09 16:36:22  now,pool.isTerminated=true
-         *
-         * 10个线程全部执行完毕，只有0,1线程是有新建的线程执行的，其他多余的线程交给调用者，也就是
-         * main线程继续完成任务。
-         */
-        pool.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
-        for (int i = 0; i < 10; i++)
-        {
-            final int index = i;
-            pool.submit(new Runnable()
-            {
+		/**
+		 * 4、将任务分给调用线程来执行(CallerRunsPolicy)。 结果是： 2019-11-09 16:36:13 main begin run
+		 * task :2 2019-11-09 16:36:13 pool-1-thread-1 begin run task :0 2019-11-09
+		 * 16:36:14 main finish run task :2 2019-11-09 16:36:14 main begin run task :3
+		 * 2019-11-09 16:36:14 pool-1-thread-1 finish run task :0 2019-11-09 16:36:14
+		 * pool-1-thread-1 begin run task :1 2019-11-09 16:36:15 main finish run task :3
+		 * 2019-11-09 16:36:15 main begin run task :5 2019-11-09 16:36:15
+		 * pool-1-thread-1 finish run task :1 2019-11-09 16:36:15 pool-1-thread-1 begin
+		 * run task :4 2019-11-09 16:36:16 main finish run task :5 2019-11-09 16:36:16
+		 * main begin run task :7 2019-11-09 16:36:16 pool-1-thread-1 finish run task :4
+		 * 2019-11-09 16:36:16 pool-1-thread-1 begin run task :6 2019-11-09 16:36:17
+		 * main finish run task :7 2019-11-09 16:36:17 pool-1-thread-1 finish run task
+		 * :6 2019-11-09 16:36:17 main begin run task :9 2019-11-09 16:36:17
+		 * pool-1-thread-1 begin run task :8 2019-11-09 16:36:18 pool-1-thread-1 finish
+		 * run task :8 2019-11-09 16:36:18 main finish run task :9 2019-11-09 16:36:18
+		 * main thread before sleep!!! 2019-11-09 16:36:22 before shutdown() 2019-11-09
+		 * 16:36:22 after shutdown(),pool.isTerminated=false 2019-11-09 16:36:22
+		 * now,pool.isTerminated=true
+		 *
+		 * 10个线程全部执行完毕，只有0,1线程是有新建的线程执行的，其他多余的线程交给调用者，也就是 main线程继续完成任务。
+		 */
+		pool.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+		for (int i = 0; i < 10; i++) {
+			final int index = i;
+			pool.submit(new Runnable() {
 
-                @Override
-                public void run()
-                {
-                    log(Thread.currentThread().getName() + " begin run task :" + index);
-                    try
-                    {
-                        Thread.sleep(1000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        e.printStackTrace();
-                    }
-                    log(Thread.currentThread().getName() + " finish run  task :" + index);
-                }
+				@Override
+				public void run() {
+					log(Thread.currentThread().getName() + " begin run task :" + index);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					log(Thread.currentThread().getName() + " finish run  task :" + index);
+				}
 
-            });
-        }
+			});
+		}
 
-        log("main thread before sleep!!!");
-        try
-        {
-            Thread.sleep(4000);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-        log("before shutdown()");
+		log("main thread before sleep!!!");
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		log("before shutdown()");
 
-        pool.shutdown();
+		pool.shutdown();
 
-        log("after shutdown(),pool.isTerminated=" + pool.isTerminated());
-        try
-        {
-            pool.awaitTermination(1000L, TimeUnit.SECONDS);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-        log("now,pool.isTerminated=" + pool.isTerminated());
-    }
+		log("after shutdown(),pool.isTerminated=" + pool.isTerminated());
+		try {
+			pool.awaitTermination(1000L, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		log("now,pool.isTerminated=" + pool.isTerminated());
+	}
 
-    protected static void log(String string)
-    {
-        System.out.println(sdf.format(new Date()) + "  " + string);
-    }
+	protected static void log(String string) {
+		System.out.println(sdf.format(new Date()) + "  " + string);
+	}
 
 }

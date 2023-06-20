@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Son
-{
-    private String name;
+public class Son {
+	private String name;
 }

@@ -5,17 +5,15 @@ package com.design.atgg.pattern.state;
  *
  * @author Administrator
  */
-public abstract class State
-{
+public abstract class State {
 
+	// 扣除积分 - 50
+	public abstract void deductMoney();
 
-    // 扣除积分 - 50
-    public abstract void deductMoney();
+	// 是否抽中奖品
+	public abstract boolean raffle();
 
-    // 是否抽中奖品
-    public abstract boolean raffle();
-
-    // 发放奖品
-    public abstract void dispensePrize();
+	// 发放奖品
+	public abstract void dispensePrize();
 
 }

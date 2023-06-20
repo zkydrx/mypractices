@@ -21,34 +21,31 @@ import java.io.IOException;
  * @author Jiaju Zhuang
  **/
 @Ignore
-public class PoiFormatTest
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(PoiFormatTest.class);
+public class PoiFormatTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PoiFormatTest.class);
 
-    @Test
-    public void lastRowNum() throws IOException
-    {
-        String file = "D:\\test\\原文件.xlsx";
-        SXSSFWorkbook xssfWorkbook = new SXSSFWorkbook(new XSSFWorkbook(file));
-        SXSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
-        LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
-        SXSSFRow row = xssfSheet.getRow(0);
-        LOGGER.info("第一行数据:{}", row);
-        xssfSheet.createRow(20);
-        LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
-    }
+	@Test
+	public void lastRowNum() throws IOException {
+		String file = "D:\\test\\原文件.xlsx";
+		SXSSFWorkbook xssfWorkbook = new SXSSFWorkbook(new XSSFWorkbook(file));
+		SXSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
+		LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
+		SXSSFRow row = xssfSheet.getRow(0);
+		LOGGER.info("第一行数据:{}", row);
+		xssfSheet.createRow(20);
+		LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
+	}
 
-    @Test
-    public void lastRowNumXSSF() throws IOException
-    {
-        String file = TestFileUtil.getPath() + "demo" + File.separator + "demo.xlsx";
-        XSSFWorkbook xssfWorkbook = new XSSFWorkbook(file);
-        LOGGER.info("一共:{}个sheet", xssfWorkbook.getNumberOfSheets());
-        XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
-        LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
-        XSSFRow row = xssfSheet.getRow(0);
-        LOGGER.info("第一行数据:{}", row);
-        xssfSheet.createRow(20);
-        LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
-    }
+	@Test
+	public void lastRowNumXSSF() throws IOException {
+		String file = TestFileUtil.getPath() + "demo" + File.separator + "demo.xlsx";
+		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(file);
+		LOGGER.info("一共:{}个sheet", xssfWorkbook.getNumberOfSheets());
+		XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
+		LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
+		XSSFRow row = xssfSheet.getRow(0);
+		LOGGER.info("第一行数据:{}", row);
+		xssfSheet.createRow(20);
+		LOGGER.info("一共行数:{}", xssfSheet.getLastRowNum());
+	}
 }

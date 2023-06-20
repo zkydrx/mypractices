@@ -8,9 +8,8 @@ import lombok.Data;
  * @author Jiaju Zhuang
  **/
 @Data
-public class JsonData
-{
-    private String SS1;
-    private String sS2;
-    private String ss3;
+public class JsonData {
+	private String SS1;
+	private String sS2;
+	private String ss3;
 }

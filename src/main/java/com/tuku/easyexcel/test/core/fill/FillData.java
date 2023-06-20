@@ -9,11 +9,10 @@ import lombok.Data;
  * @author Jiaju Zhuang
  */
 @Data
-public class FillData
-{
-    private String name;
-    @NumberFormat("#")
-    @ExcelProperty(converter = DoubleStringConverter.class)
-    private Double number;
-    private String empty;
+public class FillData {
+	private String name;
+	@NumberFormat("#")
+	@ExcelProperty(converter = DoubleStringConverter.class)
+	private Double number;
+	private String empty;
 }

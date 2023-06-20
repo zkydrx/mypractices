@@ -7,32 +7,25 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Abbot
- * Date: 2017-08-30
- * Time: 01:28
+ * Created with IntelliJ IDEA. User: Abbot Date: 2017-08-30 Time: 01:28
  * Description:
  */
-class FibonacciTest
-{
-    @BeforeEach
-    void setUp()
-    {
-        System.out.println("Starting...");
-    }
+class FibonacciTest {
+	@BeforeEach
+	void setUp() {
+		System.out.println("Starting...");
+	}
 
-    @AfterEach
-    void tearDown()
-    {
-        System.out.println("Ending...");
-    }
+	@AfterEach
+	void tearDown() {
+		System.out.println("Ending...");
+	}
 
-    @Test
-    void getFibonacciForN()
-    {
-        Fibonacci fibonacci = new Fibonacci();
-        List fibonacciForN = fibonacci.getFibonacciForN(10);
-        System.out.println(fibonacciForN);
-    }
+	@Test
+	void getFibonacciForN() {
+		Fibonacci fibonacci = new Fibonacci();
+		List fibonacciForN = fibonacci.getFibonacciForN(10);
+		System.out.println(fibonacciForN);
+	}
 
 }

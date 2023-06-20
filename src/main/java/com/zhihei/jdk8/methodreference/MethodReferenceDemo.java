@@ -9,16 +9,14 @@ import java.util.List;
  * @description
  */
 
-public class MethodReferenceDemo
-{
-    public static void main(String[] args)
-    {
-        List<String> list = Arrays.asList("hello", "world", "hello world");
+public class MethodReferenceDemo {
+	public static void main(String[] args) {
+		List<String> list = Arrays.asList("hello", "world", "hello world");
 
-        //lambda表达式
-        //list.forEach(item -> System.out.println(item));
+		// lambda表达式
+		// list.forEach(item -> System.out.println(item));
 
-        //方法引用
-        list.forEach(System.out::println);
-    }
+		// 方法引用
+		list.forEach(System.out::println);
+	}
 }

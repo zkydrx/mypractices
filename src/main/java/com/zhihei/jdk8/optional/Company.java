@@ -8,31 +8,26 @@ import java.util.List;
  * @description 公司对象
  */
 
-public class Company
-{
+public class Company {
 
-    private String name;
+	private String name;
 
-    private List<Employee> employees;
+	private List<Employee> employees;
 
-    public String getName()
-    {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public List<Employee> getEmployees()
-    {
-        return employees;
-    }
+	public List<Employee> getEmployees() {
+		return employees;
+	}
 
-    public void setEmployees(List<Employee> employees)
-    {
-        this.employees = employees;
-    }
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
 
 }

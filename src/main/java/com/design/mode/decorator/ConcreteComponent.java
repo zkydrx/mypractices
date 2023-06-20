@@ -5,14 +5,11 @@ package com.design.mode.decorator;
 
 import java.io.*;
 
-public class ConcreteComponent implements Component
-{
-    public ConcreteComponent()
-    {
-    }
+public class ConcreteComponent implements Component {
+	public ConcreteComponent() {
+	}
 
-    public void PrintString(String s)
-    {
-        System.out.println("Input String is:" + s);
-    }
+	public void PrintString(String s) {
+		System.out.println("Input String is:" + s);
+	}
 }

@@ -1,13 +1,9 @@
 package knowledgeable.review201803.designPatterns.abstractFactory;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: Abbot
- * Date: 2018-03-19
- * Time: 15:09:19
+ * Created with IntelliJ IDEA. Author: Abbot Date: 2018-03-19 Time: 15:09:19
  * Description:
  */
-public interface Shape
-{
-    void create();
+public interface Shape {
+	void create();
 }

@@ -1,6 +1,5 @@
 package com.book.javaconcurrencyinpractice;
 
-
 import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
 
 /**
@@ -12,19 +11,15 @@ import com.book.javaconcurrencyinpractice.annotations.NotThreadSafe;
  */
 
 @NotThreadSafe
-public class LazyInitRace
-{
-    private ExpensiveObject instance = null;
+public class LazyInitRace {
+	private ExpensiveObject instance = null;
 
-    public ExpensiveObject getInstance()
-    {
-        if (instance == null)
-            instance = new ExpensiveObject();
-        return instance;
-    }
+	public ExpensiveObject getInstance() {
+		if (instance == null)
+			instance = new ExpensiveObject();
+		return instance;
+	}
 }
 
-class ExpensiveObject
-{
+class ExpensiveObject {
 }
-

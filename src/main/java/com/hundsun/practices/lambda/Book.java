@@ -19,14 +19,13 @@ import lombok.NoArgsConstructor;
  * @DATE: 2021-06-02 19:46
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book
-{
-    private Integer releaseYear;
-    private String name;
+public class Book {
+	private Integer releaseYear;
+	private String name;
 }

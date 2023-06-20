@@ -8,15 +8,14 @@ package com.design.mode.observer;
 
 import java.util.*;
 
-public interface Subject
-{
-    public abstract void attach(Observer o);
+public interface Subject {
+	public abstract void attach(Observer o);
 
-    public abstract void detach(Observer o);
+	public abstract void detach(Observer o);
 
-    public abstract void sendNotify();
+	public abstract void sendNotify();
 
-    public abstract Vector getState();
+	public abstract Vector getState();
 
-    public abstract void setState(String act, String str);
+	public abstract void setState(String act, String str);
 }

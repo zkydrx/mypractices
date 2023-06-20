@@ -11,12 +11,11 @@ import java.util.Date;
  * @author Jiaju Zhuang
  **/
 @Data
-public class DownloadData
-{
-    @ExcelProperty("字符串标题")
-    private String string;
-    @ExcelProperty("日期标题")
-    private Date date;
-    @ExcelProperty("数字标题")
-    private Double doubleData;
+public class DownloadData {
+	@ExcelProperty("字符串标题")
+	private String string;
+	@ExcelProperty("日期标题")
+	private Date date;
+	@ExcelProperty("数字标题")
+	private Double doubleData;
 }

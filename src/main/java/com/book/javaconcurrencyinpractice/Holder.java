@@ -7,18 +7,15 @@ package com.book.javaconcurrencyinpractice;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class Holder
-{
-    private int n;
+public class Holder {
+	private int n;
 
-    public Holder(int n)
-    {
-        this.n = n;
-    }
+	public Holder(int n) {
+		this.n = n;
+	}
 
-    public void assertSanity()
-    {
-        if (n != n)
-            throw new AssertionError("This statement is false.");
-    }
+	public void assertSanity() {
+		if (n != n)
+			throw new AssertionError("This statement is false.");
+	}
 }

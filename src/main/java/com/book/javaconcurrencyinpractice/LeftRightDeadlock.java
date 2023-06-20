@@ -7,38 +7,29 @@ package com.book.javaconcurrencyinpractice;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class LeftRightDeadlock
-{
-    private final Object left = new Object();
-    private final Object right = new Object();
+public class LeftRightDeadlock {
+	private final Object left = new Object();
+	private final Object right = new Object();
 
-    public void leftRight()
-    {
-        synchronized (left)
-        {
-            synchronized (right)
-            {
-                doSomething();
-            }
-        }
-    }
+	public void leftRight() {
+		synchronized (left) {
+			synchronized (right) {
+				doSomething();
+			}
+		}
+	}
 
-    public void rightLeft()
-    {
-        synchronized (right)
-        {
-            synchronized (left)
-            {
-                doSomethingElse();
-            }
-        }
-    }
+	public void rightLeft() {
+		synchronized (right) {
+			synchronized (left) {
+				doSomethingElse();
+			}
+		}
+	}
 
-    void doSomething()
-    {
-    }
+	void doSomething() {
+	}
 
-    void doSomethingElse()
-    {
-    }
+	void doSomethingElse() {
+	}
 }

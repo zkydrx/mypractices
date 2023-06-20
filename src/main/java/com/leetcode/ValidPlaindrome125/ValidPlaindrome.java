@@ -5,123 +5,100 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: Abbot
- * Date: 2018-03-22
- * Time: 10:36:05
- * Description:
- * 125. Valid Palindrome
+ * Created with IntelliJ IDEA. Author: Abbot Date: 2018-03-22 Time: 10:36:05
+ * Description: 125. Valid Palindrome
  * <p>
  * <p>
- * Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+ * Given a string, determine if it is a palindrome, considering only
+ * alphanumeric characters and ignoring cases.
  * <p>
- * For example,
- * "A man, a plan, a canal: Panama" is a palindrome.
- * "race a car" is not a palindrome.
+ * For example, "A man, a plan, a canal: Panama" is a palindrome. "race a car"
+ * is not a palindrome.
  * <p>
- * Note:
- * Have you consider that the string might be empty? This is a good question to ask during an interview.
+ * Note: Have you consider that the string might be empty? This is a good
+ * question to ask during an interview.
  * <p>
  * For the purpose of this problem, we define empty string as valid palindrome.
  */
-public class ValidPlaindrome
-{
-    public boolean isPalindrome(String s)
-    {
-        /**
-         * if s = "" and the result is true
-         * so I remove the s.length()=0
-         */
-        if (s == null)
-        {
-            return false;
-        }
+public class ValidPlaindrome {
+	public boolean isPalindrome(String s) {
+		/**
+		 * if s = "" and the result is true so I remove the s.length()=0
+		 */
+		if (s == null) {
+			return false;
+		}
 
-        s = regexStringTwo(s);
-        for (int i = 0; i < s.length(); i++)
-        {
-            if (s.charAt(i) != s.charAt(s.length() - 1 - i))
-            {
-                return false;
-            }
-        }
+		s = regexStringTwo(s);
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+				return false;
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    /**
-     * format the string to that has only character and number.
-     *
-     * @param s
-     * @return
-     */
-    public String regexStringOne(String s)
-    {
-        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        System.out.println(s);
-        return s;
-    }
+	/**
+	 * format the string to that has only character and number.
+	 *
+	 * @param s
+	 * @return
+	 */
+	public String regexStringOne(String s) {
+		s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+		System.out.println(s);
+		return s;
+	}
 
-    /**
-     * format the string to that only has number and character.
-     *
-     * @param s
-     * @return
-     */
-    public String regexStringTwo(String s)
-    {
-        String regex = "[^a-zA-Z0-9]";
-        Pattern compile = Pattern.compile(regex);
-        Matcher matcher = compile.matcher(s);
-        if (matcher.find())
-        {
-            s = matcher.replaceAll("");
-        }
-        return s;
+	/**
+	 * format the string to that only has number and character.
+	 *
+	 * @param s
+	 * @return
+	 */
+	public String regexStringTwo(String s) {
+		String regex = "[^a-zA-Z0-9]";
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(s);
+		if (matcher.find()) {
+			s = matcher.replaceAll("");
+		}
+		return s;
 
-    }
+	}
 
+	public boolean isPalindromeTwo(String s) {
+		s = s.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
+		int len = s.length();
+		if (len < 2) {
+			return true;
+		}
 
-    public boolean isPalindromeTwo(String s)
-    {
-        s = s.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
-        int len = s.length();
-        if (len < 2)
-        {
-            return true;
-        }
+		Stack<Character> stack = new Stack<>();
+		int index = 0;
+		while (index < len / 2) {
+			stack.push(s.charAt(index));
+			index++;
+		}
 
-        Stack<Character> stack = new Stack<>();
-        int index = 0;
-        while (index < len / 2)
-        {
-            stack.push(s.charAt(index));
-            index++;
-        }
+		if (len % 2 == 0) {
+			index++;
+		}
 
-        if (len % 2 == 0)
-        {
-            index++;
-        }
+		while (index < len) {
+			if (stack.empty()) {
+				return false;
+			}
+			char temp = stack.pop();
+			if (s.charAt(index) != temp) {
+				return false;
+			} else {
+				index++;
+			}
 
-        while (index < len)
-        {
-            if (stack.empty())
-            {
-                return false;
-            }
-            char temp = stack.pop();
-            if (s.charAt(index) != temp)
-            {
-                return false;
-            }
-            else
-            {
-                index++;
-            }
-
-        }
-        return true;
-    }
+		}
+		return true;
+	}
 
 }

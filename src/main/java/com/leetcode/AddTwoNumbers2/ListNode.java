@@ -17,33 +17,28 @@ import lombok.Data;
  * @DATE: 2021-07-28 00:38
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
 @Data
-public class ListNode
-{
-    int val;
-    ListNode next;
+public class ListNode {
+	int val;
+	ListNode next;
 
-    ListNode()
-    {
-    }
+	ListNode() {
+	}
 
-    ListNode(int val)
-    {
-        this.val = val;
-    }
+	ListNode(int val) {
+		this.val = val;
+	}
 
-    ListNode(int val, ListNode next)
-    {
-        this.val = val;
-        this.next = next;
-    }
+	ListNode(int val, ListNode next) {
+		this.val = val;
+		this.next = next;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "ListNode{" + "val=" + val + ", next=" + next + '}';
-    }
+	@Override
+	public String toString() {
+		return "ListNode{" + "val=" + val + ", next=" + next + '}';
+	}
 }

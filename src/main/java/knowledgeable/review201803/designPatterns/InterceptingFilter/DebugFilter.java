@@ -1,18 +1,13 @@
 package knowledgeable.review201803.designPatterns.InterceptingFilter;
 
 /**
- * Created with IntelliJ IDEA.
- * Author: Abbot
- * Date: 2018-03-21
- * Time: 13:28:50
+ * Created with IntelliJ IDEA. Author: Abbot Date: 2018-03-21 Time: 13:28:50
  * Description:
  */
-public class DebugFilter implements Filter
-{
+public class DebugFilter implements Filter {
 
-    @Override
-    public void execute(String request)
-    {
-        System.out.println("request log: " + request);
-    }
+	@Override
+	public void execute(String request) {
+		System.out.println("request log: " + request);
+	}
 }

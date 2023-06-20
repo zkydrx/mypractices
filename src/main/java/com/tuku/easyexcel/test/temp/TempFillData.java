@@ -8,8 +8,7 @@ import lombok.Data;
  */
 @Data
 @ContentRowHeight(30)
-public class TempFillData
-{
-    private String name;
-    private double number;
+public class TempFillData {
+	private String name;
+	private double number;
 }

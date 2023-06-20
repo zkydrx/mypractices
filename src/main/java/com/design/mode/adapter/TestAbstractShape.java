@@ -5,17 +5,15 @@ package com.design.mode.adapter;
  *
  * @author Administrator
  */
-public class TestAbstractShape
-{
-    public static void main(String[] args)
-    {
-        Shape source1 = new Shape1();
-        Shape source2 = new Shape2();
+public class TestAbstractShape {
+	public static void main(String[] args) {
+		Shape source1 = new Shape1();
+		Shape source2 = new Shape2();
 
-        source1.Draw();
-        source1.Border();
-        source2.Draw();
-        source2.Border();
-    }
+		source1.Draw();
+		source1.Border();
+		source2.Draw();
+		source2.Border();
+	}
 
 }

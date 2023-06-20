@@ -16,73 +16,63 @@ import java.util.List;
  * @author Jiaju Zhuang
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SimpleDataTest
-{
+public class SimpleDataTest {
 
-    private static File file07;
-    private static File file03;
+	private static File file07;
+	private static File file03;
 
-    @BeforeClass
-    public static void init()
-    {
-        file07 = TestFileUtil.createNewFile("simple07.xlsx");
-        file03 = TestFileUtil.createNewFile("simple03.xls");
-    }
+	@BeforeClass
+	public static void init() {
+		file07 = TestFileUtil.createNewFile("simple07.xlsx");
+		file03 = TestFileUtil.createNewFile("simple03.xls");
+	}
 
-    @Test
-    public void t01ReadAndWrite07()
-    {
-        readAndWrite(file07);
-    }
+	@Test
+	public void t01ReadAndWrite07() {
+		readAndWrite(file07);
+	}
 
-    @Test
-    public void t02ReadAndWrite03()
-    {
-        readAndWrite(file03);
-    }
+	@Test
+	public void t02ReadAndWrite03() {
+		readAndWrite(file03);
+	}
 
-    private void readAndWrite(File file)
-    {
-        EasyExcel.write(file, SimpleData.class).sheet().doWrite(data());
-        EasyExcel.read(file, SimpleData.class, new SimpleDataListener()).sheet().doRead();
-    }
+	private void readAndWrite(File file) {
+		EasyExcel.write(file, SimpleData.class).sheet().doWrite(data());
+		EasyExcel.read(file, SimpleData.class, new SimpleDataListener()).sheet().doRead();
+	}
 
-    @Test
-    public void t03SynchronousRead07()
-    {
-        synchronousRead(file07);
-    }
+	@Test
+	public void t03SynchronousRead07() {
+		synchronousRead(file07);
+	}
 
-    @Test
-    public void t04SynchronousRead03()
-    {
-        synchronousRead(file03);
-    }
+	@Test
+	public void t04SynchronousRead03() {
+		synchronousRead(file03);
+	}
 
-    @Test
-    public void t05SheetNameRead07()
-    {
-        EasyExcel.read(TestFileUtil.readFile("simple" + File.separator + "simple07.xlsx"), SimpleData.class, new SimpleDataSheetNameListener()).sheet("simple").doRead();
-    }
+	@Test
+	public void t05SheetNameRead07() {
+		EasyExcel.read(TestFileUtil.readFile("simple" + File.separator + "simple07.xlsx"), SimpleData.class,
+				new SimpleDataSheetNameListener()).sheet("simple").doRead();
+	}
 
-    private void synchronousRead(File file)
-    {
-        // Synchronous read file
-        List<Object> list = EasyExcel.read(file).head(SimpleData.class).sheet().doReadSync();
-        Assert.assertEquals(list.size(), 10);
-        Assert.assertTrue(list.get(0) instanceof SimpleData);
-        Assert.assertEquals(((SimpleData) list.get(0)).getName(), "姓名0");
-    }
+	private void synchronousRead(File file) {
+		// Synchronous read file
+		List<Object> list = EasyExcel.read(file).head(SimpleData.class).sheet().doReadSync();
+		Assert.assertEquals(list.size(), 10);
+		Assert.assertTrue(list.get(0) instanceof SimpleData);
+		Assert.assertEquals(((SimpleData) list.get(0)).getName(), "姓名0");
+	}
 
-    private List<SimpleData> data()
-    {
-        List<SimpleData> list = new ArrayList<SimpleData>();
-        for (int i = 0; i < 10; i++)
-        {
-            SimpleData simpleData = new SimpleData();
-            simpleData.setName("姓名" + i);
-            list.add(simpleData);
-        }
-        return list;
-    }
+	private List<SimpleData> data() {
+		List<SimpleData> list = new ArrayList<SimpleData>();
+		for (int i = 0; i < 10; i++) {
+			SimpleData simpleData = new SimpleData();
+			simpleData.setName("姓名" + i);
+			list.add(simpleData);
+		}
+		return list;
+	}
 }

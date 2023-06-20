@@ -1,28 +1,22 @@
 package com.lintcode.www.Tree;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Abbot
- * Date: 2017-09-14
- * Time: 14:44
+ * Created with IntelliJ IDEA. User: Abbot Date: 2017-09-14 Time: 14:44
  * Description:
  */
-public class TreeNode
-{
+public class TreeNode {
 
-    int value;
+	int value;
 
-    public TreeNode(int value)
-    {
-        this.value = value;
-    }
+	public TreeNode(int value) {
+		this.value = value;
+	}
 
-    TreeNode left = null;
-    TreeNode right = null;
+	TreeNode left = null;
+	TreeNode right = null;
 
-    @Override
-    public String toString()
-    {
-        return "TreeNode{" + "value=" + value + ", left=" + left + ", right=" + right + '}';
-    }
+	@Override
+	public String toString() {
+		return "TreeNode{" + "value=" + value + ", left=" + left + ", right=" + right + '}';
+	}
 }

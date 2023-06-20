@@ -9,15 +9,13 @@ import java.util.List;
  * @description
  */
 
-public class SteamTest11
-{
+public class SteamTest11 {
 
-    public static void main(String[] args)
-    {
-        List<String> list = Arrays.asList("hello welcome", "world hello", "hello world hello", "hello welcome");
+	public static void main(String[] args) {
+		List<String> list = Arrays.asList("hello welcome", "world hello", "hello world hello", "hello welcome");
 
-        //所有单词去重
-        list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct().forEach(System.out::println);
-        //重点flatMap(Arrays::stream)打平
-    }
+		// 所有单词去重
+		list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct().forEach(System.out::println);
+		// 重点flatMap(Arrays::stream)打平
+	}
 }

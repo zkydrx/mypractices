@@ -14,23 +14,20 @@ import java.util.List;
 /**
  * @author Jiaju Zhuang
  */
-public class CompatibilityDataListener extends AnalysisEventListener<List<String>>
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(AnnotationDataListener.class);
-    List<List<String>> list = new ArrayList<List<String>>();
+public class CompatibilityDataListener extends AnalysisEventListener<List<String>> {
+	private static final Logger LOGGER = LoggerFactory.getLogger(AnnotationDataListener.class);
+	List<List<String>> list = new ArrayList<List<String>>();
 
-    @Override
-    public void invoke(List<String> data, AnalysisContext context)
-    {
-        list.add(data);
-    }
+	@Override
+	public void invoke(List<String> data, AnalysisContext context) {
+		list.add(data);
+	}
 
-    @Override
-    public void doAfterAllAnalysed(AnalysisContext context)
-    {
-        Assert.assertEquals(list.size(), 10);
-        List<String> data = list.get(0);
-        Assert.assertEquals(data.get(0), "字符串00");
-        LOGGER.debug("First row:{}", JSON.toJSONString(list.get(0)));
-    }
+	@Override
+	public void doAfterAllAnalysed(AnalysisContext context) {
+		Assert.assertEquals(list.size(), 10);
+		List<String> data = list.get(0);
+		Assert.assertEquals(data.get(0), "字符串00");
+		LOGGER.debug("First row:{}", JSON.toJSONString(list.get(0)));
+	}
 }

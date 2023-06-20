@@ -8,31 +8,30 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class CommonKey
-{
-    private static final long serialVersionUID = 2725047539548917964L;
+public class CommonKey {
+	private static final long serialVersionUID = 2725047539548917964L;
 
-    private String investmentAccountCode;
+	private String investmentAccountCode;
 
-    private String dpInterCode;
+	private String dpInterCode;
 
-    private String dpLsDirection;
+	private String dpLsDirection;
 
-    private String dpTurnoverType;
+	private String dpTurnoverType;
 
-    private String dpInvestmentType;
+	private String dpInvestmentType;
 
-    private Integer expireSettleDate;
+	private Integer expireSettleDate;
 
-    private Integer hqDate;
+	private Integer hqDate;
 
-    private Integer changeDate;
+	private Integer changeDate;
 
-    private Integer stopBeginDate;
+	private Integer stopBeginDate;
 
-    private Integer stopTime;
+	private Integer stopTime;
 
-    private Integer navDate;
+	private Integer navDate;
 
-    private Integer publishDate;
+	private Integer publishDate;
 }

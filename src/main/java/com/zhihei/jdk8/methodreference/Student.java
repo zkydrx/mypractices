@@ -6,59 +6,49 @@ package com.zhihei.jdk8.methodreference;
  * @description
  */
 
-public class Student
-{
+public class Student {
 
-    private String name;
+	private String name;
 
-    private int score;
+	private int score;
 
-    public static int compareStudentByScore(Student student1, Student student2)
-    {
+	public static int compareStudentByScore(Student student1, Student student2) {
 
-        return student1.getScore() - student2.getScore();
-    }
+		return student1.getScore() - student2.getScore();
+	}
 
-    public static int compareStudentByName(Student student1, Student student2)
-    {
+	public static int compareStudentByName(Student student1, Student student2) {
 
-        return student1.getName().compareToIgnoreCase(student2.getName());//不区分大小写 按照字符串的大小排序
-    }
+		return student1.getName().compareToIgnoreCase(student2.getName());// 不区分大小写 按照字符串的大小排序
+	}
 
-    //正确的设计
-    public int compareByScore(Student student)
-    {
-        return this.getScore() - student.getScore();
-    }
+	// 正确的设计
+	public int compareByScore(Student student) {
+		return this.getScore() - student.getScore();
+	}
 
-    public int compareSByName(Student student)
-    {
-        return this.getName().compareToIgnoreCase(student.getName());
-    }
+	public int compareSByName(Student student) {
+		return this.getName().compareToIgnoreCase(student.getName());
+	}
 
-    public Student(String name, int score)
-    {
-        this.name = name;
-        this.score = score;
-    }
+	public Student(String name, int score) {
+		this.name = name;
+		this.score = score;
+	}
 
-    public String getName()
-    {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getScore()
-    {
-        return score;
-    }
+	public int getScore() {
+		return score;
+	}
 
-    public void setScore(int score)
-    {
-        this.score = score;
-    }
+	public void setScore(int score) {
+		this.score = score;
+	}
 }

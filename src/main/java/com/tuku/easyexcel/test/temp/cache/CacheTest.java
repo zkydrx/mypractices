@@ -22,37 +22,31 @@ import java.util.UUID;
  * @author Jiaju Zhuang
  **/
 @Ignore
-public class CacheTest
-{
-    private static final Logger LOGGER = LoggerFactory.getLogger(Poi2Test.class);
+public class CacheTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Poi2Test.class);
 
-    @Test
-    public void cache() throws Exception
-    {
+	@Test
+	public void cache() throws Exception {
 
-        File readTempFile = FileUtils.createCacheTmpFile();
+		File readTempFile = FileUtils.createCacheTmpFile();
 
-        File cacheFile = new File(readTempFile.getPath(), UUID.randomUUID().toString());
-        PersistentCacheManager persistentCacheManager = CacheManagerBuilder.newCacheManagerBuilder()
-                                                                           .with(CacheManagerBuilder.persistence(cacheFile))
-                                                                           .withCache("cache",
-                                                                                      CacheConfigurationBuilder.newCacheConfigurationBuilder(Integer.class,
-                                                                                                                                             HashMap.class,
-                                                                                                                                             ResourcePoolsBuilder.newResourcePoolsBuilder()
-                                                                                                                                                                 .disk(10,
-                                                                                                                                                                       MemoryUnit.GB)))
-                                                                           .build(true);
-        Cache<Integer, HashMap> cache = persistentCacheManager.getCache("cache", Integer.class, HashMap.class);
+		File cacheFile = new File(readTempFile.getPath(), UUID.randomUUID().toString());
+		PersistentCacheManager persistentCacheManager = CacheManagerBuilder.newCacheManagerBuilder()
+				.with(CacheManagerBuilder.persistence(cacheFile))
+				.withCache("cache", CacheConfigurationBuilder.newCacheConfigurationBuilder(Integer.class, HashMap.class,
+						ResourcePoolsBuilder.newResourcePoolsBuilder().disk(10, MemoryUnit.GB)))
+				.build(true);
+		Cache<Integer, HashMap> cache = persistentCacheManager.getCache("cache", Integer.class, HashMap.class);
 
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
-        map.put(1, "test");
+		HashMap<Integer, String> map = new HashMap<Integer, String>();
+		map.put(1, "test");
 
-        cache.put(1, map);
-        LOGGER.info("dd1:{}", JSON.toJSONString(cache.get(1)));
+		cache.put(1, map);
+		LOGGER.info("dd1:{}", JSON.toJSONString(cache.get(1)));
 
-        cache.clear();
+		cache.clear();
 
-        LOGGER.info("dd2:{}", JSON.toJSONString(cache.get(1)));
-    }
+		LOGGER.info("dd2:{}", JSON.toJSONString(cache.get(1)));
+	}
 
 }

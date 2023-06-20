@@ -18,59 +18,51 @@ import java.util.List;
  * @DATE: 2021-05-23 02:34
  * @SINCE:
  * @Version: 1.0
- * <p>
- * Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
+ *           <p>
+ *           Copyright © 2021 Hundsun Technologies Inc. All Rights Reserved
  **/
-public class Company extends Organization
-{
-    List<Organization> departmentList = new ArrayList<>();
+public class Company extends Organization {
+	List<Organization> departmentList = new ArrayList<>();
 
-    public Company(String name, String desc)
-    {
-        super(name, desc);
-    }
+	public Company(String name, String desc) {
+		super(name, desc);
+	}
 
-    @Override
-    void print()
-    {
-        System.out.println("-----------------------------" + getName() + "--------------------------");
-        for (Organization organization1 : departmentList)
-        {
-           organization1.print();
-        }
-    }
+	@Override
+	void print() {
+		System.out.println("-----------------------------" + getName() + "--------------------------");
+		for (Organization organization1 : departmentList) {
+			organization1.print();
+		}
+	}
 
-    /**
-     * 添加组织
-     *
-     * @param organization
-     */
-    @Override
-    protected void add(Organization organization)
-    {
-        departmentList.add(organization);
-    }
+	/**
+	 * 添加组织
+	 *
+	 * @param organization
+	 */
+	@Override
+	protected void add(Organization organization) {
+		departmentList.add(organization);
+	}
 
-    @Override
-    public String getName()
-    {
-        return super.getName();
-    }
+	@Override
+	public String getName() {
+		return super.getName();
+	}
 
-    /**
-     * 删除组织
-     *
-     * @param organization
-     */
-    @Override
-    protected void remove(Organization organization)
-    {
-        departmentList.remove(organization);
-    }
+	/**
+	 * 删除组织
+	 *
+	 * @param organization
+	 */
+	@Override
+	protected void remove(Organization organization) {
+		departmentList.remove(organization);
+	}
 
-    @Override
-    public String getDesc()
-    {
-        return super.getDesc();
-    }
+	@Override
+	public String getDesc() {
+		return super.getDesc();
+	}
 }

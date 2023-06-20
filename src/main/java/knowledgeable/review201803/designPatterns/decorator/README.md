@@ -25,7 +25,8 @@
 
 注意事项：可代替继承。
 
-实现 我们将创建一个 Shape 接口和实现了 Shape 接口的实体类。然后我们创建一个实现了 Shape 接口的抽象装饰类 ShapeDecorator，并把 Shape 对象作为它的实例变量。
+实现 我们将创建一个 Shape 接口和实现了 Shape 接口的实体类。然后我们创建一个实现了 Shape 接口的抽象装饰类
+ShapeDecorator，并把 Shape 对象作为它的实例变量。
 
 RedShapeDecorator 是实现了 ShapeDecorator 的实体类。
 
@@ -67,7 +68,8 @@ public RedShapeDecorator(Shape decoratedShape) { super(decoratedShape);
 @Override public void draw() { decoratedShape.draw();           
 setRedBorder(decoratedShape); }
 
-private void setRedBorder(Shape decoratedShape){ System.out.println("Border Color: Red"); } } 步骤 5 使用 RedShapeDecorator
+private void setRedBorder(Shape decoratedShape){ System.out.println("Border Color: Red"); } } 步骤 5 使用
+RedShapeDecorator
 来装饰 Shape 对象。
 
 DecoratorPatternDemo.java
@@ -102,7 +104,8 @@ Rectangle of red border Shape: Rectangle Border Color: Red 组合模式 外观�
 
 装饰模式为已有类动态附加额外的功能就像LOL、王者荣耀等类Dota游戏中，英雄升级一样。每次英雄升级都会附加一个额外技能点学习技能。具体的英雄就是ConcreteComponent，技能栏就是装饰器Decorator，每个技能就是ConcreteDecorator；
 
-//Component 英雄接口 public interface Hero { //学习技能 void learnSkills(); } //ConcreteComponent 具体英雄盲僧 public class BlindMonk
+//Component 英雄接口 public interface Hero { //学习技能 void learnSkills(); } //ConcreteComponent 具体英雄盲僧 public
+class BlindMonk
 implements Hero {
 
     private String name;
@@ -191,7 +194,8 @@ implements Hero {
         super.learnSkills();
     }
 
-} //客户端：召唤师 public class Player { public static void main(String[] args) { //选择英雄 Hero hero = new BlindMonk("李青");
+} //客户端：召唤师 public class Player { public static void main(String[] args) { //选择英雄 Hero hero = new BlindMonk("
+李青");
 
         Skills skills = new Skills(hero);
         Skills r = new Skill_R(skills,"猛龙摆尾");
