@@ -1,5 +1,8 @@
 package com.hundsun.elearning.mylist.Node;
 
+/**
+ * 链表
+ */
 public class Nodea {
 	private int data;
 	public Nodea next;
