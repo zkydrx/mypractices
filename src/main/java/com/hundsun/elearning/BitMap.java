@@ -14,12 +14,10 @@ public class BitMap {
 	 * 位图提供的最大长度, 比如unsigned int的最大值为4294967295, 则需要的length为4294967296
 	 */
 	private long length;
-
 	/**
 	 * 位图桶
 	 */
 	private static int[] bitmapBucket;
-
 	/**
 	 * int用来表示32位二进制数, BIT_VALUE[0]表示第1个二进制数存在、 BIT_VALUE[1]表示第2个二进制数存在，以此类推
 	 * <p>
@@ -42,7 +40,6 @@ public class BitMap {
 		// 根据长度算出，所需位图桶个数
 		bitmapBucket = new int[(int) (length >> 5) + ((length & 31) > 0 ? 1 : 0)];
 	}
-
 	/**
 	 * 查找number是否存在于位图桶中
 	 *
@@ -63,7 +60,6 @@ public class BitMap {
 		// 计算该number是否存在
 		return ((currentValue & BIT_VALUE[offset])) == 0 ? false : true;
 	}
-
 	/**
 	 * 将number在位图桶中标记为存在
 	 *
@@ -84,7 +80,6 @@ public class BitMap {
 		// 将number在桶里标记
 		bitmapBucket[belowIndex] = currentValue | BIT_VALUE[offset];
 	}
-
 	public static void main(String[] args) {
 		BitMap bitMap = new BitMap(4294967296L);
 		bitMap.setBit(4294967295L);
