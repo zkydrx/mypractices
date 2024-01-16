@@ -2,6 +2,7 @@ package com.hundsun.practices.listtest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 文件描述
@@ -34,6 +35,20 @@ public class TestList {
             System.out.println("---"+s);
         }
 
+        List<String> stringList1 = new ArrayList<>();
+        stringList1.add("3");
+       if(!hasElementsNotInList(stringList1,stringList)){
+           for (String s : stringList1) {
+               System.out.println("xxxxx"+s);
+           }
+       }
 
+    }
+
+    public static   boolean hasElementsNotInList(List<String> collect, List<String> portIdList) {
+        List<String> elementsNotInList = collect.stream()
+                .filter(element -> !portIdList.contains(element))
+                .collect(Collectors.toList());
+        return !elementsNotInList.isEmpty();
     }
 }
