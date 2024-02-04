@@ -41,8 +41,19 @@ public class AddDigits {
 	}
 
 	public static void main(String[] args) {
-		int i = new AddDigits().addDigits(38);
+		int i = new AddDigits().addDigits(141);
 
 		System.out.println(i);
+
+		int i1 = addDigitsOne(141);
+		System.out.println(i1);
+	}
+
+
+	public static int addDigitsOne(int num) {
+		if (num == 0) {
+			return 0;
+		}
+		return (num % 9 == 0) ? 9 : num % 9;
 	}
 }
