@@ -1,12 +1,8 @@
 package com.hundsun.practices.lambda;
 
-import com.google.common.collect.Maps;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
-import org.springframework.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -15,7 +11,15 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.util.StringUtils;
+
+import com.google.common.collect.Maps;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 文件描述
@@ -142,4 +146,45 @@ public class LambdaTest {
 
 		return reduce.orElse(Maps.newConcurrentMap());
 	}
+
+	@Test
+	public  void testStreamMap(){
+		List<Map<String, Object>> maps = new ArrayList<>();
+		Map<String,Object> map1 = new HashMap<>();
+		map1.put("abc","1");
+		map1.put("def","a2");
+		Map<String,Object> map2 = new HashMap<>();
+		map2.put("abc","1");
+		map2.put("def","b2");
+		Map<String,Object> map3 = new HashMap<>();
+		map3.put("abc3","3");
+		map3.put("def3","c3");
+		Map<String,Object> map4 = new HashMap<>();
+		map4.put("abc","4");
+		map4.put("def","d4");
+		Map<String,Object> map5 = new HashMap<>();
+		map5.put("abc","5");
+		map5.put("def","e5");
+		Map<String,Object> map6 = new HashMap<>();
+		map6.put("abc","6");
+		map6.put("def","b2");
+		maps.add(map1);
+		maps.add(map2);
+		maps.add(map3);
+		maps.add(map4);
+		maps.add(map5);
+		maps.add(map6);
+		Map<String, Object> collect = maps.stream().filter(e -> null != e.get("abc")).collect(
+				Collectors.toMap(e -> e.get("def").toString(), e -> e.get("abc"), (o1, o2) -> o1));
+		Map<String, Object> collect1 = maps.stream().filter(e -> null != e.get("abc")).collect(
+				Collectors.toMap(e -> e.get("def").toString(), Map::entrySet, (o1, o2) -> o1));
+		Map<String, Object> collect2 = maps.stream().filter(e -> null != e.get("abc")).collect(
+				Collectors.toMap(e -> e.get("def").toString(), Map::entrySet, (o1, o2) -> o1));
+		int abc = maps.stream().filter(e->e.get("abc")!=null).flatMapToInt(e -> IntStream.of(Integer.parseInt(e.get("abc").toString()))).reduce(Integer::max).getAsInt();
+		System.out.println(collect);
+		System.out.println(collect1);
+		System.out.println(collect2);
+		System.out.println(abc);
+	}
+
 }
